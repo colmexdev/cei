@@ -13,4 +13,9 @@
  *
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/glyphicons';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "principal";
