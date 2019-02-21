@@ -1,1 +1,1 @@
-<h1>Texto de prueba</h1>
+<%= render 'principal/header' %>

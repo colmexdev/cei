@@ -3,14 +3,11 @@
 		<!-- <div class="col-md-12" id="div_footer">  <!-- Columnas para footer -->
 			<div class="col-xs-12 col-md-2" id="footer_izq">
 				<ul class="links">
-					<% if false %>
-					<li><a href="<%= sobre_el_colegio_url %>"><%= t('botones.b1.texto2') %></a></li>
-					<% end %>
-					<li><a href="<%= centros_de_estudio_url %>"><%= t('botones.b2.texto') %></a></li>
-					<li><a href="<%= programas_academicos_url %>"><%= t('botones.b3.texto') %></a></li>
-					<li><a href="http://biblioteca.colmex.mx/" target="_blank"><%= t('botones.b4') %></a></li>
-					<li><a href=" http://agenda.colmex.mx/Inicio" target="_blank"><%= t('botones.b5') %></a></li>
-					<li><a href="http://intranet.colmex.mx/directorio/" target="_blank"><%= t('footer.liga3') %></a></li>
+					<li><a href="#"><%= t('.footer_l1') %></a></li>
+					<li><a href="#"><%= t('.footer_l2') %></a></li>
+					<li><a href="#"><%= t('.footer_l3') %></a></li>
+					<li><a href="#"><%= t('.footer_l4') %></a></li>
+					<li><a href="#"><%= t('.footer_l5') %></a></li>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-md-8" id="footer_centro">
@@ -27,14 +24,11 @@
 			</div>
 			<div class="col-xs-12 col-md-2" id="footer_der">
 				<ul class="links">
-					<li><a href="http://portal.office.com" target="_blank"><%= t('footer.liga4') %></a></li>
-					<li><a href="http://intranet.colmex.mx/" target="_blank">Intranet</a></li>
-					<% if false %>
-					<li><a href="http://directorio.colmex.mx/" target="_blank"><%= t('footer.liga3') %></a></li>
-					<% end %>
-					<li><a href=<%= sitemap_url %>><%= t('footer.liga6') %></a></li>
-					<li><a href=<%= ubicacion_url %>><%= t('footer.liga5') %></a></li>
-					<li class="no-border"><a href=<%= aviso_url %>><%= t('footer.liga2') %></a></li>
+					<li><a href="#"><%= t('footer_r1') %></a></li>
+					<li><a href="#"><%= t('footer_r2') %></a></li>
+					<li><a href="#"><%= t('footer_r3') %></a></li>
+					<li><a href="#"><%= t('footer_r4') %></a></li>
+					<li><a href="#"><%= t('footer_r5') %></a></li>
 				</ul>
 			</div>
 		<!-- </div> <!-- Cierre de columnas para footer -->
