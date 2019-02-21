@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: cei_db
+  database: cei_production
   username: <%= ENV['CEI_DB_USR'] %>
   password: <%= ENV['CEI_DB_PWD'] %>
