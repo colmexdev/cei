@@ -22,6 +22,7 @@
 en:
   principal:
     header:
+      mail: "E-mail"
       texto_b1: "CEI"
       opcion1_b1: "About CEI"
       opcion2_b1: "Contact"
