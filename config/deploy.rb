@@ -3,6 +3,7 @@ lock '3.4.1'
 
 set :application, 'cei'
 set :repo_url, 'https://github.com/colmexdev/cei.git'
+set :deploy_to, '/home/webuser/cei'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
