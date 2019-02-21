@@ -42,3 +42,16 @@ en:
       opcion1_b5: "PIERAN"
       opcion2_b5: "PROMEC"
     boton6: "Students"
+  footer:
+    left:
+      footer_l1: "About CEI"
+      footer_l2: "B.A. programs"
+      footer_l3: "Master program"
+      footer_l4: "Special courses"
+      footer_l5: "Applications"
+    right:
+      footer_r1: "Academic staff"
+      footer_r2: "Foro Internacional"
+      footer_r3: "Ágora"
+      footer_r4: "Research projects"
+      footer_r5: "Students"

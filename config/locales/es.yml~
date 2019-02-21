@@ -11,7 +11,7 @@ es:
       opcion3_b2: "Cursos"
       opcion4_b2: "Convocatorias"
       opcion5_b2: "Aspirantes"
-    boton3: "Directorio"
+    boton3: "Personal académico"
     boton4:
       texto_b4: "Revistas"
       opcion1_b4: "Foro Internacional"
@@ -21,3 +21,16 @@ es:
       opcion1_b5: "PIERAN"
       opcion2_b5: "PROMEC"
     boton6: "Estudiantes"
+  footer:
+    left:
+      footer_l1: "Sobre el CEI"
+      footer_l2: "Licenciaturas"
+      footer_l3: "Maestría"
+      footer_l4: "Cursos"
+      footer_l5: "Convocatorias"
+    right:
+      footer_r1: "Personal académico"
+      footer_r2: "Foro Internacional"
+      footer_r3: "Ágora"
+      footer_r4: "Proyectos"
+      footer_r5: "Estudiantes"
