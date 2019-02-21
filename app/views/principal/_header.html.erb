@@ -1,0 +1,247 @@
+<div class="container-fluid" id="header">
+
+	<% if params.key?(:locale) %>
+		<% x = 1 %>
+		<% if params[:locale] == "en" %>
+			<% clase_en = "activo" %>
+			<% clase_es = "inactivo" %>
+		<% else %>
+			<% clase_en = "inactivo" %>
+			<% clase_es = "activo" %>
+		<% end %>
+	<% else %>
+		<% params[:locale] = "es" %>
+	<% end %>
+
+	<div class="row">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid" id="contenedor_nav">
+
+			  <!-- Collect the nav links, forms, and other content for toggling -->
+			  <div class="navbar-collapse" id="barra_nav">
+			    <ul class="nav navbar-nav reajustable">
+						
+						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+						
+<% if false %>
+						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => "principal", :action => "proximamente", :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+<% end %>
+						<li class="nav_opciones" id="logo-main"><a href="<%= root_path %>"><%= image_tag("colmex.png") %></a></li>
+						<li class="nav_opciones mail"><a href="http://portal.office.com" target="_blank"><%= image_tag("mail.png") %><span class="borrable"><%= t('navbar.mail') %></span></a></li>
+						<li class="nav_opciones intranet"><a href="http://intranet.colmex.mx/" target="_blank"><%= image_tag("intranet.png") %><span class="borrable"><%= t('navbar.intranet') %></span></a></li>
+						
+						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+						<%if false %>
+						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+						<% end %>
+			
+						<li class="mostrable-chico"><a href="#menu" class="uk-navbar-toggle" data-uk-offcanvas></a></li>
+			    </ul>
+
+
+<div id="header-links">
+<ul class="botones"> <!-- Opciones del menú -->
+				<li class="dropdown" id="dropdown1">
+		      <a class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b1') %></span></a>
+		        <ul class="dropdown-menu">
+							<li><a href="#"><%= t('.opcion1_b1') %></a></li>
+							<li><a href="#"><%= t('.opcion2_b1') %></a></li>
+
+				<li class="dropdown" id="dropdown2">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b2') %></span></a>
+		        <ul class="dropdown-menu">
+							<li><a href="#"><%= t('.opcion1_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion2_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion3_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion4_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion5_b2') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="no-dropdown"><a href="#"><span><%= t('.boton3') %></span></a></li>
+
+				<li class="dropdown" id="dropdown3">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b4') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#"><%= t('.opcion1_b4') %></a></li>
+		          <li><a href="#"><%= t('.opcion2_b4') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown4">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b5') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#"><%= t('.opcion1_b5') %></a></li>
+		          <li><a href="#"><%= t('.opcion2_b5') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="no-dropdown"><a href="#"><span><%= t('.boton6') %></span></a></li>
+
+				<% idioma = "<span style=\"color:#993366;\">" + (params[:locale] == "es" ? "English" : "Español") + "</span>" %>
+				<li class="no-dropdown"><%= link_to raw(idioma), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}  %></li>
+				
+<% if false %>
+				<li class="no-dropdown"><a href="<%= soon_path %>"><span style="color:#993366;"><%= (params[:locale] == "es" ? "English" : "Español") %></span></a></li>
+<% end %>
+			</ul> <!-- Cierre del menú -->
+</div>
+
+					<% if false %>
+			    <form class="navbar-form navbar-left" id="forma-search" method="get" action="/principal/resultados_busqueda">
+						<div role="search">
+						<%= hidden_field_tag :locale, I18n.locale || default_locale %>
+						<div class="form-group">
+							<input type="text" class="form-control" id="forma-control" placeholder="" name="condicion">
+						</div>
+						<button type="submit" class="btn btn-default boton_lupa" name="Commit" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						</div>
+			    </form>
+					<% end %>
+
+
+			    <ul class="nav navbar-nav navbar-right">
+						<li class="borrable"><%= link_to image_tag("fb-vino.png", :class => "img_net"), "
+	https://www.facebook.com/elcolmex/", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("twitter-vino.png", :class => "img_net"), "
+	https://twitter.com/ELCOLMEX", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("youtube-vino.png", :class => "img_net"), "
+	https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("itunes-vino.png", :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("linkedin-vino.png", :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("google-vino.png", :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("instagram-vino.png", :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("soundcloud-vino.png", :class => "img_net"), "https://soundcloud.com/elcolmex", :target => "_blank" %></li>
+						<li class="mostrable"><a href="#menu" class="uk-navbar-toggle" data-uk-offcanvas></a></li>
+			    </ul>
+			  </div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div> <!-- Cierre de div row barra nav -->
+
+	<div class="row"> <!-- Fila para logo -->
+		<div class="col-md-12" id="div_logo"> <!-- Columnas para logo -->	
+			<%= link_to image_tag("colmex-principal.png", :id => "img_logo"), root_path %> 	
+		</div> <!--Cierre de div columnas para logo -->
+	</div> <!-- Cierre de div fila para logo -->
+
+	<div class="row"> <!-- Fila para menú -->
+		<div class="col-md-12" id="div_menu"> <!-- Columnas para menu -->
+			<ul class="botones"> <!-- Opciones del menú -->
+				<li class="dropdown" id="dropdown1">
+		      <a class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b1') %></span></a>
+		        <ul class="dropdown-menu">
+							<li><a href="#"><%= t('.opcion1_b1') %></a></li>
+							<li><a href="#"><%= t('.opcion2_b1') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown2">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b2') %></span></a>
+		        <ul class="dropdown-menu">
+							<li><a href="#"><%= t('.opcion1_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion2_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion3_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion4_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion5_b2') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="no-dropdown"><a href="#"><span><%= t('.boton3') %></span></a></li>
+
+				<li class="dropdown" id="dropdown3">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b4') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#"><%= t('.opcion1_b4') %></a></li>
+		          <li><a href="#"><%= t('.opcion2_b4') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown4">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b5') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#"><%= t('.opcion1_b5') %></a></li>
+		          <li><a href="#"><%= t('.opcion2_b5') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="no-dropdown"><a href="#"><span><%= t('.boton6') %></span></a></li>
+
+			</ul> <!-- Cierre del menú -->
+		</div> <!-- Cierre de columnas para menú -->
+	</div> <!-- Cierre de div fila para menú -->
+
+	<!-- Menu lateral -->
+	<div id="menu" class="uk-offcanvas"> <!-- Offcanvas -->
+		<div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
+			<ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
+				<li class="uk-parent">
+					<a href="#"><%= t('.texto_b1') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="#" class="sublink"><%= t('.opcion1_b1') %></a></li>
+          	<li><a href="#" class="sublink"><%= t('.opcion2_b2') %></a></li>
+					</ul>
+				</li>
+				<li class="uk-parent">
+					<a href="#"><%= t('.texto_b2') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="#" class="sublink"><%= t('.opcion1_b2') %></a></li>
+          	<li><a href="#" class="sublink"><%= t('.opcion2_b2') %></a></li>
+						<li><a href="#" class="sublink"><%= t('.opcion3_b2') %></a></li>
+          	<li><a href="#" class="sublink"><%= t('.opcion4_b2') %></a></li>
+						<li><a href="#" class="sublink"><%= t('.opcion5_b2') %></a></li>
+					</ul>
+				</li>
+				<li class="uk-parent"><a href=#"><%= t('.boton3') %></a></li>
+				<li class="uk-parent">
+					<a href="#"><%= t('.texto_b4') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="#" class="sublink"><%= t('.opcion1_b4') %></a></li>
+          	<li><a href="#" class="sublink"><%= t('.opcion2_b4') %></a></li>
+					</ul>
+				</li>
+				<li class="uk-parent">
+					<a href="#"><%= t('.texto_b5') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="#" class="sublink"><%= t('.opcion1_b5') %></a></li>
+          	<li><a href="#" class="sublink"><%= t('.opcion2_b5') %></a></li>
+					</ul>
+				</li>
+				<li class="uk-parent"><a href="#"><%= t('.boton6') %></a></li>
+
+				<% if false %>
+				<li class="links-side" id="search-lat">
+						<form class="navbar-form navbar-left" id="forma-busqueda-lat" method="get" action="/principal/resultados_busqueda">
+						<div role="search">
+						<%= hidden_field_tag :locale, I18n.locale || default_locale %>
+						<div class="form-group">
+							<input type="text" class="form-control" id="forma-control" placeholder="" name="condicion">
+						</div>
+						<button type="submit" class="btn btn-default boton_lupa" name="Commit" style="padding-left:5px;background-color:#7E3355;"><span class="glyphicon glyphicon-search" aria-hidden="true" style="color:#fff;"></span></button>
+						</div>
+			    </form>
+				</li>
+				<% end %>
+
+
+				<li class="links-side">
+					<ul class="ul-nav" style="width:183px;">
+						<li><%= link_to image_tag("fb-bco.png", :class => "img_net"), "https://www.facebook.com/elcolmex/", :target => "_blank" %></li>
+						<li><%= link_to image_tag("twitter-bco.png", :class => "img_net"), "
+https://twitter.com/ELCOLMEX", :target => "_blank" %></li>
+						<li><%= link_to image_tag("youtube-bco.png", :class => "img_net"), "https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %></li>
+						<li><%= link_to image_tag("itunes-bco.png", :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %></li>
+						<li><%= link_to image_tag("linkedin-bco.png", :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %></li>
+						<li><%= link_to image_tag("google-bco.png", :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %></li>
+						<li><%= link_to image_tag("instagram-bco.png", :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %></li>
+						<li><%= link_to image_tag("soundcloud-blanco.png", :class => "img_net"), "https://soundcloud.com/elcolmex", :target => "_blank" %></li>
+			    </ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+

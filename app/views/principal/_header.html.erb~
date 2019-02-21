@@ -1,0 +1,330 @@
+<div class="container-fluid" id="header">
+
+	<% if params.key?(:locale) %>
+		<% x = 1 %>
+		<% if params[:locale] == "en" %>
+			<% clase_en = "activo" %>
+			<% clase_es = "inactivo" %>
+		<% else %>
+			<% clase_en = "inactivo" %>
+			<% clase_es = "activo" %>
+		<% end %>
+	<% else %>
+		<% params[:locale] = "es" %>
+	<% end %>
+
+	<div class="row">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid" id="contenedor_nav">
+
+			  <!-- Collect the nav links, forms, and other content for toggling -->
+			  <div class="navbar-collapse" id="barra_nav">
+			    <ul class="nav navbar-nav reajustable">
+						
+						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+						
+<% if false %>
+						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => "principal", :action => "proximamente", :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+<% end %>
+						<li class="nav_opciones" id="logo-main"><a href="<%= root_path %>"><%= image_tag("colmex.png") %></a></li>
+						<li class="nav_opciones mail"><a href="http://portal.office.com" target="_blank"><%= image_tag("mail.png") %><span class="borrable"><%= t('navbar.mail') %></span></a></li>
+						<li class="nav_opciones intranet"><a href="http://intranet.colmex.mx/" target="_blank"><%= image_tag("intranet.png") %><span class="borrable"><%= t('navbar.intranet') %></span></a></li>
+						
+						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+						<%if false %>
+						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
+						<% end %>
+			
+						<li class="mostrable-chico"><a href="#menu" class="uk-navbar-toggle" data-uk-offcanvas></a></li>
+			    </ul>
+
+
+<div id="header-links">
+<ul class="botones"> <!-- Opciones del menú -->
+				<li class="dropdown" id="dropdown1">
+		      <a class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('botones.b1.texto') %></span></a>
+		        <ul class="dropdown-menu">
+							<li><a href="<%= sobre_el_colegio_path %>"><%= t('botones.b1.texto2') %></a></li>
+							<li><a href="<%= historia_path %>"><%= t('botones.b1.opciones.op3') %></a></li>
+		          <li><a href="<%= autoridades_path %>"><%= t('botones.b1.opciones.op2') %></a></li>
+		          <li><a href="<%= directorio_path %>"><%= params[:locale] == "en" ? "Academic Staff" : "Directorio académico" %></a></li>
+							<li><a href="http://directorio.colmex.mx/" target="_blank"><%= t('botones.b1.opciones.op1') %></a></li>
+		          <li><a href="<%= documentacion_path %>"><%= t('botones.b1.opciones.op4') %></a></li>
+		          <li><a href="<%= profesores_emeritos_path %>"><%= t('botones.b1.opciones.op5') %></a></li>
+		          <li><a href="<%= premios_path %>"><%= t('botones.b1.opciones.op6') %></a></li>
+		          <li><a href="http://agenda.colmex.mx/Convocatorias" target="_blank"><%= t('botones.b3.opciones.op8') %></a></li>
+							<li><a href="<%= principios_path %>" class="sublink"><%= t('footer.liga1') %></a></li>
+
+							<% if params[:locale] != "en" %>
+							<li><a href="http://sg.colmex.mx/index.php/procedimientos2010/licitaciones-publicas-nacionales" target="_blank" class="sublink"><%= t('botones.b1.opciones.op7') %></a></li>
+							<li><a href="<%= bienes_part_path %>" class="sublink"><%= t('botones.b1.opciones.op8') %></a></li>
+						<li><a href="http://transparencia.colmex.mx" class="sublink" target="_blank">Transparencia</a></li>
+							<% if false %>
+							<li><a href="<%= marco_path %>" class="sublink"><%= 'Marco Normativo' %></a></li>
+							<li><a href="<%= transparencia_path %>" class="sublink"><%= t('botones.b1.opciones.op9') %></a></li>
+							<% end %>
+
+							<% end %>
+
+							<% if false %>
+							<li><a href="<%= transparencia_path %>" class="sublink"><%= t('botones.b1.opciones.op9') %></a></li>
+							<% end %>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown2">
+		      <a href="<%= params[:locale] == "en" ? centros_de_estudio_path(locale: "en") : "" %>" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('botones.b2.texto') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="http://ceaa.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op1') %></a></li>
+		          <li><a href="http://cedua.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op2') %></a></li>
+		          <li><a href="http://cee.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op3') %></a></li>
+		          <li><a href="http://ceh.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op4') %></a></li>
+		          <li><a href="http://cei.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op5') %></a></li>
+		          <li><a href="http://cell.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op6') %></a></li>
+		          <li><a href="http://ces.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op7') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown3">
+		      <a href="<%= programas_academicos_url %>" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('botones.b3.texto') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="<%= licenciaturas_path %>"><%= t('botones.b3.opciones.op1') %></a></li>
+		          <li><a href="<%= maestrias_path %>"><%= t('botones.b3.opciones.op2') %></a></li>
+		          <li><a href="<%= doctorados_path %>"><%= t('botones.b3.opciones.op3') %></a></li>
+							<% if params[:locale] == "es" || Curso.where("programa = ? AND tipo_curso = ? and fecha_fin_conv >= ?", "Curso", "Presencial", Date.current()).count > 0 %>
+          		<li><a href="<%= cursos_varios_path %>"><%= t('botones.b3.opciones.op6') %></a></li>
+							<% end %>
+		          <li><a href="<%= catedras_seminarios_path %>"><%= t('botones.b3.opciones.op9') %></a></li>
+		          <li><a href="<%= admisiones_path %>"><%= t('botones.b3.opciones.op4') %></a></li>
+		          <li><a href="<%= (params[:locale] != 'en' ? 'http://oia.colmex.mx/' : 'http://oia.colmex.mx/index.php/home' ) %>" target="_blank"><%= t('botones.b3.opciones.op5') %></a></li>
+		          <li><a href="<%= calendario_path %>"><%= t('botones.b3.opciones.op7') %></a></li>
+		        </ul>
+		    </li>
+				<li class="no-dropdown"><a href="http://biblioteca.colmex.mx/" target="_blank"><span><%= t('botones.b4') %></span></a></li>
+
+				<li class="no-dropdown"><a href="https://publicaciones.colmex.mx/" target="_blank"><span><%= t('botones.b6') %></span></a></li>
+
+				<li class="no-dropdown"><a href=" http://agenda.colmex.mx" target="_blank"><span><%= t('botones.b5') %></span></a></li>
+				<% idioma = "<span style=\"color:#993366;\">" + (params[:locale] == "es" ? "English" : "Español") + "</span>" %>
+				<li class="no-dropdown"><%= link_to raw(idioma), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}  %></li>
+				
+<% if false %>
+				<li class="no-dropdown"><a href="<%= soon_path %>"><span style="color:#993366;"><%= (params[:locale] == "es" ? "English" : "Español") %></span></a></li>
+<% end %>
+			</ul> <!-- Cierre del menú -->
+</div>
+
+					<% if false %>
+			    <form class="navbar-form navbar-left" id="forma-search" method="get" action="/principal/resultados_busqueda">
+						<div role="search">
+						<%= hidden_field_tag :locale, I18n.locale || default_locale %>
+						<div class="form-group">
+							<input type="text" class="form-control" id="forma-control" placeholder="" name="condicion">
+						</div>
+						<button type="submit" class="btn btn-default boton_lupa" name="Commit" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						</div>
+			    </form>
+					<% end %>
+
+
+			    <ul class="nav navbar-nav navbar-right">
+						<li class="borrable"><%= link_to image_tag("fb-vino.png", :class => "img_net"), "
+	https://www.facebook.com/elcolmex/", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("twitter-vino.png", :class => "img_net"), "
+	https://twitter.com/ELCOLMEX", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("youtube-vino.png", :class => "img_net"), "
+	https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("itunes-vino.png", :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("linkedin-vino.png", :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("google-vino.png", :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("instagram-vino.png", :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %></li>
+						<li class="borrable"><%= link_to image_tag("soundcloud-vino.png", :class => "img_net"), "https://soundcloud.com/elcolmex", :target => "_blank" %></li>
+						<li class="mostrable"><a href="#menu" class="uk-navbar-toggle" data-uk-offcanvas></a></li>
+			    </ul>
+			  </div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div> <!-- Cierre de div row barra nav -->
+
+	<div class="row"> <!-- Fila para logo -->
+		<div class="col-md-12" id="div_logo"> <!-- Columnas para logo -->	
+			<%= link_to image_tag("colmex-principal.png", :id => "img_logo"), root_path %> 	
+		</div> <!--Cierre de div columnas para logo -->
+	</div> <!-- Cierre de div fila para logo -->
+
+	<div class="row"> <!-- Fila para menú -->
+		<div class="col-md-12" id="div_menu"> <!-- Columnas para menu -->
+			<ul class="botones"> <!-- Opciones del menú -->
+				<li class="dropdown" id="dropdown1">
+		      <a class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('botones.b1.texto') %></span></a>
+		        <ul class="dropdown-menu">
+							<li><a href="<%= sobre_el_colegio_path %>"><%= t('botones.b1.texto2') %></a></li>
+							<li><a href="<%= historia_path %>"><%= t('botones.b1.opciones.op3') %></a></li>
+		          <li><a href="<%= autoridades_path %>"><%= t('botones.b1.opciones.op2') %></a></li>
+		          <li><a href="<%= directorio_path %>"><%= params[:locale] == "en" ? "Academic Staff" : "Directorio académico" %></a></li>
+							<li><a href="http://directorio.colmex.mx/" target="_blank"><%= t('botones.b1.opciones.op1') %></a></li>
+		          <li><a href="<%= documentacion_path %>"><%= t('botones.b1.opciones.op4') %></a></li>
+		          <li><a href="<%= profesores_emeritos_path %>"><%= t('botones.b1.opciones.op5') %></a></li>
+		          <li><a href="<%= premios_path %>"><%= t('botones.b1.opciones.op6') %></a></li>
+		          <li><a href="http://agenda.colmex.mx/Convocatorias" target="_blank"><%= t('botones.b3.opciones.op8') %></a></li>
+							<li><a href="<%= principios_path %>"><%= t('footer.liga1') %></a></li>
+
+							<% if params[:locale] != "en" %>
+							<li><a href="http://sg.colmex.mx/index.php/procedimientos2010/licitaciones-publicas-nacionales" target="_blank"><%= t('botones.b1.opciones.op7') %></a></li>
+							<li><a href="<%= bienes_part_path %>"><%= t('botones.b1.opciones.op8') %></a></li>
+							<li><a href="http://transparencia.colmex.mx" target="_blank">Transparencia</a></li>
+
+							<% if false %>
+							<li><a href="<%= marco_path %>"><%= 'Marco Normativo' %></a></li>
+							<li><a href="<%= transparencia_path %>"><%= t('botones.b1.opciones.op9') %></a></li>
+							<% end %>
+
+							<% end %>
+
+							<% if false %>
+							<li><a href="<%= transparencia_path %>" class="sublink"><%= t('botones.b1.opciones.op9') %></a></li>
+							<% end %>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown2">
+		      <a href="<%= params[:locale] == "en" ? centros_de_estudio_path(locale: "en") : "" %>" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('botones.b2.texto') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="http://ceaa.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op1') %></a></li>
+		          <li><a href="http://cedua.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op2') %></a></li>
+		          <li><a href="http://cee.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op3') %></a></li>
+		          <li><a href="http://ceh.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op4') %></a></li>
+		          <li><a href="http://cei.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op5') %></a></li>
+		          <li><a href="http://cell.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op6') %></a></li>
+		          <li><a href="http://ces.colmex.mx/" target="_blank"><%= t('botones.b2.opciones.op7') %></a></li>
+		        </ul>
+		    </li>
+
+				<li class="dropdown" id="dropdown3">
+		      <a href="<%= programas_academicos_path %>" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('botones.b3.texto') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="<%= licenciaturas_path %>"><%= t('botones.b3.opciones.op1') %></a></li>
+		          <li><a href="<%= maestrias_path %>"><%= t('botones.b3.opciones.op2') %></a></li>
+		          <li><a href="<%= doctorados_path %>"><%= t('botones.b3.opciones.op3') %></a></li>
+							<% if params[:locale] == "es" || Curso.where("programa = ? AND tipo_curso = ? and fecha_fin_conv >= ?", "Curso", "Presencial", Date.current()).count > 0 %>
+          		<li><a href="<%= cursos_varios_path %>"><%= t('botones.b3.opciones.op6') %></a></li>
+							<% end %>
+		          <li><a href="<%= catedras_seminarios_path %>"><%= t('botones.b3.opciones.op9') %></a></li>
+		          <li><a href="<%= admisiones_path %>"><%= t('botones.b3.opciones.op4') %></a></li>
+		          <li><a href="<%= (params[:locale] != 'en' ? 'http://oia.colmex.mx/' : 'http://oia.colmex.mx/index.php/home' ) %>" target="_blank"><%= t('botones.b3.opciones.op5') %></a></li>
+		          <li><a href="<%= calendario_path %>"><%= t('botones.b3.opciones.op7') %></a></li>
+		        </ul>
+		    </li>
+				<li class="no-dropdown"><a href="http://biblioteca.colmex.mx/" target="_blank"><span><%= t('botones.b4') %></span></a></li>
+
+				<li class="no-dropdown"><a href="https://publicaciones.colmex.mx/" target="_blank"><span><%= t('botones.b6') %></span></a></li>
+
+				<li class="no-dropdown"><a href=" http://agenda.colmex.mx" target="_blank"><span><%= t('botones.b5') %></span></a></li>
+			</ul> <!-- Cierre del menú -->
+		</div> <!-- Cierre de columnas para menú -->
+	</div> <!-- Cierre de div fila para menú -->
+
+	<!-- Menu lateral -->
+	<div id="menu" class="uk-offcanvas"> <!-- Offcanvas -->
+		<div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
+			<ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
+				<li class="uk-parent">
+					<a href="#"><%= t('botones.b1.texto') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="<%= sobre_el_colegio_path %>" class="sublink"><%= t('botones.b1.texto2') %></a></li>
+          	<li><a href="<%= historia_path %>" class="sublink"><%= t('botones.b1.opciones.op3') %></a></li>
+          	<li><a href="<%= autoridades_path %>" class="sublink"><%= t('botones.b1.opciones.op2') %></a></li>
+		        <li><a href="<%= directorio_path %>" class="sublink"><%= params[:locale] == "en" ? "Academic Staff" : "Directorio académico" %></a></li>
+		<li><a href="http://directorio.colmex.mx" class="sublink" target="_blank"><%= t('botones.b1.opciones.op1') %></a></li>
+          	<li><a href="<%= documentacion_path %>" class="sublink"><%= t('botones.b1.opciones.op4') %></a></li>
+          	<li><a href="<%= profesores_emeritos_path %>" class="sublink"><%= t('botones.b1.opciones.op5') %></a></li>
+          	<li><a href="<%= premios_path %>" class="sublink"><%= t('botones.b1.opciones.op6') %></a></li>
+          	<li><a href="http://agenda.colmex.mx/Convocatorias" target="_blank" class="sublink"><%= t('botones.b3.opciones.op8') %></a></li>
+						<li><a href="<%= principios_path %>" class="sublink"><%= t('footer.liga1') %></a></li>
+
+						<% if params[:locale] != "en" %>
+
+						<li><a href="http://sg.colmex.mx/index.php/procedimientos2010/licitaciones-publicas-nacionales" target="_blank" class="sublink"><%= t('botones.b1.opciones.op7') %></a></li>
+						<li><a href="<%= bienes_part_path %>" class="sublink"><%= t('botones.b1.opciones.op8') %></a></li>
+						<li><a href="http://transparencia.colmex.mx" class="sublink" target="_blank">Transparencia</a></li>
+						<% if false %>
+						<li><a href="<%= marco_path %>" class="sublink"><%= 'Marco Normativo' %></a></li>
+						<li><a href="<%= transparencia_path %>" class="sublink"><%= t('botones.b1.opciones.op9') %></a></li>
+						<% end %>
+
+						<% end %>
+
+						<% if false %>
+						<li><a href="<%= transparencia_path %>" class="sublink"><%= t('botones.b1.opciones.op9') %></a></li>
+						<% end %>
+					</ul>
+				</li>
+				<li class="uk-parent">
+					<a href="<%= params[:locale] == "en" ? centros_de_estudio_path(locale: "en") : "#" %>"><%= t('botones.b2.texto') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="http://ceaa.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op1') %></a></li>
+          	<li><a href="http://cedua.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op2') %></a></li>
+          	<li><a href="http://cee.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op3') %></a></li>
+          	<li><a href="http://ceh.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op4') %></a></li>
+          	<li><a href="http://cei.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op5') %></a></li>
+          	<li><a href="http://cell.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op6') %></a></li>
+          	<li><a href="http://ces.colmex.mx/" target="_blank" class="sublink"><%= t('botones.b2.opciones.op7') %></a></li>
+					</ul>
+				</li>
+				<li class="uk-parent">
+					<a href="#"><%= t('botones.b3.texto') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="<%= licenciaturas_path %>" class="sublink"><%= t('botones.b3.opciones.op1') %></a></li>
+          	<li><a href="<%= maestrias_path %>" class="sublink"><%= t('botones.b3.opciones.op2') %></a></li>
+          	<li><a href="<%= doctorados_path %>" class="sublink"><%= t('botones.b3.opciones.op3') %></a></li>
+						<% if params[:locale] == "es" || Curso.where("programa = ? AND tipo_curso = ? and fecha_fin_conv >= ?", "Curso", "Presencial", Date.current()).count > 0 %>
+          	<li><a href="<%= cursos_varios_path %>" class="sublink"><%= t('botones.b3.opciones.op6') %></a></li>
+						<% end %>
+          	<li><a href="<%= catedras_seminarios_path %>" class="sublink"><%= t('botones.b3.opciones.op9') %></a></li>
+          	<li><a href="<%= admisiones_path %>" class="sublink"><%= t('botones.b3.opciones.op4') %></a></li>
+          	<li><a href="<%= (params[:locale] != 'en' ? 'http://oia.colmex.mx/' : 'http://oia.colmex.mx/index.php/home' ) %>" class="sublink" target="_blank"><%= t('botones.b3.opciones.op5') %></a></li>
+          	<li><a href="<%= calendario_path %>" class="sublink"><%= t('botones.b3.opciones.op7') %></a></li>
+					</ul>
+				</li>
+				<li class="uk-parent"><a href="http://biblioteca.colmex.mx/" target="_blank"><%= t('botones.b4') %></a></li>
+
+				<li class="uk-parent"><a href="https://publicaciones.colmex.mx/" target="_blank"><%= t('botones.b6') %></a></li>
+
+				<li class="uk-parent"><a href=" http://agenda.colmex.mx" target="_blank"><%= t('botones.b5') %></a></li>
+
+				<% if false %>
+				<li class="links-side" id="search-lat">
+						<form class="navbar-form navbar-left" id="forma-busqueda-lat" method="get" action="/principal/resultados_busqueda">
+						<div role="search">
+						<%= hidden_field_tag :locale, I18n.locale || default_locale %>
+						<div class="form-group">
+							<input type="text" class="form-control" id="forma-control" placeholder="" name="condicion">
+						</div>
+						<button type="submit" class="btn btn-default boton_lupa" name="Commit" style="padding-left:5px;background-color:#7E3355;"><span class="glyphicon glyphicon-search" aria-hidden="true" style="color:#fff;"></span></button>
+						</div>
+			    </form>
+				</li>
+				<% end %>
+
+
+				<li class="links-side">
+					<ul class="ul-nav" style="width:183px;">
+						<li><%= link_to image_tag("fb-bco.png", :class => "img_net"), "https://www.facebook.com/elcolmex/", :target => "_blank" %></li>
+						<li><%= link_to image_tag("twitter-bco.png", :class => "img_net"), "
+https://twitter.com/ELCOLMEX", :target => "_blank" %></li>
+						<li><%= link_to image_tag("youtube-bco.png", :class => "img_net"), "https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %></li>
+						<li><%= link_to image_tag("itunes-bco.png", :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %></li>
+						<li><%= link_to image_tag("linkedin-bco.png", :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %></li>
+						<li><%= link_to image_tag("google-bco.png", :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %></li>
+						<li><%= link_to image_tag("instagram-bco.png", :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %></li>
+						<li><%= link_to image_tag("soundcloud-blanco.png", :class => "img_net"), "https://soundcloud.com/elcolmex", :target => "_blank" %></li>
+			    </ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+

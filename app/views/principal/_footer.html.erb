@@ -1,0 +1,59 @@
+
+	<div class="row" id="div_footer"> <!-- Fila para footer -->
+		<!-- <div class="col-md-12" id="div_footer">  <!-- Columnas para footer -->
+			<div class="col-xs-12 col-md-2" id="footer_izq">
+				<ul class="links">
+					<li><a href="#"><%= t('.footer_l1') %></a></li>
+					<li><a href="#"><%= t('.footer_l2') %></a></li>
+					<li><a href="#"><%= t('.footer_l3') %></a></li>
+					<li><a href="#"><%= t('.footer_l4') %></a></li>
+					<li><a href="#"><%= t('.footer_l5') %></a></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-md-8" id="footer_centro">
+				<%= image_tag(image_url("colmex-pie.png"), :id => "img_footer") %><br>
+				<%= link_to(image_tag(image_url("creative-commons.png"), :id => "img_cc"), "https://creativecommons.org/licenses/by-nc-nd/4.0/", :target => "_blank") %>
+				<p><%= t('footer.copy') %>, El Colegio de México A.C. © <%= Date.current().year %><br>
+<% if false %>
+	Camino al Ajusco número 20, Colonia Pedregal de Santa Teresa, C.P. 10740 México, Ciudad de México<br>
+<% end %>
+	Carretera Picacho Ajusco 20, Col. Ampliación Fuentes del Pedregal, C.P. 14110 Tlalpan, Ciudad de México
+
+	Tel.: +52 55 54493000</p>
+
+			</div>
+			<div class="col-xs-12 col-md-2" id="footer_der">
+				<ul class="links">
+					<li><a href="#"><%= t('footer_r1') %></a></li>
+					<li><a href="#"><%= t('footer_r2') %></a></li>
+					<li><a href="#"><%= t('footer_r3') %></a></li>
+					<li><a href="#"><%= t('footer_r4') %></a></li>
+					<li><a href="#"><%= t('footer_r5') %></a></li>
+				</ul>
+			</div>
+		<!-- </div> <!-- Cierre de columnas para footer -->
+
+	<div class="col-xs-12 col-md-12" id="redes_footer"> <!-- Columnas para redes sociales en footer-->
+			<ul class="botones_footer">
+				<%= link_to image_tag(image_url("fb-bco.png"), :class => "img_net"), "
+https://www.facebook.com/elcolmex/", :target => "_blank" %>
+				<%= link_to image_tag(image_url("twitter-bco.png"), :class => "img_net"), "
+https://twitter.com/ELCOLMEX", :target => "_blank" %>
+				<%= link_to image_tag(image_url("youtube-bco.png"), :class => "img_net"), "
+https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %>
+				<%= link_to image_tag(image_url("itunes-bco.png"), :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %>
+				<%= link_to image_tag(image_url("linkedin-bco.png"), :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %>
+				<%= link_to image_tag(image_url("google-bco.png"), :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %>
+				<%= link_to image_tag(image_url("instagram-bco.png"), :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %>
+				<%= link_to image_tag(image_url("soundcloud-blanco.png"), :class => "img_net"), "https://soundcloud.com/elcolmex/", :target => "_blank" %>
+			</ul>
+
+			<div id="boton-top" onclick="regresarArriba()">
+				<%= link_to image_tag(image_url('top.png'), :class => "leave_img") + image_tag("top-hover.png", :class => "hover_img"), "#" %>
+			</div>
+		</div> <!-- Cierre de columnas para redes sociales en footer -->
+
+	</div> <!-- Cierre de fila para footer -->
+
+</div> <!-- Cierre del container-fluid -->
+
