@@ -1,6 +1,7 @@
 es:
   principal:
     header:
+      mail: "Correo electrónico"
       texto_b1: "CEI"
       opcion1_b1: "Sobre el CEI"
       opcion2_b1: "Contacto"
@@ -29,3 +30,4 @@ es:
       footer_r3: "Ágora"
       footer_r4: "Proyectos"
       footer_r5: "Estudiantes"
+      copyright: "Derechos reservados"

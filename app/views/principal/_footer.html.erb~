@@ -24,11 +24,11 @@
 			</div>
 			<div class="col-xs-12 col-md-2" id="footer_der">
 				<ul class="links">
-					<li><a href="#"><%= t('footer_r1') %></a></li>
-					<li><a href="#"><%= t('footer_r2') %></a></li>
-					<li><a href="#"><%= t('footer_r3') %></a></li>
-					<li><a href="#"><%= t('footer_r4') %></a></li>
-					<li><a href="#"><%= t('footer_r5') %></a></li>
+					<li><a href="#"><%= t('.footer_r1') %></a></li>
+					<li><a href="#"><%= t('.footer_r2') %></a></li>
+					<li><a href="#"><%= t('.footer_r3') %></a></li>
+					<li><a href="#"><%= t('.footer_r4') %></a></li>
+					<li><a href="#"><%= t('.footer_r5') %></a></li>
 				</ul>
 			</div>
 		<!-- </div> <!-- Cierre de columnas para footer -->
