@@ -1,9 +1,9 @@
 $(document).on("scroll", function(event) {
   var y = $(this).scrollTop();
   var ancho_act = Math.max(document.documentElement.clientWidth, window.innerWidth || document.body.ClientWidth || 0);
-//	try{
-//		ligas();
-//	} catch(err) {}
+	try{
+		ligas();
+	} catch(err) {}
 	try{
 		var alto_logo = document.getElementById("div_logo").clientHeight;
 		if (y > 200 || barra_render) {
@@ -104,7 +104,7 @@ $(document).on("scroll", function(event) {
 			$(".navbar-right").removeAttr("style");
 			$("#header-links").removeAttr("style");
 		}
-//			reescalarFrames();
+			reescalarFrames();
 			ajustarCuerpo(y);
 	} catch(err){
 
