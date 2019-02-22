@@ -712,7 +712,7 @@ ul.ul-nav { display: table;
 	}	
 
 	.img_logo{
-		width: 85%;
+		width: 30%;
 		max-width: 650px;
 		min-width: 150px;
 		max-height: 75px;

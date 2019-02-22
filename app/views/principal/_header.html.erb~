@@ -120,12 +120,12 @@
 	</div> <!-- Cierre de div row barra nav -->
 
 	<div class="row"> <!-- Fila para logo -->
-		<div class="col-xs-6 div_logo"> <!-- Columnas para logo -->	
+		<div class="col-xs-6 div_logo" style="text-align:left"> <!-- Columnas para logo -->	
 			<a href="https://www.colmex.mx/">
 				<img src="/img/logo-colmex-color.svg" class="img_logo">
 			</a>	
 		</div> <!--Cierre de div columnas para logo -->
-		<div class="col-xs-6 div_logo"> <!-- Columnas para logo -->	
+		<div class="col-xs-6 div_logo" style="text-align:right"> <!-- Columnas para logo -->	
 			<a href="<%= root_path %>">
 				<img src="/img/logo-cei-color.svg" class="img_logo">
 			</a>
