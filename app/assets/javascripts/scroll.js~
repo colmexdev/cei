@@ -5,7 +5,7 @@ $(document).on("scroll", function(event) {
 //		ligas();
 //	} catch(err) {}
 	try{
-		var alto_logo = document.getElementById("div_logo").clientHeight;
+		//var alto_logo = document.getElementById("div_logo").clientHeight;
 		if (y > 200 || barra_render) {
 			$("#forma-search").css("display", "none");
 
