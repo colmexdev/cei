@@ -806,7 +806,7 @@ ul.ul-nav { display: table;
 					transition: all 0.4s linear;
 
           a{
-						background-color: #5E002B;
+						background-color: #A02A4C;
 						padding: 8px;
 						color: #fff;
 						font-size: 14px;
@@ -819,8 +819,7 @@ ul.ul-nav { display: table;
           }
 
           a:hover{
-        
-            background-color: #470020;
+            background-color: #B03856;
           }
         }
 
