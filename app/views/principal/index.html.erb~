@@ -45,6 +45,18 @@
 		</div> <!-- Cierre de columnas para eventos -->
 	</div> <!-- Cierre de fila para eventos -->
 
+
+	<div class="row"> <!-- Fila para botón de actividades -->
+		<div class="col-md-12" id="div_actividades"> <!--Columnas para eventos -->
+			<div id="boton_actividades">
+				<a href="http://agenda.colmex.mx/Calendario" target="_blank" id="liga_actividades"><span><%= t('.actividades') %></span></a>
+			</div>
+
+		</div> <!-- Cierre de columnas para botón de actividades -->
+	</div> <!-- Cierre de fila para boton actividades -->
+
+
+
 <script>
 Array.prototype.each_slice = function (size, callback){
   for (var i = 0, l = this.length; i < l; i += size){
