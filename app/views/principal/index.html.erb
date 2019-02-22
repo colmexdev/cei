@@ -63,7 +63,7 @@ $(document).ready(function(){
 							dias[f_i.getDay()] + " " + f_i.getDate() + " de " + meses[f_i.getMonth()] + "<br>" +
 							result["videos"][i]["horaInicio"].substring(0,5) + " | " + result["videos"][i]["horaFin"].substring(0,5) + "<br>" +
 							result["videos"][i]["sede"] + ',<br><span>' + result["videos"][i]["institucionSede"] + "</span></p></div></div>" +
-							'<div class="liga_evento"><a href="' + result["videos"][i]["liga"] + '"class="liga_evento" target="_blank">' + "<%= t('.liga') %>" + ' +' + '</a></div>' +
+							'<div class="liga_evento"><a href="' + result["videos"][i]["liga"] + '"class="liga_evento" target="_blank">' + "<%= t('.mas_info') %>" + ' +' + '</a></div>' +
 							"</div>";
 				eventos.push(evento);
 			}
