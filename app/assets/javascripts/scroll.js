@@ -125,9 +125,11 @@ function reescalarFrames(){
 
 function ajustarCuerpo(scroll){
   var ancho_act = Math.max(document.documentElement.clientWidth, window.innerWidth || document.body.ClientWidth || 0);
-	var alto_footer = (document.getElementById("div_footer") != null ? document.getElementById('div_footer').clientHeight : 265);
-	var alto_header = (document.getElementById("header") != null ? document.getElementById('header').clientHeight : 225);
+	var alto_footer;
+	var alto_header;
 	setTimeout(function(){
+		alto_footer = (document.getElementById("div_footer") != null ? document.getElementById('div_footer').clientHeight : 265);
+		alto_header = (document.getElementById("header") != null ? document.getElementById('header').clientHeight : 225);
 		$('#resto-cuerpo').css({'padding-bottom': (alto_footer)+'px', 'padding-top': (alto_header + 'px')});
 	}, 210);
 }
