@@ -50,11 +50,9 @@ $(document).ready(function(){
 	$.ajax({
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
-			console.log(result["videos"]);
-			var evento, f_i, f_f, eventos = [], dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+			var evento, f_i, eventos = [], dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"], meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 			for(var i = 0; i < result["videos"].length; i++){
 				f_i = new Date(result["videos"][i]["fechaInicio"].substring(3,5) + "/" + result["videos"][i]["fechaInicio"].substring(0,2) + "/" + result["videos"][i]["fechaInicio"].substring(6) + " " + result["videos"][i]["horaInicio"].substring(0,5));
-				f_f = new Date(result["videos"][i]["fechaFin"].substring(3,5) + "/" + result["videos"][i]["fechaFin"].substring(0,2) + "/" + result["videos"][i]["fechaFin"].substring(6) + " " + result["videos"][i]["horaFin"].substring(0,5));
 				evento = '<div class="img_evento"><img class="img_sede" src="/cei.png" alt="CEI"></div>' +
 				'<div class="desc_evento">' +
 					'<div class="tipo_evento"><p>' + result["videos"][i]["tipoActividad"] + "</p></div>" +
@@ -62,12 +60,14 @@ $(document).ready(function(){
 					'<div class="lugar_fecha_evento">' +
 						'<div class="cal"><img class="img_cal" src="/calendario.png" alt="Calendario"></div>' +
 						'<div class="datos_evento"><p>' +
-							arregloFecha(fila["fechaInicio"], fila["fechaFin"], chico) + "<br>" +
+							dias[f_i.getDay()] + " " + f_i.get Date() + " de " + meses[f_i.getMonth()] + "<br>" +
 							result["videos"][i]["horaInicio"].substring(0,5) + " | " + result["videos"][i]["horaFin"].substring(0,5) + "<br>" +
 							result["videos"][i]["sede"] + ',<br><span>' + result["videos"][i]["institucionSede"] + "</span></p></div></div>" +
 							'<div class="liga_evento"><a href="' + result["videos"][i]["liga"] + '"class="liga_evento" target="_blank">' + t('eventos.liga') + ' +' + '</a></div>' +
 							"</div>";
+				eventos.push(evento);
 			}
+			console.log(eventos);
 		}
 	});
 });
