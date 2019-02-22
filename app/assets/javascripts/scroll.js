@@ -106,6 +106,7 @@ $(document).on("scroll", function(event) {
 		}
 //			reescalarFrames();
 			ajustarCuerpo(y);
+			escalarSlider([]);
 	} catch(err){
 
 	}

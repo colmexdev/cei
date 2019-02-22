@@ -126,7 +126,7 @@ function ajustarCuerpo(scroll){
   var ancho_act = Math.max(document.documentElement.clientWidth, window.innerWidth || document.body.ClientWidth || 0);
 	var alto_footer = (document.getElementById("div_footer") != null ? document.getElementById('div_footer').clientHeight : 265);
 	var alto_header = (document.getElementById("header") != null ? document.getElementById('header').clientHeight : 225);
-	$('#resto-cuerpo').css({'padding-bottom': (alto_footer+1)+'px', 'padding-top': (ancho_act <= 1165 ? (alto_header + 1) : '225') + 'px'});
+	$('#resto-cuerpo').css({'padding-bottom': (alto_footer)+'px', 'padding-top': (ancho_act <= 1165 ? (alto_header) : '225') + 'px'});
 }
 
 function regresarArriba(){
