@@ -693,7 +693,7 @@ ul.ul-nav { display: table;
 }
 
 //Clase para alterar el div donde va el logotipo de colmex
-#div_logo{
+.div_logo{
 	height: auto;
 	text-align: center;
 	background-color: #fff;
@@ -711,7 +711,7 @@ ul.ul-nav { display: table;
 		transition: all 0.2s linear;
 	}	
 
-	#img_logo{
+	.img_logo{
 		width: 85%;
 		max-width: 650px;
 		min-width: 150px;

@@ -35,17 +35,12 @@
 
 	<div class="col-xs-12 col-md-12" id="redes_footer"> <!-- Columnas para redes sociales en footer-->
 			<ul class="botones_footer">
-				<%= link_to image_tag(image_url("fb-bco.png"), :class => "img_net"), "
-https://www.facebook.com/elcolmex/", :target => "_blank" %>
-				<%= link_to image_tag(image_url("twitter-bco.png"), :class => "img_net"), "
-https://twitter.com/ELCOLMEX", :target => "_blank" %>
-				<%= link_to image_tag(image_url("youtube-bco.png"), :class => "img_net"), "
-https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %>
-				<%= link_to image_tag(image_url("itunes-bco.png"), :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %>
-				<%= link_to image_tag(image_url("linkedin-bco.png"), :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %>
-				<%= link_to image_tag(image_url("google-bco.png"), :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %>
-				<%= link_to image_tag(image_url("instagram-bco.png"), :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %>
-				<%= link_to image_tag(image_url("soundcloud-blanco.png"), :class => "img_net"), "https://soundcloud.com/elcolmex/", :target => "_blank" %>
+				<a target="_blank" href="https://www.facebook.com/ceicolmex/">
+					<img class="img_net" src="/img/fb-cei-bco.svg">
+				</a>
+				<a target="_blank" href="https://twitter.com/CEIColmex">
+					<img class="img_net" src="/img/tw-cei-bco.svg">
+				</a>
 			</ul>
 
 			<div id="boton-top" onclick="regresarArriba()">
@@ -54,4 +49,4 @@ https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" 
 		</div> <!-- Cierre de columnas para redes sociales en footer -->
 
 	</div> <!-- Cierre de fila para footer -->
-
+</div> <!-- Cierre del container-fluid -->

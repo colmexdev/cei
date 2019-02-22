@@ -28,8 +28,8 @@
 						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => "principal", :action => "proximamente", :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
 <% end %>
 						<li class="nav_opciones" id="logo-main"><a href="<%= root_path %>"><%= image_tag("colmex.png") %></a></li>
-						<li class="nav_opciones mail"><a href="http://portal.office.com" target="_blank"><%= image_tag("mail.png") %><span class="borrable"><%= t('navbar.mail') %></span></a></li>
-						<li class="nav_opciones intranet"><a href="http://intranet.colmex.mx/" target="_blank"><%= image_tag("intranet.png") %><span class="borrable"><%= t('navbar.intranet') %></span></a></li>
+						<li class="nav_opciones mail"><a href="http://portal.office.com" target="_blank"><img src="/img/mail-cei.svg"><span class="borrable"><%= t('navbar.mail') %></span></a></li>
+						<li class="nav_opciones intranet"><a href="http://intranet.colmex.mx/" target="_blank"><img src="/img/intranet-cei.svg"><span class="borrable"><%= t('navbar.intranet') %></span></a></li>
 						
 						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
 						<%if false %>
@@ -102,17 +102,16 @@
 
 
 			    <ul class="nav navbar-nav navbar-right">
-						<li class="borrable"><%= link_to image_tag("fb-vino.png", :class => "img_net"), "
-	https://www.facebook.com/elcolmex/", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("twitter-vino.png", :class => "img_net"), "
-	https://twitter.com/ELCOLMEX", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("youtube-vino.png", :class => "img_net"), "
-	https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("itunes-vino.png", :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("linkedin-vino.png", :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("google-vino.png", :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("instagram-vino.png", :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %></li>
-						<li class="borrable"><%= link_to image_tag("soundcloud-vino.png", :class => "img_net"), "https://soundcloud.com/elcolmex", :target => "_blank" %></li>
+						<li class="borrable">
+							<a target="_blank" href="https://www.facebook.com/ceicolmex/">
+								<img class="img_net" src="/img/fb-cei-color.svg">
+							</a>
+						</li>
+						<li class="borrable">
+							<a target="_blank" href="https://www.twitter.com/CEIColmex">
+								<img class="img_net" src="/img/tw-cei-color.svg">
+							</a>
+						</li>
 						<li class="mostrable"><a href="#menu" class="uk-navbar-toggle" data-uk-offcanvas></a></li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
@@ -121,8 +120,15 @@
 	</div> <!-- Cierre de div row barra nav -->
 
 	<div class="row"> <!-- Fila para logo -->
-		<div class="col-md-12" id="div_logo"> <!-- Columnas para logo -->	
-			<%= link_to image_tag("colmex-principal.png", :id => "img_logo"), root_path %> 	
+		<div class="col-md-6" id="div_logo"> <!-- Columnas para logo -->	
+			<a href="https://www.colmex.mx/">
+				<img src="/img/logo-colmex-color.svg" class="img_logo">
+			</a>	
+		</div> <!--Cierre de div columnas para logo -->
+		<div class="col-md-6" class="div_logo"> <!-- Columnas para logo -->	
+			<a href="<%= root_path %>">
+				<img src="/img/logo-cei-color.svg" class="img_logo">
+			</a>
 		</div> <!--Cierre de div columnas para logo -->
 	</div> <!-- Cierre de div fila para logo -->
 

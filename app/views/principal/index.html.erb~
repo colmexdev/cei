@@ -59,7 +59,12 @@
 		</div> <!-- Cierre de columnas para formulario de suscripción -->
 	</div> <!-- Cierre de fila para formulario de suscripción -->
 
-
+	<div class="row">
+		<div class="col-sm-9" style="background-color:#CCCCCC">
+		</div>
+		<div class="col-sm-3" style="background-color:#333333">
+		</div>
+	</div>
 
 <script>
 Array.prototype.each_slice = function (size, callback){
@@ -76,7 +81,7 @@ $(document).ready(function(){
 			var evento, f_i, div_event, eventos = [], dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"], meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 			for(var i = 0; i < result["videos"].length; i++){
 				f_i = new Date(result["videos"][i]["fechaInicio"].substring(3,5) + "/" + result["videos"][i]["fechaInicio"].substring(0,2) + "/" + result["videos"][i]["fechaInicio"].substring(6) + " " + result["videos"][i]["horaInicio"].substring(0,5));
-				evento = '<div class="img_evento"><img class="img_sede" src="/cei.png" alt="CEI"></div>' +
+				evento = '<div class="img_evento"><img class="img_sede" src="/img/cei.png" alt="CEI"></div>' +
 				'<div class="desc_evento">' +
 					'<div class="tipo_evento"><p>' + result["videos"][i]["tipoActividad"] + "</p></div>" +
 					'<div class="titulo_evento"><p>' + result["videos"][i]["tituloActividad"] + (result["videos"][i]["subtituloActividad"] != "" ? (": " + result["videos"][i]["subtituloActividad"]) : "") + "</p></div>" +
