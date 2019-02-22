@@ -5,7 +5,7 @@
 			<div class="col-md-12" id="div_slider" style="background-color:#CCCCCC;"> <!-- Columnas para slider -->
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-			   <div class="item active"><img class="imagen_slider_fondo" src="/assets/slider/slide-18-programas-academicos_original_11.jpg?1506339134" alt="Slide 18 programas academicos original 11"><div class="ghost-slider" style="height: 808.775px;"><a class="liga_img" target="" href="https://www.colmex.mx/es/programas"><img class="imagen_slider_sobre ii" id="badge-7" src="/assets/slider/badge-18-programas_original_11.png?1506353558" alt="Badge 18 programas original 11" style="width: 411.536px; max-width: 290px;"></a></div></div>
+			   <div class="item active"><img class="imagen_slider_fondo" src="https://www.colmex.mx/assets/slider/slide-18-programas-academicos_original_11.jpg?1506339134" alt="Slide 18 programas academicos original 11"><div class="ghost-slider" style="height: 808.775px;"><a class="liga_img" target="" href="https://www.colmex.mx/es/programas"><img class="imagen_slider_sobre ii" id="badge-7" src="https://www.colmex.mx/assets/slider/badge-18-programas_original_11.png?1506353558" alt="Badge 18 programas original 11" style="width: 411.536px; max-width: 290px;"></a></div></div>
 
 					<!-- Left and right controls -->
 					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
