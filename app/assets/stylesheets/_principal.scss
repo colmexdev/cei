@@ -2011,7 +2011,7 @@ ul.ul-nav { display: table;
 		color: #fff;
 		font-size: 13px;
 
-		#img_footer{
+		.img_footer{
 			width: 25%;
 			max-width: 300px;
 		}
@@ -2024,7 +2024,7 @@ ul.ul-nav { display: table;
 		}
 
 		@media only screen and (min-width: 992px){
-			#img_footer { width: 250px; }
+			.img_footer { width: 250px; }
 
 			#img_cc { width: 120px; }
 		}

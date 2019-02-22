@@ -11,7 +11,8 @@
 				</ul>
 			</div>
 			<div class="col-xs-12 col-md-8" id="footer_centro">
-				<%= image_tag(image_url("colmex-pie.png"), :id => "img_footer") %><br>
+			<div>
+				<%= image_tag(image_url("colmex-pie.png"), :id => "img_footer") %></div>
 				<%= link_to(image_tag(image_url("creative-commons.png"), :id => "img_cc"), "https://creativecommons.org/licenses/by-nc-nd/4.0/", :target => "_blank") %>
 				<p><%= t('.copyright') %>, Centro de Estudios Internacionales, El Colegio de México A.C. © <%= Date.current().year %><br>
 <% if false %>
