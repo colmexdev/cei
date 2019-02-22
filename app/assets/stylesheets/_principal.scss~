@@ -1154,10 +1154,10 @@ ul.ul-nav { display: table;
 	position: relative;
 	
 	#boton_actividades{
-		background-color: #9E6680;
+		background-color: #CC4E78;
 		font-size: 18px;
 		display: inline-block;
-		border-color: #470020;
+		border-color: #993B5A;
 		border-width: 1.5px;
 		border-style: solid;
 		height: 50px;
@@ -1191,7 +1191,8 @@ ul.ul-nav { display: table;
 	}
 
 	#boton_actividades:hover{
-		background-color: #5E002B;
+		background-color: #B03856;
+		border-color: #842A41;
 	}
 }
 
