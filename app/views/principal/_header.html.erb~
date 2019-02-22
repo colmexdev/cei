@@ -47,7 +47,7 @@
 		        <ul class="dropdown-menu">
 							<li><a href="#"><%= t('.opcion1_b1') %></a></li>
 							<li><a href="#"><%= t('.opcion2_b1') %></a></li>
-
+						</ul>
 				<li class="dropdown" id="dropdown2">
 		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b2') %></span></a>
 		        <ul class="dropdown-menu">
