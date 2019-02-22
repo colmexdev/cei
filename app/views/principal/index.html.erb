@@ -48,7 +48,7 @@
 <script>
 $(document).ready(function(){
 	$.ajax({
-		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=asc",
+		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
 			console.log(result["videos"]);
 		}
