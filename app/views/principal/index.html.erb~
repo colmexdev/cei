@@ -49,7 +49,7 @@
 	<div class="row"> <!-- Fila para botón de actividades -->
 		<div class="col-md-12" id="div_actividades"> <!--Columnas para eventos -->
 			<div id="boton_actividades">
-				<a href="http://agenda.colmex.mx/Calendario" target="_blank" id="liga_actividades"><span><%= t('.actividades') %></span></a>
+				<a href="http://agenda.colmex.mx/Calendario" target="_blank" id="liga_actividades"><span><%= t('.actividades').upcase %></span></a>
 			</div>
 
 		</div> <!-- Cierre de columnas para botón de actividades -->
