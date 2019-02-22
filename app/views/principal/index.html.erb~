@@ -76,7 +76,7 @@ $(document).ready(function(){
 			}
 			var j = 0;
 			eventos.each_slice((ancho < 785 ? 1 : (ancho < 1150 ? 2 : 4)), function(arr){
-				div_event = "<div class='item" + (j == 0 ? " active" : "") + ">";
+				div_event = '<div class="item' + (j == 0 ? " active" : "") + '">';
 				for(var i = 0; i < arr.length; i++){
 					div_event = div_event + arr[i];
 				}
