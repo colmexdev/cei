@@ -57,7 +57,7 @@ $(document).ready(function(){
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
 			var ancho = Math.max(document.documentElement.clientWidth, window.innerWidth || document.body.ClientWidth || 0);
-			var evento, f_i, eventos = [], dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"], meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+			var evento, f_i, div_event, eventos = [], dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"], meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 			for(var i = 0; i < result["videos"].length; i++){
 				f_i = new Date(result["videos"][i]["fechaInicio"].substring(3,5) + "/" + result["videos"][i]["fechaInicio"].substring(0,2) + "/" + result["videos"][i]["fechaInicio"].substring(6) + " " + result["videos"][i]["horaInicio"].substring(0,5));
 				evento = '<div class="img_evento"><img class="img_sede" src="/cei.png" alt="CEI"></div>' +
@@ -74,8 +74,14 @@ $(document).ready(function(){
 							"</div>";
 				eventos.push(evento);
 			}
+			var j = 0;
 			eventos.each_slice((ancho < 785 ? 1 : (ancho < 1150 ? 2 : 4)), function(arr){
-				console.log(arr);
+				div_event = "<div class='item" + (j == 0 ? " active" : "") + ">";
+				for(var i = 0; i < arr.length; i++){
+					div_event = div_event + arr[i];
+				}
+				div_event = div_event + "</div>";
+				$("#render_eventos").html($("#render_eventos").html() + div_event);
 			});
 		}
 	});
