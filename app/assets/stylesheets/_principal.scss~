@@ -2013,7 +2013,7 @@ ul.ul-nav { display: table;
 
 		.img_footer{
 			/*width: 25%;*/
-			max-width: 310px;
+			max-width: 200px;
 		}
 
 		#f_logo_l{
@@ -2038,7 +2038,7 @@ ul.ul-nav { display: table;
 		}
 
 		@media only screen and (min-width: 992px){
-			.img_footer { max-width: 200px; }
+			.img_footer { max-width: 310px; }
 
 			#img_cc { width: 120px; }
 		}
