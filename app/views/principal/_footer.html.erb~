@@ -11,7 +11,7 @@
 				</ul>
 			</div>
 			<div class="col-xs-12 col-md-8" id="footer_centro">
-				<div class="row">
+				<div class="row" style="display:table">
 					<div class="col-xs-6" id="f_logo_r">
 						<img class="img_footer" src="/img/logo-cei-bco.svg">
 					</div>
