@@ -4,6 +4,9 @@ barra_render = false;
 
 $(document).ready(function(){
 	$(document).trigger("scroll");
+	try{
+		$("#f_logo_r").height($("#f_logo_l").height());
+	} catch(err){}
 });
 
 window.onresize = function(){
