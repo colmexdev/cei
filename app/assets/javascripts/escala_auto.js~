@@ -8,6 +8,9 @@ $(document).ready(function(){
 
 window.onresize = function(){
 	$(document).trigger("scroll");
+	try{
+		$("#f_logo_r").height($("#f_logo_l").height());
+	} catch(err){}
 }
 
 $(window).on("orientationchange",function(){

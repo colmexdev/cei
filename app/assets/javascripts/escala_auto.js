@@ -4,13 +4,14 @@ barra_render = false;
 
 $(document).ready(function(){
 	$(document).trigger("scroll");
-	try{
-		$("#f_logo_r").height($("#f_logo_l").height());
-	} catch(err){}
 });
 
 window.onresize = function(){
 	$(document).trigger("scroll");
+	try{
+		$("#f_logo_r").height($("#f_logo_l").height());
+		$("#f_logo_r img").css({"padding-top": (($("#f_logo_l img").height() - $("#f_logo_r img").height())/2) + "px" });
+	} catch(err){}
 }
 
 $(window).on("orientationchange",function(){
