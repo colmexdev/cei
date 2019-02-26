@@ -2148,7 +2148,7 @@ a.numeros:hover, a.numeros:active{
 	color: rgb(153, 51, 102);
 }
 
-.titulo_fila{
+.titulo-fila{
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato;
   font-style: normal;
   font-weight: 700;
