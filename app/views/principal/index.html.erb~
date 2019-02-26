@@ -60,7 +60,7 @@
 	</div> <!-- Cierre de fila para formulario de suscripción -->
 
 	<div class="row"> <!-- Fila de publicaciones, videos y revistas -->
-		<div class="col-mm-9" style="background-color:#CCCCCC">
+		<div class="col-md-9" style="background-color:#CCCCCC">
 			<div class="row">	<!-- Fila de publicaciones -->
 				<div class="col-xs-12">
 					<div class="titulo-fila">
