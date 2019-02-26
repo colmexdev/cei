@@ -64,10 +64,17 @@
 			<div class="row">	<!-- Fila de publicaciones -->
 				<div class="col-xs-12">
 					<div class="titulo-fila">
-						<span class="titulo-grande" style="color:#B03856;"><%= t('.pubs_t').upcase %></span>
+						<span class="rosa-bold"><%= t('.pubs_t').upcase %></span>
 					</div>
 				</div>
 			</div><!-- Cierre de fila de publicaciones -->
+			<div class="row">	<!-- Fila de videos -->
+				<div class="col-xs-12">
+					<div class="titulo-fila">
+						<span class="rosa-bold"><%= t('.vids_t').upcase %></span>
+					</div>
+				</div>
+			</div><!-- Cierre de fila de videos -->
 		</div>
 		<div class="col-sm-3" style="background-color:#333333">
 		</div>

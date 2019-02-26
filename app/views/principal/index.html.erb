@@ -68,8 +68,18 @@
 					</div>
 				</div>
 			</div><!-- Cierre de fila de publicaciones -->
+			<div class="row">	<!-- Fila de videos -->
+				<div class="col-xs-12">
+					<div class="titulo-fila">
+						<span class="rosa-bold"><%= t('.vids_t').upcase %></span>
+					</div>
+				</div>
+			</div><!-- Cierre de fila de videos -->
 		</div>
-		<div class="col-sm-3" style="background-color:#333333">
+		<div id="revs" class="col-sm-3" style="background-color:#333333">
+					<div class="titulo-fila">
+						<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
+					</div>
 		</div>
 	</div>
 
@@ -81,6 +91,7 @@ Array.prototype.each_slice = function (size, callback){
 };
 
 $(document).ready(function(){
+	
 	$.ajax({
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
