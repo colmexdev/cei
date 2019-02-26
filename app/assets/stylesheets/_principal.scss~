@@ -2037,8 +2037,11 @@ ul.ul-nav { display: table;
 			margin-bottom: 10px;
 		}
 
-		@media only screen and (min-width: 992px){
+		@media only screen and (min-width: 1100px){
 			.img_footer { max-width: 310px; }
+		}
+
+		@media only screen and (min-width: 992px){
 
 			#img_cc { width: 120px; }
 		}
@@ -2144,3 +2147,14 @@ a.numeros{
 a.numeros:hover, a.numeros:active{
 	color: rgb(153, 51, 102);
 }
+
+.titulo_fila{
+	font-family: "Gotham SSm A", "Gotham SSm B", Lato;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  display: inline-block;
+  line-height: normal;
+}
+
+.rosa-bold { color: #B03856; }
