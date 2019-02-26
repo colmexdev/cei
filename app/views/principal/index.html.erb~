@@ -66,12 +66,21 @@
 					<div class="titulo-fila">
 						<span class="rosa-bold"><%= t('.pubs_t').upcase %></span>
 					</div>
+					<div id="pubs-slick">
+
+					</div>
+					<div class="boton-sec">
+						<span><%= t('.pubs_b').upcase %></span>
+					</div>
 				</div>
 			</div><!-- Cierre de fila de publicaciones -->
 			<div class="row">	<!-- Fila de videos -->
 				<div class="col-xs-12">
 					<div class="titulo-fila">
 						<span class="rosa-bold"><%= t('.vids_t').upcase %></span>
+					</div>
+					<div class="boton-sec">
+						<span><%= t('.vids_b').upcase %></span>
 					</div>
 				</div>
 			</div><!-- Cierre de fila de videos -->
