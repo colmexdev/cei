@@ -2157,12 +2157,14 @@ a.numeros:hover, a.numeros:active{
   font-size: 34px;
   display: inline-block;
   line-height: normal;
+	padding: 25px 0 25px 30px;
 }
 
 .rosa-bold { color: #B03856; }
 
 .boton-sec{
 	font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif;
+	font-weight: 600;
 	text-align: center;
 	width: 85%;
 	margin: 0 auto;
@@ -2170,6 +2172,11 @@ a.numeros:hover, a.numeros:active{
 	border: solid 1.5px #B03856;
 	background-color: #FFFFFF;
 	color: #CC4E78;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
 
 .boton-sec:hover, .boton-sec:focus{

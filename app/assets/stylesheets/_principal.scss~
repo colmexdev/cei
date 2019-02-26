@@ -2148,6 +2148,8 @@ a.numeros:hover, a.numeros:active{
 	color: rgb(153, 51, 102);
 }
 
+/* Estilos CEI */
+
 .titulo-fila{
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato;
   font-style: normal;
@@ -2158,3 +2160,25 @@ a.numeros:hover, a.numeros:active{
 }
 
 .rosa-bold { color: #B03856; }
+
+.boton-sec{
+	font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif;
+	font-weight: 600;
+	text-align: center;
+	width: 85%;
+	margin: 0 auto;
+	padding: 10px 0;
+	border: solid 1.5px #B03856;
+	background-color: #FFFFFF;
+	color: #CC4E78;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+
+.boton-sec:hover, .boton-sec:focus{
+	background-color: #CC4E78;
+	color: #FFFFFF;
+}
