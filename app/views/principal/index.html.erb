@@ -150,11 +150,14 @@ $(document).ready(function(){
 		success: function(result){
 			var vid_html = "";
 			for(var i = 0; i < result["vids"].length; i++){
-				vid_html = vid_html + '<div style="text-align:center;">' +
+				vid_html = vid_html + '<div class="vid-cont-slick" style="text-align:center;">' +
 					'<iframe class="iframe-slick" src="https://www.youtube.com/embed/' + result["vids"][i]["v_id"] + '"></iframe>' +
 					'</div>';
 			}
 			$("#vids-slick").html(vid_html);
+			$(".vid-cont-slick").resize(function(){
+				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
+			});
 			setTimeout(function(){
 				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false});
 				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
