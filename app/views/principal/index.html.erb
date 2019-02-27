@@ -82,6 +82,15 @@
 					<div class="titulo-fila">
 						<span class="rosa-bold"><%= t('.vids_t').upcase %></span>
 					</div>
+					<div id="vids-slick" style="width:85%;margin:0 auto;"">
+						<div><h3>1</h3></div>
+						<div><h3>2</h3></div>
+						<div><h3>3</h3></div>
+						<div><h3>4</h3></div>
+						<div><h3>2</h3></div>
+						<div><h3>3</h3></div>
+						<div><h3>4</h3></div>
+					</div>
 					<div class="boton-sec">
 						<span><%= t('.vids_b').upcase %></span>
 					</div>
@@ -103,7 +112,8 @@ Array.prototype.each_slice = function (size, callback){
 };
 
 $(document).ready(function(){
-	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1});
+	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'dots': true});
+	$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 3, 'dots': true});
 	$.ajax({
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
