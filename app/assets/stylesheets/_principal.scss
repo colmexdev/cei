@@ -2169,6 +2169,16 @@ a.numeros:hover, a.numeros:active{
 
 .iframe-slick{ width: 85%; }
 
+.puntos-carrusel{
+	color: #CCCCCC;
+	text-shadow: 0 0 3px #635F5F;
+	font-size: 20px;
+}
+
+.puntos-carrusel:hover, .puntos-carrusel:focus, .puntos-carrusel:active{
+	color: #B03856;
+}
+
 .boton-sec{
 	font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif;
 	font-weight: 600;
