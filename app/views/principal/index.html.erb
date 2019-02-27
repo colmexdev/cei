@@ -60,7 +60,7 @@
 	</div> <!-- Cierre de fila para formulario de suscripción -->
 
 	<div class="row"> <!-- Fila de publicaciones, videos y revistas -->
-		<div class="col-md-9">
+		<div class="col-md-9"> <!-- Fila de publicaciones y videos -->
 
 			<div class="row">	<!-- Fila de publicaciones -->
 				<div class="col-xs-12">
@@ -89,23 +89,28 @@
 						<span><%= t('.vids_b').upcase %></span>
 					</div>
 				</div>
-			</div><!-- Cierre de fila de videos -->
-
-		</div>
-		<div id="revs" class="col-md-3">
+			</div> <!-- Cierre de fila de videos -->
+		</div> <!-- Cierre de fila de publicaciones y videos -->
+		<div id="revs" class="col-md-3"> <!-- Fila de revistas -->
 			<div class="titulo-fila">
 				<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
 			</div>
 			<div class="row">
 				<div class="col-xs-6 col-md-12" style="text-align:center">
 					Foro
+					<div class="btn-info">
+						<%= t('.info') %>
+					</div>
 				</div>
 				<div class="col-xs-6 col-md-12" style="text-align:center">
 					Agora
+					<div class="btn-info">
+						<%= t('.info') %>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</div> <!-- Cierre de fila de revistas -->
+	</div> <!-- Cierre de fila de publicaciones, videos y revistas -->
 
 <script>
 Array.prototype.each_slice = function (size, callback){
@@ -158,14 +163,11 @@ $(document).ready(function(){
 					'</div>';
 			}
 			$("#vids-slick").html(vid_html);
-			$(".vid-cont-slick").resize(function(){
-				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
-			});
 			setTimeout(function(){
 				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false, 'responsive': [{breakpoint: 800, settings: {'slidesToShow': 1, 'draggable': false}}, {breakpoint: 1550, settings: {'slidesToShow': 2, 'draggable': 'false'}}]
 				});
 				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
-				$(window).resize(function(){$(".iframe-slick").height($(".iframe-slick").width() * 9/16);});
+				$(window).resize(function(){ setTimeout(function(){$(".iframe-slick").height($(".iframe-slick").width() * 9/16);}, 100);});
 			}, 100);
 		}
 	});

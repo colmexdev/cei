@@ -39,3 +39,5 @@ es:
       pubs_t: "Publicaciones"
       vids_t: "Videos"
       revs_t: "Revistas"
+      pubs_b: "Ver todas las publicaciones"
+      vids_b: "Ver todos los videos"

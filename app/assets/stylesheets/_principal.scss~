@@ -1245,12 +1245,13 @@ ul.ul-nav { display: table;
 				line-height: 3.5;
 			}
 
-			@media only screen and (min-width: 0px) and (max-width: 840px){
+/*			@media only screen and (min-width: 0px) and (max-width: 840px){
 				span { font-size: 11px; } 
 			}
 			@media only screen and (min-width: 840px) and (max-width: 994px){
 				span { font-size: 15px; } 
 			}
+*/
 		}
 	}
 
@@ -1303,7 +1304,7 @@ ul.ul-nav { display: table;
 }
 
 
-@media only screen and (max-width: 767px){
+/*@media only screen and (max-width: 767px){
 	#div_suscripcion{
 		height: 130px;
 		#forma_suscripcion{
@@ -1316,7 +1317,7 @@ ul.ul-nav { display: table;
 			}
 		}
 	}
-}
+}*/
 
 //Clases que afectan a la sección de revistas
 #wrapper-revista{
@@ -2242,4 +2243,17 @@ a.numeros:hover, a.numeros:active{
 .boton-sec:hover, .boton-sec:focus{
 	background-color: #CC4E78;
 	color: #FFFFFF;
+}
+
+.btn-info{
+	margin: 0 auto;
+	padding: 10px 0;
+	border: solid 1.5px #993B5A;
+	background-color: #CC4E78;
+	color: #FFFFFF;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
