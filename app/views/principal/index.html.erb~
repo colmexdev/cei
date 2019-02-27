@@ -150,7 +150,7 @@ $(document).ready(function(){
 		success: function(result){
 			var vid_html = "";
 			for(var i = 0; i < result["vids"].length; i++){
-				vid_html = vid_html + '<div class="vid-cont-slick" style="text-align:center;">' +
+				vid_html = vid_html + '<div class="vid-cont-slick">' +
 					'<iframe class="iframe-slick" src="https://www.youtube.com/embed/' + result["vids"][i]["v_id"] + '"></iframe>' +
 					'</div>';
 			}
@@ -159,7 +159,7 @@ $(document).ready(function(){
 				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 			});
 			setTimeout(function(){
-				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false, 'responsive': [{breakpoint: 700, settings: {'slidesToShow': 1, 'draggable': false}}, {breakpoint: 1080, settings: {'slidesToShow': 2, 'draggable': 'false'}]
+				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false, 'responsive': [{breakpoint: 700, settings: {'slidesToShow': 1, 'draggable': false}}, {breakpoint: 1080, settings: {'slidesToShow': 2, 'draggable': 'false'}}]
 				});
 				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 			}, 100);
