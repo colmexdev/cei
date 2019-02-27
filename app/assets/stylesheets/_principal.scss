@@ -2163,9 +2163,17 @@ a.numeros:hover, a.numeros:active{
 
 .rosa-bold { color: #B03856; }
 
+.fila_pubs_vids:after{
+  border-right: 1.5px solid #CCCCCC;
+  content: '';
+  display: block;
+  height: 90%;
+  width: 100%;
+}
+
 .carrusel-slick{
 	width: 85%;
-	margin: 0 auto 50px;
+	margin: 0 auto 30px;
 }
 
 .iframe-slick{ width: 85%; }
@@ -2208,7 +2216,7 @@ a.numeros:hover, a.numeros:active{
 				text-align: center;
 				opacity: .75;
 				color: #CCCCCC;
-				text-shadow: 0 0 3px #635F5F;
+				text-shadow: 0 0 10px #635F5F;
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 			}

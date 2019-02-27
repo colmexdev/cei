@@ -2165,7 +2165,7 @@ a.numeros:hover, a.numeros:active{
 
 .carrusel-slick{
 	width: 85%;
-	margin: 0 auto 50px;
+	margin: 0 auto 30px;
 }
 
 .iframe-slick{ width: 85%; }
@@ -2208,7 +2208,7 @@ a.numeros:hover, a.numeros:active{
 				text-align: center;
 				opacity: .75;
 				color: #CCCCCC;
-				text-shadow: 0 0 3px #635F5F;
+				text-shadow: 0 0 10px #635F5F;
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 			}
@@ -2247,6 +2247,8 @@ a.numeros:hover, a.numeros:active{
 }
 
 .boton-info{
+	width: 85%;
+	max-width: 250px;
 	cursor: pointer;
 	margin: 0 auto;
 	padding: 10px 0;
