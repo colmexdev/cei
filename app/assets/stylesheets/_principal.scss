@@ -2175,10 +2175,9 @@ a.numeros:hover, a.numeros:active{
 
 @media only screen and (min-width: 992px){
 	#revs{
-		width: calc(25% - 1px);
-		width: -moz-calc(25% - 1px);
 		width: -webkit-calc(25% - 1px);
-		clear: both;
+		width: -moz-calc(25% - 1px);
+		width: calc(25% - 1px);
 	}
 }
 
