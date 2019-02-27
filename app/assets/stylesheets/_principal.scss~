@@ -2202,18 +2202,17 @@ a.numeros:hover, a.numeros:active{
 		  height: 20px;
 		  content: '•';
 		  text-align: center;
-		  opacity: .25;
+		  opacity: .75;
 		  color: #CCCCCC;
 			text-shadow: 0 0 3px #635F5F;
 		  -webkit-font-smoothing: antialiased;
 		  -moz-osx-font-smoothing: grayscale;
 		}
 	}
+}
 
-	&:.slick-active button:before {
-    opacity: .75;
-    color: #B03856;
-	}
+.puntos-carrusel li.slick-active button:before {
+   color: #B03856;
 }
 
 
