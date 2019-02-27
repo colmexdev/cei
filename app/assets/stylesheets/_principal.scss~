@@ -2157,7 +2157,7 @@ a.numeros:hover, a.numeros:active{
   font-size: 34px;
   display: inline-block;
   line-height: normal;
-	padding: 25px 0 25px 30px;
+	padding: 40px 0 40px 8%;
 }
 
 .rosa-bold { color: #B03856; }
