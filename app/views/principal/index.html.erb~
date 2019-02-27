@@ -155,8 +155,8 @@ $(document).ready(function(){
 					'</div>';
 			}
 			$("#vids-slick").html(vid_html);
-			$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 			setTimeout(function(){
+				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false});
 			}, 100);
 		}
