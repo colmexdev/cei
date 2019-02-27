@@ -91,7 +91,7 @@
 				</div>
 			</div> <!-- Cierre de fila de videos -->
 		</div> <!-- Cierre de fila de publicaciones y videos -->
-			<div style="width:1px;height:100%;background-color:#cccccc;">
+			<div id="filete">
 			</div>
 		<div id="revs" class="col-md-3"> <!-- Fila de revistas -->
 			<div class="titulo-fila">
@@ -169,12 +169,19 @@ $(document).ready(function(){
 				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false, 'responsive': [{breakpoint: 800, settings: {'slidesToShow': 1, 'draggable': false}}, {breakpoint: 1550, settings: {'slidesToShow': 2, 'draggable': 'false'}}]
 				});
 				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
-				$(window).resize(function(){ setTimeout(function(){$(".iframe-slick").height($(".iframe-slick").width() * 9/16);}, 100);});
+				$(window).resize(function(){ 
+					setTimeout(function(){$(".iframe-slick").height($(".iframe-slick").width() * 9/16);}, 100);
+					$("#filete").height($("#filete").parent().height() * 0.9);
+					$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
+				});
 			}, 100);
 		}
 	});
 
 	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'dots': true, 'dotsClass': 'puntos-carrusel'});
+
+	$("#filete").height($("#filete").parent().height() * 0.9);
+	$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
 });
 </script>
 
