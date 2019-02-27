@@ -2224,6 +2224,7 @@ a.numeros:hover, a.numeros:active{
 
 
 .boton-sec{
+	cursor: pointer;
 	font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif;
 	font-weight: 600;
 	text-align: center;
@@ -2245,7 +2246,8 @@ a.numeros:hover, a.numeros:active{
 	color: #FFFFFF;
 }
 
-.btn-info{
+.boton-info{
+	cursor: pointer;
 	margin: 0 auto;
 	padding: 10px 0;
 	border: solid 1.5px #993B5A;
@@ -2261,7 +2263,7 @@ a.numeros:hover, a.numeros:active{
 	transition: all 0.3s linear;
 }
 
-.btn-info:hover, .btn-info:focus{
+.boton-info:hover, .boton-info:focus{
 	border-color: #842A41;
 	background-color: #B03856;
 }

@@ -98,9 +98,15 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-12" style="text-align:center">
 					Foro
+					<div class="btn-info">
+						<%= t('.info') %>
+					</div>
 				</div>
 				<div class="col-xs-6 col-md-12" style="text-align:center">
 					Agora
+					<div class="btn-info">
+						<%= t('.info') %>
+					</div>
 				</div>
 			</div>
 		</div> <!-- Cierre de fila de revistas -->

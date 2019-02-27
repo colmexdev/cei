@@ -2251,9 +2251,17 @@ a.numeros:hover, a.numeros:active{
 	border: solid 1.5px #993B5A;
 	background-color: #CC4E78;
 	color: #FFFFFF;
+	font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif;
+	font-weight: 500;
+	text-align: center;
 	-webkit-transition: all 0.3s linear;
 	-moz-transition: all 0.3s linear;
 	-ms-transition: all 0.3s linear;
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
+}
+
+.btn-info:hover, .btn-info:focus{
+	border-color: #842A41;
+	background-color: #B03856;
 }
