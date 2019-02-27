@@ -151,11 +151,13 @@ $(document).ready(function(){
 			var vid_html = "";
 			for(var i = 0; i < result["vids"].length; i++){
 				vid_html = vid_html + '<div style="text-align:center;">' +
-					'<iframe src="https://www.youtube.com/embed/' + result["vids"][i]["v_id"] + '"></iframe>' +
+					'<iframe class="iframe-slick" src="https://www.youtube.com/embed/' + result["vids"][i]["v_id"] + '"></iframe>' +
 					'</div>';
 			}
 			$("#vids-slick").html(vid_html);
-			$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false});
+			setTimeout(function(){
+				$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false});
+			}, 100);
 		}
 	});
 
