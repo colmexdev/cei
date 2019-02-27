@@ -2209,11 +2209,11 @@ a.numeros:hover, a.numeros:active{
 		  -moz-osx-font-smoothing: grayscale;
 		}
 	}
+}
 
-	&:.slick-active button:before {
-    opacity: .75;
-    color: #B03856;
-	}
+.puntos-carrusel li.slick-active button:before {
+   opacity: .75;
+   color: #B03856;
 }
 
 
