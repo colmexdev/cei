@@ -170,9 +170,11 @@ $(document).ready(function(){
 				});
 				$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 				$(window).resize(function(){ 
-					setTimeout(function(){$(".iframe-slick").height($(".iframe-slick").width() * 9/16);}, 100);
-					$("#filete").height($("#filete").parent().height() * 0.9);
-					$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
+					setTimeout(function(){
+						$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
+						$("#filete").height($("#filete").parent().height() * 0.9);
+						$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
+					}, 100);
 				});
 			}, 100);
 		}
