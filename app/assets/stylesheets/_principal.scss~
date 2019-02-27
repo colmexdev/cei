@@ -2157,9 +2157,15 @@ a.numeros:hover, a.numeros:active{
   font-size: 34px;
   display: inline-block;
   line-height: normal;
+	padding: 25px 0 25px 30px;
 }
 
 .rosa-bold { color: #B03856; }
+
+.carrusel-slick{
+	width: 85%;
+	margin: 0 auto 50px;
+}
 
 .boton-sec{
 	font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif;
