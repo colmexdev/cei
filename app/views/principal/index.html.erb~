@@ -150,8 +150,8 @@ $(document).ready(function(){
 		success: function(result){
 			var vid_html = "";
 			for(var i = 0; i < result["vids"].length; i++){
-				vid_html = vid_html + '<div>' +
-					'<iframe src="https://www.youtube.com/embed/' + result["videos"][i]["v_id"] + '">' +
+				vid_html = vid_html + '<div style="text-align:center;">' +
+					'<iframe src="https://www.youtube.com/embed/' + result["vids"][i]["v_id"] + '"></iframe>' +
 					'</div>';
 			}
 			$("#vids-slick").html(vid_html);
