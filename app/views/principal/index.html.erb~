@@ -112,8 +112,6 @@ Array.prototype.each_slice = function (size, callback){
 };
 
 $(document).ready(function(){
-	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'dots': true});
-	$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1});
 	$.ajax({
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
@@ -146,6 +144,22 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	$.ajax({
+		url: 'https://coed.colmex.mx/catalogo_videos?tags=cei&crono=desc&vpp=3',
+		success: function(result){
+			var vid_html = "";
+			for(var i = 0; i < result["vids"].length; i++){
+				vid_html = vid_html + '<div>' +
+					'<iframe src="https://www.youtube.com/embed/' + result["videos"][i]["v_id"] + '">' +
+					'</div>';
+			}
+			$("#vids-slick").html(vid_html);
+			$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'infinite': false});
+		}
+	});
+
+	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'dots': true});
 });
 </script>
 
