@@ -2172,7 +2172,7 @@ a.numeros:hover, a.numeros:active{
 	font-weight: 600;
 	text-align: center;
 	width: 85%;
-	margin: 0 auto;
+	margin: 0 auto 30px;
 	padding: 10px 0;
 	border: solid 1.5px #B03856;
 	background-color: #FFFFFF;

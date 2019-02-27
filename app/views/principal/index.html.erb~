@@ -60,7 +60,7 @@
 	</div> <!-- Cierre de fila para formulario de suscripción -->
 
 	<div class="row"> <!-- Fila de publicaciones, videos y revistas -->
-		<div class="col-md-9" style="background-color:#CCCCCC">
+		<div class="col-md-9">
 			<div class="row">	<!-- Fila de publicaciones -->
 				<div class="col-xs-12">
 					<div class="titulo-fila">
@@ -113,7 +113,7 @@ Array.prototype.each_slice = function (size, callback){
 
 $(document).ready(function(){
 	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'dots': true});
-	$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 3, 'dots': true});
+	$("#vids-slick").slick({'slidesToShow': 3, 'slidesToScroll': 0});
 	$.ajax({
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
