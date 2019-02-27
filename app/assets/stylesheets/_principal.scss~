@@ -2070,7 +2070,7 @@ ul.ul-nav { display: table;
 		}
 	} 
 
-	@media only screen and (max-width: 991px){
+	@media only screen and (max-width: 992px){
 		#footer_izq { display: none; }
 		#footer_centro { border: none; height: auto; >p { margin: 0 auto; font-size: 9px;} }
 		#footer_der { 
