@@ -2286,18 +2286,19 @@ a.numeros:hover, a.numeros:active{
 #fila_sitios{
 	background-color: #E5E5E5;
 
-	.container-fluid{
+	.sitios-cont{
 		max-width: 1800px;
 		width: 95%;
 		margin: 50px auto;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
 	
-		div[class^="col-"] .img-sitio{
-			text-align: center;
-			width: 50%;
-			float: left;
-		  display: flex;
-		  display: -webkit-flex;
-		  flex-wrap: wrap;
+		.sitios-img{
+			width: 25%;
+			flex-wrap: wrap;
 		  justify-content: center;
 		  align-items: center;
 		}
