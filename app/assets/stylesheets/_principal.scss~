@@ -2294,6 +2294,12 @@ a.numeros:hover, a.numeros:active{
 		div[class^="col-"] .img-sitio{
 			text-align: center;
 			width: 50%;
+			float: left;
+		  display: flex;
+		  display: -webkit-flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  align-items: center;
 		}
 	}
 }

@@ -2295,6 +2295,11 @@ a.numeros:hover, a.numeros:active{
 			text-align: center;
 			width: 50%;
 			float: left;
+		  display: flex;
+		  display: -webkit-flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  align-items: center;
 		}
 	}
 }
