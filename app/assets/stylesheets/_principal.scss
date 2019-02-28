@@ -2290,5 +2290,12 @@ a.numeros:hover, a.numeros:active{
 		max-width: 1800px;
 		width: 95%;
 		margin: 30px auto;
+	
+		div[class^="col-"]{
+			text-align: center;
+  		display: flex;
+  		display: -webkit-flex;
+  		flex-wrap: wrap;
+		}
 	}
 }
