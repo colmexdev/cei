@@ -114,23 +114,19 @@
 		</div> <!-- Cierre de fila de revistas -->
 	</div> <!-- Cierre de fila de publicaciones, videos y revistas -->
 
-<div class="row" id="wrapper-revista"> <!-- Fila para revistas -->
-		<div class="col-md-12" id="div_revistas"> <!-- Columnas para revistas -->
+	<div class="row" id="fila_> <!-- Fila de otros sitios -->
+		<div class="col-md-3 col-xs-6">
 
-			<div class="col-xs-6 col-md-3 revista" id="col-izq"><a target="_blank" href="https://publicaciones.colmex.mx/"><img id="img-pub" src="/assets/revistas-der-828e70614c4b3d99ce2d1bacd39730f676f0e909a4309f376e94c34228d0d773.png" alt="Revistas der"></a></div>
+		</div>
+		<div class="col-md-3 col-xs-6">
 
-			<div class="col-xs-6 col-md-3 revista" id="col-ct">
-				<a target="_blank" href="http://revistas.colmex.mx/index.php"><img class="rev-sm" id="img-rev-sm" src="/assets/revistas-izq-39825349b83a64e1186b5ac95557e3b2d2c508f913019ab3ac4e1c7e3b297736.png" alt="Revistas izq"></a>
-				<a target="_blank" href="http://revistas.colmex.mx/index.php"><img class="rev-xs" id="img-rev-xs" src="/assets/revistas-izq-39825349b83a64e1186b5ac95557e3b2d2c508f913019ab3ac4e1c7e3b297736.png" alt="Revistas izq" style=""></a>
-			</div>
-			<div class="col-xs-6 col-md-3 revista" id="col-der">
-				<a target="_blank" href="http://digital.colmex.mx/"><img class="rev-sm" id="img-pred-sm" src="/assets/revistas-centro-fb658bafbd74db8c5958fabd899361cd38f22869937a21a68593ad96923fa606.png" alt="Revistas centro"></a>
-				<a target="_blank" href="http://digital.colmex.mx/"><img class="rev-xs" id="img-pred-xs" src="/assets/revistas-centro-fb658bafbd74db8c5958fabd899361cd38f22869937a21a68593ad96923fa606.png" alt="Revistas centro" style=""></a>
-			</div>
-			<div class="col-xs-6 col-md-3 revista" id="col-oia">
-				<a target="_blank" href="http://oia.colmex.mx/"><img id="img-oia" src="/assets/oia-f8916e4c5e174967a7c564effd73ed388f3ce30d30a294c3fa3e8ffb9ed4df0e.png" alt="Oia"></a>				
-			</div>
-		</div> <!-- Cierre de columnas para revistas -->
+		</div>
+		<div class="col-md-3 col-xs-6">
+
+		</div>
+		<div class="col-md-3 col-xs-6">
+
+		</div>
 	</div>
 
 <script>
@@ -193,7 +189,7 @@ $(document).ready(function(){
 						$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 						$("#filete").height($("#filete").parent().height() * 0.9);
 						$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
-					}, 100);
+					}, 250);
 				});
 		$("#filete").height($("#filete").parent().height() * 0.9);
 		$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
