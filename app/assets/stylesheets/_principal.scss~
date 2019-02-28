@@ -2289,7 +2289,7 @@ a.numeros:hover, a.numeros:active{
 	.container-fluid{
 		max-width: 1800px;
 		width: 95%;
-		margin: 30px auto;
+		margin: 50px auto;
 		display: -webkit-flex;
 		display: flex;
 	
