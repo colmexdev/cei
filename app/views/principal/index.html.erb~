@@ -62,7 +62,7 @@
 	<div class="row"> <!-- Fila de publicaciones, videos y revistas -->
 		<div class="col-md-9"> <!-- Fila de publicaciones y videos -->
 
-			<div class="row">	<!-- Fila de publicaciones -->
+			<div class="container-fluid">	<!-- Fila de publicaciones -->
 				<div class="col-xs-12">
 					<div class="titulo-fila">
 						<span class="rosa-bold"><%= t('.pubs_t').upcase %></span>
@@ -78,7 +78,7 @@
 					</div>
 				</div>
 			</div><!-- Cierre de fila de publicaciones -->
-			<div class="row">	<!-- Fila de videos -->
+			<div class="container-fluid">	<!-- Fila de videos -->
 				<div class="col-xs-12">
 					<div class="titulo-fila">
 						<span class="rosa-bold"><%= t('.vids_t').upcase %></span>
@@ -96,7 +96,7 @@
 			<div class="titulo-fila">
 				<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
 			</div>
-			<div class="row">
+			<div class="container-fluid">
 				<div class="col-xs-6 col-md-12" style="text-align:center">
 					Foro
 					<div class="boton-info">
@@ -114,17 +114,19 @@
 	</div> <!-- Cierre de fila de publicaciones, videos y revistas -->
 
 	<div class="row" id="fila_sitios"> <!-- Fila de otros sitios -->
-		<div class="col-md-3 col-xs-6">
+		<div class="container-fluid">
+			<div class="col-md-3 col-xs-6">
 
-		</div>
-		<div class="col-md-3 col-xs-6">
+			</div>
+			<div class="col-md-3 col-xs-6">
 
-		</div>
-		<div class="col-md-3 col-xs-6">
+			</div>
+			<div class="col-md-3 col-xs-6">
 
-		</div>
-		<div class="col-md-3 col-xs-6">
+			</div>
+			<div class="col-md-3 col-xs-6">
 
+			</div>
 		</div>
 	</div>
 
@@ -187,13 +189,8 @@ $(document).ready(function(){
 					setTimeout(function(){
 						$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 					}, 100);
-					setTimeout(function(){
-						$("#filete").height($("#filete").parent().height() * 0.9);
-						$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
-					}, 150);
 				});
-		$("#filete").height($("#filete").parent().height() * 0.9);
-		$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
+
 			}, 100);
 		}
 	});
