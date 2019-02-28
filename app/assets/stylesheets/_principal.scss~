@@ -2291,8 +2291,9 @@ a.numeros:hover, a.numeros:active{
 		width: 95%;
 		margin: 50px auto;
 	
-		div[class^="col-"]{
+		div[class^="col-"] .img-sitio{
 			text-align: center;
+			width: 50%;
 		}
 	}
 }
