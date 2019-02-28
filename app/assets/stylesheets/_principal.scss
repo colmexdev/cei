@@ -2163,24 +2163,6 @@ a.numeros:hover, a.numeros:active{
 
 .rosa-bold { color: #B03856; }
 
-#filete{
-	width: 1px;
-	float: left;
-	background-color: #cccccc;
-}
-
-@media only screen and (max-width: 992px){
-	#filete { display: none; }
-}
-
-@media only screen and (min-width: 992px){
-	#revs{
-		width: -webkit-calc(25% - 1px);
-		width: -moz-calc(25% - 1px);
-		width: calc(25% - 1px);
-	}
-}
-
 .carrusel-slick{
 	width: 85%;
 	margin: 0 auto 30px;

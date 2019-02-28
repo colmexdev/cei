@@ -91,9 +91,8 @@
 				</div>
 			</div> <!-- Cierre de fila de videos -->
 		</div> <!-- Cierre de fila de publicaciones y videos -->
-			<div id="filete">
-			</div>
-		<div id="revs" class="col-md-3"> <!-- Fila de revistas -->
+
+		<div class="col-md-3"> <!-- Fila de revistas -->
 			<div class="titulo-fila">
 				<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
 			</div>
@@ -114,7 +113,7 @@
 		</div> <!-- Cierre de fila de revistas -->
 	</div> <!-- Cierre de fila de publicaciones, videos y revistas -->
 
-	<div class="row" id="fila_> <!-- Fila de otros sitios -->
+	<div class="row" id="fila_sitios"> <!-- Fila de otros sitios -->
 		<div class="col-md-3 col-xs-6">
 
 		</div>

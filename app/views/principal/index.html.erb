@@ -91,9 +91,8 @@
 				</div>
 			</div> <!-- Cierre de fila de videos -->
 		</div> <!-- Cierre de fila de publicaciones y videos -->
-			<div id="filete">
-			</div>
-		<div id="revs" class="col-md-3"> <!-- Fila de revistas -->
+
+		<div class="col-md-3"> <!-- Fila de revistas -->
 			<div class="titulo-fila">
 				<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
 			</div>
@@ -188,13 +187,8 @@ $(document).ready(function(){
 					setTimeout(function(){
 						$(".iframe-slick").height($(".iframe-slick").width() * 9/16);
 					}, 100);
-					setTimeout(function(){
-						$("#filete").height($("#filete").parent().height() * 0.9);
-						$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
-					}, 150);
 				});
-		$("#filete").height($("#filete").parent().height() * 0.9);
-		$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
+
 			}, 100);
 		}
 	});
