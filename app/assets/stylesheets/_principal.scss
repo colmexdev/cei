@@ -2299,8 +2299,18 @@ a.numeros:hover, a.numeros:active{
 		.sitios-img{
 			width: 25%;
 			flex-wrap: wrap;
-		  justify-content: center;
+		  justify-content: space-around;
 		  align-items: center;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: flex;
+			padding: 0 20px;
+		}
+
+		@media only screen and (max-width: 992px){
+			.sitios-img { width: 50%; }
 		}
 	}
 }
