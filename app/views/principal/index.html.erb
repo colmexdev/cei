@@ -176,16 +176,13 @@ $(document).ready(function(){
 						$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
 					}, 100);
 				});
+		$("#filete").height($("#filete").parent().height() * 0.9);
+		$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
 			}, 100);
 		}
 	});
 
 	$("#pubs-slick").slick({'slidesToShow': 3, 'slidesToScroll': 1, 'dots': true, 'dotsClass': 'puntos-carrusel'});
-
-	setTimeout(function(){
-		$("#filete").height($("#filete").parent().height() * 0.9);
-		$("#filete").css({"margin-top": ($("#filete").parent().height() * 0.05) + "px"});
-	}, 100);
 });
 </script>
 
