@@ -2172,6 +2172,10 @@ a.numeros:hover, a.numeros:active{
   border-left: none;
 }
 
+@media only screen and (max-width: 992px){
+	#col-borde { border-left: none; }
+}
+
 .carrusel-slick{
 	width: 85%;
 	margin: 0 auto 30px;

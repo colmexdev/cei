@@ -2282,3 +2282,13 @@ a.numeros:hover, a.numeros:active{
 	border-color: #842A41;
 	background-color: #B03856;
 }
+
+#fila_sitios{
+	background-color: #E5E5E5;
+
+	.container-fluid{
+		max-width: 1800px;
+		width: 95%;
+		margin: 30px auto;
+	}
+}
