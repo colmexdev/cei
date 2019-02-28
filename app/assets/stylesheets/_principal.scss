@@ -2289,13 +2289,16 @@ a.numeros:hover, a.numeros:active{
 	.container-fluid{
 		max-width: 1800px;
 		width: 95%;
-		margin: 30px auto;
+		margin: 50px auto;
+		display: -webkit-flex;
+		display: flex;
 	
 		div[class^="col-"]{
-			text-align: center;
-  		display: flex;
-  		display: -webkit-flex;
-  		flex-wrap: wrap;
+			display: -webkit-flex;
+		  display: flex;
+		  flex-wrap: wrap;
+		  align-items: center;
+		  justify-content: center;
 		}
 	}
 }
