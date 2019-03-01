@@ -27,7 +27,7 @@
 <% if false %>
 						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => "principal", :action => "proximamente", :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
 <% end %>
-						<li class="nav_opciones" id="logo-main"><a href="<%= root_path(params: {locale: params[:locale] || 'es'}) %>"><%= image_tag("colmex.png") %></a></li>
+						<li class="nav_opciones" id="logo-main"><a href="<%= root_path(params: {locale: params[:locale] || 'es'}) %>"><%= image_tag("cei.png") %></a></li>
 						<li class="nav_opciones mail"><a href="http://portal.office.com" target="_blank"><img src="/img/mail-cei.svg"><span class="borrable"><%= t('navbar.mail') %></span></a></li>
 						<li class="nav_opciones intranet"><a href="http://intranet.colmex.mx/" target="_blank"><img src="/img/intranet-cei.svg"><span class="borrable"><%= t('navbar.intranet') %></span></a></li>
 						
@@ -119,7 +119,7 @@
 		</nav>
 	</div> <!-- Cierre de div row barra nav -->
 
-	<div class="row"> <!-- Fila para logo -->
+	<div class="row" style="display:flex;"> <!-- Fila para logo -->
 		<div class="col-xs-6 div_logo" id="h_logo_l"> <!-- Columnas para logo -->	
 			<a href="https://www.colmex.mx/">
 				<img src="/img/logo-colmex-color.svg" class="img_logo">
