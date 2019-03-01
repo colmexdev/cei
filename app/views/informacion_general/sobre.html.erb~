@@ -4,7 +4,7 @@
 <div class="uk-width-1-1 principal-chica uk-block-large">
     <div class="uk-grid uk-grid-small">
     <div class="uk-width-large-1-2 uk-text-center-small uk-text-center-medium uk-text-left">
-		<img src="/img/cei.png" alt="Sobre el colegio">
+		<iframe id="vid-sobre" src="https://www.youtube.com/embed/Ksb4PkIJRgY"></iframe>
     <p>&nbsp;</p>
     <!--          Aquí empieza el menú pequeño          -->
     <div class="uk-hidden-medium uk-hidden-small">
@@ -34,5 +34,9 @@
     </div>
 
 
-
+<script>
+$(document).ready(function(){
+	$("#vid-sobre").height($("#vid-sobre").width() * 9 / 16);
+});
+</script>
 <%= render 'principal/footer' %>
