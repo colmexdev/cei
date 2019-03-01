@@ -114,22 +114,19 @@
 	</div> <!-- Cierre de fila de publicaciones, videos y revistas -->
 
 	<div class="row" id="fila_sitios"> <!-- Fila de otros sitios -->
-		<div class="container-fluid">
-			<div class="col-md-6 col-xs-12">
-				<div class="img-sitio">
-					<img src="/img/publicaciones.png">
-				</div>
-				<div class="img-sitio">
-					<img src="/img/revistas.png">
-				</div>
+		<div class="sitios-cont">
+			<div class="sitios-img">
+				<img src="/img/publicaciones.png">
 			</div>
-			<div class="col-md-6 col-xs-12">
-				<div class="img-sitio">
-					<img src="/img/coed.png">
-				</div>
-				<div class="img-sitio">
-					<img src="/img/oia.png">
-				</div>
+			<div class="sitios-img">
+				<img src="/img/revistas.png">
+			</div>
+			<div class="sitios-img">
+				<img src="/img/coed.png">
+			</div>
+			<div class="sitios-img">
+				<img src="/img/oia.png">
+			</div>
 		</div>
 	</div>
 

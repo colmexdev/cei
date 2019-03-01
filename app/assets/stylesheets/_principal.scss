@@ -2235,6 +2235,9 @@ a.numeros:hover, a.numeros:active{
 
 .vid-cont-slick { text-align: center; }
 
+@media only screen and (max-width: 992px){
+	#col-revs { margin-bottom: 45px; }
+}
 
 .boton-sec{
 	cursor: pointer;
@@ -2282,6 +2285,8 @@ a.numeros:hover, a.numeros:active{
 	border-color: #842A41;
 	background-color: #B03856;
 }
+
+/* Estilos de la sección de otros sitios */
 
 #fila_sitios{
 	background-color: #E5E5E5;
