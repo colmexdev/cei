@@ -92,7 +92,7 @@
 			</div> <!-- Cierre de fila de videos -->
 		</div> <!-- Cierre de fila de publicaciones y videos -->
 
-		<div class="col-md-3"> <!-- Fila de revistas -->
+		<div class="col-md-3" id="col-revs"> <!-- Fila de revistas -->
 			<div class="titulo-fila">
 				<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
 			</div>
