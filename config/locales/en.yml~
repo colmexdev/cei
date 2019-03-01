@@ -62,3 +62,8 @@ en:
       revs_t: "Magazines"
       pubs_b: "View all publications"
       vids_b: "View all videos"
+      info: "More info"
+  informacion_general:
+    sobre:
+      sobre: "About"
+      cei: "Center of International Relations (CEI)"
