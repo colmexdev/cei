@@ -1,6 +1,38 @@
 <% @title = "Sobre el CEI - " %>
 <%= render 'principal/header' %>
 
+<div class="uk-width-1-1 principal-chica">
+    <div class="uk-grid uk-grid-small">
+    <div class="uk-width-large-3-5 uk-text-center-small uk-text-center-medium uk-text-left">
+		<img src="/assets/fotos/6/original/sobre-el-colegio.jpg?1506967553" alt="Sobre el colegio">
+    <p>&nbsp;</p>
+    <!--          Aquí empieza el menú pequeño          -->
+    <div class="uk-hidden-medium uk-hidden-small">
+    <ul class="lista-links" style="text-align:left;">
+<li><a href="https://www.colmex.mx/es/centros" class="link-sobre"><img class="leave_img" src="/assets/bt-flechita-1d53f4b390ef9bfe3c36955ba8d7ee5e3b9875e88e9942e6f8ee3bceec96ee8c.png" alt="Bt flechita"><img class="hover_img" src="/assets/bt-flechita-hover-06368fecce88b09a71c907973fd263b9d7396bdf8516d5581293e8f28fc64d03.png" alt="Bt flechita hover">Centros de Estudios</a></li>
+					<li><a target="_blank" href="http://libros.colmex.mx/" class="link-sobre"><img class="leave_img" src="/assets/bt-flechita-1d53f4b390ef9bfe3c36955ba8d7ee5e3b9875e88e9942e6f8ee3bceec96ee8c.png" alt="Bt flechita"><img class="hover_img" src="/assets/bt-flechita-hover-06368fecce88b09a71c907973fd263b9d7396bdf8516d5581293e8f28fc64d03.png" alt="Bt flechita hover">Publicaciones</a></li>
+					<li><a target="_blank" href="http://revistas.colmex.mx/" class="link-sobre"><img class="leave_img" src="/assets/bt-flechita-1d53f4b390ef9bfe3c36955ba8d7ee5e3b9875e88e9942e6f8ee3bceec96ee8c.png" alt="Bt flechita"><img class="hover_img" src="/assets/bt-flechita-hover-06368fecce88b09a71c907973fd263b9d7396bdf8516d5581293e8f28fc64d03.png" alt="Bt flechita hover">Revistas</a></li>
+					<li><a target="_blank" href="http://digital.colmex.mx/" class="link-sobre"><img class="leave_img" src="/assets/bt-flechita-1d53f4b390ef9bfe3c36955ba8d7ee5e3b9875e88e9942e6f8ee3bceec96ee8c.png" alt="Bt flechita"><img class="hover_img" src="/assets/bt-flechita-hover-06368fecce88b09a71c907973fd263b9d7396bdf8516d5581293e8f28fc64d03.png" alt="Bt flechita hover">Programa de Educación Digital</a></li>
+					<li><a target="_blank" href="/assets/pdfs/colmex_brochure-2_85.pdf?1541702057" class="link-sobre"><img class="leave_img" src="/assets/bt-flechita-1d53f4b390ef9bfe3c36955ba8d7ee5e3b9875e88e9942e6f8ee3bceec96ee8c.png" alt="Bt flechita"><img class="hover_img" src="/assets/bt-flechita-hover-06368fecce88b09a71c907973fd263b9d7396bdf8516d5581293e8f28fc64d03.png" alt="Bt flechita hover">Folleto institucional</a></li>
+    </ul>
+    </div>
+    <!--          Aquí termina el menú pequeño          -->
+    </div>
+    <div class="uk-width-large-2-5">
+
+		   <span class="titulo-chico">Sobre</span><br>
+    	<span class="titulo-grande">El Colegio de México</span><br>
+
+
+			<p>El Colegio de México es una institución pública, de carácter universitario, dedicada a la investigación y a la enseñanza superior en ciencias sociales y humanidades, y es una de las más destacadas en el mundo hispánico, por lo cual ha recibido numerosos reconocimientos desde su fundación en 1940 hasta el presente.</p><p>Para cumplir con sus fines, El Colegio de México lleva a cabo investigaciones y docencia en las áreas de la especialidad de los Centros de Estudios que lo integran: Históricos, Lingüísticos y Literarios, Internacionales, de Asia y África, Económicos, Demográficos Urbanos y Ambientales, y Sociológicos, además del Programa de Estudios de Género. Ofrece licenciaturas, maestrías y doctorados por especialidad, así como cursos de especialización y de verano.</p><p>El Colegio cuenta con una gran biblioteca, abierta al público, especializada en ciencias sociales y humanidades. Su acervo está constituido por más de 700,000 volúmenes y cuenta con una enorme cantidad de recursos electrónicos y digitales. Asimismo, la institución cuenta con las siguientes unidades de apoyo y servicio: Dirección de Publicaciones, Programa de Educación Digital y Coordinación de Servicios de Cómputo.</p><p>De las aulas de El Colegio han salido varios millares de egresados que se han destacado en la investigación, la docencia, la función pública y otros campos de actividad profesional en México y en numerosos países del mundo.</p>
+	
+
+
+    <p>&nbsp;</p>
+    </div>
+    </div>
+    </div>
+
 
 
 <%= render 'principal/footer' %>
