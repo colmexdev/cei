@@ -2297,7 +2297,7 @@ a.numeros:hover, a.numeros:active{
 		display: flex;
 	
 		.sitios-img{
-			width: 25%;
+			flex-basis: 25%;
 			flex-wrap: wrap;
 		  justify-content: space-around;
 		  align-items: center;
@@ -2310,7 +2310,11 @@ a.numeros:hover, a.numeros:active{
 		}
 
 		@media only screen and (max-width: 992px){
-			.sitios-img { width: 50%; }
+			.sitios-img { 
+				flex-basis: 50%;
+				
+				img { max-width: 195px; }
+			}
 		}
 	}
 }
