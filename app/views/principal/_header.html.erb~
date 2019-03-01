@@ -126,7 +126,7 @@
 			</a>	
 		</div> <!--Cierre de div columnas para logo -->
 		<div class="col-xs-6 div_logo" id="h_logo_r"> <!-- Columnas para logo -->	
-			<a href="<%= root_path %>">
+			<a href="<%= main_path %>">
 				<img src="/img/logo-cei-color.svg" class="img_logo">
 			</a>
 		</div> <!--Cierre de div columnas para logo -->

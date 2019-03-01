@@ -1,0 +1,6 @@
+<% @title = "Sobre el CEI - " %>
+<%= render 'principal/header' %>
+
+
+
+<%= render 'principal/footer' %>

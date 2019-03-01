@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   scope "(:locale)", locale: /(en)|(es)/ do
-
+    get "sobre" => "informacion_general#sobre", :as => :sobre
   end
 
   get "/:locale" => "principal#index", :as => :main
