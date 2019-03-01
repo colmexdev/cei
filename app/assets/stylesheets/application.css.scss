@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *
- *= require uikit
  */
 
 @import "bootstrap-sprockets";
@@ -19,6 +18,9 @@
 @import 'bootstrap/glyphicons';
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "uikit/variables-theme.scss";
+@import "uikit/mixins-theme.scss";
+@import "uikit/uikit-theme.scss";
 @import 'slick';
 @import 'slick-theme';
 @import "principal";
