@@ -2295,10 +2295,14 @@ a.numeros:hover, a.numeros:active{
 		display: -moz-box;
 		display: -ms-flexbox;
 		display: flex;
+		-webkit-flex-wrap: wrap;
+		-moz-flex-wrap: wrap
+		flex-wrap: wrap;
 	
 		.sitios-img{
+			-webkit-flex-basis: 25%;
+			-moz-flex-basis: 25%;
 			flex-basis: 25%;
-			flex-wrap: wrap;
 		  justify-content: space-around;
 		  align-items: center;
 			display: -webkit-box;
@@ -2311,6 +2315,8 @@ a.numeros:hover, a.numeros:active{
 
 		@media only screen and (max-width: 992px){
 			.sitios-img { 
+				-webkit-flex-basis: 50%;
+				-moz-flex-basis: 50%;
 				flex-basis: 50%;
 				
 				img { max-width: 195px; }
