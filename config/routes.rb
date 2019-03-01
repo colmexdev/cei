@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get "/" => "principal#index", :as => :main_es
+  get '/es' => 'principal#index', :as => :main_es
+  get "/en" => 'principal#index', :as => :main_en
+  get "/" => "principal#index", :as => :main
 
   scope "(:locale)", locale: /(en)|(es)/ do
 
   end
 
-  get '/:locale' => 'principal#index', :as => :main
   # You can have the root of your site routed with "root"
   root 'principal#index'
 
