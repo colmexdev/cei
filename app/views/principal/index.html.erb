@@ -141,6 +141,10 @@ $(document).ready(function(){
 	$.ajax({
 		url: "https://www.colmex.mx/catalogo_eventos?centro=cei&crono=true&ordercrono=asc",
 		success: function(result){
+			if(result["videos"].length == 0){
+				$("#div_eventos").remove();
+				return false;
+			}
 			var ancho = Math.max(document.documentElement.clientWidth, window.innerWidth || document.body.ClientWidth || 0);
 			var evento, f_i, div_event, eventos = [], dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"], meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 			for(var i = 0; i < result["videos"].length; i++){
