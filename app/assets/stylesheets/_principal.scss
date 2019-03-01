@@ -2289,7 +2289,7 @@ a.numeros:hover, a.numeros:active{
 	.sitios-cont{
 		max-width: 1800px;
 		width: 95%;
-		margin: 50px auto;
+		margin: 20px auto;
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -moz-box;
@@ -2298,28 +2298,40 @@ a.numeros:hover, a.numeros:active{
 		-webkit-flex-wrap: wrap;
 		-moz-flex-wrap: wrap;
 		flex-wrap: wrap;
+		-webkit-justify-content: center;
+		-moz-justify-content: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		-moz-align-items: center;
+		align-items: center;
 	
 		.sitios-img{
 			-webkit-flex-basis: 25%;
 			-moz-flex-basis: 25%;
 			flex-basis: 25%;
-		  justify-content: space-around;
-		  align-items: center;
+			-webkit-justify-content: center;
+			-moz-justify-content: center;
+			justify-content: center;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+			align-items: center;
 			display: -webkit-box;
 			display: -webkit-flex;
 			display: -moz-box;
 			display: -ms-flexbox;
 			display: flex;
 			padding: 0 20px;
+			margin: 20px 0;
 		}
 
-		@media only screen and (max-width: 992px){
+		@media only screen and (max-width: 768px){
 			.sitios-img { 
 				-webkit-flex-basis: 50%;
 				-moz-flex-basis: 50%;
 				flex-basis: 50%;
+				padding: 0 25px;
 				
-				img { max-width: 195px; }
+				img { max-width: 175px; }
 			}
 		}
 	}
