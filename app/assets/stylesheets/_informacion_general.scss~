@@ -20,14 +20,9 @@
 	stroke: #CC4E78;
 	stroke-miterlimit: 10;
 	stroke-width: 2px;
-	-webkit-transition: all 0.3s linear;
-	-moz-transition: all 0.3s linear;
-	-ms-transition: all 0.3s linear;
-	-o-transition: all 0.3s linear;
-	transition: all 0.3s linear;
 }
 
-.cls-1:hover, .cls-1:focus{
+#flecha-menu:hover .cls-1, #flecha-menu:focus .cls-1{
 	stroke: #A02A4C;
 }
 
