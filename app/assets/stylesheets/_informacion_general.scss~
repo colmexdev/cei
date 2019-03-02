@@ -14,3 +14,15 @@
 		margin: 0 0 5px 0;
 	}
 }
+
+.cls-1{
+	fill: none;
+	stroke: #CC4E78;
+	stroke-miterlimit: 10;
+	stroke-width: 2px;
+}
+
+.cls-1:hover, .cls-1:focus{
+	stroke: #A02A4C;
+}
+
