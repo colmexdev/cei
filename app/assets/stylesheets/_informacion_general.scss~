@@ -16,8 +16,8 @@
 }
 
 .icon-flecha{
-	height: 34px;
-	width: 34px;
+	height: 37px;
+	width: 37px;
 }
 
 use.flecha-menu{
