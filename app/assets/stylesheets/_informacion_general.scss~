@@ -31,9 +31,6 @@ use.flecha-menu{
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
 }
-.icon-flecha:hover use.flecha-menu, .icon-flecha:hover use.flecha-menu{
-	stroke: #A02A4C;
-}
 
 svg path{
 	all: inherit;
@@ -43,11 +40,20 @@ svg path{
 	color: #4E4E4E;
 	font-size: 15px;
 	font-weight: 700;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 
-	.leave_img {display: inline; padding: 0 10px;}
-	.hover_img { display: none; }
+
 }
 
 .link-sobre:hover, .link-sobre:active, .link-sobre:focus{
 	color: #7E3355; 
+
+	.icon-flecha use.flecha-menu{
+		stroke: #A02A4C;
+	}
+}
 }
