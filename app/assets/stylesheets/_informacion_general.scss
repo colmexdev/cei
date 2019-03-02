@@ -16,8 +16,8 @@
 }
 
 .icon-flecha{
-	height: 34px;
-	width:34px;
+	height: 37px;
+	width: 37px;
 }
 
 use.flecha-menu{
@@ -25,6 +25,11 @@ use.flecha-menu{
 	stroke: #CC4E78;
 	stroke-miterlimit: 10;
 	stroke-width: 2px;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
 use.flecha-menu:hover, use.flecha-menu:focus{
 	stroke: #A02A4C;
