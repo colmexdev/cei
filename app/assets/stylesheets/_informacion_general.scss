@@ -27,7 +27,9 @@
 	transition: all 0.3s linear;
 }
 
-.cls-1:hover, .cls-1:focus{
-	stroke: #A02A4C;
+#flecha-menu:hover, #flecha-menu:focus{
+	.cls-1{
+		stroke: #A02A4C;
+	}
 }
 
