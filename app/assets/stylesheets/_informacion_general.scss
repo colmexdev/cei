@@ -5,3 +5,13 @@
 	margin: 0 auto;
 	width: 92%;
 }
+
+.lista-links { 
+	list-style-type: none; 
+	padding-left: 120px; 
+	
+	>li{
+		margin: 0 0 5px 0;
+	}
+}
+
