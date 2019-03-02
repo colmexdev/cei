@@ -36,5 +36,18 @@ use.flecha-menu{
 }
 
 svg path{
-	stroke: inherit;
+	all: inherit;
+}
+
+.link-sobre{
+	color: #4E4E4E;
+	font-size: 15px;
+	font-weight: 700;
+
+	.leave_img {display: inline; padding: 0 10px;}
+	.hover_img { display: none; }
+}
+
+.link-sobre:hover, .link-sobre:active, .link-sobre:focus{
+	color: #7E3355; 
 }

@@ -31,7 +31,7 @@ use.flecha-menu{
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
 }
-use.flecha-menu:hover, use.flecha-menu:focus{
+.icon-flecha:hover use.flecha-menu, .icon-flecha:hover use.flecha-menu{
 	stroke: #A02A4C;
 }
 
