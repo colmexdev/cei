@@ -15,3 +15,21 @@
 	}
 }
 
+.icon-flecha{
+	height: 34px;
+	width:34px;
+
+	use.cls-1{
+		fill: none;
+		stroke: #CC4E78;
+		stroke-miterlimit: 10;
+		stroke-width: 2px;
+	}
+	use.cls-1:hover, use.cls-1:focus{
+		stroke: #A02A4C;
+	}
+}
+
+svg path{
+	stroke: inherit;
+}

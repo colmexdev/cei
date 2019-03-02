@@ -15,14 +15,3 @@
 	}
 }
 
-.cls-1{
-	fill: none;
-	stroke: #CC4E78;
-	stroke-miterlimit: 10;
-	stroke-width: 2px;
-}
-
-#flecha-menu:hover .cls-1, #flecha-menu:focus .cls-1{
-	stroke: #A02A4C;
-}
-
