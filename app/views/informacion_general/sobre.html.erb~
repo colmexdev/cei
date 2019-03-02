@@ -9,7 +9,7 @@
     <!--          Aquí empieza el menú pequeño          -->
     <div class="uk-hidden-medium uk-hidden-small">
     <ul class="lista-links" style="text-align:left;">
-<li><a href="https://www.colmex.mx/es/centros" class="link-sobre"><svg viewBox="0 0 34 34" class="icon shape-codepen"><use xlink:href="#flecha-menu"></use></svg>Centros de Estudios</a></li>
+<li><a href="https://www.colmex.mx/es/centros" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use xlink:href="#flecha-menu"></use></svg>Centros de Estudios</a></li>
 					<li><a target="_blank" href="http://libros.colmex.mx/" class="link-sobre"><object type="image/svg+xml" data="/img/boton-flecha-normal.svg" class="flecha-menu"></object>Publicaciones</a></li>
 					<li><a target="_blank" href="http://revistas.colmex.mx/" class="link-sobre"><object type="image/svg+xml" data="/img/boton-flecha-normal.svg" class="flecha-menu"></object>Revistas</a></li>
 					<li><a target="_blank" href="http://digital.colmex.mx/" class="link-sobre"><object type="image/svg+xml" data="/img/boton-flecha-normal.svg" class="flecha-menu"></object>Programa de Educación Digital</a></li>
