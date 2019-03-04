@@ -98,5 +98,7 @@ svg path{
 		-webkit-flex-basis: 15%;
 		-moz-flex-basis: 15%;
 		flex-basis: 15%;
+
+		img { height: 100%; width: auto; }
 	}
 }
