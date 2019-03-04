@@ -46,3 +46,10 @@ es:
     sobre:
       sobre: "Sobre el"
       cei: "Centro de Estudios Internacionales"
+      op1: "Licenciaturas"
+      op2: "Maestría"
+      op3: "Revistas"
+      op4: "Proyectos de investigación"
+      op5: "Convocatorias abiertas"
+    contacto:
+      contacto: "Contacto"

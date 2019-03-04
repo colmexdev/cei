@@ -1,0 +1,33 @@
+<% @title = 'Contacto - ' %>
+<%= render 'principal/header' %>
+
+
+<div class="uk-width-1-1 principal-chica uk-block-large">
+    <div class="uk-grid uk-grid-small">
+    <div class="uk-width-large-3-5 uk-text-center-small uk-text-center-medium uk-text-left">
+    	<span class="titulo-grande texto-sub"><%= t('.contacto') %></span><br>
+    </div>
+    <div class="uk-width-large-1-2">
+
+
+			<p>El Colegio de México es una institución pública, de carácter universitario, dedicada a la investigación y a la enseñanza superior en ciencias sociales y humanidades, y es una de las más destacadas en el mundo hispánico, por lo cual ha recibido numerosos reconocimientos desde su fundación en 1940 hasta el presente.</p><p>Para cumplir con sus fines, El Colegio de México lleva a cabo investigaciones y docencia en las áreas de la especialidad de los Centros de Estudios que lo integran: Históricos, Lingüísticos y Literarios, Internacionales, de Asia y África, Económicos, Demográficos Urbanos y Ambientales, y Sociológicos, además del Programa de Estudios de Género. Ofrece licenciaturas, maestrías y doctorados por especialidad, así como cursos de especialización y de verano.</p><p>El Colegio cuenta con una gran biblioteca, abierta al público, especializada en ciencias sociales y humanidades. Su acervo está constituido por más de 700,000 volúmenes y cuenta con una enorme cantidad de recursos electrónicos y digitales. Asimismo, la institución cuenta con las siguientes unidades de apoyo y servicio: Dirección de Publicaciones, Programa de Educación Digital y Coordinación de Servicios de Cómputo.</p><p>De las aulas de El Colegio han salido varios millares de egresados que se han destacado en la investigación, la docencia, la función pública y otros campos de actividad profesional en México y en numerosos países del mundo.</p>
+	
+
+
+    <p>&nbsp;</p>
+    </div>
+    </div>
+    </div>
+
+
+<script>
+$(document).ready(function(){
+	$(window).resize(function(){
+		$("#vid-sobre").height($("#vid-sobre").width() * 9 / 16);
+	});
+
+	$(window).trigger("resize");
+});
+</script>
+
+<%= render 'principal/footer' %>
