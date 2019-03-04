@@ -74,4 +74,4 @@ en:
       op5: "Open applications"
     contacto:
       contacto: "Contact"
-      previo_html: "If you want to contact the Academic Center, send an e-mail to <a href=\"mailto:direccion.cei@colmex.mx\">direccion.cei@colmex.mx</a> or fill in the following form:"
+      previo_html: <p>If you want to contact the Academic Center, send an e-mail to <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> or fill in the following form:</p>
