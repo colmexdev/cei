@@ -11,8 +11,8 @@
 		<%= form_tag('/contacto', {id: "form-contacto"}) do %>
 			<%= text_field_tag :nombre, nil, placeholder: t('.nombre'), autocomplete: "off" %><br>
 			<%= text_field_tag :correo, nil, placeholder: t('.correo'), autocomplete: "off" %><br>
-			<%= text_area_tag :cuerpo, nil, placeholder: t('.cuerpo'), autocomplete: "off" %><br>
-			<%= submit_tag t('.submit') %> <%= t('.nota') %><br>
+			<%= text_area_tag :cuerpo, nil, placeholder: t('.cuerpo'), autocomplete: "off", maxlength: "300" %><br>
+			<%= submit_tag t('.submit'), class: 'boton-info' %> <%= t('.nota') %><br>
 		<% end %>
 
 	  </div>
