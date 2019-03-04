@@ -118,7 +118,7 @@ svg path{
 		width: 100%;
 	}
 
-	textarea{ resize: none; }
+	textarea{ resize: none; height: 10em; }
 
-	submit { width: auto; padding: 10px 15px; }
+	input[type=submit] { width: auto; padding: 10px 15px; }
 }

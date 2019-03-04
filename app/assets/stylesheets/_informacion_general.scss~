@@ -120,5 +120,5 @@ svg path{
 
 	textarea{ resize: none; }
 
-	submit { width: auto; padding: 10px 15px;
+	submit { width: auto; padding: 10px 15px; }
 }
