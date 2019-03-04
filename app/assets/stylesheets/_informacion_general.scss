@@ -106,7 +106,7 @@ svg path{
 #form-contacto{
 	margin-top: 20px;
 
-	input[type=text]{
+	input[type=text], textarea{
 		border-radius: 8px;
     border-color: #B03856;
     border-style: solid;
@@ -115,5 +115,8 @@ svg path{
     font-size: 15px;
     margin-bottom: 20px;
     box-shadow: 0px 0px 6px 0px #B03856;
+		width: 100%;
 	}
+
+	textarea{ resize: none; }
 }

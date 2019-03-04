@@ -104,6 +104,8 @@ svg path{
 }
 
 #form-contacto{
+	margin-top: 20px;
+
 	input[type=text]{
 		border-radius: 8px;
     border-color: #B03856;
