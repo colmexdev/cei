@@ -1,4 +1,5 @@
 es:
+  previo_html: <p>Si deseas contactar al Centro, envía un correo a <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> o llena los campos a continuación:</p>
   navbar:
     mail: "Correo electrónico"
   principal:
@@ -53,4 +54,3 @@ es:
       op5: "Convocatorias abiertas"
     contacto:
       contacto: "Contacto"
-      previo_html: "Si deseas contactar al Centro, envía un correo a <a href=\"mailto:direccion.cei@colmex.mx\">direccion.cei@colmex.mx</a> o llena los campos a continuación:"
