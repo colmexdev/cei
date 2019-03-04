@@ -9,10 +9,10 @@
 			<%= t('.previo_html') %>
 
 		<%= form_tag('/contacto') do %>
-			<%= text_field_tag :nombre, placeholder: t('.nombre') %>
-			<%= text_field_tag :correo, placeholder: t('.correo') %>
-			<%= text_area_tag :cuerpo, placeholder: t('.cuerpo') %>
-			<%= submit_tag t('.submit') %>
+			<%= text_field_tag :nombre, placeholder: t('.nombre') %><br>
+			<%= text_field_tag :correo, placeholder: t('.correo') %><br>
+			<%= text_area_tag :cuerpo, placeholder: t('.cuerpo') %><br>
+			<%= submit_tag t('.submit') %> <%= t('.nota') %><br>
 		<% end %>
 
 	  </div>
