@@ -8,7 +8,7 @@
 	  <div class="uk-width-3-5 uk-text-center-small uk-text-center-medium uk-text-left">
 			<%= t('.previo_html') %>
 
-		<%= form_tag('/contacto',{}, {id: "form-contacto"}) do %>
+		<%= form_tag('/contacto', {id: "form-contacto"}) do %>
 			<%= text_field_tag :nombre, nil, placeholder: t('.nombre'), autocomplete: "off" %><br>
 			<%= text_field_tag :correo, nil, placeholder: t('.correo'), autocomplete: "off" %><br>
 			<%= text_area_tag :cuerpo, nil, placeholder: t('.cuerpo'), autocomplete: "off" %><br>
