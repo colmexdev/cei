@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  previo_html: <p>If you want to contact the Academic Center, send an e-mail to <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> or fill in the following form:</p>
   navbar:
     mail: "E-mail"
   principal:
@@ -75,3 +74,4 @@ en:
       op5: "Open applications"
     contacto:
       contacto: "Contact"
+      previo_html: <p>If you want to contact the Academic Center, send an e-mail to <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> or fill in the following form:</p>

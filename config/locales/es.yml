@@ -54,3 +54,8 @@ es:
     contacto:
       contacto: "Contacto"
       previo_html: <p>Si deseas contactar al Centro, envía un correo a <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> o llena los campos a continuación:</p>
+      nombre: "Nombre"
+      correo: "Correo electrónico"
+      cuerpo: "Mensaje*"
+      submit: "Enviar"
+      nota: "* Máximo 300 caracteres"

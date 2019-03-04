@@ -4,16 +4,23 @@
 
 <div class="uk-width-1-1 principal-chica uk-block-large">
 	<span class="titulo-grande texto-sub"><%= t('.contacto') %></span><br>
-  <div class="uk-grid uk-grid-small">
+  <div class="uk-grid uk-grid-small uk-margin-large-top">
 	  <div class="uk-width-3-5 uk-text-center-small uk-text-center-medium uk-text-left">
 			<%= t('.previo_html') %>
+
+		<%= form_tag('/contacto') do %>
+			<%= text_field_tag :nombre, placeholder: t('.nombre') %>
+			<%= text_field_tag :correo, placeholder: t('.correo') %>
+			<%= text_area_tag :cuerpo, placeholder: t('.cuerpo') %>
+			<%= submit_tag t('.submit') %>
+		<% end %>
+
 	  </div>
 	  <div class="uk-width-2-5">
 			<div class="cont-redes-contacto">
 			<a class="link-red-contacto" target="_blank" href="https://www.facebook.com/ceicolmex/">
 				<img src="/img/fb-cei-color.svg">
 			</a>
-
 			<a class="link-red-contacto" target="_blank" href="https://twitter.com/CEIColmex">
 				<img src="/img/tw-cei-color.svg">
 			</a>
