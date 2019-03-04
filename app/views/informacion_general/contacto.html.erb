@@ -12,7 +12,8 @@
 			<%= text_field_tag :nombre, nil, placeholder: t('.nombre'), autocomplete: "off" %><br>
 			<%= text_field_tag :correo, nil, placeholder: t('.correo'), autocomplete: "off" %><br>
 			<%= text_area_tag :cuerpo, nil, placeholder: t('.cuerpo'), autocomplete: "off", maxlength: "300" %><br>
-			<%= submit_tag t('.submit'), class: 'boton-info' %> <%= t('.nota') %><br>
+			<p style="font-size:10px;text-align:right;margin-top:10px;margin-bottom:10px;padding-right:15px;width:100%;"><%= t('.nota') %></p>
+			<%= submit_tag t('.submit'), class: 'boton-info' %>
 		<% end %>
 
 	  </div>
