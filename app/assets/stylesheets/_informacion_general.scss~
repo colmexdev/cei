@@ -60,3 +60,43 @@ svg path{
 .texto-sub{
 	text-decoration: underline solid #B03856;
 }
+
+/* Estilos para la sección "Contacto" */
+.cont-redes-contacto{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 40px;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	align-items: center;
+
+	.link-red-contacto{
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		height: 100%;
+		-webkit-justify-content: center;
+		-moz-justify-content: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		-moz-align-items: center;
+		align-items: center;
+		-webkit-flex-grow: 0;
+		-moz-flex-grow: 0;
+		flex-grow: 0;
+		-webkit-flex-shrink: 1;
+		-moz-flex-shrink: 1;
+		flex-shrink: 1;
+		-webkit-flex-basis: 15%;
+		-moz-flex-basis: 15%;
+		flex-basis: 15%;
+	}
+}
