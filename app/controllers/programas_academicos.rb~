@@ -1,0 +1,9 @@
+class ProgramasAcademicosController < ApplicationController
+
+  def pap
+    respond_to do |format|
+      format.html render 'programas'
+    end
+  end
+
+end

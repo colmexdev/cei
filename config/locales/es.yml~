@@ -59,3 +59,7 @@ es:
       cuerpo: "Mensaje*"
       submit: "Enviar"
       nota: "* Máximo 300 caracteres"
+      faq: "Preguntas frecuentes"
+    pap:
+      lic: "Licenciatura en"
+      pap: "Política y Administración Pública"

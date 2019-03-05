@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /(en)|(es)/ do
     get "sobre" => "informacion_general#sobre", :as => :sobre
+    get "contacto" => "informacion_general#contacto", :as => :contacto
+    get "politica-administracion-publica" => "programas_academicos#pap", :as => :pap
   end
 
   get "/:locale" => "principal#index", :as => :main

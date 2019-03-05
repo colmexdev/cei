@@ -132,3 +132,9 @@ svg path{
 		width: 100%;
 	}
 }
+
+.faqs{
+	margin-top: 80px;
+
+	.titulo-grande { margin-bottom: 45px; }
+}

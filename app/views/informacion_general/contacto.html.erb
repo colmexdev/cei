@@ -1,6 +1,5 @@
-<% @title = 'Contacto - ' %>
+<% @title = (params[:locale] == "es" ? 'Contacto' : 'Contact') + ' - ' %>
 <%= render 'principal/header' %>
-
 
 <div class="uk-width-1-1 principal-chica uk-block-large">
 	<span class="titulo-grande texto-sub"><%= t('.contacto') %></span><br>

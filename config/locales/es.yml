@@ -60,3 +60,9 @@ es:
       submit: "Enviar"
       nota: "* Máximo 300 caracteres"
       faq: "Preguntas frecuentes"
+    programas:
+      lic: "Licenciatura en"
+      mt: "Maestría en"
+      pap: "Política y Administración Pública"
+      ri: "Relaciones Internacionales"
+      cp: "Ciencia Política"

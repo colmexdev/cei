@@ -1,4 +1,4 @@
-<% @title = "Sobre el CEI - " %>
+<% @title = (params[:locale] == "es" ? "Sobre el CEI" : "About CEI") + " - " %>
 <%= render 'principal/header' %>
 
 <div class="uk-width-1-1 principal-chica uk-block-large">
