@@ -21,4 +21,5 @@
 
 #vid-img-programas{
 	text-align: center;
+	margin-bottom: 45px;
 }
