@@ -60,6 +60,7 @@ es:
       submit: "Enviar"
       nota: "* Máximo 300 caracteres"
       faq: "Preguntas frecuentes"
+  programas_academicos:
     programas:
       lic: "Licenciatura en"
       mt: "Maestría en"
