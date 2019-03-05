@@ -126,9 +126,15 @@ svg path{
 	#desc-form-contacto{
 		font-size: 10px;
 		text-align: right;
-		margin-top: -16px;
-		margin-bottom: 0;
+		margin-top: -22px;
+		margin-bottom: 8px;
 		padding-right: 15px;
 		width: 100%;
 	}
+}
+
+.faqs{
+	margin-top: 80px;
+
+	.titulo-grande { margin-bottom: 45px; }
 }

@@ -104,7 +104,7 @@ svg path{
 }
 
 #form-contacto{
-	margin-top: 20px;
+	margin-top: 55px;
 
 	input[type=text], textarea{
 		border-radius: 8px;
@@ -126,8 +126,8 @@ svg path{
 	#desc-form-contacto{
 		font-size: 10px;
 		text-align: right;
-		margin-top: -16px;
-		margin-bottom: 0;
+		margin-top: -22px;
+		margin-bottom: 8px;
 		padding-right: 15px;
 		width: 100%;
 	}
