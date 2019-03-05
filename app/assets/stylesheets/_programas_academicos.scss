@@ -27,3 +27,11 @@
 		width: 85%;
 	}
 }
+
+#texto-programas{
+	padding-left: 50px;
+}
+
+@media only screen and (max-width: 768px){
+	#texto-programa { margin-top: 45px; }
+}

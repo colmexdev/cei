@@ -91,3 +91,8 @@ en:
       cp: "Political Science"
       presentacion: "Program introduction"
       perfil: "Admission and egress profile"
+    cursos:
+      cursos: "Special courses"
+      verano: "Summer"
+      publicos: "Public"
+      moocs: "MOOCs"

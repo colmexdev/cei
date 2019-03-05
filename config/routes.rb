@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "politica-administracion-publica" => "programas_academicos#programas", :as => :pap
     get "relaciones-internacionales" => "programas_academicos#programas", :as => :ri
     get "ciencia-politica" => "programas_academicos#programas", :as => :cp
+    get 'cursos' => 'programas_academicos#cursos', :as => :cursos
   end
 
   get "/:locale" => "principal#index", :as => :main
