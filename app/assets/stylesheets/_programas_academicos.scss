@@ -1,0 +1,24 @@
+/* Estilos de la sección "Programas académicos" */
+/* Estilos de la subsección "Programas" */
+#menu-programas{
+  border-image: linear-gradient(to bottom, rgba(204,204,204,0), #ccc, rgba(204,240,204,0)) 1 100%;
+  border-width: 2px;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+
+	#lista-programas{
+		text-align: left;
+		width: 100%;
+		padding-left: 15px;
+	}
+}
+
+@media only screen and (max-width: 992px){
+	#menu-programas { border-left: none; }
+}
+
+#vid-img-programas{
+	text-align: center;
+}

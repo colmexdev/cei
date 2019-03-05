@@ -1,0 +1,11 @@
+/* Estilos de la sección "Programas académicos" */
+/* Estilos de la subsección "Programas" */
+#lista-programas{
+	text-align: left;
+	width: 100%;
+	padding-left: 15px;
+}
+
+#vid-aimg-programas{
+	text-align: center;
+}
