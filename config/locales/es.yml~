@@ -72,3 +72,6 @@ es:
       perfil: "Perfil de ingreso y egreso"
     cursos:
       cursos: "Cursos"
+      verano: "Verano"
+      publicos: "Públicos"
+      moocs: "MOOCs"

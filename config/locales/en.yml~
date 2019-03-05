@@ -93,3 +93,6 @@ en:
       perfil: "Admission and egress profile"
     cursos:
       cursos: "Special courses"
+      verano: "Summer"
+      publicos: "Public"
+      moocs: "MOOCs"
