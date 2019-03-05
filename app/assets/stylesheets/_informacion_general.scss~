@@ -121,4 +121,13 @@ svg path{
 	textarea{ resize: none; height: 10em; }
 
 	input[type=submit] { width: auto; padding: 10px 45px; }
+
+	#desc-form-contacto{
+		font-size: 10px;
+		text-align: right;
+		margin-top: -16px;
+		margin-bottom: 0;
+		padding-right: 15px;
+		width: 100%;
+	}
 }
