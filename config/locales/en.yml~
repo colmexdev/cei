@@ -81,3 +81,6 @@ en:
       submit: "Send"
       nota: "* 300 characters max"
       faq: "Frequently asked questions"
+    pap:
+      lic: "B.A. in"
+      pap: "Politics and Public Administration"

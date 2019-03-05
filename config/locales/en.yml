@@ -81,6 +81,10 @@ en:
       submit: "Send"
       nota: "* 300 characters max"
       faq: "Frequently asked questions"
-    pap:
+  programas_academicos:
+    programas:
       lic: "B.A. in"
+      mt: "Master in"
       pap: "Politics and Public Administration"
+      ri: "International Relations"
+      cp: "Political Science"
