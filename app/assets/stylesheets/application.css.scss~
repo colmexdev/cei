@@ -22,4 +22,4 @@
 @import 'slick';
 @import 'slick-theme';
 @import "principal";
-@import "sobre";
+@import "informacion_general";
