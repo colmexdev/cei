@@ -1,4 +1,4 @@
-<% @title = (params[:locale] == "es" ? "Licenciatura en Política y Administración Pública" : "B.A. in Politics and Public Administration") + " - ") %>
+<% @title = t("." + @grado) + t("." + @titulo) + " - ") %>
 <%= render 'principal/header' %>
 
 <div class="uk-width-1-1 principal-chica uk-block-large">
