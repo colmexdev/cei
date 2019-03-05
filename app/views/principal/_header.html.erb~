@@ -56,6 +56,7 @@
 							<li><a href="#"><%= t('.opcion3_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion4_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion5_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion6_b2') %></a></li>
 		        </ul>
 		    </li>
 
@@ -139,7 +140,7 @@
 		      <a class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b1') %></span></a>
 		        <ul class="dropdown-menu">
 							<li><a href="<%= sobre_path %>"><%= t('.opcion1_b1') %></a></li>
-							<li><a href="#"><%= t('.opcion2_b1') %></a></li>
+							<li><a href="<%= contacto_path %>"><%= t('.opcion2_b1') %></a></li>
 		        </ul>
 		    </li>
 
@@ -151,6 +152,7 @@
 							<li><a href="#"><%= t('.opcion3_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion4_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion5_b2') %></a></li>
+							<li><a href="#"><%= t('.opcion6_b2') %></a></li>
 		        </ul>
 		    </li>
 
@@ -186,7 +188,7 @@
 					<a href="#"><%= t('.texto_b1') %></a>
 					<ul class="uk-nav-sub">
 						<li><a href="<%= sobre_path %>" class="sublink"><%= t('.opcion1_b1') %></a></li>
-          	<li><a href="#" class="sublink"><%= t('.opcion2_b1') %></a></li>
+          	<li><a href="<%= contacto_path %>" class="sublink"><%= t('.opcion2_b1') %></a></li>
 					</ul>
 				</li>
 				<li class="uk-parent">
@@ -197,6 +199,7 @@
 						<li><a href="#" class="sublink"><%= t('.opcion3_b2') %></a></li>
           	<li><a href="#" class="sublink"><%= t('.opcion4_b2') %></a></li>
 						<li><a href="#" class="sublink"><%= t('.opcion5_b2') %></a></li>
+						<li><a href="#" class="sublink"><%= t('.opcion6_b2') %></a></li>
 					</ul>
 				</li>
 				<li class="uk-parent"><a href=#"><%= t('.boton3') %></a></li>
