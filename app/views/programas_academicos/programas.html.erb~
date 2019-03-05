@@ -29,7 +29,7 @@ $(document).ready(function(){
 		$("#vid-img-programas iframe").height($("#vid-img-programas iframe").width() * 9 / 16);
 	});
 
-	$(winow).trigger("resize");
+	$(window).trigger("resize");
 });
 </script>
 
