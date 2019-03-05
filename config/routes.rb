@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "relaciones-internacionales" => "programas_academicos#programas", :as => :ri
     get "ciencia-politica" => "programas_academicos#programas", :as => :cp
     get 'cursos' => 'programas_academicos#cursos', :as => :cursos
+    get 'convocatorias' => "programas_academicos#convocatorias", :as => :convocatorias
   end
 
   get "/:locale" => "principal#index", :as => :main

@@ -75,3 +75,6 @@ es:
       verano: "Verano"
       publicos: "Públicos"
       moocs: "MOOCs"
+      info: "Más información"
+    convocatorias:
+      convocatorias: "Convocatorias abiertas"

@@ -97,3 +97,6 @@ en:
       publicos: "Public"
       moocs: "MOOCs"
       info: "More info"
+    convocatorias:
+      convocatorias: "Open applications"
+      info: "Más información"

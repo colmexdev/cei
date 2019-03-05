@@ -96,3 +96,6 @@ en:
       verano: "Summer"
       publicos: "Public"
       moocs: "MOOCs"
+      info: "More info"
+    convocatorias:
+      convocatorias: "Open applications"

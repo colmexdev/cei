@@ -5,4 +5,7 @@ class ProgramasAcademicosController < ApplicationController
     @grado = (request.fullpath.include?("ciencia-politica") ? "mt" : "lic")
   end
 
+  def cursos
+  end
+
 end

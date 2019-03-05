@@ -76,3 +76,6 @@ es:
       publicos: "Públicos"
       moocs: "MOOCs"
       info: "Más información"
+    convocatorias:
+      convocatorias: "Convocatorias abiertas"
+      info: "Más información"
