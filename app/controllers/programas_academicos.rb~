@@ -1,8 +1,8 @@
 class ProgramasAcademicosController < ApplicationController
 
   def pap
-    @titulo = (current_page?(/\/((en)|(es)\/)?politica-administracion-publica/) ? "pap" : (current_page?(/\/((en)|(es)\/)?relaciones-internacionales/) ? "ri" : "cp"))
-    @grado = (current_page?(/\/((en)|(es)\/)?ciencia-politica/) ? "mt" : "lic")
+    @titulo = (request.fullpath.include?("politica-administracion-publica") ? "pap" : (request.fullpath.include?("relaciones-internacionales") ? "ri" : "cp"))
+    @grado = (request.fullpath.include?("ciencia-politica") ? "mt" : "lic")
     respond_to do |format|
       format.html render 'programas'
     end
