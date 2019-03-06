@@ -48,27 +48,8 @@ function clean(){
 			<div class="col-md-4 col-xs-12 filtro center" id="filtro-nombre">
 				<h3 style="display:inline-block;margin-right:8px;"><%= params[:locale] == "es" ? "Buscar por:" : "Search by" %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => (params[:locale] == "es" ? "Nombre" : "Name")) %>
 			</div>
-			<div class="col-md-4 col-xs-12 center" id="filtro-linea" style="padding-left:5px;">
-				<%= text_field_tag("linea", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => (params[:locale] == "es" ? "Tema y/o línea de investigación" : "Research topic")) %><br>
-				<% if false %>
-				<p style="font-size:12px;margin-top:0;text-align:left;">Los temas de investigación utilizan lenguaje libre.</p>
-				<% end %>
-			</div>
-			<% if false %>
-			<div class="col-md-4 col-xs-12 center" id="filtro-mail" style="padding-left:15px;">
-				<%= text_field_tag("correo", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => "Línea de investigación") %><br>
-				<p style="font-size:12px;margin-top:0;text-align:left;">Las líneas de investigación utilizan lenguaje controlado.</p>
-			</div>
-			<% end %>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-md-4 center" id="filtro-centro">
-				<h3 style="display:inline-block;margin-right:8px;"><%= params[:locale] == "es" ? "Filtrar por:" : "Filter by:" %></h3><%= select_tag("centro", options_for_select([["CEAA", "CEAA"], ["CEDUA","CEDUA"], ["CEE", "CEE"], ["CEH","CEH"], ["CEI","CEI"], ["CELL", "CELL"], ["CES","CES"],["PEI","Jubilado"],["BDCV","BDCV"]]), :include_blank => (params[:locale] == "es" ? "Centro de Estudios" : "Research Center"), :onchange => "filterDir(['nombre','linea','centro']);") %>
-			</div>
-			<div class="col-xs-12 col-md-4 center" id="filtro-limpiar" style="text-align:left;">
-				<div id="boton_limpiar">
-					<a href="#" onclick="clean();" class="boton-donar"><span><%= params[:locale] == "es" ? "Limpiar búsqueda" : "Clean filters" %></span></a>
-				</div>
+			<div id="boton_limpiar">
+				<a href="#" onclick="clean();" class="boton-donar"><span><%= params[:locale] == "es" ? "Limpiar búsqueda" : "Clean filters" %></span></a>
 			</div>
 		</div>
 
