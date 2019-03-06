@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require "uikit"
-//= require accordion
 //= require jquery.slick
 //= require escala_auto
 //= require scroll

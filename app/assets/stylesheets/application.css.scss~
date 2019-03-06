@@ -19,9 +19,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "uikit";
-@import "accordion";
 @import 'slick';
 @import 'slick-theme';
 @import "principal";
 @import "informacion_general";
 @import "programas_academicos";
+@import "directorio";
