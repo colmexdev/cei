@@ -19,7 +19,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "uikit";
-@iport "accordion";
+@import "accordion";
 @import 'slick';
 @import 'slick-theme';
 @import "principal";

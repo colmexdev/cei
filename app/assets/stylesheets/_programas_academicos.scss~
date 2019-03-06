@@ -35,3 +35,8 @@
 @media only screen and (max-width: 768px){
 	#texto-programa { margin-top: 45px; }
 }
+
+/* Estilos de la subsección "Cursos" */
+#boton-info-cursos{
+	margin: 0;
+}
