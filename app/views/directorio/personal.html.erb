@@ -45,7 +45,7 @@ function clean(){
 			</div>
 			<div class="uk-width-1-1" id="filtro-inic">
 			<% for i in 65..90 %>
-				<span class="inics letra" id=<%= "inic_" + i.chr %> style="cursor:pointer; margin:0 3px;font-size:24px;color:#909090;" onclick=<%= "filterDir('" + i.chr + "')" %>><%= i.chr %></span>
+				<span class="inics letra" id="<%= 'inic_' + i.chr %>" onclick="<%= "filterDir('" + i.chr + "')" %>"><%= i.chr %></span>
 			<% end %>
 			</div>
 			<div class="uk-width-3-5 filtro center" id="filtro-nombre">

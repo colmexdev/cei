@@ -52,6 +52,9 @@
 	-ms-transition: all 0.3s linear;
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
+	cursor: pointer;
+	margin: 0 3px;
+	font-size: 24px;
 }
 
 .letra:hover { color: #B03856; }
