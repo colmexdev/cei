@@ -49,9 +49,11 @@ function clean(){
 			<% end %>
 			</div>
 			<div class="uk-width-3-5 filtro center" id="filtro-nombre">
-				<h3 style="display:inline-block;margin-right:20px;"><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
+				<h3><%= t(".buscar") %></h3>
+				<%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
 			</div>
-			<div class="uk-width-1-5">
+			<div class="uk-width-2-5">
+				<br>
 				<div class="boton-info" id="boton_limpiar">
 					<a href="#" onclick="clean();"><span><%= t('.clean') %></span></a>
 				</div>
