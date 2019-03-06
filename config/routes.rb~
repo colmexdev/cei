@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "ciencia-politica" => "programas_academicos#programas", :as => :cp
     get 'cursos' => 'programas_academicos#cursos', :as => :cursos
     get 'convocatorias' => "programas_academicos#convocatorias", :as => :convocatorias
+    get 'aspirantes' => 'programas_academicos#aspirantes', :as => :aspirantes
   end
 
   get "/:locale" => "principal#index", :as => :main

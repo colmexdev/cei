@@ -60,7 +60,13 @@
 		        </ul>
 		    </li>
 
-				<li class="no-dropdown"><a href="#"><span><%= t('.boton3') %></span></a></li>
+				<li class="dropdown" id="dropdown3">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b3') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="<%= personal_academico_path %>"><%= t('.opcion1_b3') %></a></li>
+		          <li><a href="#"><%= t('.opcion2_b3') %></a></li>
+		        </ul>
+		    </li>
 
 				<li class="dropdown" id="dropdown3">
 		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b4') %></span></a>
@@ -156,7 +162,13 @@
 		        </ul>
 		    </li>
 
-				<li class="no-dropdown"><a href="#"><span><%= t('.boton3') %></span></a></li>
+				<li class="dropdown" id="dropdown3">
+		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b3') %></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="<%= personal_academico_path %>"><%= t('.opcion1_b3') %></a></li>
+		          <li><a href="#"><%= t('.opcion2_b3') %></a></li>
+		        </ul>
+		    </li>
 
 				<li class="dropdown" id="dropdown3">
 		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b4') %></span></a>
@@ -202,7 +214,13 @@
 						<li><a href="<%= aspirantes_path %>" class="sublink"><%= t('.opcion6_b2') %></a></li>
 					</ul>
 				</li>
-				<li class="uk-parent"><a href=#"><%= t('.boton3') %></a></li>
+				<li class="uk-parent">
+					<a href="#"><%= t('.texto_b3') %></a>
+					<ul class="uk-nav-sub">
+						<li><a href="<%= personal_academico_path %>" class="sublink"><%= t('.opcion1_b3') %></a></li>
+          	<li><a href="#" class="sublink"><%= t('.opcion2_b3') %></a></li>
+					</ul>
+				</li>
 				<li class="uk-parent">
 					<a href="#"><%= t('.texto_b4') %></a>
 					<ul class="uk-nav-sub">

@@ -13,7 +13,9 @@ es:
       opcion4_b2: "Cursos"
       opcion5_b2: "Convocatorias"
       opcion6_b2: "Aspirantes"
-      boton3: "Personal académico"
+      texto_b3: "Directorio"
+      opcion1_b3: "Personal académico"
+      opcion2_b3: "Personal administrativo"
       texto_b4: "Revistas"
       opcion1_b4: "Foro Internacional"
       opcion2_b4: "Ágora"
@@ -82,3 +84,7 @@ es:
     aspirantes:
       informacion: "Información para"
       aspirantes: "Aspirantes"
+      op1: "¿Por qué estudiar en el CEI?"
+      op2: "Preguntas frecuentes"
+      op3: "Colegiatura y ayuda financiera"
+      op4: "Requisitos y proceso de selección"

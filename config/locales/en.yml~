@@ -34,7 +34,9 @@ en:
       opcion4_b2: "Special courses"
       opcion5_b2: "Applications"
       opcion6_b2: "Candidates"
-      boton3: "Academic staff"
+      texto_b3: "Directory"
+      opcion1_b3: "Academic staff"
+      opcion2_b3: "Administrative staff"
       texto_b4: "Magazines"
       opcion1_b4: "Foro Internacional"
       opcion2_b4: "Ágora"
@@ -103,3 +105,7 @@ en:
     aspirantes:
       informacion: "Information for"
       aspirantes: "Candidates"
+      op1: "Why to study in CEI?"
+      op2: "Frequently asked questions"
+      op3: "Tuition and financial support"
+      op4: "Requisites and selection process"

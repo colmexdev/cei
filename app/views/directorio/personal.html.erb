@@ -1,0 +1,141 @@
+<% @title = (params[:locale] == "es" ? "Personal académico" : "Academic staff") + " - " %>
+<%= render 'principal/header' %>
+
+<script>
+function filterDir(fields){
+	var where = "";
+	if(typeof fields == "string"){
+		where = "&conds[inic]="+fields;
+	}
+	else{
+		for(var i = 0; i < fields.length; i++){
+			where = where + ($("#"+fields[i]).val() != "" ? ("&conds[" + fields[i] + "]=" + $("#"+fields[i]).val()) : "");
+		}
+	}
+	$.ajax({
+		url: '/<%= params[:locale] %>/directorio-academico.js?offset=0' + where,
+		success: function(){}
+	});
+}
+
+function clean(){
+	$(".inics.letra").css("color","");
+	$("#nombre").val("");
+	$.ajax({
+		url: '/<%= params[:locale] %>/directorio-academico.js?offset=0',
+		success: function(){
+			$("#busqueda").html("");
+			$("#c_l").html("");
+			$("#c_r").html("");
+			$("#separadores").html("");
+		}
+	});
+	
+}
+</script>
+
+		<div class="row">
+			<div class="col-xs-12" style="padding-left:0;">
+				<span class="titulo-grande texto-sub"><%= t(".personal") %></span><br>
+			</div>
+		</div>
+
+		<div class="row" id="filtros-dir">
+			<div class="col-xs-12" style="padding-left:0;">
+				<h3><%= t(".alpha") %></h3>
+			</div>
+			<div class="col-xs-12" id="filtro-inic" style="text-align:center;padding-left:0;">
+			<% for i in 65..90 %>
+				<span class="inics letra" id=<%= "inic_" + i.chr %> style="cursor:pointer; margin:0 3px;font-size:24px;color:#909090;" onclick=<%= "filterDir('" + i.chr + "')" %>><%= i.chr %></span>
+			<% end %>
+			</div>
+			<div class="col-md-4 col-xs-12 filtro center" id="filtro-nombre">
+				<h3 style="display:inline-block;margin-right:8px;"><%= params[:locale] == "es" ? "Buscar por:" : "Search by" %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => (params[:locale] == "es" ? "Nombre" : "Name")) %>
+			</div>
+			<div class="col-md-4 col-xs-12 center" id="filtro-linea" style="padding-left:5px;">
+				<%= text_field_tag("linea", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => (params[:locale] == "es" ? "Tema y/o línea de investigación" : "Research topic")) %><br>
+				<% if false %>
+				<p style="font-size:12px;margin-top:0;text-align:left;">Los temas de investigación utilizan lenguaje libre.</p>
+				<% end %>
+			</div>
+			<% if false %>
+			<div class="col-md-4 col-xs-12 center" id="filtro-mail" style="padding-left:15px;">
+				<%= text_field_tag("correo", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => "Línea de investigación") %><br>
+				<p style="font-size:12px;margin-top:0;text-align:left;">Las líneas de investigación utilizan lenguaje controlado.</p>
+			</div>
+			<% end %>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-4 center" id="filtro-centro">
+				<h3 style="display:inline-block;margin-right:8px;"><%= params[:locale] == "es" ? "Filtrar por:" : "Filter by:" %></h3><%= select_tag("centro", options_for_select([["CEAA", "CEAA"], ["CEDUA","CEDUA"], ["CEE", "CEE"], ["CEH","CEH"], ["CEI","CEI"], ["CELL", "CELL"], ["CES","CES"],["PEI","Jubilado"],["BDCV","BDCV"]]), :include_blank => (params[:locale] == "es" ? "Centro de Estudios" : "Research Center"), :onchange => "filterDir(['nombre','linea','centro']);") %>
+			</div>
+			<div class="col-xs-12 col-md-4 center" id="filtro-limpiar" style="text-align:left;">
+				<div id="boton_limpiar">
+					<a href="#" onclick="clean();" class="boton-donar"><span><%= params[:locale] == "es" ? "Limpiar búsqueda" : "Clean filters" %></span></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<script type="text/javascript" src="../js/accordion.js"></script>
+			<div class="col-xs-12" style="text-align:left;padding-top:20px;" id="filete-top">
+				<div style="float:left;display:inline-block;height:100%;text-align:left;width:50%;">
+					<h3 id="c_l" class="titulo-chico vino"></h3>
+				</div>
+				<div style="float:right;display:inline-block;height:100%;text-align:right;width:50%;">
+					<h3 id="c_r" class="titulo-chico vino"></h3>
+				</div>
+			</div>
+			<div class="col-xs-12 acordeon-premios" id="busqueda">
+<% if false %>
+				<div class="uk-accordion" id="acordeon" data-uk-accordion>
+<% centros = {'CEAA' => 'CENTRO DE ESTUDIOS DE ASIA Y ÁFRICA', 'CEDUA' => 'CENTRO DE ESTUDIOS DEMOGRÁFICOS, URBANOS Y AMBIENTALES', 'CEE' => 'CENTRO DE ESTUDIOS ECONÓMICOS', 'CEH' => 'CENTRO DE ESTUDIOS HISTÓRICOS', 'CEI' => 'CENTRO DE ESTUDIOS INTERNACIONALES', 'CELL' => 'CENTRO DE ESTUDIOS LINGÜÍSTICOS Y LITERARIOS', 'CES' => 'CENTRO DE ESTUDIOS SOCIOLÓGICOS', 'Jubilado' => 'PROGRAMA DE ESTUDIOS INTERDISCIPLINARIOS', 'BDCV' => 'BIBLIOTECA DANIEL COSÍO VILLEGAS'} %>
+					<% @profs.each do |p| %>
+						<h3  class="uk-accordion-title"><%= raw(construir_encabezado("bt-flechita.png", "bt-flechita-abajo.png", p.nombre.gsub("'","&#39;"))) %></h3>
+							<div class="uk-accordion-content">
+								<div class="uk-grid uk-grid-medium uk-margin-large-bottom">
+									<div class="uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-5 uk-text-center">
+										<img src="/persona.jpg" class="uk-border-rounded" alt="Foto Académico">
+									</div>
+									<div class="uk-width-large-4-5 uk-width-medium-4-5 uk-width-small-4-5 uk-text-left uk-text-break">
+										<p style="font-family:'Gotham SSm A', 'Gotham SSm B', Lato, sans-serif; font-size: 16px; font-weight: 700; color: #444444;margin-bottom:3px;text-align:left;" ><%= centros[p.centro] %></p>
+										<p style="margin-top:0;margin-bottom:0;text-align:left;"><span class="titulo-chico vino" style="font-size:22px;"><%= p.nombre %></span></p>
+										<div class="uk-grid uk-grid-medium uk-margin-large-bottom">
+											<div class="uk-width-1-2">
+												<p style="font-size:15px;margin-bottom:3px;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Correo:" : "Email:" %> </span><a class="uk-link" href="mailto:<%= p.correo %>"><%= p.correo %></a></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Teléfono:" : "Telephone:" %></span> <span>+(52) 55 5449 3000</span></p>
+												<p style="font-size:15px;margin-top:3px;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Extensión:" : "Extension:" %></span> <span><%= p.extension %></span></p>
+											</div>
+											<div class="uk-width-1-2">
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">VIAF: </span><span><%= raw(p.viaf.split(/ *\/ */)[0]) %></span></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">ORCID: </span><span><%= raw(p.orcid.split(/ *\/ */)[0]) %></span></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">ISNI: </span><span><%= raw(p.isni.split(/ *\/ */)[0]) %></span></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">CVU-COLMEX: </span><span><%= raw(p.cvu.split(/ *\/ */)[0]) %></span></p>
+												<p style="font-size:15px;margin-bottom:3px;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Sitio web:" : "Website" %> </span><a class="uk-link" href="<%= p.sitio %>" target="_blank"><%= p.sitio.present? ? (p.sitio[0..20] + (p.sitio.size >= 25 ? "..." : "")) : "" %></a></p>
+											</div>
+										</div>
+										<h5><%= params[:locale] == "es" ? "Temas de investigación:" : "Research topics:" %> <span style="font-weight:300;"><%= params[:locale] == "es" ? p.temas_esp : p.temas_ing %></span></h5>
+									</div>
+								</div>
+							</div>
+					<% end %>
+				</div>
+<% end %>
+			</div>
+		</div>
+
+		<div id="separadores" style="text-align:center;margin:10px auto;">
+<% if params.key?(:offset) %>
+			<% @pags.times do |p| %>
+				<% if p == 0 %>
+					<div class="numeros" style="margin:0 2px;display:inline-block;cursor:pointer;" id="sep-ant"><a class="numeros" href="<%= directorio_path(params: {locale: params[:locale], offset: 0}) %>" data-remote="true"><</a></div>
+				<% end %>
+				<div class="numeros" style="margin:0 5px;display:inline-block;cursor:pointer;"><a class="numeros" style="<%= p == 0 ? 'color:rgb(153, 51, 102)' : '' %>" href="<%= directorio_path(params: {locale: params[:locale], offset: p}) %>" data-remote="true"><%= p+1 %></a></div>	
+				<% if p == @pags - 1 %>
+					<div class="numeros" style="margin:0 2px;display:inline-block;cursor:pointer;" id="sep-nxt"><a class="numeros" href="<%= directorio_path(params: {locale: params[:locale], offset: 1}) %>" data-remote="true">></a></div>
+				<% end %>
+			<% end %>
+<% end %>
+		</div>
+
+<%= render 'principal/footer' %>
