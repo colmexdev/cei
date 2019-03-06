@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-glyphicons'
 gem 'font-awesome-sass', '~> 4.7.0'
-gem "rails-uikit"
+#gem "rails-uikit"
 gem 'jquery-slick-rails'
 # gem 'jquery-matchheight-rails'
 # Use Uglifier as compressor for JavaScript assets

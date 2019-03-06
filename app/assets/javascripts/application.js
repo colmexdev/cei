@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require "uikit"
+//= require uikit
 //= require jquery.slick
 //= require escala_auto
 //= require scroll
