@@ -92,3 +92,5 @@ es:
     personal:
       personal: "Personal académico"
       alpha: "Buscar por orden alfabético"
+      buscar: "Buscar por"
+      nombre: "Nombre y/o apellido"
