@@ -113,3 +113,5 @@ en:
     personal:
       personal: "Academic staff"
       alpha: "Search by alphabetic order"
+      buscar: "Search by"
+      nombre: "Name and/or surname"

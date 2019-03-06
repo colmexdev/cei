@@ -109,3 +109,7 @@ en:
       op2: "Frequently asked questions"
       op3: "Tuition and financial support"
       op4: "Requisites and selection process"
+  directorio:
+    personal:
+      personal: "Academic staff"
+      alpha: "Search by alphabetic order"

@@ -88,3 +88,7 @@ es:
       op2: "Preguntas frecuentes"
       op3: "Colegiatura y ayuda financiera"
       op4: "Requisitos y proceso de selección"
+  directorio:
+    personal:
+      personal: "Personal académico"
+      alpha: "Buscar por orden alfabético"
