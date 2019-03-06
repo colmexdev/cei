@@ -56,6 +56,12 @@
 	color: #909090;
 }
 
+#filtro-inic{
+	text-align: center;
+	padding-left: 0;
+	margin-top: 20px;
+	margin-bottom: 25px;
+}
 
 #filtro-nombre { text-align: left; }
 
