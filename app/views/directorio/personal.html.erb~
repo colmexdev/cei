@@ -39,23 +39,21 @@ function clean(){
 
 	<div style="padding:0 45px;margin-top:50px;">
 
-		<div class="row" id="filtros-dir">
-			<div class="col-xs-12" style="padding-left:0;">
-				<h3><%= t(".alpha") %></h3>
+		<div class="uk-grid uk-grid-small" id="filtros-dir">
+			<div class="uk-width-1-1" style="padding-left:0;">
+				<h3 class="rosa-bold"><%= t(".alpha") %></h3>
 			</div>
-			<div class="col-xs-12" id="filtro-inic" style="text-align:center;padding-left:0;">
+			<div class="uk-width-1-1" id="filtro-inic" style="text-align:center;padding-left:0;margin-top:20px;">
 			<% for i in 65..90 %>
 				<span class="inics letra" id=<%= "inic_" + i.chr %> style="cursor:pointer; margin:0 3px;font-size:24px;color:#909090;" onclick=<%= "filterDir('" + i.chr + "')" %>><%= i.chr %></span>
 			<% end %>
 			</div>
-			<div class="uk-grid uk-grid-small">
-				<div class="uk-width-3-5 filtro center" id="filtro-nombre">
-					<h3 style="display:inline-block;margin-right:20px;"><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
-				</div>
-				<div class="uk-width-2-5">
-					<div class="boton-info" id="boton_limpiar">
-						<a href="#" onclick="clean();" class="boton-donar"><span><%= t('.clean') %></span></a>
-					</div>
+			<div class="uk-width-3-5 filtro center" id="filtro-nombre">
+				<h3 style="display:inline-block;margin-right:20px;"><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
+			</div>
+			<div class="uk-width-1-5">
+				<div class="boton-info" id="boton_limpiar">
+					<a href="#" onclick="clean();"><span><%= t('.clean') %></span></a>
 				</div>
 			</div>
 		</div>
