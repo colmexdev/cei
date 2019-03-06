@@ -15,6 +15,5 @@
 //= require bootstrap-sprockets
 //= require "uikit"
 //= require jquery.slick
-//= require jquery.matchHeight
 //= require escala_auto
 //= require scroll

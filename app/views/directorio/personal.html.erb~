@@ -42,7 +42,7 @@ function clean(){
 
 		<div class="row" id="filtros-dir">
 			<div class="col-xs-12" style="padding-left:0;">
-				<h3><%= params[:locale] == "es" ? "Buscar por orden alfabético." : "Search by alphabetical order" %></h3>
+				<h3><%= t(".alpha") %></h3>
 			</div>
 			<div class="col-xs-12" id="filtro-inic" style="text-align:center;padding-left:0;">
 			<% for i in 65..90 %>
