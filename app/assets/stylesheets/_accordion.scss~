@@ -35,37 +35,3 @@
 .uk-accordion-content > :last-child {
   margin-bottom: 0;
 }
-
-/* Customized styles */
-.acordeon-premios{
-	width: 100%;
-	padding-bottom: 40px;
-
-	.uk-accordion{
-		
-		width: 85%;
-		margin: 0 auto;
-		padding-top: 60px;
-
-		.uk-accordion-title{
-			background-color: #FFFFFF;
-			color: #4E4E4E;
-			border-bottom: solid 1px #4E4E4E;
-			-webkit-transition: all 0.4s linear;
-			-moz-transition: all 0.4s linear;
-			-o-transition: all 0.4s linear;
-			transition: all 0.4s linear;
-
-			.leave_img { display: inline; margin: 0 10px; }
-			.hover_img { display: none; }
-		}
-
-		.uk-accordion-title.uk-active, .uk-accordion-title:hover{
-			color: #7E3355;
-			border-bottom: solid 1px #7E3355;
-
-			.hover_img { display: inline; margin: 0 10px; }
-			.leave_img { display: none; }
-		}
-	}
-}
