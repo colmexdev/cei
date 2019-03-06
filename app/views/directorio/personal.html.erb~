@@ -60,7 +60,7 @@ function clean(){
 		</div>
 
 		<div class="row">
-
+<script src="/js/accordion.js"></script>
 			<div class="col-xs-12" style="text-align:left;padding-top:20px;" id="filete-top">
 				<div style="float:left;display:inline-block;height:100%;text-align:left;width:50%;">
 					<h3 id="c_l" class="titulo-chico vino"></h3>
@@ -122,5 +122,4 @@ function clean(){
 	</div>
 
 	</div>
-<script src="/js/accordion.js"></script>
 <%= render 'principal/footer' %>
