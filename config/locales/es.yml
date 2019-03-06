@@ -79,3 +79,6 @@ es:
     convocatorias:
       convocatorias: "Convocatorias abiertas"
       info: "Más información"
+    aspirantes:
+      imformacion: "Información para"
+      aspirantes: "Aspirantes"

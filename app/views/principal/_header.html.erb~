@@ -54,7 +54,7 @@
 							<li><a href="<%= pap_path %>"><%= t('.opcion1_b2') %></a></li>
 							<li><a href="<%= ri_path %>"><%= t('.opcion2_b2') %></a></li>
 							<li><a href="<%= cp_path %>"><%= t('.opcion3_b2') %></a></li>
-							<li><a href="#"><%= t('.opcion4_b2') %></a></li>
+							<li><a href="<%= cursos_path %>"><%= t('.opcion4_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion5_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion6_b2') %></a></li>
 		        </ul>
@@ -150,7 +150,7 @@
 							<li><a href="<%= pap_path %>"><%= t('.opcion1_b2') %></a></li>
 							<li><a href="<%= ri_path %>"><%= t('.opcion2_b2') %></a></li>
 							<li><a href="<%= cp_path %>"><%= t('.opcion3_b2') %></a></li>
-							<li><a href="#"><%= t('.opcion4_b2') %></a></li>
+							<li><a href="<%= cursos_path %>"><%= t('.opcion4_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion5_b2') %></a></li>
 							<li><a href="#"><%= t('.opcion6_b2') %></a></li>
 		        </ul>

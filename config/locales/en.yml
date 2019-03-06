@@ -99,4 +99,7 @@ en:
       info: "More info"
     convocatorias:
       convocatorias: "Open applications"
-      info: "Más información"
+      info: "More info"
+    aspirantes:
+      imformacion: "Informatiom for"
+      aspirantes: "Candidates"
