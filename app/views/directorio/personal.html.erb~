@@ -122,5 +122,5 @@ function clean(){
 	</div>
 
 	</div>
-
+<script src="/js/accordion.js"></script>
 <%= render 'principal/footer' %>
