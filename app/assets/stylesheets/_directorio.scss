@@ -29,16 +29,16 @@
 			border: solid 1px #909090;
 			height: 35px;
 			position: relative;
-			font-weight: 600;
-			font-size: 15px;
+			font-weight: 500;
+			font-size: 11px;
 			padding: 5px 15px;
 			margin: 15px 0;
 		}
 
-		>input::-webkit-input-placeholder { color: #000; }
-		>input:-moz-placeholder { color: #000; }
-		>input::-moz-placeholder { color: #000; }
-		>input:-ms-input-placeholder { color: #000; }
+		>input::-webkit-input-placeholder { color: #CCC; }
+		>input:-moz-placeholder { color: #CCC; }
+		>input::-moz-placeholder { color: #CCC; }
+		>input:-ms-input-placeholder { color: #CCC; }
 }
 
 .letra {

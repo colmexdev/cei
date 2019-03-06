@@ -48,8 +48,8 @@ function clean(){
 				<span class="inics letra" id=<%= "inic_" + i.chr %> style="cursor:pointer; margin:0 3px;font-size:24px;color:#909090;" onclick=<%= "filterDir('" + i.chr + "')" %>><%= i.chr %></span>
 			<% end %>
 			</div>
-			<div class="col-md-4 col-xs-12 filtro center" id="filtro-nombre">
-				<h3 style="display:inline-block;margin-right:8px;"><%= params[:locale] == "es" ? "Buscar por:" : "Search by" %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre','linea','centro']);", :placeholder => (params[:locale] == "es" ? "Nombre" : "Name")) %>
+			<div class="col-md-6 col-xs-12 filtro center" id="filtro-nombre">
+				<h3 style="display:inline-block;margin-right:20px;"><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
 			</div>
 			<div id="boton_limpiar">
 				<a href="#" onclick="clean();" class="boton-donar"><span><%= params[:locale] == "es" ? "Limpiar búsqueda" : "Clean filters" %></span></a>
