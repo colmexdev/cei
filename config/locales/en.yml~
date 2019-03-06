@@ -100,3 +100,6 @@ en:
     convocatorias:
       convocatorias: "Open applications"
       info: "More info"
+    aspirantes:
+      imformacion: "Informatiom for"
+      aspirantes: "Candidates"
