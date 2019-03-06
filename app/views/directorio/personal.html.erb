@@ -49,7 +49,7 @@ function clean(){
 			<% end %>
 			</div>
 			<div class="uk-width-3-5 filtro center" id="filtro-nombre">
-				<h3><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
+				<h3><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre"), :autocomplete => "off") %>
 			</div>
 			<div class="uk-width-2-5">
 				<br>
@@ -70,34 +70,33 @@ function clean(){
 				</div>
 			</div>
 			<div class="col-xs-12 acordeon-premios" id="busqueda">
-<% if false %>
+<% if true %>
 				<div class="uk-accordion" id="acordeon" data-uk-accordion>
-<% centros = {'CEAA' => 'CENTRO DE ESTUDIOS DE ASIA Y ÁFRICA', 'CEDUA' => 'CENTRO DE ESTUDIOS DEMOGRÁFICOS, URBANOS Y AMBIENTALES', 'CEE' => 'CENTRO DE ESTUDIOS ECONÓMICOS', 'CEH' => 'CENTRO DE ESTUDIOS HISTÓRICOS', 'CEI' => 'CENTRO DE ESTUDIOS INTERNACIONALES', 'CELL' => 'CENTRO DE ESTUDIOS LINGÜÍSTICOS Y LITERARIOS', 'CES' => 'CENTRO DE ESTUDIOS SOCIOLÓGICOS', 'Jubilado' => 'PROGRAMA DE ESTUDIOS INTERDISCIPLINARIOS', 'BDCV' => 'BIBLIOTECA DANIEL COSÍO VILLEGAS'} %>
-					<% @profs.each do |p| %>
-						<h3  class="uk-accordion-title"><%= raw(construir_encabezado("bt-flechita.png", "bt-flechita-abajo.png", p.nombre.gsub("'","&#39;"))) %></h3>
+					<% 1.times do %>
+						<h3 class="uk-accordion-title"><%= "Nombre" %></h3>
 							<div class="uk-accordion-content">
 								<div class="uk-grid uk-grid-medium uk-margin-large-bottom">
 									<div class="uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-5 uk-text-center">
 										<img src="/persona.jpg" class="uk-border-rounded" alt="Foto Académico">
 									</div>
 									<div class="uk-width-large-4-5 uk-width-medium-4-5 uk-width-small-4-5 uk-text-left uk-text-break">
-										<p style="font-family:'Gotham SSm A', 'Gotham SSm B', Lato, sans-serif; font-size: 16px; font-weight: 700; color: #444444;margin-bottom:3px;text-align:left;" ><%= centros[p.centro] %></p>
-										<p style="margin-top:0;margin-bottom:0;text-align:left;"><span class="titulo-chico vino" style="font-size:22px;"><%= p.nombre %></span></p>
+										<p style="font-family:'Gotham SSm A', 'Gotham SSm B', Lato, sans-serif; font-size: 16px; font-weight: 700; color: #444444;margin-bottom:3px;text-align:left;" ><%= "Centro" %></p>
+										<p style="margin-top:0;margin-bottom:0;text-align:left;"><span class="titulo-chico vino" style="font-size:22px;"><%= "Nombre" %></span></p>
 										<div class="uk-grid uk-grid-medium uk-margin-large-bottom">
 											<div class="uk-width-1-2">
-												<p style="font-size:15px;margin-bottom:3px;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Correo:" : "Email:" %> </span><a class="uk-link" href="mailto:<%= p.correo %>"><%= p.correo %></a></p>
-												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Teléfono:" : "Telephone:" %></span> <span>+(52) 55 5449 3000</span></p>
-												<p style="font-size:15px;margin-top:3px;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Extensión:" : "Extension:" %></span> <span><%= p.extension %></span></p>
+												<p style="font-size:15px;margin-bottom:3px;text-align:left;"><span style="font-weight:700;"><%= "Correo" %> </span><a class="uk-link" href="mailto:<%= p.correo %>"><%= "Correo" %></a></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;"><%= "Teléfono" %></span> <span>+(52) 55 5449 3000</span></p>
+												<p style="font-size:15px;margin-top:3px;text-align:left;"><span style="font-weight:700;"><%= "Extensión" %></span> <span><%= "Extensión" %></span></p>
 											</div>
 											<div class="uk-width-1-2">
-												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">VIAF: </span><span><%= raw(p.viaf.split(/ *\/ */)[0]) %></span></p>
-												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">ORCID: </span><span><%= raw(p.orcid.split(/ *\/ */)[0]) %></span></p>
-												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">ISNI: </span><span><%= raw(p.isni.split(/ *\/ */)[0]) %></span></p>
-												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">CVU-COLMEX: </span><span><%= raw(p.cvu.split(/ *\/ */)[0]) %></span></p>
-												<p style="font-size:15px;margin-bottom:3px;text-align:left;"><span style="font-weight:700;"><%= params[:locale] == "es" ? "Sitio web:" : "Website" %> </span><a class="uk-link" href="<%= p.sitio %>" target="_blank"><%= p.sitio.present? ? (p.sitio[0..20] + (p.sitio.size >= 25 ? "..." : "")) : "" %></a></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">VIAF: </span><span><%= "raw(p.viaf.split(/ *\/ */)[0])" %></span></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">ORCID: </span><span><%= "raw(p.orcid.split(/ *\/ */)[0])" %></span></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">ISNI: </span><span><%= "raw(p.isni.split(/ *\/ */)[0])" %></span></p>
+												<p style="font-size:15px;margin-top:0;margin-bottom:0;text-align:left;"><span style="font-weight:700;">CVU-COLMEX: </span><span><%= "raw(p.cvu.split(/ *\/ */)[0])" %></span></p>
+												<p style="font-size:15px;margin-bottom:3px;text-align:left;"><span style="font-weight:700;"><%= "Sitio" %> </span><a class="uk-link" href="<%= p.sitio %>" target="_blank"><%= "Sitio" %></a></p>
 											</div>
 										</div>
-										<h5><%= params[:locale] == "es" ? "Temas de investigación:" : "Research topics:" %> <span style="font-weight:300;"><%= params[:locale] == "es" ? p.temas_esp : p.temas_ing %></span></h5>
+										<h5><%= "Temas" %> <span style="font-weight:300;"><%= "Temas" %></span></h5>
 									</div>
 								</div>
 							</div>

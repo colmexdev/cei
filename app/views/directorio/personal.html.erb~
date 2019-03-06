@@ -45,11 +45,11 @@ function clean(){
 			</div>
 			<div class="uk-width-1-1" id="filtro-inic">
 			<% for i in 65..90 %>
-				<span class="inics letra" id=<%= "inic_" + i.chr %> style="cursor:pointer; margin:0 3px;font-size:24px;color:#909090;" onclick=<%= "filterDir('" + i.chr + "')" %>><%= i.chr %></span>
+				<span class="inics letra" id="<%= 'inic_' + i.chr %>" onclick="<%= "filterDir('" + i.chr + "')" %>"><%= i.chr %></span>
 			<% end %>
 			</div>
 			<div class="uk-width-3-5 filtro center" id="filtro-nombre">
-				<h3><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre")) %>
+				<h3><%= t(".buscar") %></h3><%= text_field_tag("nombre", "", :oninput => "filterDir(['nombre']);", :placeholder => t(".nombre"), :autocomplete => "off") %>
 			</div>
 			<div class="uk-width-2-5">
 				<br>
