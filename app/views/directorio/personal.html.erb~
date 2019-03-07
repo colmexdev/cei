@@ -95,6 +95,7 @@ function clean(){
 											</div>
 										</div>
 										<h5><%= "Temas" %> <span style="font-weight:300;"><%= "Temas" %></span></h5>
+										<h5><%= "Publicaciones" %> <span style="font-weight:300;"><%= "Publicaciones" %></span></h5>
 									</div>
 								</div>
 							</div>

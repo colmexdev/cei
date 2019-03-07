@@ -64,10 +64,15 @@
 
 		.uk-accordion-title.uk-active, .uk-accordion-title:hover{
 			color: #B03856;
-			/*border-top: solid 1px #7E3355;
+		}
 
-			.hover_img { display: inline; margin: 0 10px; }
-			.leave_img { display: none; }*/
+		.col-datos{
+			p{
+				font-size: 15px;
+				margin-top: 0;
+				margin-bottom: 5px;
+				text-align: left;
+			}
 		}
 	}
 }
