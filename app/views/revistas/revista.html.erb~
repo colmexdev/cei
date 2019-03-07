@@ -1,5 +1,34 @@
-<% @title = t('.' + @rev + " - ") %>
+<% @title = t('.' + @rev) + " - " %>
 <%= render 'principal/header' %>
+
+<div class="uk-width-1-1 principal uk-block-large">
+	<%= t('.' + @rev_t) %><br>
+  <div class="uk-grid uk-grid-small uk-margin-large-top">
+	  <div class="uk-width-2-5 uk-text-center-small uk-text-center-medium uk-text-left">
+			<img src="/vacio.png">
+	  </div>
+		<div class="uk-width-3-5">
+			<h2 style="color:#B03856;"><%= t('.sobre') %></h2>
+			<p style="margin:35px 0;">El programa tiene una duración de 9 semestres e inicia cada 2 años, previa convocatoria del Centro de Estudios Internacionales para evaluar y seleccionar aspirantes.</p>
+			<p><span style="color:#B03856;">Próxima convocatoria:</span> octubre 2020<br>
+			</p>
+			<div class="boton-info" id="boton-info-cursos"><%= t('.info') %></div>
+		</div>
+
+
+  </div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+	$(window).resize(function(){
+		//$("#vid-img-programas iframe").height($("#vid-img-programas iframe").width() * 9 / 16);
+	});
+
+	//$(window).trigger("resize");
+});
+</script>
 
 
 <%= render 'principal/footer' %>
