@@ -97,6 +97,8 @@ es:
       buscar: "Buscar por:"
       nombre: "Nombre y/o apellido"
       clean: "Limpiar"
+      info_mas_html: <i class="fa fa-plus" aria-hidden="true"></i> Más información
+      info_menos_html: <i class="fa fa-minus" aria-hidden="true"></i> menos información
       correo: "Correo electrónico: "
       telefono: "Teléfono: "
       extension: "Extensión: "

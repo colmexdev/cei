@@ -72,13 +72,13 @@ function clean(){
 			<div class="col-xs-12 acordeon-premios" id="busqueda">
 <% if true %>
 				<div class="uk-accordion" id="acordeon" data-uk-accordion>
-					<% 1.times do %>
+					<% 1.times do |i| %>
 						<div class="uk-accordion-title uk-grid uk-grid-small">
 						<div class="uk-width-1-2" style="text-align:left;">
-							<h3><%= "Nombre" %></h3>
+							<h3 class="nombre rosa-light"><%= "Nombre" %></h3>
 						</div>
 						<div class="uk-width-1-2" style="text-align:right; padding-right:25px;">
-							<h3 class="info-acordeon"><%= t('.info_web') %></h3>
+							<h3 class="info-acordeon"><%= t('.info_mas_html') %></h3>
 						</div>
 						</div>
 							<div class="uk-accordion-content">
