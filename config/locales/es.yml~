@@ -126,4 +126,4 @@ es:
       submit: "Identificarse"
     autenticar:
       auth: "Usuario autnticado con éxito."
-      fail: "No se pudo iniciar sesión."
+      fail: "No se pudo iniciar sesión. Por favor, revise sus datos e intente de nuevo."
