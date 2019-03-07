@@ -120,7 +120,7 @@ es:
   estudiantes:
     estudiantes:
       estudiantes: "Estudiantes"
-      previo_html: <p>Para poder ingresar a este contenido, es necesario que ingrese los datos de su cuenta de correo institucional. Recuerde que no deberá poner el <span class="rosa-light">sufijo\: @colmex.mx</span></p>
+      previo_html: "<p>Para poder ingresar a este contenido, es necesario que ingrese los datos de su cuenta de correo institucional. Recuerde que no deberá poner el <span class="rosa-light">sufijo: @colmex.mx</span></p>"
       correo: "Usuario"
       pass: "Contraseña"
       submit: "Identificarse"
