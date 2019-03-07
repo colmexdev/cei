@@ -107,3 +107,11 @@ es:
       publicaciones: "Publicaciones recientes: "
       area: "Área de trabajo: "
       servicios: "Servicios: "
+  revistas:
+    revista:
+      agora: "Revista Ágora"
+      foro: "Revista Foro Internacional"
+      agora_html: <span class="titulo-chico">Revista</span><span class="titulo-grande">Ágora</span>
+      foro_html: <span class="titulo-chico">Revista</span><span class="titulo-grande">Foro Internacional</span>
+      sobre: "Sobre la revista"
+      info: "Más información"

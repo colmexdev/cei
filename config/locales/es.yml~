@@ -97,8 +97,8 @@ es:
       buscar: "Buscar por:"
       nombre: "Nombre y/o apellido"
       clean: "Limpiar"
-      info_mas_html: <i class="fa fa-plus" aria-hidden="true"></i> Más información
-      info_menos_html: <i class="fa fa-minus" aria-hidden="true"></i> menos información
+      info_mas_html: <span class="rosa-bold"><i class="fa fa-plus" aria-hidden="true"></i> Más información</span>
+      info_menos_html: <span class="morado"><i class="fa fa-minus" aria-hidden="true"></i> menos información</span>
       correo: "Correo electrónico: "
       telefono: "Teléfono: "
       extension: "Extensión: "
@@ -107,3 +107,10 @@ es:
       publicaciones: "Publicaciones recientes: "
       area: "Área de trabajo: "
       servicios: "Servicios: "
+  revistas:
+    revista:
+      agora: "Revista Ágora"
+      foro: "Revista Foro Internacional"
+      agora_html: <span class="titulo-chico">Revista</span><span class="titulo-grande">Ágora</span>
+      foro_html: <span class="titulo-chico">Revista</span><span class="titulo-grande">Foro Internacional</span>
+      sobre: "Sobre la revista"

@@ -1,0 +1,6 @@
+class RevistasController < ApplicationController
+
+  def revista
+
+  end
+end

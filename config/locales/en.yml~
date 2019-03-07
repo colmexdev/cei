@@ -118,8 +118,8 @@ en:
       buscar: "Search by:"
       nombre: "Name and/or surname"
       clean: "Clean"
-      info_mas_html: <i class="fa fa-plus" aria-hidden="true"></i> More info
-      info_menos_html: <i class="fa fa-minus" aria-hidden="true"></i> Less info
+      info_mas_html: <span class="rosa-bold"><i class="fa fa-plus" aria-hidden="true"></i> More info</span>
+      info_menos_html: <span class="morado"><i class="fa fa-minus" aria-hidden="true"></i> Less info</span>
       correo: "E-mail: "
       telefono: "Telephone: "
       extension: "Extension: "
@@ -128,3 +128,10 @@ en:
       publicaciones: "Recent publications: "
       area: "Work area: "
       servicios: "Services: "
+  revistas:
+    revista:
+      agora: "Ágora magazine"
+      foro: "Foro Internacional magazine"
+      agora_html: <span class="titulo-chico">About</span><span class="titulo-grande">Ágora</span>
+      foro_html: <span class="titulo-chico">About</span><span class="titulo-grande">Foro Internacional</span>
+      sobre: "Brief description"

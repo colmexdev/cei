@@ -1,0 +1,5 @@
+<% @title = t('.' + @rev + " - ") %>
+<%= render 'principal/header' %>
+
+
+<%= render 'principal/footer' %>

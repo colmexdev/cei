@@ -128,3 +128,11 @@ en:
       publicaciones: "Recent publications: "
       area: "Work area: "
       servicios: "Services: "
+  revistas:
+    revista:
+      agora: "Ágora magazine"
+      foro: "Foro Internacional magazine"
+      agora_html: <span class="titulo-chico">About</span><span class="titulo-grande">Ágora</span>
+      foro_html: <span class="titulo-chico">About</span><span class="titulo-grande">Foro Internacional</span>
+      sobre: "Brief description"
+      info: "More info"
