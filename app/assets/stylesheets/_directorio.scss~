@@ -90,7 +90,7 @@
 
 .uk-accordion-title:hover{
 	.nombre { color: #B03856; }
-	.info { color: #5E002B; }
+	.info-acordeon span { color: #5E002B; }
 }
 
 /*#boton_limpiar{

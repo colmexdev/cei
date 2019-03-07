@@ -54,7 +54,6 @@
 			border-top: solid 1px #CCCCCC;
 
 			h3{ 
-				color: #CC4E78;
 				-webkit-transition: all 0.4s linear;
 				-moz-transition: all 0.4s linear;
 				-o-transition: all 0.4s linear;
@@ -63,7 +62,7 @@
 		}
 
 		.uk-accordion-title.uk-active, .uk-accordion-title:hover{
-			 h3 { color: #B03856; }
+			 h3 { /*color: #B03856;*/ }
 		}
 
 		.col-datos{
