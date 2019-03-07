@@ -67,7 +67,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'hubnlb.colmex.mx',
     port:                 25,
-    domain:               'colmex.mx'}
+    domain:               'colmex.mx',
+    enable_starttls_auto: true}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
