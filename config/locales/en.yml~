@@ -85,6 +85,8 @@ en:
       submit: "Send"
       nota: "* 300 characters max"
       faq: "Frequently asked questions"
+    enviar_mail:
+      sent: "Your form has been sent. It will be attended as soon as possible."
   programas_academicos:
     programas:
       lic: "B.A. in"
@@ -135,3 +137,11 @@ en:
       agora_html: <span class="titulo-chico">About</span><span class="titulo-grande">Ágora</span>
       foro_html: <span class="titulo-chico">About</span><span class="titulo-grande">Foro Internacional</span>
       sobre: "Brief description"
+      info: "More info"
+  estudiantes:
+    estudiantes:
+      estudiantes: "Students"
+      previo_html: <p>In order to access to this content, you must fill in with your institutional account's credentials. Keep in mind that you don't need to add the <span class="rosa-light">suffix: @colmex.mx</span></p>
+      correo: "Username"
+      pass: "Password"
+      submit: "Log in"

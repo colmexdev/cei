@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'personal-administrativo' => 'directorio#personal', :as => :personal_administrativo
     get 'agora' => 'revistas#revista', :as => :agora
     get 'foro-internacional' => 'revistas#revista', :as => :foro
+    get 'estudiantes' => 'estudiantes#estudiantes', :as => :estudiantes
+    post 'autenticar' => 'estudiantes#autenticar', :as => :autenticar
   end
 
   get "/:locale" => "principal#index", :as => :main

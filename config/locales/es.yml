@@ -64,6 +64,8 @@ es:
       submit: "Enviar"
       nota: "* Máximo 300 caracteres"
       faq: "Preguntas frecuentes"
+    enviar_mail:
+      sent: "El formulario ha sido enviado y se atenderá a la brevedad."
   programas_academicos:
     programas:
       lic: "Licenciatura en"
@@ -115,3 +117,13 @@ es:
       foro_html: <span class="titulo-chico">Revista</span><span class="titulo-grande">Foro Internacional</span>
       sobre: "Sobre la revista"
       info: "Más información"
+  estudiantes:
+    estudiantes:
+      estudiantes: "Estudiantes"
+      previo_html: <p>Para poder ingresar a este contenido, es necesario que ingrese los datos de su cuenta de correo institucional. Recuerde que no deberá poner el <span class="rosa-light">sufijo: @colmex.mx</span></p>
+      correo: "Usuario"
+      pass: "Contraseña"
+      submit: "Identificarse"
+    autenticar:
+      auth: "Usuario autnticado con éxito."
+      fail: "No se pudo iniciar sesión. Por favor, revise sus datos e intente de nuevo."
