@@ -47,23 +47,23 @@
 		margin: 0 auto;
 		padding-top: 60px;
 
-		.uk-accordion-title .uk-width-1-2 h3{
+		.uk-accordion-title{
 			font-size: 17px;
 			font-weight: 600;
 			background-color: #FFFFFF;
-			color: #CC4E78;
 			border-top: solid 1px #CCCCCC;
-			-webkit-transition: all 0.4s linear;
-			-moz-transition: all 0.4s linear;
-			-o-transition: all 0.4s linear;
-			transition: all 0.4s linear;
 
-			.leave_img { display: inline; margin: 0 10px; }
-			.hover_img { display: none; }
+			h3{ 
+				color: #CC4E78;
+				-webkit-transition: all 0.4s linear;
+				-moz-transition: all 0.4s linear;
+				-o-transition: all 0.4s linear;
+				transition: all 0.4s linear;
+			}
 		}
 
 		.uk-accordion-title.uk-active, .uk-accordion-title:hover{
-			 .uk-width-1-2 h3 { color: #B03856; }
+			 h3 { color: #B03856; }
 		}
 
 		.col-datos{
