@@ -638,7 +638,7 @@ html, body{ height: 100%; }
 
 			>li{
 				padding: 3px 0;
-				background-color: #7E3355;
+				background-color: #B03856;
 				-webkit-transition: all 0.3s linear;
 				-moz-transition: all 0.3s linear;
 				-ms-transition: all 0.3s linear;
