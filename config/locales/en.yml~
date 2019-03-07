@@ -141,10 +141,17 @@ en:
   estudiantes:
     estudiantes:
       estudiantes: "Students"
-      previo_html: '<p>In order to access to this content, you must fill in with your institutional account's credentials. Keep in mind that you don''t need to add the <span class="rosa-light">suffix: @colmex.mx</span></p>'
+      previo_html: '<p>In order to access to this content, you must fill in with your institutional account''s credentials. Keep in mind that you don''t need to add the <span class="rosa-light">suffix: @colmex.mx</span></p>'
       correo: "Username"
       pass: "Password"
       submit: "Log in"
     autenticar:
       auth: "User logged in successfully."
       fail: "Couldn't log in. Please check your credentails and try again."
+    interna:
+      lic: "B.A in"
+      mt: "Master in"
+      pap: "Politics and Public Administration"
+      ri: "International Relations"
+      cp: "Political Science"
+      estudiantes: "Students of "

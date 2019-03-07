@@ -8,7 +8,7 @@ class EstudiantesController < ApplicationController
     @usr = params[:correo]
     @pwd = params[:pass]
     respond_to do |format|
-      flash[:notice] = "Usuario identificado"
+      flash[:notice] = t('.auth')
       format.html {redirect_to estudiantes_path}
     end
   end

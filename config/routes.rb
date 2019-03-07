@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     get 'foro-internacional' => 'revistas#revista', :as => :foro
     get 'estudiantes' => 'estudiantes#estudiantes', :as => :estudiantes
     post 'autenticar' => 'estudiantes#autenticar', :as => :autenticar
+    get 'estudiantes/politica-administracion-publica' => 'estudiantes#interna', :as => :estudiantes_pap
+    get 'estudiantes/relaciones-internacionales' => 'estudiantes#interna', :as => :estudiantes_ri
+    get 'estudiantes/ciencia-politica' => 'estudiantes#interna', :as => :estudiantes_cp
   end
 
   get "/:locale" => "principal#index", :as => :main
