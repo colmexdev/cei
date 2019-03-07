@@ -145,3 +145,6 @@ en:
       correo: "Username"
       pass: "Password"
       submit: "Log in"
+    autenticar:
+      auth: "User logged in successfully."
+      fail: "Couldn't log in. Please check your credentails and try again."
