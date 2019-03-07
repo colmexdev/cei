@@ -633,12 +633,12 @@ html, body{ height: 100%; }
 		.uk-nav-sub{
 			padding-left: 0;
 			font-size: 17px;
-			background-color: #B03856;
+			background-color: #A02A4C;
 			
 
 			>li{
 				padding: 3px 0;
-				background-color: #B03856;
+				background-color: #A02A4C;
 				-webkit-transition: all 0.3s linear;
 				-moz-transition: all 0.3s linear;
 				-ms-transition: all 0.3s linear;
@@ -657,7 +657,7 @@ html, body{ height: 100%; }
 			}
 
 			>li:hover, >li:focus { 
-				background-color: #4E4E4E;
+				background-color: #B03856;
 				>a { color: #fff; }
 
 			}
