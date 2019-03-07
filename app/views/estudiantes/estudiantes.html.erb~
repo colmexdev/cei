@@ -2,7 +2,7 @@
 <%= render 'principal/header' %>
 
 <div class="uk-width-1-1 principal uk-block-large">
-	<span class="titulo-grande texto-sub"><%= t('.estudiantes') %><br>
+	<span class="titulo-grande texto-sub"><%= t('.estudiantes') %></span><br>
   <div class="uk-grid uk-grid-small uk-margin-large-top">
 		<div class="uk-width-1-1">
 		<%= t('.previo_html') %>
@@ -21,11 +21,9 @@
 
 <script>
 $(document).ready(function(){
-	$(window).resize(function(){
-		//$("#vid-img-programas iframe").height($("#vid-img-programas iframe").width() * 9 / 16);
-	});
-
-	//$(window).trigger("resize");
+	if("<%= flash[:notice] %>" != ""){
+    alert("<%= flash[:notice] %>");
+  }
 });
 </script>
 

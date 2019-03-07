@@ -2,7 +2,7 @@
 <%= render 'principal/header' %>
 
 <div class="uk-width-1-1 principal uk-block-large">
-	<span class="titulo-grande texto-sub"><%= t('.estudiantes') %><br>
+	<span class="titulo-grande texto-sub"><%= t('.estudiantes') %></span><br>
   <div class="uk-grid uk-grid-small uk-margin-large-top">
 		<div class="uk-width-1-1">
 		<%= t('.previo_html') %>
@@ -12,7 +12,7 @@
 		<%= form_tag('/autenticar', {id: "form-contacto"}) do %>
 			<%= text_field_tag :correo, nil, placeholder: t('.correo'), autocomplete: "off", required: "" %><br>
 			<%= password_field_tag :pass, nil, placeholder: t('.pass'), autocomplete: "off", required: "" %><br>
-			<p id="desc-form-contacto"><%= t('.nota') %></p>
+
 			<%= submit_tag t('.submit'), class: 'boton-info' %>
 		<% end %>
 		</div>
