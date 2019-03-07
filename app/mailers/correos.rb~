@@ -6,6 +6,7 @@ class CorreosMailer < ActionMailer::Base
     @correo = correo
     @cuerpo = cuerpo
     @asunto = asunto
-    mail(from: @correo, nombre: @nombre, subject: @asunto)
+    email_with_name = %("#{@nombre}" <#{@correo}>)
+    mail(from: email_with_name, nombre: @nombre, subject: @asunto)
   end
 end
