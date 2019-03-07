@@ -73,14 +73,16 @@ function clean(){
 <% if true %>
 				<div class="uk-accordion" id="acordeon" data-uk-accordion>
 					<% 1.times do %>
-						<h3 class="uk-accordion-title"><%= "Nombre" %></h3>
+						<div class="uk-accordion-title">
+							<h3><%= "Nombre" %></h3>
+						</div>
 							<div class="uk-accordion-content">
-								<div class="uk-grid uk-grid-medium uk-margin-large-bottom">
+								<div class="uk-grid uk-grid-medium uk-margin-small-bottom">
 									<div class="uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-5 uk-text-center">
 										<img src="/persona.jpg" class="uk-border-rounded" alt="Foto Académico">
 									</div>
 									<div class="uk-width-large-4-5 uk-width-medium-4-5 uk-width-small-4-5 uk-text-left uk-text-break">
-										<div class="uk-grid uk-grid-medium uk-margin-medium-bottom">
+										<div class="uk-grid uk-grid-medium uk-margin-small-bottom">
 											<div class="uk-width-1-2 col-datos">
 												<p><span style="font-weight:700;"><%= "Correo" %> </span><a class="uk-link" href="mailto:<%= 'p.correo' %>"><%= "Correo" %></a></p>
 												<p><span style="font-weight:700;"><%= "Teléfono" %></span> <span>+(52) 55 5449 3000</span></p>
