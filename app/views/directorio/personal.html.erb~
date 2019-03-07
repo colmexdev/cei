@@ -109,8 +109,8 @@ function clean(){
 					<% end %>
 				</div>
 <% end %>
-			<div style="border-top: solid 1px #CCCCCC;"></div>
 			</div>
+			<div style="border-top: solid 1px #CCCCCC;"></div>
 		</div>
 
 		<div id="separadores" style="text-align:center;margin:10px auto;">
