@@ -42,7 +42,9 @@
 
 <script>
 $(document).ready(function(){
-
+	if("<%= flash[:notice] %>" != ""){
+    alert("<%= flash[:notice] %>");
+  }
 });
 </script>
 

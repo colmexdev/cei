@@ -5,6 +5,6 @@ class CorreosMailer < ActionMailer::Base
     @nombre = nombre
     @correo = correo
     @cuerpo = cuerpo
-    mail(from: @correo, subject: 'Duda o comentario')
+    mail(from: 'etenorio@colmex.mx', correo: @correo, subject: 'Duda o comentario')
   end
 end

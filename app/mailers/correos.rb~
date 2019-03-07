@@ -4,7 +4,7 @@ class CorreosMailer < ActionMailer::Base
   def contacto_mail(nombre,correo,cuerpo)
     @nombre = nombre
     @correo = correo
-    @asunto = cuerpo
+    @cuerpo = cuerpo
     mail(from: @correo, subject: 'Duda o comentario')
   end
 end
