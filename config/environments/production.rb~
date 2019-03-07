@@ -67,10 +67,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'hubnlb.colmex.mx',
     port:                 25,
-    domain:               'colmex.mx',
-    user_name:            'etenorio',
-    password:             'RickStarrx1',
-    authentication:       :plain}
+    domain:               'colmex.mx'}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
