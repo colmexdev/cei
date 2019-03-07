@@ -91,8 +91,17 @@ es:
       op4: "Requisitos y proceso de selección"
   directorio:
     personal:
-      personal: "Personal académico"
+      academico: "Personal académico"
+      administrativo: "Personal administrativo"
       alpha: "Buscar por orden alfabético"
       buscar: "Buscar por:"
       nombre: "Nombre y/o apellido"
       clean: "Limpiar"
+      correo: "Correo electrónico: "
+      telefono: "Teléfono: "
+      extension: "Extensión: "
+      sitio: "Sitio web: "
+      temas: "Temas de investigación: "
+      publicaciones: "Publicaciones recientes: "
+      area: "Área de trabajo: "
+      servicios: "Servicios: "

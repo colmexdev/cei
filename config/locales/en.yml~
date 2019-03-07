@@ -112,8 +112,18 @@ en:
       op4: "Requisites and selection process"
   directorio:
     personal:
-      personal: "Academic staff"
+      academico: "Academic staff"
+      administrativo: "Administrative staff"
       alpha: "Search by alphabetic order"
       buscar: "Search by:"
       nombre: "Name and/or surname"
       clean: "Clean"
+      info_web: <i class="fas fa-plus"></i>More info
+      correo: "E-mail: "
+      telefono: "Telephone: "
+      extension: "Extension: "
+      sitio: "Website: "
+      temas: "Research topics: "
+      publicaciones: "Recent publications: "
+      area: "Work area: "
+      servicios: "Services: "
