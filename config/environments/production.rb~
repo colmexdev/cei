@@ -70,6 +70,8 @@ Rails.application.configure do
     domain:               'colmex.mx',
     user_name:            'etenorio',
     password:             'RickStarrx1',
+    authentication:       nil,
+    openssl_verify_mode: "none"
     enable_starttls_auto: true }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
