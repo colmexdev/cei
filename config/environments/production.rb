@@ -65,7 +65,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              '172.16.40.40',
+    address:              'hubnlb.colmex.mx',
     port:                 25,
     domain:               'colmex.mx',
     enable_starttls_auto: true}
