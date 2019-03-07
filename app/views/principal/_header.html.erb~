@@ -63,7 +63,7 @@
 				<li class="dropdown" id="dropdown3">
 		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b3') %></span></a>
 		        <ul class="dropdown-menu">
-		          <li><a href="#"><%= t('.opcion1_b3') %></a></li>
+		          <li><a href="<%= personal_academico_path %>"><%= t('.opcion1_b3') %></a></li>
 		          <li><a href="#"><%= t('.opcion2_b3') %></a></li>
 		        </ul>
 		    </li>
@@ -165,7 +165,7 @@
 				<li class="dropdown" id="dropdown3">
 		      <a href="#" class="dropdown-toggle" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= t('.texto_b3') %></span></a>
 		        <ul class="dropdown-menu">
-		          <li><a href="#"><%= t('.opcion1_b3') %></a></li>
+		          <li><a href="<%= personal_academico_path %>"><%= t('.opcion1_b3') %></a></li>
 		          <li><a href="#"><%= t('.opcion2_b3') %></a></li>
 		        </ul>
 		    </li>
@@ -217,7 +217,7 @@
 				<li class="uk-parent">
 					<a href="#"><%= t('.texto_b3') %></a>
 					<ul class="uk-nav-sub">
-						<li><a href="#" class="sublink"><%= t('.opcion1_b3') %></a></li>
+						<li><a href="<%= personal_academico_path %>" class="sublink"><%= t('.opcion1_b3') %></a></li>
           	<li><a href="#" class="sublink"><%= t('.opcion2_b3') %></a></li>
 					</ul>
 				</li>

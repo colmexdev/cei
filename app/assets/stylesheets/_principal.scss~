@@ -168,7 +168,7 @@ p {text-align: justify; font-size: 18px;}
 }
 
 ::selection{ 
-	background: #7E3355;
+	background: #B03856;
 	color: #fff;
 	text-shadow: none;
 }
@@ -610,7 +610,7 @@ html, body{ height: 100%; }
 //Estilos asociados al offcanvas
 .nav>li>a:hover { background-color: transparent;}
 
-.uk-offcanvas-bar { background-color: #7E3355; }
+.uk-offcanvas-bar { background-color: #B03856; }
 
 .uk-nav.uk-nav-offcanvas{
 
