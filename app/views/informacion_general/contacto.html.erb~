@@ -8,9 +8,9 @@
 			<%= t('.previo_html') %>
 
 		<%= form_tag('/enviar', {id: "form-contacto"}) do %>
-			<%= text_field_tag :nombre, nil, placeholder: t('.nombre'), autocomplete: "off" %><br>
-			<%= text_field_tag :correo, nil, placeholder: t('.correo'), autocomplete: "off" %><br>
-			<%= text_area_tag :cuerpo, nil, placeholder: t('.cuerpo'), autocomplete: "off", maxlength: "300" %><br>
+			<%= text_field_tag :nombre, nil, placeholder: t('.nombre'), autocomplete: "off", required: "" %><br>
+			<%= text_field_tag :correo, nil, placeholder: t('.correo'), autocomplete: "off", required: "" %><br>
+			<%= text_area_tag :cuerpo, nil, placeholder: t('.cuerpo'), autocomplete: "off", maxlength: "300", required: "" %><br>
 			<p id="desc-form-contacto"><%= t('.nota') %></p>
 			<%= submit_tag t('.submit'), class: 'boton-info' %>
 		<% end %>

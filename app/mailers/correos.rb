@@ -1,9 +1,12 @@
 class CorreosMailer < ActionMailer::Base
+  default to: 'etenorio@colmex.mx'
 
   def contacto_mail(nombre,correo,cuerpo)
     @nombre = nombre
     @correo = correo
     @cuerpo = cuerpo
-    mail(from: 'etenorio@colmex.mx', to: @correo, subject: 'Duda o comentario')
+    @asunto = asunto
+    email_with_name = %("#{@nombre}" <#{@correo}>)
+    mail(from: email_with_name, nombre: @nombre, subject: @asunto)
   end
 end

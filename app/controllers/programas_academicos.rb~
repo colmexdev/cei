@@ -8,4 +8,7 @@ class ProgramasAcademicosController < ApplicationController
   def cursos
   end
 
+  def convocatorias
+  end
+
 end

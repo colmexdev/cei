@@ -254,15 +254,12 @@
 
 				<li class="links-side">
 					<ul class="ul-nav" style="width:183px;">
-						<li><%= link_to image_tag("fb-bco.png", :class => "img_net"), "https://www.facebook.com/elcolmex/", :target => "_blank" %></li>
-						<li><%= link_to image_tag("twitter-bco.png", :class => "img_net"), "
-https://twitter.com/ELCOLMEX", :target => "_blank" %></li>
-						<li><%= link_to image_tag("youtube-bco.png", :class => "img_net"), "https://www.youtube.com/c/elcolegiodemexicociudaddemexico", :target => "_blank" %></li>
-						<li><%= link_to image_tag("itunes-bco.png", :class => "img_net"), "https://itunes.apple.com/mx/institution/el-colegio-de-mexico/id443160573", :target => "_blank" %></li>
-						<li><%= link_to image_tag("linkedin-bco.png", :class => "img_net"), "https://www.linkedin.com/edu/el-colegio-de-m%C3%A9xico-14986", :target => "_blank" %></li>
-						<li><%= link_to image_tag("google-bco.png", :class => "img_net"), "https://plus.google.com/+ElColegiodeMéxico081040", :target => "_blank" %></li>
-						<li><%= link_to image_tag("instagram-bco.png", :class => "img_net"), "https://www.instagram.com/elcolmex/", :target => "_blank" %></li>
-						<li><%= link_to image_tag("soundcloud-blanco.png", :class => "img_net"), "https://soundcloud.com/elcolmex", :target => "_blank" %></li>
+						<li><a target="_blank" href="https://www.facebook.com/ceicolmex/">
+							<img class="img_net" src="/img/fb-cei-bco.svg">
+						</a></li>
+						<li><a target="_blank" href="https://twitter.com/CEIColmex">
+							<img class="img_net" src="/img/tw-cei-bco.svg">
+						</a></li>
 			    </ul>
 				</li>
 			</ul>

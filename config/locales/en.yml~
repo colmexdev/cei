@@ -80,6 +80,7 @@ en:
       previo_html: <p>If you want to contact the Academic Center, send an e-mail to <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> or fill in the following form:</p>
       nombre: "Name"
       correo: "E-mail"
+      asunto: "Subject"
       cuerpo: "Message*"
       submit: "Send"
       nota: "* 300 characters max"
@@ -113,6 +114,6 @@ en:
     personal:
       personal: "Academic staff"
       alpha: "Search by alphabetic order"
-      buscar: "Search by"
+      buscar: "Search by:"
       nombre: "Name and/or surname"
       clean: "Clean"

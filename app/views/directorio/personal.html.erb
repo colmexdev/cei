@@ -1,4 +1,4 @@
-<% @title = (params[:locale] == "es" ? "Personal académico" : "Academic staff") + " - " %>
+<% @title = t('.' + @titulo) + " - " %>
 <%= render 'principal/header' %>
 
 <script>
@@ -35,7 +35,7 @@ function clean(){
 </script>
 
 	<div class="principal uk-block-large">
-			<span class="titulo-grande texto-sub"><%= t(".personal") %></span><br>
+			<span class="titulo-grande texto-sub"><%= t("." + @titulo) %></span><br>
 
 	<div style="padding:0 45px;margin-top:50px;">
 

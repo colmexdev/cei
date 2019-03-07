@@ -59,6 +59,7 @@ es:
       previo_html: <p>Si deseas contactar al Centro, envía un correo a <a href='mailto:direccion.cei@colmex.mx'>direccion.cei@colmex.mx</a> o llena los campos a continuación:</p>
       nombre: "Nombre"
       correo: "Correo electrónico"
+      asunto: "Asunto"
       cuerpo: "Mensaje*"
       submit: "Enviar"
       nota: "* Máximo 300 caracteres"
@@ -90,7 +91,8 @@ es:
       op4: "Requisitos y proceso de selección"
   directorio:
     personal:
-      personal: "Personal académico"
+      academico: "Personal académico"
+      administrativo: "Personal administrativo"
       alpha: "Buscar por orden alfabético"
       buscar: "Buscar por:"
       nombre: "Nombre y/o apellido"
