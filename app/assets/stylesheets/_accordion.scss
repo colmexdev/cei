@@ -48,9 +48,11 @@
 		padding-top: 60px;
 
 		.uk-accordion-title{
+			font-size: 17px;
+			font-weight: 600;
 			background-color: #FFFFFF;
-			color: #4E4E4E;
-			border-bottom: solid 1px #4E4E4E;
+			color: #B03856;
+			border-top: solid 1px #CCCCCC;
 			-webkit-transition: all 0.4s linear;
 			-moz-transition: all 0.4s linear;
 			-o-transition: all 0.4s linear;
@@ -61,11 +63,11 @@
 		}
 
 		.uk-accordion-title.uk-active, .uk-accordion-title:hover{
-			color: #7E3355;
-			border-bottom: solid 1px #7E3355;
+			color: #CC4E78;
+			/*border-top: solid 1px #7E3355;
 
 			.hover_img { display: inline; margin: 0 10px; }
-			.leave_img { display: none; }
+			.leave_img { display: none; }*/
 		}
 	}
 }
