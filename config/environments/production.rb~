@@ -70,7 +70,7 @@ Rails.application.configure do
     domain:               'colmex.mx',
     user_name:            'etenorio',
     password:             'RickStarrx1',
-    authentication:       nil,
+    authentication:       :none,
     openssl_verify_mode: "none",
     enable_starttls_auto: true }
 
