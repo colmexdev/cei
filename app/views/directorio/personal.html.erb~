@@ -176,7 +176,7 @@ $(document).ready(function(){
 							'</div>';
 			}
 			$("#acordeon").html(personal_html);
-			UIkit.accordion($("#acordeon")[0],"showfirst": false);
+			UIkit.accordion($("#acordeon")[0],{"showfirst": false});
 		}
 	});
 });
