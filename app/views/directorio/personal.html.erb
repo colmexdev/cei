@@ -132,9 +132,6 @@ function clean(){
 
 <script>
 $(document).ready(function(){
-	$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){
-		toggle[0].childNodes[3].childNodes[1].innerHTML = (active ? '<%= t(".info_menos_html") %>' : '<%= t(".info_mas_html") %>'); 
-	});
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei',
 		success: function(result){
@@ -177,6 +174,9 @@ $(document).ready(function(){
 							'</div>' + '</div>';
 			}
 			$("#busqueda").html(personal_html);
+			$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){
+		toggle[0].childNodes[3].childNodes[1].innerHTML = (active ? '<%= t(".info_menos_html") %>' : '<%= t(".info_mas_html") %>'); 
+	});
 		}
 	});
 });
