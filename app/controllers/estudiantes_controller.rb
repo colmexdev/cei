@@ -14,7 +14,7 @@ class EstudiantesController < ApplicationController
   end
 
   def interna
-    @titulo = (request.fullpath.include?("administracion") ? "pap" : (request.fullpath.include?("internacionales") ? "ri" : "pap"))
+    @titulo = (request.fullpath.include?("administracion") ? "pap" : (request.fullpath.include?("internacionales") ? "ri" : "cp"))
     @grado = (request.fullpath.include?("ciencia") ? "mt" : "lic")
   end
 end
