@@ -129,4 +129,16 @@ function clean(){
 	</div>
 
 	</div>
+
+<script>
+$(document).ready(function(){
+	$.ajax({
+		url: 'https://www.colmex.mx/directorio-academico?centro=cei',
+		dataType: 'JSON',
+		success: function(result){
+			console.log(result);
+		}
+	});
+});
+</script>
 <%= render 'principal/footer' %>
