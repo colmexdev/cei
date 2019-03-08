@@ -133,7 +133,7 @@ function clean(){
 <script>
 $(document).ready(function(){
 	$.ajax({
-		url: 'https://www.colmex.mx/directorio-academico.json?centro=cei',
+		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei',
 		success: function(result){
 			console.log(result);
 		}
