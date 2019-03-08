@@ -169,11 +169,11 @@ $(document).ready(function(){
 												'<p><span style="font-weight:700;">CVU-COLMEX: </span><span><%= "raw(p.cvu.split(/ *\/ */)[0])" %></span></p>' +
 											'</div>' +
 										'</div>' +
-										'<h5><%= t("." + @t_a) %> <span style="font-weight:300;">' + result["profs"][i]["temas_" + ("<%= params[:locale] %>" == "es" ? "esp" : "ing")] + '</span></h5>'
+										'<h5><%= t("." + @t_a) %> <span style="font-weight:300;">' + result["profs"][i]["temas_" + ("<%= params[:locale] %>" == "es" ? "esp" : "ing")] + '</span></h5>' +
 										'<h5><%= t("." + @p_s) %> <span style="font-weight:300;"><%= "Publicaciones" %></span></h5>' +
 									'</div>' +
 								'</div>' +
-							'</div>' + '</div>' + '</div>';
+							'</div>';
 			}
 			$("#acordeon").html(personal_html);
 		}
