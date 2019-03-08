@@ -71,11 +71,11 @@ function clean(){
 			</div>
 			<div class="col-xs-12 acordeon-premios" id="busqueda">
 <% if true %>
-				<div class="uk-accordion" id="acordeon" data-uk-accordion>
+				<div class="uk-accordion" id="acordeon" data-uk-accordion="showfirst:false">
 					<% 1.times do |i| %>
 						<div class="uk-accordion-title uk-grid uk-grid-small">
 						<div class="uk-width-1-2" style="text-align:left;">
-							<h3 class="nombre rosa-light" id="<%= 'nombre-' + i.to_s %>"><%= "Nombre" %></h3>
+							<h3 class="nombre rosa-light"><%= "Nombre" %></h3>
 						</div>
 						<div class="uk-width-1-2" style="text-align:right; padding-right:25px;">
 							<h3 class="info-acordeon"><%= t('.info_mas_html') %></h3>
@@ -132,10 +132,49 @@ function clean(){
 
 <script>
 $(document).ready(function(){
+	$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){
+		toggle[0].childNodes[3].childNodes[1].innerHTML = (active ? "<%= t('.info_mas_html') %>" : "<%= t('.info_menos_html') %>"); 
+	});
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei',
 		success: function(result){
-			console.log(result);
+			var personal_html = "";
+			for(var i = 0; i < result["profs"].length; i++){
+				pesonal_html = personal_html + '<div class="uk-accordion-title uk-grid uk-grid-small">' +
+						'<div class="uk-width-1-2" style="text-align:left;">' +
+							'<h3 class="nombre rosa-light">' + result["profs"][i]["nombre"] + '</h3>' +
+						'</div>' +
+						'<div class="uk-width-1-2" style="text-align:right; padding-right:25px;">' +
+							'<h3 class="info-acordeon"><%= t(".info_mas_html") %></h3>' +
+						'</div>' +
+						'</div>' +
+							'<div class="uk-accordion-content">' +
+								'<div class="uk-grid uk-grid-medium uk-margin-small-bottom">' +
+									'<div class="uk-width-large-1-5 uk-width-medium-1-5 uk-width-small-1-5 uk-text-center">' +
+										'<img src="/persona.jpg" class="uk-border-rounded" alt="Foto Académico">' +
+									'</div>' +
+									'<div class="uk-width-large-4-5 uk-width-medium-4-5 uk-width-small-4-5 uk-text-left uk-text-break">' +
+										'<div class="uk-grid uk-grid-medium uk-margin-small-bottom">' +
+											'<div class="uk-width-1-2 col-datos">' +
+												'<p><span style="font-weight:700;"><%= t(".correo") %> </span><a class="uk-link" href="mailto:' + result["profs"][i]["correo"] + '">' + result["profs"][i]["correo"] + '</a></p>' +
+												'<p><span style="font-weight:700;"><%= t(".telefono") %></span> <span>+(52) 55 5449 3000</span></p>' +
+												'<p><span style="font-weight:700;"><%= t(".extension") %></span> <span>' + result["profs"][i]["extension"] + '</span></p>' +
+											'</div>' +
+											'<div class="uk-width-1-2 col-datos">' +
+												'<p><span style="font-weight:700;"><%= t(".sitio") %> </span><a class="uk-link" href="' + result["profs"][i]["sitio"] + '" target="_blank">' + result["profs"][i]['sitio'].substring(0,20) + (result["profs"][i]["sitio"].length > 20 ? "..." : "") + '</a></p>' +
+												'<p><span style="font-weight:700;">VIAF: </span><span><%= "raw(p.viaf.split(/ *\/ */)[0])" %></span></p>' +
+												'<p><span style="font-weight:700;">ORCID: </span><span><%= "raw(p.orcid.split(/ *\/ */)[0])" %></span></p>' +
+												'<p><span style="font-weight:700;">ISNI: </span><span><%= "raw(p.isni.split(/ *\/ */)[0])" %></span></p>' +
+												'<p><span style="font-weight:700;">CVU-COLMEX: </span><span><%= "raw(p.cvu.split(/ *\/ */)[0])" %></span></p>' +
+											'</div>' +
+										'</div>' +
+										'<h5><%= t("." + @t_a) %> <span style="font-weight:300;">' + result["profs"][i]["temas_" + ("<%= params[:locale] %>" == "es" ? "esp" : "ing")] + '</span></h5>'
+										'<h5><%= t("." + @p_s) %> <span style="font-weight:300;"><%= "Publicaciones" %></span></h5>' +
+									'</div>' +
+								'</div>' +
+							'</div>';
+			}
+			$("#acordeon").html(personal_html);
 		}
 	});
 });

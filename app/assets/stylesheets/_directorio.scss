@@ -88,7 +88,7 @@
 	a { color: #FFF; }
 }
 
-.uk-accordion-title:hover{
+.uk-accordion-title:hover, .uk-accordion-title.uk-active{
 	.nombre { color: #B03856; }
 	.info-acordeon span { color: #5E002B; }
 }
