@@ -89,13 +89,6 @@ console.log("<%= request.GET %>");
 			$("#separadores").html(pags_html);
 			window.total = result["total"];
 		}
-	}).done(function(){
-		$.ajax({
-			url: "<%= personal_academico_path %>?total=" + window.total,
-			success: function(result){
-				$("#c_l").html("<%= t('.persona', count: 1) %>");
-			}
-		});
 	});
 
 <% else %>
