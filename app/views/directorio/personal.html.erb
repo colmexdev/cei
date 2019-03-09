@@ -176,6 +176,7 @@ $(document).ready(function(){
 			var acc = UIkit.accordion($("#acordeon"),{showfirst: false, collapse: false});
 			$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){
 		toggle[0].childNodes[3].childNodes[1].innerHTML = (active ? '<%= t(".info_menos_html") %>' : '<%= t(".info_mas_html") %>'); 
+			});
 			acc.update();
 	});
 		}
