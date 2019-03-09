@@ -91,7 +91,7 @@ console.log("<%= request.GET %>");
 		}
 	}).done(function(){
 		$.ajax({
-			url: "<%= personal_academico_path %>?total=" + window.total;,
+			url: "<%= personal_academico_path %>?total=" + window.total,
 			success: function(result){
 				$("#c_l").html("<%= t('.persona', count: 1) %>");
 			}
