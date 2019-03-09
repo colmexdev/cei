@@ -91,12 +91,11 @@ function clean(){
 	}).always(function(){
 		$.ajax({
 			url: "<%= personal_academico_path %>.js?total=" + window.total,
-			success: function(result){ console.log(result["total"]); $("#c_l").html("<%= @total %>"); }
+			success: function(result){ console.log(result["total"]); }
 		});
 	});
 
 <% else %>
-		console.log(window.location.search);
 		<% logger.debug request.GET %>
-
+		$("#c_l").html("<%= @total %>");
 <% end %>

@@ -90,8 +90,7 @@ function clean(){
 		}
 	}).always(function(){
 		$.ajax({
-			url: "<%= personal_academico_path %>?total=" + window.total,
-			dataType: 'JSON',
+			url: "<%= personal_academico_path %>.js?total=" + window.total,
 			success: function(result){ console.log(result["total"]); $("#c_l").html("<%= @total %>"); }
 		});
 	});
