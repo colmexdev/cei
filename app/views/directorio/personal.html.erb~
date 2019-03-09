@@ -171,6 +171,7 @@ $(document).ready(function(){
 								'</div>' +
 							'</div>' + '</div>';
 			}
+			personal_html = personal_html + '</div>';
 			$("#busqueda").html(personal_html);
 			var acc = UIkit.accordion($("#acordeon"),{showfirst: false, collapse: false});
 			$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){
