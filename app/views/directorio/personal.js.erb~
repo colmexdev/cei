@@ -33,6 +33,7 @@ function clean(){
 	
 }
 
+<%= logger.debug request.GET.map{|k,v| "#{k.to_s == "offset" ? k : ("conds[" + k + "]")}=#{v}" }.join("&") %>
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei&<%= request.GET.map{|k,v| "#{k.to_s == "offset" ? k : ("conds[" + k + "]")}=#{v}" }.join("&") %>',
 		success: function(result){
