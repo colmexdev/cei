@@ -90,7 +90,9 @@ console.log("<%= request.GET %>");
 
 			$.ajax({
 				url: '<%= request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path %>?total=' + result["total"],
-				success: function(){}
+				success: function(){
+					console.log(window.location.search);
+				}
 			});
 		}
 	});

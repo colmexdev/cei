@@ -32,7 +32,7 @@ function clean(){
 	});
 	
 }
-
+console.log("<%= request.GET %>");
 <% if !request.GET.include?(:total) %>
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei&<%= request.GET.map{|k,v| "#{k.to_s == "offset" ? k : ("conds[" + k + "]")}=#{v}" }.join("&") %>',
