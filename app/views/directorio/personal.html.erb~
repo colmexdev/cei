@@ -85,11 +85,12 @@ function clean(){
 <script>
 $(document).ready(function(){
 	function buildSearchQuery(conds){
-		var query = "?", keys = Object.keys(conds);
+		var query = "?", keys = Object.keys(conds), first = true;
 		for(var i = 0; i < keys.length; i++){
 			if(conds[keys[i]] == "" || conds[keys[i]] == null)
 				continue;
-			query = query + (i != 0 ? "&" : "") + keys[i] + "=" + conds[keys[i]];
+			query = query + (!first ? "&" : "") + keys[i] + "=" + conds[keys[i]];
+			first = false;
 		}
 		return query;
 	}
