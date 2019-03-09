@@ -32,7 +32,6 @@ function clean(){
 	});
 	
 }
-console.log("<%= request.GET %>");
 
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei&<%= request.GET.map{|k,v| "#{k.to_s == "offset" ? k : ("conds[" + k + "]")}=#{v}" }.join("&") %>',
@@ -94,7 +93,7 @@ console.log("<%= request.GET %>");
 		$.ajax({
 			url: "<%= personal_academico_path %>?total=" + window.total,
 			dataType: 'JSON',
-			success: function(result){ console.log(result["total"]); }
+			success: function(result){ $("#c_l").html("<%= t('.persona', count: params[:total] || 0) %>" }
 		});
 	});
 
