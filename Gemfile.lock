@@ -20,6 +20,9 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_directory (1.6.1.1)
+      bindata (~> 2)
+      net-ldap (~> 0)
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -40,6 +43,7 @@ GEM
     autoprefixer-rails (6.3.6.2)
       execjs
     bcrypt (3.1.12)
+    bindata (2.3.5)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.8.0.1)
@@ -114,6 +118,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    net-ldap (0.15.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -212,6 +217,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_directory
   bootstrap-datepicker-rails
   bootstrap-glyphicons
   bootstrap-sass (~> 3.3.6)
