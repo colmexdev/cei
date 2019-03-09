@@ -2,11 +2,13 @@
 function filterDir(fields){
 	var where = "";
 	if(typeof fields == "string"){
-		where = "&conds[inic]="+fields;
+		where = "&inic="+fields;
+		$(".inics.letra").removeClass("active");
+		$("#inic_" + fields).addClass("active");
 	}
 	else{
 		for(var i = 0; i < fields.length; i++){
-			where = where + ($("#"+fields[i]).val() != "" ? ("&conds[" + fields[i] + "]=" + $("#"+fields[i]).val()) : "");
+			where = where + ($("#"+fields[i]).val() != "" ? ("&" + fields[i] + "=" + $("#"+fields[i]).val()) : "");
 		}
 	}
 	$.ajax({
@@ -16,7 +18,7 @@ function filterDir(fields){
 }
 
 function clean(){
-	$(".inics.letra").css("color","");
+	$(".inics.letra").removeClass("active");
 	$("#nombre").val("");
 	$.ajax({
 		url: '<%= request.fullpath.include?("academico") ? personal_academico_path: personal_administrativo_path %>.js?offset=0',
