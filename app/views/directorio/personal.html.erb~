@@ -71,7 +71,7 @@ function clean(){
 			</div>
 			<div class="col-xs-12 acordeon-premios" id="busqueda">
 <% if true %>
-				<div class="uk-accordion" id="acordeon" data-uk-accordion="showfirst:false">
+				<div class="uk-accordion" id="acordeon" data-uk-accordion="{showfirst:false,collapse:false}">
 					<% 1.times do |i| %>
 						<div class="uk-accordion-title uk-grid uk-grid-small">
 						<div class="uk-width-1-2" style="text-align:left;">
@@ -135,10 +135,9 @@ $(document).ready(function(){
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei',
 		success: function(result){
-			var personal_html = '<div class="uk-accordion" id="acordeon">';
+			var personal_html = "";
 			for(var i = 0; i < result["profs"].length; i++){
-				personal_html = personal_html + '<div class="uk-accordion-title uk-grid uk-grid-small">' +
-						'<div class="uk-width-1-2" style="text-align:left;">' +
+				personal_html = personal_html + '<div class="uk-width-1-2" style="text-align:left;">' +
 							'<h3 class="nombre rosa-light">' + result["profs"][i]["nombre"] + '</h3>' +
 						'</div>' +
 						'<div class="uk-width-1-2" style="text-align:right; padding-right:25px;">' +
@@ -171,13 +170,12 @@ $(document).ready(function(){
 								'</div>' +
 							'</div>';
 			}
-			personal_html = personal_html + '</div>';
-			$("#busqueda").html(personal_html);
+			$("#acordeon").html(personal_html);
 			var acc = UIkit.accordion($("#acordeon"),{showfirst: false, collapse: false});
-			acc.update();
-			$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){
+			acc.on("toggle.uk.accordion",function(event,active,toggle,content){
 		toggle[0].childNodes[3].childNodes[1].innerHTML = (active ? '<%= t(".info_menos_html") %>' : '<%= t(".info_mas_html") %>'); 
 			});
+			acc.update();
 		}
 	});
 });
