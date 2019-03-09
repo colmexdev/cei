@@ -1,0 +1,43 @@
+<div class="princ">
+</div>
+<div class="form">
+<% if false %>
+<h2>Acceder al panel</h2>
+<% end %>
+
+<div class="container" style="text-align:center;padding-top:10%;">
+<%= image_tag("colmex.png", class: "img-login") %>
+<%= stored_location_for(:admin) %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+		<% if false %>
+    <%= f.label :usuario %><br />
+		<% end %>
+    <%= f.text_field :usuario, autocomplete: "off", autofocus: true, placeholder: "Usuario", class: "text-ip" %>
+  </div>
+
+  <div class="field">
+		<% if false %>
+    <%= f.label :password %><br />
+		<% end %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Contraseña", class: "text-ip" %>
+  </div>
+
+	<% if false%>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label "Mantener sesión abierta" %>
+    </div>
+  <% end -%>
+	<% end %>
+
+  <div class="actions">
+    <%= f.submit "Acceder", class: "sign-in" %>
+  </div>
+<% end %>
+
+</div>
+
+</div>
