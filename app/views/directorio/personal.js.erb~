@@ -97,6 +97,6 @@ function clean(){
 <% else %>
 
 //Indicación elementos
-	$("#c_l").text("<%= t('.persona', count: request.GET[:total]) %>");
+	$("#c_l").text("<%= t('.persona', count: request.GET[:total].to_i) %>");
 
 <% end %>
