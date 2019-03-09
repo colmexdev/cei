@@ -37,6 +37,7 @@ function clean(){
 	$.ajax({
 		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei&<%= request.GET.map{|k,v| "#{k.to_s == "offset" ? k : ("conds[" + k + "]")}=#{v}" }.join("&") %>',
 		success: function(result){
+			console.log("<%= request.GET[:total] %>");
 			// Construcción acordeón
 			var personal_html = '<div class="uk-accordion" id="acordeon">';
 			for(var i = 0; i < result["profs"].length; i++){
@@ -95,8 +96,8 @@ function clean(){
 	});
 
 <% else %>
-
+	console.log("<%= request.GET[:total] %>");
 //Indicación elementos
-	$("#c_l").text("<%= t('.persona', count: request.GET[:total].to_i) %>");
+	$("#c_l").html("<%= t('.persona', count: request.GET[:total].to_i) %>");
 
 <% end %>
