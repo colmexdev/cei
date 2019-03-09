@@ -145,7 +145,7 @@ $(document).ready(function(){
 			for(var i = 0; i < result["pags"]; i++){
 				pags_html = pags_html + '<div class="numeros-div"><a class="numeros' + (result["offset"] == i.toString() ? ' active' : '') + '" href="<%= request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path %>' + buildSearchQuery({"offset": i, "conds[nombre]": $("#nombre").val()}) %> + '" data-remote="true">' + (i + 1) + '</a></div>';	
 			}
-			pags_html = pags_html + (result["pags"] > 1 ? '<div class="numeros-div flechas-num" id="sep-nxt"><a class="numeros" href="<%= request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path %>' + buildSearchQuery({"offset": (parseInt(result["offset"]) + 1 >= result["pags"] ? (parseInt(result["pags"]) - 1) : (parseInt(result["offset"] + 1)), "conds[nombre]": $("#nombre").val() }) + '" data-remote="true"><i class="fa fa-angle-right"></i></a></div>' :"");
+			pags_html = pags_html + (result["pags"] > 1 ? '<div class="numeros-div flechas-num" id="sep-nxt"><a class="numeros" href="<%= request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path %>' + buildSearchQuery({"offset": (parseInt(result["offset"]) + 1 >= result["pags"] ? (parseInt(result["pags"]) - 1) : (parseInt(result["offset"] + 1)), "conds[nombre]": $("#nombre").val() }) + '" data-remote="true"><i class="fa fa-angle-right"></i></a></div>' : "");
 
 		}
 	});
