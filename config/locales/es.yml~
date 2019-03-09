@@ -100,7 +100,7 @@ es:
       nombre: "Nombre y/o apellido"
       clean: "Limpiar"
       info_mas_html: <span class="rosa-bold"><i class="fa fa-plus" aria-hidden="true"></i> Más información</span>
-      info_menos_html: <span class="morado"><i class="fa fa-minus" aria-hidden="true"></i> menos información</span>
+      info_menos_html: <span class="morado"><i class="fa fa-minus" aria-hidden="true"></i> Menos información</span>
       correo: "Correo electrónico: "
       telefono: "Teléfono: "
       extension: "Extensión: "
