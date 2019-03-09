@@ -109,6 +109,10 @@ es:
       publicaciones: "Publicaciones recientes: "
       area: "Área de trabajo: "
       servicios: "Servicios: "
+      personas:
+        zero: "Ninguna persona encontrada"
+        one: "%{count} persona encontrada"
+        other: "%{count} personas encontradas"
   revistas:
     revista:
       agora: "Revista Ágora"

@@ -132,8 +132,8 @@ en:
       servicios: "Services: "
       personas:
         zero: "No matches found"
-        one: "%{count} person matches"
-        other: "%{count} people match"
+        one: "One match found"
+        other: "%{count} matches found"
   revistas:
     revista:
       agora: "Ágora magazine"

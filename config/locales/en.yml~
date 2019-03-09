@@ -130,6 +130,10 @@ en:
       publicaciones: "Recent publications: "
       area: "Work area: "
       servicios: "Services: "
+      personas:
+        zero: "No matches found"
+        one: "%{count} person matches"
+        other: "%{count} people match"
   revistas:
     revista:
       agora: "Ágora magazine"
