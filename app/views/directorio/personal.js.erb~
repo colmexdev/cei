@@ -90,6 +90,7 @@ function clean(){
 		}
 	}).always(function(){
 		console.log(window.total);
+		<% logger.debug request.GET %>
 		/*$.ajax({
 			url: "<%= personal_academico_path %>?total=" + window.total,
 			dataType: 'JSON',

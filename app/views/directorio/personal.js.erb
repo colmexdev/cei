@@ -89,7 +89,7 @@ function clean(){
 			window.total = result["total"];
 		}
 	}).always(function(){
-		console.log(window.total);
+		console.log(window.location.search);
 		<% logger.debug request.GET %>
 		/*$.ajax({
 			url: "<%= personal_academico_path %>?total=" + window.total,
