@@ -57,14 +57,28 @@
 	font-size: 24px;
 }
 
-.letra:hover { color: #B03856; }
+.letra:hover, .letra.active { color: #B03856; }
+
+.numeros-cont{
+	margin: 0 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.flechas-num { color: #CC4E78; }
 
 .numeros {
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato, sans-serif;
 	font-size: 26px;
-	/*letter-spacing: 8px;*/
 	color: #909090;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
+
+.numeros:hover, .numeros.active { color: #B03856 }
 
 #filtro-inic{
 	text-align: center;
@@ -88,7 +102,7 @@
 	a { color: #FFF; }
 }
 
-.uk-accordion-title:hover{
+.uk-accordion-title:hover, .uk-accordion-title.uk-active{
 	.nombre { color: #B03856; }
 	.info-acordeon span { color: #5E002B; }
 }
