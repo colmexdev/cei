@@ -18,3 +18,4 @@
 //= require jquery.slick
 //= require escala_auto
 //= require scroll
+//= require filtros
