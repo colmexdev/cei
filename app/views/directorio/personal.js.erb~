@@ -87,14 +87,10 @@ console.log("<%= request.GET %>");
 			}
 			pags_html = pags_html + (result["pags"] > 1 ? '<div class="numeros-div" id="sep-nxt"><a class="numeros" href="<%= request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path %>?offset=' + (parseInt(result["offset"]) + 1 >= parseInt(result["pags"]) ? (parseInt(result["pags"]) - 1) : (parseInt(result["offset"]) + 1)) + '<%= request.GET.except(:offset).map{|k,v| "#{k}=#{v}"}.join("&") %>" data-remote="true"><i class="fa fa-angle-right flechas-num"></i></a></div><div class="numeros-div" id="sep-nxt"><a class="numeros" href="<%= (request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path) %>?offset=' +( parseInt(result["pags"]) - 1) + '<%= request.GET.except(:offset).map{|k,v| "#{k}=#{v}"}.join("&") %>" data-remote="true"><i class="fa fa-angle-double-right flechas-num"></i></a></div>' : "");
 			$("#separadores").html(pags_html);
-
-			$.ajax({
-				url: '<%= request.fullpath.include?("academico") ? personal_academico_path : personal_administrativo_path %>?total=' + result["total"],
-				success: function(){
-					console.log(window.location.search);
-				}
-			});
+			window.total = result["total"];
 		}
+	}).done(function(){
+		console.log(window.total);
 	});
 
 <% else %>

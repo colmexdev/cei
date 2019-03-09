@@ -90,12 +90,17 @@ console.log("<%= request.GET %>");
 			window.total = result["total"];
 		}
 	}).done(function(){
-		console.log(window.total);
+		$.ajax({
+			url: "<%= personal_academico_path %>?total=" + window.total;,
+			success: function(result){
+				$("#c_l").html("<%= t('.persona', count: 1) %>");
+			}
+		});
 	});
 
 <% else %>
 	console.log("<%= request.GET[:total] %>");
 //Indicación elementos
-	$("#c_l").html("<%= t('.persona', count: request.GET[:total].to_i) %>");
+	
 
 <% end %>
