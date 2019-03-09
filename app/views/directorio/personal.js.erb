@@ -13,7 +13,7 @@ function filterDir(fields){
 		}
 	}
 	$.ajax({
-		url: '<%= request.fullpath.include?("academico") ? personal_academico_path: personal_administrativo_path %>.js?offset=0' + where,
+		url: '<%= request.fullpath.include?("academico") ? personal_academico_path: personal_administrativo_path %>.js?offset=0&centro=cei' + where,
 		success: function(){}
 	});
 }
@@ -22,7 +22,7 @@ function clean(){
 	$(".inics.letra").removeClass("active");
 	$("#nombre").val("");
 	$.ajax({
-		url: '<%= request.fullpath.include?("academico") ? personal_academico_path: personal_administrativo_path %>.js?offset=0',
+		url: '<%= request.fullpath.include?("academico") ? personal_academico_path: personal_administrativo_path %>.js?offset=0&centro=cei',
 		success: function(){
 			$("#busqueda").html("");
 			$("#c_l").html("");
