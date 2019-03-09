@@ -92,7 +92,7 @@ function clean(){
 		$.ajax({
 			url: "<%= personal_academico_path %>?total=" + window.total,
 			dataType: 'JSON',
-			success: function(result){ console.log(result); $("#c_l").html("<%= @total %>"); }
+			success: function(result){ console.log(result["total"]); $("#c_l").html("<%= @total %>"); }
 		});
 	});
 
