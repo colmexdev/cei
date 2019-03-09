@@ -90,11 +90,12 @@ function clean(){
 		}
 	}).always(function(){
 		console.log(window.total);
-		$.ajax({
+		<% logger.debug request.GET %>
+		/*$.ajax({
 			url: "<%= personal_academico_path %>?total=" + window.total,
 			dataType: 'JSON',
 			success: function(result){ $("#c_l").html("<%= 'hola' %>" }
-		});
+		});*/
 	});
 
 
