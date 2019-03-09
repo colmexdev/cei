@@ -96,5 +96,5 @@ function clean(){
 	});
 
 <% else %>
-		$("#c_l").html("<%= t('.personas', count: @total) %>");
+		$("#c_l").html("<%= t('.personas', count: @total.to_i) %>");
 <% end %>
