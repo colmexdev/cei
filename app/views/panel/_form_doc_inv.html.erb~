@@ -1,0 +1,74 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :decripcion, "Descripción" %><br>
+    <%= f.trix_editor :descripcion %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :captura, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir foto') %><br>
+    <%= f.file_field :captura, :onchange => "readURL(this,'#foto-emerito')" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.captura.url.nil? %>
+				<img id="foto-emerito" src="<%= @obj.captura.url %>">
+			<% else %>
+				<span>No hay captura para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="field" style="height:250px;">
+                <div class="photo-upload">
+    <%= f.label :documento, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir documento') %><br>
+    <%= f.file_field :documento, :onchange => "readURL(this,'#doc-emerito')" %><br>
+                </div>
+                <div class="img-display">
+                        <% if !@obj.documento.url.nil? %>
+                                <img id="doc-emerito" src="<%= @obj.documento.url %>">
+                        <% else %>
+                                <span>No hay documento para mostrar.</span>
+                        <% end %>
+                </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+extendTrix();
+
+function extendTrix(){
+	try{
+		console.log("Hola");
+		Trix.config.blockAttributes.heading = { tagName: 'h1' };
+		console.log("Hola2");
+		buttonHTML = "<button type=\"button\" class=\"heading\" data-attribute=\"heading\" title=\"Heading\">Heading</button>";
+		console.log("Hola3");
+		groupElement = Trix.config.toolbar.content.querySelector(".block_tools");
+		console.log("Hola4");
+		groupElement.insertAdjacentHTML("beforeend", buttonHTML);
+		console.log("Hola5");
+	}
+	catch(err){
+		console.log(err);
+	} 
+}
+</script>

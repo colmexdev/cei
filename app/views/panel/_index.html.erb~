@@ -1,0 +1,93 @@
+<% if admin_signed_in? %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de <%= params[:set] %></h1><br>
+
+<%= render "panel/params_filtro", set: params[:set] %>
+
+<% if false %>
+<a class="uk-link" onclick="hideLink(event,'#index-panel','<%= panel_nuevo_path(:set => params[:set]) %>')">Nuevo elemento</a>
+<% end %>
+<table id="index-panel">
+  <thead>
+    <tr id="header-ind">
+			<% @fields.values.each do |f| %>
+			<td class="head-ind"><%= f %></td>
+			<% end %>
+			<% @imgs.values.each do |f| %>
+			<td class="head-ind"><%= f %></td>
+			<% end %>
+			<td class="head-ind-img" style="width:130px;"></td>
+    </tr>
+  </thead>
+
+  <tbody style="font-size:14px;">
+    <% @set.each do |s| %>
+      <tr class="row-ind">
+				<% @fields.keys.each do |f| %>
+        <td class="ind-cell"><%= f.to_s != "thumbnail" ? raw(s[f.to_s]) : raw(image_tag(s[f.to_s])) %></td>
+				<% end %>
+				<% @imgs.keys.each do |f| %>
+					<% if f.to_s == "foto" %>
+						<td class="ind-cell"><%= image_tag(s.foto.url) %></td>
+					<% elsif f.to_s == "imagen" %>
+						<td class="ind-cell"><%= image_tag(s.imagen.url) %></td>
+					<% elsif f.to_s == "icono" %>
+						<td class="ind-cell"><%= image_tag(s.icono.url) %></td>	
+					<% elsif f.to_s == "badge" %>
+						<td class="ind-cell"><%= image_tag(s.badge.url) %></td>	
+					<% elsif f.to_s == "badge_eng" %>
+						<td class="ind-cell"><%= image_tag(s.badge_eng.url) %></td>	
+					<% elsif f.to_s == "portada" %>
+						<td class="ind-cell"><%= image_tag(s.portada.url) %></td>
+					<% elsif f.to_s == "archivo" %>
+						<td class="ind-cell"><%= link_to image_tag("documento.png"), s.archivo.url, target: "_blank" %></td>
+					<% end %>
+				<% end %>
+				<td class="ind-cell-img" style="width:130px;">
+					<a class="link-img-panel" onclick="hideLink(event,'#index-panel','<%= panel_mostrar_path(:set => params[:set], :id => s.id) %>')"><span class="clickable-g glyphicon glyphicon-eye-open"></span></a>
+					<a class="link-img-panel" onclick="hideLink(event,'#index-panel','<%= panel_editar_path(:set => params[:set], :id => s.id) %>')"><span class="clickable-g glyphicon glyphicon-pencil"></span></a>
+					<% if params[:set] != "Contenido de sitios" %>
+					<a class="link-img-panel" onclick="hideLink(event,'#index-panel','<%= panel_eliminar_path(:set => params[:set], :id => s.id) %>','DELETE')"><span class="clickable-g glyphicon glyphicon-trash"></span></a>
+					<% end %>
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div style="margin-bottom:25px;text-align:center;font-size:18px;font-weight:500;">
+<% ind = 0 %>
+
+	<% if @pags > 1 %>
+		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != 0 ? "pointer" : "default" %>;" <%= params[:offset].to_i != 0 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i - 1) + "',null,document.getElementById('keyword').value,buildQuery(filteredParams('#{params[:set].split(' ').join('+')}')))") : "" %>><</span>
+	<% end %>
+
+<% while ind < @pags %>
+	<span class="numeros" style="margin:0 4px;cursor:pointer;<%= params[:offset].to_i == ind ? "color:rgb(153, 51, 102);" : "" %>" onclick="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: ind) %>',null,document.getElementById('keyword').value,buildQuery(filteredParams('<%= params[:set] %>')))"><%= ind + 1 %></span>
+	<% ind = ind + 1 %>
+<% end %>
+
+	<% if @pags > 1 %>
+		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != @pags - 1 ? "pointer" : "default" %>;" <%= params[:offset].to_i != @pags - 1 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i + 1) + "',null,document.getElementById('keyword').value,buildQuery(filteredParams('#{params[:set].split(' ').join('+')}')))") : "" %>>></span>
+	<% end %>
+</div>
+<% if false %>
+<a class="uk-link" onclick="hideLink(event,'#index-panel','<%= panel_princ_path %>')">Inicio</a>
+<% end %>
+
+<script type="text/javascript">
+	var cols = $(".head-ind").length;
+	$(".head-ind").each(function(index){
+		$(this).css({"width": adjustWidths(cols), "text-align": "center", "font-weight": "500","font-size": "16px"}).css('width',('-='+(130/cols)+'px'));
+	});
+	$(".ind-cell").each(function(index){
+		if(this.innerHTML.length > 100){
+			var n_html = this.innerHTML.substring(0,100) + "..."
+			this.innerHTML = n_html;
+		}
+	});
+</script>
+<% end %>

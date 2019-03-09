@@ -1,0 +1,38 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :tipo, "Tipo" %><br>
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_eng, "Tipo (Inglés)" %><br>
+    <%= f.text_field :tipo_eng %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :icono, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir ícono') %><br>
+    <%= f.file_field :icono, :onchange => "readURL(this,'#icono-td')" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.icono.url.nil? %>
+				<img id="icono-td" src="<%= @obj.icono.url %>">
+			<% else %>
+				<span>No hay foto para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

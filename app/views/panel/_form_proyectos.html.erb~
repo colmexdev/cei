@@ -1,0 +1,70 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion, "Descripción" %><br>
+    <%= f.trix_editor :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :colaboradores, "Colaboradores" %><br>
+    <%= f.trix_editor :colaboradores %>
+  </div>
+
+  <div class="field">
+    <%= f.label :index, "Índice de aparición" %><br>
+    <%= f.number_field :index, min: 1, step: 1, value: (@obj.index || (Project.count + 1)) %>
+  </div>
+  <div class="field">
+    <%= f.label :apoyos, "Con apoyo de" %><br>
+			<%= f.check_box :apoyos, {multiple: true, checked: false, onclick: "uncheckBoxes(this,'apoyos-check');", id: "apoyos_nil"}, "", nil %>
+			<%= f.label :apoyos, "Ninguno (borra todos los listados anteriormente)" %><br>
+		<% Sponsor.pluck(:nombre).each do |t| %>
+    	<%= f.check_box :apoyos, {multiple: true, checked: (@obj.apoyos.nil? ? false : @obj.apoyos.include?(t)), class: "apoyos-check", onclick: "uncheckNull('apoyos_nil');"}, t, nil %>
+			<%= f.label :apoyos, t %><br>
+		<% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Generar proyecto" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+extendTrix();
+
+function extendTrix(){
+	try{
+		Trix.config.blockAttributes.heading = { tagName: 'h1' };
+		buttonHTML = "<button type=\"button\" class=\"heading\" data-attribute=\"heading\" title=\"Heading\">Heading</button>";
+		groupElement = Trix.config.toolbar.content.querySelector(".block_tools");
+		groupElement.insertAdjacentHTML("beforeend", buttonHTML);
+	}
+	catch(err){
+		console.log(err);
+	} 
+}
+
+function uncheckBoxes(element,clase){
+	if(element.checked)
+		$("."+clase).attr("checked",false);
+}
+
+function uncheckNull(id){
+	$("#"+id).attr("checked",false);
+}
+</script>

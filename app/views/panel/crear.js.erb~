@@ -1,0 +1,6 @@
+$("#text-title-gest").html("<%= 'Mostrando objeto' %>");
+$("#glyph-new").css({"display": "none"}).unbind();
+$("#glyph-back").css({"display": "inline-block"}).unbind().on('click',function(event){hideLink(event,'#menu-lat','<%= panel_index_path(:set => params[:set]) %>')});
+$("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_princ_path %>')});
+$("#glyph-edit").css({"display": "inline-block"}).unbind().on('click', function(event){hideLink(event,'#menu-lat','<%= panel_editar_path(:set => params[:set], :id => @obj.id) %>')});
+$("#graphs-gest").html("<%= j render 'panel/mostrar' %>");

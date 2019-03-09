@@ -1,0 +1,37 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this frase from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :ref, "Sitio" %><br>
+    <%= f.text_field :ref %>
+  </div>
+  <div class="field">
+    <%= f.label :partial, "URL" %><br>
+    <%= f.text_field :partial %>
+  </div>
+  <div class="field">
+    <%= f.label :num_parrafos, "Cantidad de párrafos" %><br>
+    <%= f.number_field :num_parrafos, min: 0, value: (@obj.num_pars || 0) %>
+  </div>
+  <div class="field">
+    <%= f.label :num_fotos, "Cantidad de fotos" %><br>
+    <%= f.number_field :num_fotos, min: 0, value: (@obj.num_pics || 0) %>
+  </div>
+  <div class="field">
+    <%= f.label :num_listing, "Cantidad de listados" %><br>
+    <%= f.number_field :num_listing, min: 0, value: (@obj.num_listing || 0) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

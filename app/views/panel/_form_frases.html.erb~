@@ -1,0 +1,29 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this frase from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :cita, "Cita" %><br>
+    <%= f.trix_editor :cita %>
+  </div>
+  <div class="field">
+    <%= f.label :cita_eng, "Cita (Inglés)" %><br>
+    <%= f.trix_editor :cita_eng %>
+  </div>
+  <div class="field">
+    <%= f.label :autor, "Autor" %><br>
+    <%= f.trix_editor :autor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

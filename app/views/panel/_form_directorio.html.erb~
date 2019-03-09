@@ -1,0 +1,64 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this frase from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :autores, "Autor(es)" %><br>
+    <%= f.text_area :autores, placeholder: "(Apellidos, nombre(s)), separados por punto y coma (;)" %>
+  </div>
+  <div class="field">
+    <%= f.label :centro, "Centro de Estudios" %><br>
+    <%= f.select(:centro,[["CEAA","CEAA"],["CEDUA","CEDUA"],["CEE","CEE"],["CEH","CEH"],["CEI","CEI"],["CELL","CELL"],["CES","CES"]], selected: (@obj.centro || "CEAA")) %>
+  </div>
+  <div class="field">
+    <%= f.label :editorial, "Editorial" %><br>
+    <%= f.text_field :editorial %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar, "Lugar de publicación" %><br>
+    <%= f.text_field :lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :traduccion, "Encargado de traducción (si aplica)" %><br>
+    <%= f.text_field :traduccion %>
+  </div>
+  <div class="field">
+    <%= f.label :edicion, "Edición" %><br>
+    <%= f.text_field :edicion %>
+  </div>
+  <div class="field">
+    <%= f.label :anio, "Año" %><br>
+    <%= f.number_field :anio, min: 1900, step: 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :tematica, "Temática(s)" %><br>
+		<% ["Historia","Lengua y literatura","Instituciones políticas","Cuestiones socioeconómicas","Relaciones internacionales","Violencia"].each do |t| %>
+    	<%= f.check_box :tematica, {multiple: true}, t, nil %>
+			<%= f.label :tematica, t %><br>
+		<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :link, "Liga a la publicación" %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :link_vid, "Liga(s) de video(s) asociado(s)" %><br>
+    <%= f.text_area :link_vid, placeholder: "Ligas separadas por punto y coma (;)" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar publicación" %>
+  </div>
+<% end %>

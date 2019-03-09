@@ -1,0 +1,35 @@
+<table id="index-panel" style="margin-top:35px;word-break:normal;">
+	<thead>
+	</thead>
+	<tbody>
+		<% @fields.each do |f| %>
+		<tr class="row-ind">
+			<td class="ind-cell marker"><%= f[1] %></td>
+			<td class="ind-cell left-align"><%= raw(@obj[f[0]]) %></td>
+		</tr>
+		<% end %>
+		<% @imgs.each do |f| %>
+		<tr class="row-ind">
+			<td class="ind-cell"><%= f[1] %></td>
+			<% val = f[1] %>
+			<% if val == "Foto" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.foto.url) %></td>
+			<% elsif val == "Imagen" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.imagen.url) %></td>
+			<% elsif val == "Ícono" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.icono.url) %></td>	
+			<% elsif val == "Portada" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.portada.url) %></td>
+			<% elsif val == "Captura" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.captura.url) %></td>
+			<% elsif val == "Badge" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.badge.url) %></td>	
+			<% elsif val == "Badge (Inglés)" %>
+				<td class="ind-cell left-align"><%= image_tag(@obj.badge_eng.url) %></td>	
+			<% elsif val == "Documento" %>
+				<td class="ind-cell left-align"><%= link_to image_tag("documento.png"), @obj.archivo.url, target: "_blank" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

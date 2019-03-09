@@ -1,0 +1,57 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron la generación de este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :seccion %><br>
+<%= f.select(:seccion, options_for_select([['Junta de Gobierno','Junta'],['Presidencia','Presidencia'],['Centros de Estudios','Centros'],['Administración','Administración'],['Unidades de apoyo','Unidades de apoyo'],['Áreas operativas','Operativas'], ['Profesor/Investigador asociado a la Presidencia', 'Asociado'],['Consejo administrativo','Consejo'],['Comisión Dictaminadora','Comision']], @obj.seccion || 'Junta')) %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :foto %><br>
+    <%= f.file_field :foto %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :extension %><br>
+    <%= f.text_field :extension %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo %><br>
+    <%= f.text_field :cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo_eng %><br>
+    <%= f.text_field :cargo_eng %>
+  </div>
+  <div class="field">
+    <%= f.label :depto %><br>
+    <%= f.text_field :depto %>
+  </div>
+  <div class="field">
+    <%= f.label :depto_eng %><br>
+    <%= f.text_field :depto_eng %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

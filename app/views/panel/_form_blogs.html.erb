@@ -1,0 +1,74 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :autor, "Autor" %><br>
+    <%= f.text_field :autor %>
+  </div>
+  <div class="field">
+    <%= f.label :texto, "Texto" %><br>
+    <%= f.trix_editor :texto %>
+  </div>
+  <div class="field">
+    <%= f.label :abstract, "Abstract" %><br>
+    <%= f.trix_editor :abstract %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha, "Fecha" %><br>
+    <%= f.text_field :fecha, {"data-provide" => "datepicker", "data-date-format" => 'yyyy-mm-dd'} %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :imagen, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir imagen') %><br>
+    <%= f.file_field :imagen, :onchange => "readURL(this,'#foto-emerito','#blog_imagen_del')" %><br>
+    <%= f.check_box :imagen_del, {checked: false, onclick: "deleteImage(this,'foto-emerito');"}, "1", "0" %>
+			<%= f.label :imagen_del, "Eliminar imagen" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.imagen.url.nil? %>
+				<img id="foto-emerito" src="<%= @obj.imagen.url %>">
+			<% else %>
+				<span>No hay foto para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="field" style="min-height:250px;overflow:auto" id="fields-fotos">
+			<div class="photo-upload">
+		  <%= f.label :fotos, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir fotos') %><br>
+		  <%= f.file_field :fotos, type: :file, multiple: true, onchange: "readURL(this,'#galerias-cont-0','#blog_fotos_del')" %><br>
+<br>
+    <%= f.check_box :fotos_del, {checked: false, onclick: "deleteImage(this,'galerias-cont-0');"}, "1", "0" %>
+			<%= f.label :fotos_del, "Eliminar fotos" %><br>
+			</div>
+			<div class="img-display" id="galerias-cont-0">
+				<% Gallery.where(model: "Blog", obj_id: (@obj.id || -1)).each do |f| %>
+					<img src="<%= f.foto.url %>"><br>
+				<% end %>
+			</div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Generar entrada de blog" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	configTrix();
+	extendTrix();
+});
+</script>

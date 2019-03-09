@@ -1,0 +1,70 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :nombre, "Nombre" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion, "Descripción" %><br>
+    <%= f.trix_editor :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :index, "Índice de aparición" %><br>
+    <%= f.number_field :index, min: 1, step: 1, value: (@obj.index || (Ally.count + 1)) %>
+  </div>
+  <div class="field">
+    <%= f.label :liga, "Liga" %><br>
+    <%= f.text_field :liga %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :imagen, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir imagen') %><br>
+    <%= f.file_field :imagen, :onchange => "readURL(this,'#foto-emerito','ally_imagen_del')" %><br>
+    <%= f.check_box :imagen_del, {checked: false, onclick: "deleteImage(this,'foto-emerito');"}, "1", "0" %>
+			<%= f.label :imagen_del, "Eliminar imagen" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.imagen.url.nil? %>
+				<img id="foto-emerito" src="<%= @obj.imagen.url %>">
+			<% else %>
+				<span>No hay imagen para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Generar aliado" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+extendTrix();
+
+function extendTrix(){
+	try{
+		Trix.config.blockAttributes.heading = { tagName: 'h1' };
+		buttonHTML = "<button type=\"button\" class=\"heading\" data-attribute=\"heading\" title=\"Heading\">Heading</button>";
+		groupElement = Trix.config.toolbar.content.querySelector(".trix-button-group--block-tools");
+		groupElement.insertAdjacentHTML("beforeend", buttonHTML);
+	}
+	catch(err){
+		console.log(err);
+	} 
+}
+
+function deleteImage(element,id_vis) {
+	if(element.checked)
+		$("#"+id_vis).attr("src","/vacio.png");
+}
+</script>

@@ -1,0 +1,38 @@
+<% if admin_signed_in? %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Emeritos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha anexion</th>
+      <th>Centro</th>
+      <th>Semblanza</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emeritos.each do |emerito| %>
+      <tr>
+        <td><%= emerito.nombre %></td>
+        <td><%= emerito.fecha_anexion %></td>
+        <td><%= emerito.centro %></td>
+        <td><%= emerito.semblanza %></td>
+        <td><%= link_to 'Show', emerito %></td>
+        <td><%= link_to 'Edit', edit_emerito_path(emerito) %></td>
+        <td><%= link_to 'Destroy', emerito, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Emerito', new_emerito_path %>
+<br>
+<%= link_to "Regresar", panel_path %>
+<% end %>

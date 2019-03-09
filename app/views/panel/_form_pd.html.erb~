@@ -1,0 +1,37 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this premiado from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :nombre, "Nombre" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion, "Descripción" %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_premio, "Modalidad de premio" %><br>
+    <%= f.select(:tipo_premio, options_for_select([['Otorgados a la comunidad', 'Comunidad'], ['Otorgados por El Colegio', 'Colegio']], @obj.tipo_premio || 'Otorgados a la comunidad'), {}, {}) %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo, "Categoría (sólo Otorgados a la comunidad)" %><br>
+    <%= f.select(:tipo, options_from_collection_for_select(Categorium.all, "nombre", "nombre", @obj.tipo || Categorium.first.nombre), {}, {}) %>
+  </div>
+  <div class="field">
+    <%= f.label :liga, "Link (si aplica)" %><br>
+    <%= f.text_field :liga %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

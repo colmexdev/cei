@@ -1,0 +1,50 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this documento from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :nombre, "Título" %><br>
+    <%= f.trix_editor :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre_eng, "Título (Inglés)" %><br>
+    <%= f.trix_editor :nombre_eng %>
+  </div>
+  <div class="field">
+    <%= f.label :liga, "Link (si aplica)" %><br>
+    <%= f.text_field :liga %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo, "Sección donde se despliega" %><br>
+    <%= f.select(:tipo, options_for_select([['Informe de actividades','Informe'],['Junta de Gobierno','Junta'],['Estatuto','Estatuto'],['Transparencia','Transparencia'], ['Reglamento', 'Reglamento'],['Marco normativo','Marco normativo'],['Unidad de Transparencia','Unidad de Transparencia']], @obj.tipo || 'Informe'),{},{:onchange => "ocultarAnio()"}) %>
+  </div>
+  <div class="field" id="campo_anio" style="display:visible;">
+    <%= f.label :anio, "Año de creación" %><br>
+    <%= f.select :anio, (Time.zone.now.year - 15)..(Time.zone.now.year + 5) %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :archivo, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir archivo') %><br>
+    <%= f.file_field :archivo %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.archivo.url.include?("/archivos/original/missing.png") %>
+				<a id="arch-doc" href="<%= @obj.archivo.url %>" target="_blank"><img id="archivo-doc" src="<%= image_url('documento.png') %>"></a>
+			<% else %>
+				<span>No hay archivo para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

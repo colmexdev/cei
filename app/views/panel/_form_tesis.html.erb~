@@ -1,0 +1,60 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this frase from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :autores, "Autor(es)" %><br>
+    <%= f.text_area :autores, placeholder: "(Apellidos, nombre(s)), separados por punto y coma (;)" %>
+  </div>
+  <div class="field">
+    <%= f.label :asesores, "Asesor(es)" %><br>
+    <%= f.text_area :asesores, placeholder: "(Apellidos, nombre(s)), separados por punto y coma (;)" %>
+  </div>
+  <div class="field">
+    <%= f.label :anio, "Año" %><br>
+    <%= f.text_field :anio %>
+  </div>
+  <div class="field">
+    <%= f.label :idioma, "Idioma" %><br>
+    <%= f.text_field :idioma %>
+  </div>
+  <div class="field">
+    <%= f.label :tematica, "Temática(s)" %><br>
+		<% ["Historia","Lengua y literatura","Instituciones políticas","Cuestiones socioeconómicas","Relaciones internacionales","Violencia"].each do |t| %>
+    	<%= f.check_box :tematica, {multiple: true}, t, nil %>
+			<%= f.label :tematica, t %><br>
+		<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :link, "Liga a la tesis" %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :grado, "Grado académico de la tesis" %><br>
+    <%= f.select(:grado, [["Licenciatura","Licenciatura"],["Maestría","Maestría"],["Doctorado","Doctorado"]], selected: (@obj.grado || "Licenciatura")) %>
+  </div>
+  <div class="field">
+    <%= f.label :programa, "Programa docente" %><br>
+    <%= f.select(:programa, [[Economía","Economía"],["Política y Administración Pública","Política y Administración Pública"],["Relaciones Internacionales","Relaciones Internacionales"],["Ciencias Políticas","Ciencias Políticas"],["Ciencia Social con especialidad en Sociología","Ciencia Social con especialidad en Sociología"],["Comparative Urban Governance ","Comparative Urban Governance "],["Demografía","Demografía"],["Estudios de Asia y África","Estudios de Asia y África"],["Estudios de Género","Estudios de Género"],["Estudios Urbanos","Estudios Urbanos"],["Traducción","Traducción"],["Estudios de Población","Estudios de Población"],["Estudios Urbanos y Ambientales","Estudios Urbanos y Ambientales"],["Historia","Historia"],["Lingüística","Lingüística"],["Literatura Hispánica","Literatura Hispánica"]], selected: (@obj.grado || "Economía")) %>
+  </div>
+  <div class="field">
+    <%= f.label :centro, "Centro de Estudios" %><br>
+    <%= f.select(:centro,[["CEAA","CEAA"],["CEDUA","CEDUA"],["CEE","CEE"],["CEH","CEH"],["CEI","CEI"],["CELL","CELL"],["CES","CES"]], selected: (@obj.centro || "CEAA")) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar tesis" %>
+  </div>
+<% end %>

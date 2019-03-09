@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *
+ *= require bootstrap-datepicker3
  */
 
 @import "bootstrap-sprockets";
@@ -19,6 +20,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "uikit";
+@import "accordion";
 @import 'slick';
 @import 'slick-theme';
 @import "principal";

@@ -1,0 +1,72 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :nombre, "Nombre" %><br>
+    <%= f.trix_editor :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_anexion, "Fecha de anexión" %><br>
+    <%= f.text_field :fecha_anexion, {"data-uk-datepicker" => "{format: 'YYYY-MM-DD'}"} %>
+  </div>
+  <div class="field">
+    <%= f.label :centro, "Centro de Estudios" %><br>
+    <%= f.select(:centro, [['CEAA','CEAA'],['CEDUA','CEDUA'],['CEE','CEE'],['CEH','CEH'],['CEI','CEI'],['CELL','CELL'],['CES','CES']], :selected => (@obj.centro || 'CEAA')) %>
+  </div>
+  <div class="field">
+    <%= f.label :semblanza, "Semblanza" %><br>
+    <%= f.trix_editor :semblanza %>
+  </div>
+  <div class="field">
+    <%= f.label :semblanza_eng, "Semblanza (inglés)" %><br>
+    <%= f.trix_editor :semblanza_eng %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :foto, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir foto') %><br>
+    <%= f.file_field :foto, :onchange => "readURL(this,'#foto-emerito')" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.foto.url.nil? %>
+				<img id="foto-emerito" src="<%= @obj.foto.url %>">
+			<% else %>
+				<span>No hay foto para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+extendTrix();
+
+function extendTrix(){
+	try{
+		console.log("Hola");
+		Trix.config.blockAttributes.heading = { tagName: 'h1' };
+		console.log("Hola2");
+		buttonHTML = "<button type=\"button\" class=\"heading\" data-attribute=\"heading\" title=\"Heading\">Heading</button>";
+		console.log("Hola3");
+		groupElement = Trix.config.toolbar.content.querySelector(".block_tools");
+		console.log("Hola4");
+		groupElement.insertAdjacentHTML("beforeend", buttonHTML);
+		console.log("Hola5");
+	}
+	catch(err){
+		console.log(err);
+	} 
+}
+</script>

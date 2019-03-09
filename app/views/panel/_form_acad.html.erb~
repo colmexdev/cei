@@ -1,0 +1,45 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this academico from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :inicial %><br>
+    <%= f.text_field :inicial, :maxlength => 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :foto %><br>
+    <%= f.file_field :foto %>
+  </div>
+  <div class="field">
+    <%= f.label :adscripcion %><br>
+    <%= f.select(:adscripcion, [['Asia y África','Asia y África'],['Demográficos, Urbanos y Ambientales','Demográficos, Urbanos y Ambientales'],['Económicos','Económicos'],['Históricos','Históricos'],['Internacionales','Internacionales'],['Lingüísticos y Literarios','Lingüisticos y Literarios'],['Sociológicos','Sociológicos']], :selected => (@obj.adscripcion || current_admin.admin)) %>
+  </div>
+  <div class="field">
+    <%= f.label :lineas_investigacion %><br>
+    <%= f.text_area :lineas_investigacion %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :pagina %><br>
+    <%= f.text_field :pagina %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

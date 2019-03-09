@@ -1,0 +1,35 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :nombre, "Nombre" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :imagen, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir imagen') %><br>
+    <%= f.file_field :imagen, :onchange => "readURL(this,'#foto-emerito')" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.imagen.url.nil? %>
+				<img id="foto-emerito" src="<%= @obj.imagen.url %>">
+			<% else %>
+				<span>No hay imagen para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Generar patrocinador" %>
+  </div>
+<% end %>

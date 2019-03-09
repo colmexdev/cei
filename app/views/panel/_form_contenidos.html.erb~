@@ -1,0 +1,54 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+	<% @pars.each do |par| %>
+		<%= fields_for 'pars[]', par do |p| %>
+			<%= p.hidden_field :p_ind, value: par.p_ind.to_i %>
+			<div class="field">
+				<%= p.label :texto, "Texto (Párrafo " + ((par.p_ind+1).to_s) + ")" %><br>
+				<%= p.trix_editor :texto, value: par.texto.html_safe %>
+			</div>
+			<div class="field">
+				<%= p.label :texto_ingles, "Texto (inglés, párrafo " + ((par.p_ind+1).to_s) + ")" %><br>
+				<%= p.trix_editor :texto_ingles, value: par.texto_ingles.html_safe %>
+			</div>
+		<% end %>
+	<% end %>
+
+	<hr>
+	
+	<% @pics.each do |pic| %>
+		<%= fields_for 'pics[]', pic do |p| %>
+			<%= p.hidden_field :f_ind, value: pic.f_ind.to_i %>
+			<div class="field" style="height:250px;">
+				<div class="photo-upload">
+				<%= p.label :foto, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir foto') %><br>
+				<%= p.file_field :foto, :onchange => "readURL(this,'#foto-cont-" + ((pic.f_ind+1).to_s) +"')" %><br>
+				</div>
+				<div class="img-display">
+					<% if !pic.foto.url.nil? %>
+						<img id="<%= "foto-cont-" + ((pic.f_ind+1).to_s) %>" src="<%= pic.foto.url %>">
+					<% else %>
+						<span>No hay foto para mostrar.</span>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

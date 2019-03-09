@@ -1,0 +1,7 @@
+<% @pars = Parrafo.where('sitio_id = ?', params[:id].to_i) %>
+<% @pics = Foto.where('sitio_id = ?', params[:id].to_i) %>
+<% @site = Sitio.find(params[:id]).partial %>
+
+<%= submit_tag ("Ver en " + (params[:locale] == "es" ? "inglés" : "español")), onclick: ("hideLink(event,'#graphs-gest','" + panel_mostrar_path(:set => params[:set], :id => params[:id], :locale => (params[:locale] == "es" ? "en" : "es")) + "')"), style: "margin:35px auto;" %>
+
+<%= render @site %>

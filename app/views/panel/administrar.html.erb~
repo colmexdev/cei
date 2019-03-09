@@ -1,0 +1,85 @@
+<% if admin_signed_in? %>
+<div class="cont-gest">
+
+	<div class="barra-gest">
+		<div id="brand-gest">
+			<%= image_tag("colmex.png", class: "img-brand") %>
+			<div class="toggle-panel" id="but-toggle">
+				<div class="bars-toggle" id="bar-s"></div>
+				<div class="bars-toggle" id="bar-m"></div>
+				<div class="bars-toggle" id="bar-i"></div>
+			</div>
+			<div class="toggle-panel" id="mask-toggle" onmouseenter="changeToggle(0);" onmouseleave="changeToggle(1);" onclick="slideMenu();">
+			</div>
+		</div>
+		<div id="title-gest">
+			<span id="text-title-gest"></span>
+		</div>
+	</div>
+
+
+	<div class="body-gest">
+		<div id="menu-lat">
+			<ul id="ops-lat">
+				<% if current_admin.admin == "Administrador" || current_admin.admin == "Editor" %>
+				<li class="op-gest">
+				<%= link_to "Profesores Eméritos", panel_index_path(:set => "Eméritos"), :remote => true, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Editar tipos de curso", tipo_cursos_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Programas docentes", cursos_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Directorio de Autoridades", personals_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Categorías de Premios", categoria_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Premios y distinciones", premiados_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Documentos varios", documentos_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Descubres", descubres_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Categorías de 'Descubre'", contents_path, class: "link-panel" %><br />
+				</li>
+				<% if false %>
+				<%= link_to "Editar galerías", galleries_path, class: "link-panel" %><br />
+				<%= link_to "Editar imágenes de galerías", imagens_path, class: "link-panel" %><br />
+				<% end %>
+				<li class="op-gest">
+				<%= link_to "Imágenes de slider", sliders_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Cátedras y seminarios", catedras_path, class: "link-panel" %><br />
+				</li>
+				<li class="op-gest">
+				<%= link_to "Frases de página principal", frases_path, class: "link-panel" %><br />
+				</li>
+				<% end %>
+				<li class="op-gest">
+				<%= link_to "Directorio académico", academicos_path, class: "link-panel" %><br />
+				</li>
+				<% if current_admin.admin == "Administrador" %>
+				<li class="op-gest">
+				<%= link_to "Usuarios gestores", admins_path, class: "link-panel" %><br />
+				</li>
+				<% end %>
+				<li class="op-gest">
+				<%= link_to "Cerrar sesión", destroy_admin_session_path, :method => "DELETE", :class => "link-panel" %>
+				</li>
+			</ul>
+		</div>
+		<div id="graphs-gest">
+		<p id="notice"><%= notice %></p>
+		<%= render 'panel/principal' %>
+		</div>
+	</div>
+</div>
+<% end %>

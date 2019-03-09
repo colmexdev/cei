@@ -1,0 +1,60 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion, "Descripción" %><br>
+    <%= f.trix_editor :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :liga_vid, "Liga a video (opcional)" %><br>
+    <%= f.text_field :liga_vid %>
+  </div>
+  <div class="field" style="min-height:250px;overflow:auto" id="fields-fotos">
+			<div class="photo-upload">
+		  <%= f.label :fotos, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir fotos') %><br>
+		  <%= f.file_field :fotos, type: :file, multiple: true, onchange: "readURL(this,'#galerias-cont-0','#sesion_fotos_del')" %><br>
+<br>
+    <%= f.check_box :fotos_del, {checked: false, onclick: "deleteImage(this,'galerias-cont-0');"}, "1", "0" %>
+			<%= f.label :fotos_del, "Eliminar fotos" %><br>
+			</div>
+			<div class="img-display" id="galerias-cont-0">
+				<% Gallery.where(model: "Sesion", obj_id: (@obj.id || -1)).each do |f| %>
+					<img src="<%= f.foto.url %>"><br>
+				<% end %>
+			</div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Generar sesión" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+extendTrix();
+
+function extendTrix(){
+	try{
+		Trix.config.blockAttributes.heading = { tagName: 'h1' };
+		buttonHTML = "<button type=\"button\" class=\"heading\" data-attribute=\"heading\" title=\"Heading\">Heading</button>";
+		groupElement = Trix.config.toolbar.content.querySelector(".block_tools");
+		groupElement.insertAdjacentHTML("beforeend", buttonHTML);
+	}
+	catch(err){
+		console.log(err);
+	} 
+}
+</script>

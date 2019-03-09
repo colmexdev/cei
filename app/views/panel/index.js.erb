@@ -1,0 +1,6 @@
+$("#text-title-gest").html("<%= params[:set] %>");
+$("#glyph-new").css({"display": "<%= params[:set] == 'Contenido de sitios' ? 'none' : 'inline-block' %>"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_nuevo_path(:set => params[:set]) %>')});
+$("#glyph-back").css({"display": "none"}).unbind();
+$("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_princ_path %>')});
+$("#glyph-edit").css({"display": "none"}).unbind();
+$("#graphs-gest").html("<%= j render 'panel/index' %>");

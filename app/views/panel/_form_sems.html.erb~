@@ -1,0 +1,41 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> prohibited this catedra from being saved:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.trix_editor :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :titulo_eng, "Título (Inglés)" %><br>
+    <%= f.trix_editor :titulo_eng %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion, "Descripción" %><br>
+    <%= f.trix_editor :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_eng, "Descripción (Inglés)" %><br>
+    <%= f.text_area :descripcion_eng %>
+  </div>
+  <div class="field">
+    <%= f.label :liga, "Link" %><br>
+    <%= f.trix_editor :liga %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo, "Centro al que pertenece" %><br>
+		<%= f.select(:tipo, [["Institucionales", "Institucionales"], ["CEAA", "CEAA"],["CEDUA","CEDUA"],["CEE","CEE"],["CEH","CEH"],["CEI","CEI"],["CELL","CELL"],["CES","CES"]], :selected => (@obj.tipo || 'Institucionales')) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

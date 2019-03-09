@@ -1,0 +1,42 @@
+<input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value,buildQuery(filteredParams('<%= params[:set] %>')))"><br>
+
+<% if false %>
+<% if params[:set] == "Descubre" %>
+	<%= select_tag "contenido", options_for_select(Descubre.select(:contenido).distinct.pluck(:contenido).map{|c| [c,c]}, params[:contenido] || ""), include_blank: "Todos" %>
+<% elsif params[:set] == "Programas docentes" %>
+	<%= select_tag "programa", options_for_select(Curso.select(:programa).distinct.pluck(:programa).map{|c| [c,c]}, params[:programa] || ""), include_blank: "Todos" %>
+<% elsif params[:set] == "Directorio de Autoridades" %>
+	<%= select_tag "seccion", options_for_select(Personal.select(:seccion).distinct.pluck(:seccion).map{|s| [s,s]}, params[:seccion] || ""), include_blank: "Todos" %>
+<% elsif params[:set] == "Documentos varios" %>
+	<%= select_tag "tipo", options_for_select(Documento.select(:tipo).distinct.pluck(:tipo).map{|t| [t,t]}, params[:tipo] || ""), include_blank: "Todos" %>
+<% elsif params[:set] == "Cátedras y seminarios" %>
+	<%= select_tag "tipo", options_for_select(Catedra.select(:tipo).distinct.pluck(:tipo).map{|t| [t,t]}, params[:tipo] || ""), include_blank: "Todos" %>
+<% elsif params[:set] == "Directorio académico" %>
+	<%= select_tag "adscripcion", options_for_select(Academico.select(:adscripcion).distinct.pluck(:adscripcion).map{|a| [a,a]},params[:adscripcion] || ""), include_blank: "Todos" %>
+<% end %>
+<% end %>
+
+<% if params[:set] == "Videos" %>
+<br>
+<button type="button" class="boton-forma" onclick="hideLink(event,'#ops-lat','/panel/video_manage?set=Videos&refresh=full','PUT')">Refrescar videos desde YouTube</button>
+<br>
+
+<%= form_tag('/panel/video_manage?set=Videos&refresh=part', method: :put) do %>
+	<% Yt::Channel.new(id: 'UCjCwCfPSnQ7rZB_u5HYd2OA').playlists.each do |p| %>
+		<%= check_box_tag "listas[]", p.title %>
+		<%= label_tag "lista", p.title %><br>
+	<% end %>
+	<%= submit_tag 'Refrescar listas seleccionadas desde YouTube' %>
+<% end %>
+<br>
+<br>
+<% end %>
+
+<script type="text/javascript">
+	var pars = filteredParams("<%= params[:set] %>");
+	for(var i in pars){
+		$("#"+pars[i][0]).on("change",function(){
+			hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,$("#keyword")[0].value,buildQuery(pars));
+		});
+	}
+</script>
