@@ -172,7 +172,7 @@ $(document).ready(function(){
 							'</div>';
 			}
 			$("#busqueda").html(personal_html + '</div>');
-			var accordion = UIkit.accordion($("#acordeon"),{"showfirst": false, "collapse": false});
+			var accordion = UIkit.accordion(UIkit.$("#acordeon"), {showfirst: false, collapse: false});
 			accordion.update();
 			$("#acordeon").on("toggle.uk.accordion",function(event,active,toggle,content){toggle.find(".info-acordeon").html(active ? '<%= t(".info_menos_html") %>' : '<%= t(".info_mas_html") %>');});
 		}
