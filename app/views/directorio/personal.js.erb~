@@ -88,5 +88,5 @@ function clean(){
 		}
 
 		//Indicación elementos
-		$("#c_l").text(result["total"] + " personas encontradas")
+		$("#c_l").text(result["total"] + " personas encontradas");
 	});
