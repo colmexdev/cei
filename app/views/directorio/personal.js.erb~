@@ -1,10 +1,11 @@
 /* Filtros de acordeón personal */
 function filterDir(fields){
 	var where = "";
+	$(".inics.letra").removeClass("active");
 	if(typeof fields == "string"){
 		where = "&inic="+fields;
-		$(".inics.letra").removeClass("active");
 		$("#inic_" + fields).addClass("active");
+		$("#nombre").val("");
 	}
 	else{
 		for(var i = 0; i < fields.length; i++){
@@ -33,7 +34,7 @@ function clean(){
 }
 
 	$.ajax({
-		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei&<%= request.GET.map{|k,v| "#{k}=#{v}" }.join("&") %>',
+		url: 'https://www.colmex.mx/directorio-academico.json?conds[centro]=cei&<%= request.GET.map{|k,v| "#{k.to_s == "offset" ? k : ("conds[" + k + "]")}=#{v}" }.join("&") %>',
 		success: function(result){
 			// Construcción acordeón
 			var personal_html = '<div class="uk-accordion" id="acordeon">';
