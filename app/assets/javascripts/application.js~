@@ -16,7 +16,7 @@
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require jquery.remotipart
-//= reqire trix
+//= require trix
 //= require uikit
 //= require accordion
 //= require jquery.slick
