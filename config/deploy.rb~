@@ -3,6 +3,7 @@ lock '3.4.1'
 
 set :application, 'cei'
 set :repo_url, 'https://github.com/colmexdev/cei.git'
+set :deploy_to, '/home/webuser/cei'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -46,6 +47,16 @@ namespace :deploy do
       execute :touch, release_path.join('tmp/restart.txt')
     end
   end
+
+  desc 'Generate error page'
+  task :generate_500_html do
+    on roles(:web) do |host|
+      public_500_html = File.join(release_path, "public/500.html")
+      execute :curl, "-k", "https://#{host.hostname}/500", "> #{public_500_html}"
+    end
+  end
+
+  after "deploy:published", :generate_500_html
 
   after :publishing, :restart
   after :finishing, :cleanup
