@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_locale
-    I18n.locale = (params.key?(:locale) && ["en","es"].include?(params[:locale]) ? params[:locale] : I18n.default_locale)
+    I18n.locale = params[:locale] || I18n.default_locale
+    if ![:en, :es].include?(I18n.locale)
+      I18n.locale = I18n.default_locale
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   def default_url_options(options={})
