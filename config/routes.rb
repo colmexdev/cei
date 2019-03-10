@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     get 'estudiantes/ciencia-politica' => 'estudiantes#interna', :as => :estudiantes_cp
   end
 
-  get "/:locale" => "principal#index", :as => :main
+  get "/(:locale)" => "principal#index", :as => :main
   # You can have the root of your site routed with "root"
   root 'principal#index'
 

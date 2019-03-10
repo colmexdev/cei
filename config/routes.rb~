@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get "/acceder" => "devise/sessions#new"
   end
 
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+
   get 'panel/panel' => 'panel#panel', :as => :panel
   get 'panel/principal' => 'panel#principal', :as => :panel_princ
   get 'panel/index' => 'panel#index', :as => :panel_index

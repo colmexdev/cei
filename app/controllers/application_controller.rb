@@ -4,13 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from I18n::InvalidLocale do
+    I18n.locale = I18n.default_locale
+    render template: 'errors/not_found', status: 404
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    if ![:en, :es].include?(I18n.locale)
-      I18n.locale = I18n.default_locale
-      raise ActionController::RoutingError.new('Not Found')
-    end
+    #if ![:en, :es].include?(I18n.locale)
+    #  I18n.locale = I18n.default_locale
+    #  raise ActionController::RoutingError.new('Not Found')
+    #end
   end
 
   def default_url_options(options={})
