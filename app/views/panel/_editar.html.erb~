@@ -1,4 +1,4 @@
-<% parts = {"Colaboradores": "colabs", "Documentos de investigación": "doc_inv", "Noticias de investigación": "not_inv", "Entrada de blog": "blogs", "Libros": "libro", "Consultas bibliográficas": "bibs", "Noticias": "noticias", "Aliados": "allies", "Patrocinadores": "patrocinadores", "Proyectos de investigación": "proyectos", "Videos": "videos", "Sesiones de seminario": "sesiones", "Sliders": "slider"} %>
+<% parts = {"Colaboradores": "colabs", "Documentos de investigación": "doc_inv", "Noticias de investigación": "not_inv", "Entrada de blog": "blogs", "Libros": "libro", "Consultas bibliográficas": "bibs", "Noticias": "noticias", "Aliados": "allies", "Patrocinadores": "patrocinadores", "Proyectos de investigación": "proyectos", "Videos": "videos", "Sesiones de seminario": "sesiones", "Sliders": "slider", "Taller": "taller"} %>
 
 	<%= render ('panel/form_'+parts[params[:set].to_sym]) %>
 
