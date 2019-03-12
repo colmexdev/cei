@@ -9,7 +9,7 @@ class DirectorioController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-      format.json {render json: (@personas.nil? ? {total: @total} : {profs: @personas, total: @total, pags: (@total.to_f/5).ceil, offset: (params[:offset].to_i || 0)}}
+      format.json {render json: (@personas.nil? ? {total: @total} : {profs: @personas, total: @total, pags: (@total.to_f/5).ceil, offset: (params[:offset].to_i || 0)})}
     end
   end
 
