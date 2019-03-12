@@ -23,7 +23,7 @@
 			    <ul class="nav navbar-nav reajustable">
 <% loc = (params[:locale] == "es" ? "en" : "es") %> 
 <% logger.debug request.fullpath %>						
-						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), (!!(/\/((en)|(es))(\/)?/.match(request.fullpath)) ? request.fullpath.sub(("mx/" + params[:locale] ),("mx/" + loc )) : ("/" + loc + request.fullpath)), class: "inactivo" , id: 'idioma_en' %></li>
+						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), (!!(/\/((en)|(es))(\/)?/.match(request.fullpath)) ? request.original_url.sub(("mx/" + params[:locale] ),("mx/" + loc )) : ("/" + loc + request.fullpath)), class: "inactivo" , id: 'idioma_en' %></li>
 						
 <% if false %>
 						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
