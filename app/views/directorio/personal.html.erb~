@@ -31,10 +31,10 @@
 
 			<div class="col-xs-12" style="text-align:left;padding-top:20px;" id="filete-top">
 				<div style="float:left;display:inline-block;height:100%;text-align:left;width:50%;">
-					<h3 id="c_l" class="titulo-chico vino"></h3>
+					<h3 id="c_l" class="titulo-chico rosa-bold"></h3>
 				</div>
 				<div style="float:right;display:inline-block;height:100%;text-align:right;width:50%;">
-					<h3 id="c_r" class="titulo-chico vino"></h3>
+					<h3 id="c_r" class="titulo-chico rosa-bold"></h3>
 				</div>
 			</div>
 			<div class="col-xs-12 acordeon-premios" id="busqueda">
