@@ -32,7 +32,7 @@
 						<li class="nav_opciones mail"><a href="http://portal.office.com" target="_blank"><img src="/img/mail-cei.svg"><span class="borrable"><%= t('navbar.mail') %></span></a></li>
 						<li class="nav_opciones intranet"><a href="http://intranet.colmex.mx/" target="_blank"><img src="/img/intranet-cei.svg"><span class="borrable"><%= t('navbar.intranet') %></span></a></li>
 						
-						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), (!!(/\/((en)|(es))\//.match(request.fullpath)) ? request.fullpath.sub(("/" + params[:locale] + "/"),("/" + loc + "/")) : ("/en" + request.fullpath)), class: "inactivo" , id: 'idioma_en' %></li>
+						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), (!!(/\/((en)|(es))(\/)?/.match(request.fullpath)) ? request.original_url.sub(("mx/" + params[:locale] ),("mx/" + loc )) : ("/" + loc + request.fullpath)), class: "inactivo" , id: 'idioma_en' %></li>
 
 						<%if false %>
 						<li class="nav_opciones idioma" id="idioma-small-scroll"><%= link_to (params[:locale] == "es" ? "English" : "Español"), {:controller => controller_name, :action => action_name, :locale => "es", :condicion => (params[:condicion] if action_name == "resultados_busqueda")}, :class => "inactivo" , :id => 'idioma_en' %></li>
@@ -89,7 +89,7 @@
 				<li class="no-dropdown"><a href="<%= estudiantes_path %>"><span><%= t('.boton6') %></span></a></li>
 
 				<% idioma = "<span style=\"color:#993366;\">" + (params[:locale] == "es" ? "English" : "Español") + "</span>" %>
-				<li class="no-dropdown"><%= link_to raw(idioma), (!!(/\/((en)|(es))\//.match(request.fullpath)) ? request.fullpath.sub(("/" + params[:locale] + "/"),("/" + loc + "/")) : ("/en" + request.fullpath)) %></li>
+				<li class="no-dropdown"><%= link_to raw(idioma), (!!(/\/((en)|(es))(\/)?/.match(request.fullpath)) ? request.original_url.sub(("mx/" + params[:locale] ),("mx/" + loc )) : ("/" + loc + request.fullpath)) %></li>
 
 
 <% if false %>
