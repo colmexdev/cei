@@ -21,7 +21,8 @@
 			  <!-- Collect the nav links, forms, and other content for toggling -->
 			  <div class="navbar-collapse" id="barra_nav">
 			    <ul class="nav navbar-nav reajustable">
-<% loc = (params[:locale] == "es" ? "en" : "es") %> 						
+<% loc = (params[:locale] == "es" ? "en" : "es") %> 
+<% logger.debug request.fullpath %>						
 						<li class="nav_opciones idioma" id="idioma-top"><%= link_to (params[:locale] == "es" ? "English" : "Español"), (!!(/\/((en)|(es))(\/)?/.match(request.fullpath)) ? request.fullpath.sub(("/" + params[:locale] + "/"),("/" + loc + "/")) : ("/" + loc + request.fullpath)), class: "inactivo" , id: 'idioma_en' %></li>
 						
 <% if false %>
