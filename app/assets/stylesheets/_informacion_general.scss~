@@ -120,7 +120,7 @@ svg path{
 
 	textarea{ resize: none; height: 10em; }
 
-	input[type=submit] { width: auto; padding: 10px 45px; background-color: #B03856; }
+	input[type=submit] { width: auto; padding: 10px 45px; background-color: #B03856; border-radius: none; border: solid 1.5px #993B5A; display: inline-block;}
 	input[type=submit]:hover, input[type=submit]:focus { background-color: #CC4E78; }
 
 	#desc-form-contacto{

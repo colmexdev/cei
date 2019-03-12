@@ -84,7 +84,7 @@
 		        </ul>
 		    </li>
 
-				<li class="no-dropdown"><a href="#"><span><%= t('.boton6') %></span></a></li>
+				<li class="no-dropdown"><a href="<%= estudiantes_path %>"><span><%= t('.boton6') %></span></a></li>
 
 				<% idioma = "<span style=\"color:#993366;\">" + (params[:locale] == "es" ? "English" : "Español") + "</span>" %>
 				<li class="no-dropdown"><%= link_to raw(idioma), {:controller => controller_name, :action => action_name, :locale => (params[:locale] == "en" ? "es" : "en" ), :condicion => (params[:condicion] if action_name == "resultados_busqueda")}  %></li>
@@ -128,14 +128,14 @@
 
 	<div class="row" style="display:flex;"> <!-- Fila para logo -->
 		<div class="col-xs-6 div_logo" id="h_logo_l"> <!-- Columnas para logo -->	
-			<a href="https://www.colmex.mx/">
-				<img src="/img/logo-colmex-color.svg" class="img_logo">
-			</a>	
-		</div> <!--Cierre de div columnas para logo -->
-		<div class="col-xs-6 div_logo" id="h_logo_r"> <!-- Columnas para logo -->	
 			<a href="<%= main_path %>">
 				<img src="/img/logo-cei-color.svg" class="img_logo">
 			</a>
+		</div> <!--Cierre de div columnas para logo -->
+		<div class="col-xs-6 div_logo" id="h_logo_r"> <!-- Columnas para logo -->	
+			<a href="https://www.colmex.mx/">
+				<img src="/img/logo-colmex-color.svg" class="img_logo">
+			</a>	
 		</div> <!--Cierre de div columnas para logo -->
 	</div> <!-- Cierre de div fila para logo -->
 
@@ -186,7 +186,7 @@
 		        </ul>
 		    </li>
 
-				<li class="no-dropdown"><a href="#"><span><%= t('.boton6') %></span></a></li>
+				<li class="no-dropdown"><a href="<%= estudiantes_path %>"><span><%= t('.boton6') %></span></a></li>
 
 			</ul> <!-- Cierre del menú -->
 		</div> <!-- Cierre de columnas para menú -->
@@ -235,7 +235,7 @@
           	<li><a href="#" class="sublink"><%= t('.opcion2_b5') %></a></li>
 					</ul>
 				</li>
-				<li class="uk-parent"><a href="#"><%= t('.boton6') %></a></li>
+				<li class="uk-parent"><a href="<%= estudiantes_path %>"><%= t('.boton6') %></a></li>
 
 				<% if false %>
 				<li class="links-side" id="search-lat">
