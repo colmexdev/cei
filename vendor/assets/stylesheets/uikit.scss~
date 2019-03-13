@@ -7969,27 +7969,6 @@ a.uk-thumbnail:focus {
   margin-right: 50px !important;
 }
 /*
- * Medium margins
- */
-.uk-margin-medium {
-  margin-bottom: 25px;
-}
-* + .uk-margin-medium {
-  margin-top: 25px;
-}
-.uk-margin-medium-top {
-  margin-top: 25px !important;
-}
-.uk-margin-medium-bottom {
-  margin-bottom: 25px !important;
-}
-.uk-margin-medium-left {
-  margin-left: 25px !important;
-}
-.uk-margin-medium-right {
-  margin-right: 25px !important;
-}
-/*
  * Smaller margins
  */
 .uk-margin-small {
