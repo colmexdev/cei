@@ -1,7 +1,7 @@
 class CorreosMailer < ActionMailer::Base
   default to: 'etenorio@colmex.mx'
 
-  def contacto_mail(nombre,correo,cuerpo)
+  def contacto_mail(nombre,correo,cuerpo,asunto)
     @nombre = nombre
     @correo = correo
     @cuerpo = cuerpo
