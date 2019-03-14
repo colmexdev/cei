@@ -269,7 +269,7 @@ class PanelController < ApplicationController
         imgs: {},
         trix: []
       }, "Programas académicos": {
-        model: Porgrama,
+        model: Programa,
         fields: {titulo: "Título", descripcion_es: "Descripción (español)", descripcion_en: "Descipición (inglés)", fecha_ic: "Fecha inicio de convocatoria", fecha_fc: "Fecha fin de convocatoria"},
         imgs: {},
         trix: [:descripcion_es, :descripcion_en]
