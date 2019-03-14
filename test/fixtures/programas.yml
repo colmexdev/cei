@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyText
+  descripcion_es: MyText
+  descripcion_en: MyText
+  fecha_ic: 2019-03-14
+  fecha_fc: 2019-03-14
+
+two:
+  titulo: MyText
+  descripcion_es: MyText
+  descripcion_en: MyText
+  fecha_ic: 2019-03-14
+  fecha_fc: 2019-03-14

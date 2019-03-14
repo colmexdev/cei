@@ -4,3 +4,7 @@ $("#glyph-back").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_princ_path %>')});
 $("#glyph-edit").css({"display": "none"}).unbind();
 $("#graphs-gest").html("<%= j render 'panel/generar' %>");
+
+$(document).ready(function(){
+	styleDatepickers();
+});

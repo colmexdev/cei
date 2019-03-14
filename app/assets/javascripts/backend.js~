@@ -141,12 +141,6 @@ function readURL(input,display,check_del) {
   }
 }
 
-function styleDatepickers(){
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd", language: "es-MX"
-	});
-}
-
 function formatDate(fecha){
 	var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 	var day = fecha.getDate(), month = fecha.getMonth();

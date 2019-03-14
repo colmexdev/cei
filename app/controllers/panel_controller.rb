@@ -268,6 +268,11 @@ class PanelController < ApplicationController
         fields: {nombre: "Nombre", extension: "Extensión", correo: "Correo electrónico", area: "Área de tarbajo", servicio: "Servicios"},
         imgs: {},
         trix: []
+      }, "Programas académicos": {
+        model: Porgrama,
+        fields: {titulo: "Título", descripcion_es: "Descripción (español)", descripcion_en: "Descipición (inglés)", fecha_ic: "Fecha inicio de convocatoria", fecha_fc: "Fecha fin de convocatoria"},
+        imgs: {},
+        trix: [:descripcion_es, :descripcion_en]
       }
     }
   end
@@ -292,6 +297,8 @@ class PanelController < ApplicationController
   def obj_params
     if params[:set] == "Personal administrativo"
       params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
+    elsif params[:set] == "Programas académicos"
+      params.require(:programa).permit(:titulo, :descripcion_es, :descripcion_en, :fecha_ic, :fecha_fc)
     end
   end
 end

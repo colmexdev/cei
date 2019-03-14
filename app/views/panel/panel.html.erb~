@@ -28,6 +28,11 @@
 		<div id="menu-lat">
 			<ul id="ops-lat">
 				<li class="op-gest">
+				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Personal administrativo", :offset => 0) %>')">Personal administrativo</a>
+				</li>
+
+<% if false %>
+				<li class="op-gest">
 				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Sliders", :offset => 0) %>')">Sliders</a>
 				</li>
 				<li class="op-gest">
@@ -75,7 +80,7 @@
 				<li class="op-gest">
 				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Catálogo de sitios", :offset => 0) %>')">Catálogo de sitios</a>
 				</li>
-
+<% end %>
 				<li class="op-gest">
 				<a class="link-panel" href="<%= destroy_admin_session_path %>" data-method="DELETE" rel="nofollow">Cerrar sesión</a>
 				</li>
