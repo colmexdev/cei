@@ -239,6 +239,22 @@ function configTrix(){
 		},
 		inheritable: true
 	}
+	Trix.config.textAttributes.increase = {
+    tagName: "span", 
+		style: { fontSize: function(element) {element.style.fontSize + 1} },
+		parser: function(element) {
+			return element.style.fontSize === element.style.fontSize + 1;
+		},
+		inheritable: true
+	}
+	Trix.config.textAttributes.decrease = {
+    tagName: "span", 
+		style: { fontSize: function(element) {element.style.fontSize - 1} },
+		parser: function(element) {
+			return element.style.fontSize === element.style.fontSize - 1;
+		},
+		inheritable: true
+	}
 	Trix.config.textAttributes.italic.tagName = "i";
 	Trix.config.textAttributes.bold.tagName = "b";
 }
@@ -257,10 +273,14 @@ function extendTrix(toolbar,blocks){
  		var buttonHTML9 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"paragraph\" title=\"Paragraph\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-paragraph\" aria-hidden=\"true\"></i></div></button>";
  		var buttonHTML10 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Heading4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>";
  		var buttonHTML11 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>";
+ 		var buttonHTML12 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"increase\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>";
+ 		var buttonHTML13 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"decrease\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>";
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML2);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML1);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML0);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML);
+		toolbar.insertAdjacentHTML("beforeend", buttonHTML12);
+		toolbar.insertAdjacentHTML("beforeend", buttonHTML13);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML3);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML4);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML10);
