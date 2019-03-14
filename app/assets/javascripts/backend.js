@@ -241,17 +241,18 @@ function configTrix(){
 	}
 	Trix.config.textAttributes.increase = {
     tagName: "span", 
-		style: { fontSize: function(element) {element.style.fontSize + 1} },
+		style: { fontSize: function(element) {return "20px"} },
 		parser: function(element) {
-			return element.style.fontSize === element.style.fontSize + 1;
+			return element.style.fontSize === "20px";
 		},
 		inheritable: true
 	}
 	Trix.config.textAttributes.decrease = {
     tagName: "span", 
-		style: { fontSize: function(element) {element.style.fontSize - 1} },
+		style: { fontSize: function(element) {return "10px"} },
 		parser: function(element) {
-			return element.style.fontSize === element.style.fontSize - 1;
+			console.log(element.style.fontSize);
+			return element.style.fontSize === "10px"
 		},
 		inheritable: true
 	}
