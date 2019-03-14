@@ -141,6 +141,7 @@ function readURL(input,display,check_del) {
   }
 }
 
+// Función para automatizar los datepickers
 function styleDatepickers(){
 	$(".datepicker").datepicker({
 		format: "yyyy-mm-dd", language: "es-MX"
@@ -214,11 +215,27 @@ function configTrix(){
 		},
 		inheritable: true
 	}
-	Trix.config.textAttributes.color = {
+	Trix.config.textAttributes.rosaBold = {
     tagName: "span", 
-		style: { color: "#7E3355" },
+		style: { color: "#B03856" },
 		parser: function(element) {
-			return element.style.color === "#7E3355"
+			return element.style.color === "#B03856"
+		},
+		inheritable: true
+	}
+	Trix.config.textAttributes.rosaLight = {
+    tagName: "span", 
+		style: { color: "#CC4E78" },
+		parser: function(element) {
+			return element.style.color === "#CC4E78"
+		},
+		inheritable: true
+	}
+	Trix.config.textAttributes.gray = {
+    tagName: "span", 
+		style: { color: "#808080" },
+		parser: function(element) {
+			return element.style.color === "#808080"
 		},
 		inheritable: true
 	}
@@ -227,7 +244,9 @@ function configTrix(){
 }
 
 function extendTrix(toolbar,blocks){
- 		var buttonHTML = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"color\" title=\"Color\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#7E3355;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
+ 		var buttonHTML = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaBold\" title=\"Rosa bold\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#B03856;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
+ 		var buttonHTML0 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
+ 		var buttonHTML1 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
  		var buttonHTML2 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>";
  		var buttonHTML3 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading2\" title=\"Heading2\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:14px;width:100%;text-align:center;\">H2</div></button>";
  		var buttonHTML4 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading3\" title=\"Heading3\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H3</div></button>";
@@ -237,11 +256,15 @@ function extendTrix(toolbar,blocks){
  		//var buttonHTML8 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"justify\" title=\"Justify\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-justify\" aria-hidden=\"true\"></i></div></button>";
  		var buttonHTML9 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"paragraph\" title=\"Paragraph\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-paragraph\" aria-hidden=\"true\"></i></div></button>";
  		var buttonHTML10 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Heading4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>";
+ 		var buttonHTML11 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>";
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML2);
+		toolbar.insertAdjacentHTML("beforeend", buttonHTML1);
+		toolbar.insertAdjacentHTML("beforeend", buttonHTML0);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML3);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML4);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML10);
+		blocks.insertAdjacentHTML("afterbegin",buttonHTML11);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML9);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML5);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML6);
