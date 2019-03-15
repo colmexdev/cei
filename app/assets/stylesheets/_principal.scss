@@ -180,9 +180,9 @@ p {text-align: justify; font-size: 18px;}
 }
 
 
-.uk-link, p a, trix-editor a { color: #CC4E78; text-decoration: none; outline: none; }
+.uk-link, .uk-link:visited, p a, p a:visited, trix-editor a, trix-editor a:visited { color: #CC4E78; text-decoration: none; outline: none; }
 
-.uk-link:hover, .uk-link:visited, .uk-link:focus, p a:hover, p a:visited, p a:focus,  trix-editor a:hover, trix-editor a:visited, trix-editor a:focus{ color: #A02A4C; text-decoration: none; }	
+.uk-link:hover, .uk-link:focus, p a:hover, p a:focus,  trix-editor a:hover, trix-editor a:focus{ color: #A02A4C; text-decoration: none; }	
 
 .uk-link.sin-pointer { cursor: auto; }
 

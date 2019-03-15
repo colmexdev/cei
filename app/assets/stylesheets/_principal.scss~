@@ -2150,6 +2150,9 @@ a.numeros:hover, a.numeros:active{
 
 /* Estilos CEI */
 
+.ul-no-dots { list-style-type: none; }
+.pad-left { padding-left: 30px; }
+
 .titulo-fila{
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato;
   font-style: normal;
