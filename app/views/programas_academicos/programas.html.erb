@@ -16,7 +16,7 @@
 	  </div>
 	  <div class="uk-width-small-1-1 uk-width-medium-3-5" id="texto-programas">
 			<h2 style="color:#B03856"><%= t('.presentacion') %></h2>
-			<p>Texto de prueba</p>
+			<%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.html_safe %>
 		</div>
 
   </div>

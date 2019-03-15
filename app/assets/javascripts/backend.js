@@ -251,7 +251,6 @@ function configTrix(){
     tagName: "span", 
 		style: { fontSize: "smaller" },
 		parser: function(element) {
-			console.log(element.style.fontSize);
 			return element.style.fontSize === "smaller"
 		},
 		inheritable: true
@@ -286,7 +285,7 @@ function extendTrix(toolbar,blocks){
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML4);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML10);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML11);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML9);
+		//blocks.insertAdjacentHTML("afterbegin",buttonHTML9);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML5);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML6);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML7);

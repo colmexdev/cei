@@ -14,7 +14,7 @@
 			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.perfil') %></span></a></li>
     </ul>
 	  </div>
-	  <div class="uk-width-small-1-1 uk-width-medium-3-5">
+	  <div class="uk-width-small-1-1 uk-width-medium-3-5" id="texto-programas">
 			<h2 style="color:#B03856"><%= t('.presentacion') %></h2>
 			<p>Texto de prueba</p>
 		</div>
