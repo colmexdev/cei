@@ -8,5 +8,7 @@ $("#graphs-gest").html("<%= j render 'panel/generar' %>");
 $(document).ready(function(){
 	styleDatepickers();
 	configTrix();
-	extendTrix();
+	for(var i = 0; i < $("trix-toolbar").length; i++){
+		extendTrix($(".trix-button-group--text-tools")[i],$(".trix-button-group--block-tools")[i]);
+	}
 });
