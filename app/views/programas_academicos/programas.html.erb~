@@ -10,7 +10,7 @@
 		</div>
 	  <div class="uk-width-small-1-1 uk-width-medium-2-5 uk-text-center-small uk-text-center-medium uk-text-left" id="menu-programas">
     <ul class="lista-links" id="lista-programas">
-			<% Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.scan(/<h1>(.*?)<\/h1>/).each do |r| %>
+			<% Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.scan(/<h1>.*?>[^\w](.*?)<\.*?<\/h1>/).each do |r| %>
 			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= r[0].capitalize %></span></a></li>
 			<% end %>
 <% if false %>
