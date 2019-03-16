@@ -21,7 +21,12 @@
 	  </div>
 	  <div class="uk-width-small-1-1 uk-width-medium-3-5" id="texto-programas">
 			<h2 style="color:#B03856"><%= t('.presentacion') %></h2>
-			<%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.html_safe %>
+<script>
+			$(document).ready(function(){
+				var arr = JSON.parse("<%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*<\/h1>/) %>");
+				console.log(arr);
+			}
+</script>
 		</div>
 
   </div>
