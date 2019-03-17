@@ -23,7 +23,7 @@
 			<h2 style="color:#B03856"><%= t('.presentacion') %></h2>
 <script>
 			$(document).ready(function(){
-				var arr = <%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*<\/h1>/).to_json.html_safe %>;
+				var arr = <%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*?<\/h1>/).to_json.html_safe %>;
 				console.log(arr);
 			});
 </script>
