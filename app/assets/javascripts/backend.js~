@@ -231,7 +231,7 @@ function configTrix(){
     groupTagName: "span", 
 		style: { color: "#B03856" },
 		parser: function(element) {
-			return element.style.color === "#B03856"
+			return element.style.color === "rgb(176, 56, 86)"
 		},
 		inheritable: true
 	}
@@ -239,7 +239,7 @@ function configTrix(){
     groupTagName: "span", 
 		style: { color: "#CC4E78" },
 		parser: function(element) {
-			return element.style.color === "#CC4E78"
+			return element.style.color === "rgb(204, 78, 120)"
 		},
 		inheritable: true
 	}
@@ -247,7 +247,7 @@ function configTrix(){
     groupTagName: "span", 
 		style: { color: "#808080" },
 		parser: function(element) {
-			return element.style.color === "#808080"
+			return element.style.color === "rgb(128, 128, 128)"
 		},
 		inheritable: true
 	}

@@ -308,6 +308,14 @@ function extendTrix(ev){
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 }
 
+addEventListener("trix-initialize",function(event){
+	extendTrix(event);
+});
+
+$(document).on("trix-change",function(event){
+	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
+});
+
 function clearPars(edit){
 	try{
 	var regex = /<p>(?!<p>)(?!(<--block-->)?<br>).+?<\/p>/g;
