@@ -33,8 +33,9 @@ function renderText(event, element){
 	if(event != null){
 		event.preventDefault();
 	}
+	var titles = <%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.scan(/(<h1>.*?<\/h1>)/).to_json.html_safe %>
 	var arr = <%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*?<\/h1>/).to_json.html_safe %>;
-	$("#texto-programas").html(element.html() + arr[parseInt(element.dataset.index) + 1]);
+	$("#texto-programas").html(titles[parseInt(element.dataset.index) + 1][0]) + arr[parseInt(element.dataset.index) + 1]);
 }
 
 $(document).ready(function(){
