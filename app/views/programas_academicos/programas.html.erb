@@ -47,7 +47,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: "https://coed.colmex.mx/catalogo_videos.json?titulo=Licenciatura%20en%20<%= request.fullpath.include?('administracion') ? 'Pol%C3%ADtica%20y%20Administraci%C3%B3n%20P%C3%BAblica' : 'Relaciones Internacionales' %>&crono=desc",
 			success: function(result){
-				$("#vid-img-programas").html('<iframe src="https://www.youtube.com/embed/' + result["vids"][0][v_id] + '"></iframe>');
+				$("#vid-img-programas").html('<iframe src="https://www.youtube.com/embed/' + result["vids"][0]["v_id"] + '"></iframe>');
 			}
 		});
 	<% else %>
