@@ -6,7 +6,7 @@
 	<span class="titulo-grande"><%= t('.' + @titulo ) %></span><br>
   <div class="uk-grid uk-grid-small uk-margin-large-top">
 		<div class="uk-width-1-1" id="vid-img-programas">
-			<iframe src="https://www.youtube.com/embed/vOkAxeeWP1o"></iframe>
+
 		</div>
 	  <div class="uk-width-small-1-1 uk-width-medium-2-5 uk-text-center-small uk-text-center-medium uk-text-left" id="menu-programas">
     <ul class="lista-links" id="lista-programas">
@@ -43,6 +43,16 @@ $(document).ready(function(){
 
 	$(window).trigger("resize");
 	$(".link-sobre")[0].click();
+	<% if !request.fullpath.include?("ciencia") %>
+		$.ajax({
+			url: "https://coed.colmex.mx/catalogo_videos.json?titulo=Licenciatura%20en%20" + (<%= request.fullpath.include?("administracion") ? "Pol%C3%ADtica%20y%20Administraci%C3%B3n%20P%C3%BAblica" : "Relaciones Internacionales" %>) + "&crono=desc",
+			success: function(result){
+				$("#vid-img-programas").html('<iframe src="https://www.youtube.com/embed/' + result["vids"][0][v_id] '"></iframe>');
+			}
+		});
+	<% else %>
+		$("#vid-img-programas").html("<%= image_tag 'maestrias-grande.jpg' %>");
+	<% end %>
 });
 </script>
 
