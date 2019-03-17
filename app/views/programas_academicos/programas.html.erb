@@ -34,7 +34,7 @@ function renderText(event, element){
 		event.preventDefault();
 	}
 	var arr = <%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*?<\/h1>/).to_json.html_safe %>;
-	$("#texto-programas").html(arr[parseInt(element.dataset.index) + 1]);
+	$("#texto-programas").html(element.html() + arr[parseInt(element.dataset.index) + 1]);
 }
 
 $(document).ready(function(){
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	});
 
 	$(window).trigger("resize");
-	$(".link-sobre")[0].trigger("click");
+	$(".link-sobre")[0].click();
 });
 </script>
 
