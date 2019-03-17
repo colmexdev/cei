@@ -5,7 +5,7 @@ $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-edit").css({"display": "none"}).unbind();
 
 $(document).on("trix-initialize",function(event){
-	extendTrix();
+	extendTrix(event);
 });
 
 $(document).on("trix-change",function(event){

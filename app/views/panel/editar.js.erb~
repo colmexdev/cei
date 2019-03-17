@@ -8,6 +8,10 @@ $(document).on("trix-initialize",function(event){
 	extendTrix();
 });
 
+$(document).on("trix-change",function(event){
+	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
+});
+
 $("#graphs-gest").html("<%= j render 'panel/generar' %>");
 
 $(document).ready(function(){

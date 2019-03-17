@@ -356,10 +356,7 @@ function extendTrix(toolbar,blocks){
 
 	updateSelectedAttributes();
   element.addEventListener("trix-selection-change", updateSelectedAttributes()); 
-  element.addEventListener("trix-change", function(event){
-		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
-		enforceExclusiveAttributes();
-	});
+  element.addEventListener("trix-change", updateSelectedAttributes());
 
 }
 
