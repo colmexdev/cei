@@ -325,7 +325,7 @@ function extendTrix(ev){
   }
   
   function enforceExclusiveAttributes() {
-		if(editor.attributeIsActive("rosaBold")){
+		/*if(editor.attributeIsActive("rosaBold")){
 			editor.deactivateAttribute("rosaLight");
 			editor.deactivateAttribute("gray");
 			updateSelectedAttributes();
@@ -344,7 +344,7 @@ function extendTrix(ev){
 		} else if(editor.attributeIsActive("smaller")){
 			editor.deactivateAttribute("larger");
 			updateSelectedAttributes();
-		}
+		}*/
     if(editor.attributeIsActive("sup") && selectedAttributes.has("sub")) {
     	editor.deactivateAttribute("sub");
       updateSelectedAttributes();

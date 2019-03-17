@@ -306,58 +306,6 @@ function extendTrix(ev){
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>");
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
-//}
-
-/* Exclusive attrs */
-  var selectedAttributes = new Set;
-  function updateSelectedAttributes() {
-    selectedAttributes = new Set;
-    
-    var selectedRange = editor.getSelectedRange();
-    if (selectedRange[0] === selectedRange[1]) { selectedRange[1]++; }
-    
-    var selectedPieces = editor.getDocument().getDocumentAtRange(selectedRange).getPieces();
-    selectedPieces.forEach(function(piece) {
-    	Object.keys(piece.getAttributes()).forEach(function(attribute) {
-      	selectedAttributes.add(attribute);
-      });
-    });
-  }
-  
-  function enforceExclusiveAttributes() {
-		/*if(editor.attributeIsActive("rosaBold")){
-			editor.deactivateAttribute("rosaLight");
-			editor.deactivateAttribute("gray");
-			updateSelectedAttributes();
-		} else if(editor.attributeIsActive("rosaLight")){
-			editor.deactivateAttribute("rosaBold");
-			editor.deactivateAttribute("gray");
-			updateSelectedAttributes();
-		} else if(editor.attributeIsActive("gray")){
-			editor.deactivateAttribute("rosaBold");
-			editor.deactivateAttribute("rosaLight");
-			updateSelectedAttributes();
-		}
-		if(editor.attributeIsActive("larger")){
-			editor.deactivateAttribute("smaller");
-			updateSelectedAttributes();
-		} else if(editor.attributeIsActive("smaller")){
-			editor.deactivateAttribute("larger");
-			updateSelectedAttributes();
-		}*/
-    if(editor.attributeIsActive("sup") && selectedAttributes.has("sub")) {
-    	editor.deactivateAttribute("sub");
-      updateSelectedAttributes();
-    } else if(editor.attributeIsActive("sub") && selectedAttributes.has("sup")) {
-    	editor.deactivateAttribute("sup");
-      updateSelectedAttributes();
-    }
-  }
-
-	updateSelectedAttributes();
-  element.addEventListener("trix-selection-change", updateSelectedAttributes()); 
-  element.addEventListener("trix-change", updateSelectedAttributes());
-
 }
 
 function clearPars(edit){
