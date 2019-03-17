@@ -32,7 +32,7 @@
 function renderText(event, element){
 	event.preventDefault();
 	var arr = <%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*?<\/h1>/).to_json.html_safe %>;
-	$("#texto-prgramas").html(arr[element.dataset.index]);
+	$("#texto-programas").html(arr[element.dataset.index]);
 }
 
 $(document).ready(function(){
