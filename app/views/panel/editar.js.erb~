@@ -4,11 +4,15 @@ $("#glyph-back").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_princ_path %>')});
 $("#glyph-edit").css({"display": "none"}).unbind();
 
-event.target.previousSibling.querySelector
+$(document).on("trix-initialize",function(event){
+	configTrix();
+	document.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(document.querySelector(".trix-button--icon-heading-1"));
+	extendTrix(event.target.previousSibling.querySelector(".trix-button-group--text-tools"), event.target.previousSibling.querySelector(".trix-button-group--block-tools"));
+});
 
-	$(document).on("trix-change",function(event){
-		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
-	});
+$(document).on("trix-change",function(event){
+	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
+});
 
 $("#graphs-gest").html("<%= j render 'panel/generar' %>");
 

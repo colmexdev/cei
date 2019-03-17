@@ -222,7 +222,7 @@ function configTrix(){
 		inheritable: true
 	}
 	Trix.config.textAttributes.rosaBold = {
-    tagName: "span", 
+    groupTagName: "span", 
 		style: { color: "#B03856" },
 		parser: function(element) {
 			return element.style.color === "#B03856"
@@ -230,7 +230,7 @@ function configTrix(){
 		inheritable: true
 	}
 	Trix.config.textAttributes.rosaLight = {
-    tagName: "span", 
+    groupTagName: "span", 
 		style: { color: "#CC4E78" },
 		parser: function(element) {
 			return element.style.color === "#CC4E78"
@@ -238,7 +238,7 @@ function configTrix(){
 		inheritable: true
 	}
 	Trix.config.textAttributes.gray = {
-    tagName: "span", 
+    groupTagName: "span", 
 		style: { color: "#808080" },
 		parser: function(element) {
 			return element.style.color === "#808080"
@@ -246,7 +246,7 @@ function configTrix(){
 		inheritable: true
 	}
 	Trix.config.textAttributes.increase = {
-    tagName: "span", 
+    groupTagName: "span", 
 		style: { fontSize: "larger" },
 		parser: function(element) {
 			return element.style.fontSize === "larger";
@@ -254,7 +254,7 @@ function configTrix(){
 		inheritable: true
 	}
 	Trix.config.textAttributes.decrease = {
-    tagName: "span", 
+    groupTagName: "span", 
 		style: { fontSize: "smaller" },
 		parser: function(element) {
 			return element.style.fontSize === "smaller"
