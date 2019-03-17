@@ -4,10 +4,11 @@ $("#glyph-back").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_princ_path %>')});
 $("#glyph-edit").css({"display": "none"}).unbind();
 
-$(document).on("trix-initialize",function(){
+$(document).on("trix-initialize",function(event){
 	configTrix();
-	for(var i = 0; i < $("trix-toolbar").length; i++){
-		extendTrix($(".trix-button-group--text-tools")[i],$(".trix-button-group--block-tools")[i]);
+	console.log(event);
+	//for(var i = 0; i < $("trix-toolbar").length; i++){
+	//	extendTrix($(".trix-button-group--text-tools")[i],$(".trix-button-group--block-tools")[i]);
 	}
 });
 
