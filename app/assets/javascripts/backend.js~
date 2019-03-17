@@ -329,11 +329,11 @@ function extendTrix(toolbar,blocks){
 			editor.deactivateAttribute("rosaLight");
 			editor.deactivateAttribute("gray");
 			updateSelectedAttributes();
-		} else if(editor.attributeIsActive("rosaLight");
+		} else if(editor.attributeIsActive("rosaLight")){
 			editor.deactivateAttribute("rosaBold");
 			editor.deactivateAttribute("gray");
 			updateSelectedAttributes();
-		} else if(editor.attributeIsActive("gray");
+		} else if(editor.attributeIsActive("gray")){
 			editor.deactivateAttribute("rosaBold");
 			editor.deactivateAttribute("rosaLight");
 			updateSelectedAttributes();
