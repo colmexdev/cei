@@ -133,14 +133,14 @@ button:focus{
 
 body {font-family: "Whitney SSm A", "Whitney SSm B", Lato, sans-serif; font-style: normal; font-weight: 400; font-size: 18px; color: #333333; }
 h1, h2, h3, h4, h5, h6 {font-family: "Gotham SSm A", "Gotham SSm B", Lato, sans-serif; font-style: normal; font-weight: 700;}
-trix-content h1 { font-size: 34px !important; }
+.trix-content h1 { font-size: 34px !important; }
 
 strong {font-weight: 600; color: #838383}
 i {font-style: italic; }
 a, a:hover, a:active, a:visited, a:link{  text-decoration: none; }
 .titulo {}
 .subtitulo {color: #838383}
-.titulo-chico, trix-content h2{
+.titulo-chico/*, trix-content h2*/{
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato; 
 	font-style: normal; 
 	font-weight: 700; 
@@ -186,11 +186,11 @@ p {text-align: justify; font-size: 18px;}
 
 .uk-link.sin-pointer { cursor: auto; }
 
-.titulo-grande, h1, trix-content h1{
+.titulo-grande, h1, .trix-content h1{
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato; 
 	font-style: normal; 
 	font-weight: 700; 
-	font-size: 34px; 
+	font-size: 34px;
 	display: inline-block;
 	line-height: normal;
 	margin-bottom: 12px;

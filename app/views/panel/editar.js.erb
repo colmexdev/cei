@@ -4,13 +4,13 @@ $("#glyph-back").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(event){hideLink(event,'#menu-lat','<%= panel_princ_path %>')});
 $("#glyph-edit").css({"display": "none"}).unbind();
 
-$(document).on("trix-initialize",function(event){
+addEventListener("trix-initialize",function(event){
 	extendTrix(event);
 });
 
-$(document).on("trix-change",function(event){
+/*$(document).on("trix-change",function(event){
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
-});
+});*/
 
 $("#graphs-gest").html("<%= j render 'panel/generar' %>");
 
