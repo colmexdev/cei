@@ -285,8 +285,8 @@ function configTrix(){
 	Trix.config.textAttributes.bold.tagName = "b";
 }
 
-function extendTrix(event){
-	var element = event.target;
+function extendTrix(ev){
+	var element = ev.target;
   var editor = element.editor;
   var toolbarElement = element.toolbarElement;
   var textElement = toolbarElement.querySelector(".trix-button-group--text-tools");
