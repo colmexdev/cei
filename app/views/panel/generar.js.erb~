@@ -6,7 +6,7 @@ $("#glyph-edit").css({"display": "none"}).unbind();
 
 addEventListener("trix-initialize",function(event){
 	extendTrix(event);
-});
+}, {once: true});
 
 /*$(document).on("trix-change",function(event){
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
