@@ -5,6 +5,7 @@ $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-edit").css({"display": "none"}).unbind();
 
 $(document).on("trix-initialize",function(event){
+	console.log(event.target);
 	var element = event.target;
   var editor = element.editor;
   var toolbarElement = element.toolbarElement;
