@@ -9,7 +9,7 @@ $(document).on("trix-initialize",function(event){
 	console.log(event);
 		//$(".trix-button--icon-heading-1").remove();
 		//extendTrix($(".trix-button-group--text-tools"),$(".trix-button-group--block-tools"));
-	}
+	//}
 });
 
 $(document).on("trix-change",function(event){
