@@ -184,6 +184,12 @@ function configTrix(){
 		style: {textAlign: "justify"},
 		terminal: true
 	}
+	Trix.config.blockAttributes.heading1 = {
+		breakOnReturn: true,
+		group: false,
+		tagName: "h1",
+		terminal: true
+	}
 	Trix.config.blockAttributes.heading2 = {
 		breakOnReturn: true,
 		group: false,
@@ -202,10 +208,10 @@ function configTrix(){
 		tagName: "h4",
 		terminal: true
 	}
-	Trix.config.blockAttributes.paragraph = {
+	Trix.config.blockAttributes.heading5 = {
 		breakOnReturn: true,
 		group: false,
-		tagName: "div",
+		tagName: "h5",
 		terminal: true
 	}
 	Trix.config.textAttributes.underline = { 
@@ -251,7 +257,6 @@ function configTrix(){
     tagName: "span", 
 		style: { fontSize: "smaller" },
 		parser: function(element) {
-			console.log(element.style.fontSize);
 			return element.style.fontSize === "smaller"
 		},
 		inheritable: true
@@ -286,7 +291,7 @@ function extendTrix(toolbar,blocks){
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML4);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML10);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML11);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML9);
+		//blocks.insertAdjacentHTML("afterbegin",buttonHTML9);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML5);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML6);
 		//blocks.insertAdjacentHTML("beforeend",buttonHTML7);

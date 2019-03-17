@@ -184,6 +184,12 @@ function configTrix(){
 		style: {textAlign: "justify"},
 		terminal: true
 	}
+	Trix.config.blockAttributes.heading1 = {
+		breakOnReturn: true,
+		group: false,
+		tagName: "h1",
+		terminal: true
+	}
 	Trix.config.blockAttributes.heading2 = {
 		breakOnReturn: true,
 		group: false,
@@ -202,10 +208,10 @@ function configTrix(){
 		tagName: "h4",
 		terminal: true
 	}
-	Trix.config.blockAttributes.paragraph = {
+	Trix.config.blockAttributes.heading5 = {
 		breakOnReturn: true,
 		group: false,
-		tagName: "div",
+		tagName: "h5",
 		terminal: true
 	}
 	Trix.config.textAttributes.underline = { 
@@ -264,8 +270,8 @@ function extendTrix(toolbar,blocks){
  		var buttonHTML0 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
  		var buttonHTML1 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
  		var buttonHTML2 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>";
- 		var buttonHTML3 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading2\" title=\"Heading2\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:14px;width:100%;text-align:center;\">H2</div></button>";
- 		var buttonHTML4 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading3\" title=\"Heading3\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H3</div></button>";
+ 		var buttonHTML3 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading2\" title=\"Heading2\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:16px;width:100%;text-align:center;\">H2</div></button>";
+ 		var buttonHTML4 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading3\" title=\"Heading3\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:14px;width:100%;text-align:center;\">H3</div></button>";
  		//var buttonHTML5 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"left\" title=\"Left\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-left\" aria-hidden=\"true\"></i></div></button>";
  		//var buttonHTML6 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"center\" title=\"Center\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-center\" aria-hidden=\"true\"></i></div></button>";
  		//var buttonHTML7 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"right\" title=\"Right\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-right\" aria-hidden=\"true\"></i></div></button>";
@@ -275,12 +281,14 @@ function extendTrix(toolbar,blocks){
  		var buttonHTML11 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>";
  		var buttonHTML12 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"increase\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>";
  		var buttonHTML13 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"decrease\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>";
+ 		var buttonHTML14 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading1\" title=\"Heading1\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:18px;width:100%;text-align:center;\">H1</div></button>";
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML2);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML1);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML0);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML12);
 		toolbar.insertAdjacentHTML("beforeend", buttonHTML13);
+		blocks.insertAdjacentHTML("afterbegin",buttonHTML14);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML3);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML4);
 		blocks.insertAdjacentHTML("afterbegin",buttonHTML10);
