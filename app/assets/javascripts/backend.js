@@ -313,7 +313,7 @@ addEventListener("trix-initialize",function(event){
 });
 
 $(document).on("trix-change",function(event){
-	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
+	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 });
 
 function clearPars(edit){
