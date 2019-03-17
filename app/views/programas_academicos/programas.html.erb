@@ -37,11 +37,6 @@ function renderText(event, element){
 }
 
 $(document).ready(function(){
-	$(window).resize(function(){
-		$("#vid-img-programas iframe").height($("#vid-img-programas iframe").width() * 9 / 16);
-	});
-
-	$(window).trigger("resize");
 	$(".link-sobre")[0].click();
 	<% if !request.fullpath.include?("ciencia") %>
 		$.ajax({
@@ -52,6 +47,11 @@ $(document).ready(function(){
 		});
 	<% else %>
 		$("#vid-img-programas").html('<%= image_tag("maestrias-grande.jpg").html_safe %>');
+	$(window).resize(function(){
+		$("#vid-img-programas iframe").height($("#vid-img-programas iframe").width() * 9 / 16);
+	});
+
+	$(window).trigger("resize");
 	<% end %>
 });
 </script>
