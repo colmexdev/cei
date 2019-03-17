@@ -33,7 +33,7 @@ function renderText(event, element){
 	event.preventDefault();
 	var titles = <%= Programa.where("titulo like ?","%" + t("."+@titulo, locale: :es) + "%").first.descripcion_es.scan(/(<h1>.*?<\/h1>)/).to_json.html_safe %>;
 	var arr = <%= Programa.where("titulo like ?","%" + t("."+@titulo, locale: :es) + "%").first.descripcion_es.split(/<h1>.*?<\/h1>/).to_json.html_safe %>;
-	$("#texto-programas").html(titles[parseInt(element.dataset.index)][0] + arr[parseInt(element.dataset.index) + 1].replace(/(<br>)*<\/div><div>(<!--block-->)??/g,"</p><p>").replace(/(<br>)+/g,"</p><p>").replace(/<\/div>/g,"</p>").replace(/(<p><\/p>)+/g,""));
+	$("#texto-programas").html(titles[parseInt(element.dataset.index)][0] + arr[parseInt(element.dataset.index) + 1].replace(/((<br>)*<\/div>)??<div>(<!--block-->)??/g,"</p><p>").replace(/(<br>)+/g,"</p><p>").replace(/<\/div>/g,"</p>").replace(/(<p><\/p>)+/g,""));
 }
 
 $(document).ready(function(){
