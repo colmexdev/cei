@@ -285,7 +285,7 @@ function configTrix(){
 	Trix.config.textAttributes.bold.tagName = "b";
 }
 
-function extendTrix(toolbar,blocks){
+function extendTrix(event){
 	var element = event.target;
   var editor = element.editor;
   var toolbarElement = element.toolbarElement;
