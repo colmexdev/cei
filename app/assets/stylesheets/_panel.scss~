@@ -125,13 +125,13 @@
 	transform: translate(-50%,-50%);
 }
 
-/*a:not([href]):not([tabindex]){
+a:not([href]):not([tabindex]){
 	color: #FFF;
 }
 
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):active{
 	color: #5E002B;
-}*/
+}
 
 #mask-toggle{
 	z-index: 4;
