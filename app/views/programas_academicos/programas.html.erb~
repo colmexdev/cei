@@ -51,7 +51,7 @@ $(document).ready(function(){
 			}
 		});
 	<% else %>
-		$("#vid-img-programas").html("<%= image_tag('maestrias-grande.jpg').html_safe %>");
+		$("#vid-img-programas").html('<%= image_tag("maestrias-grande.jpg").html_safe %>');
 	<% end %>
 });
 </script>
