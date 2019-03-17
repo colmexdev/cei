@@ -214,6 +214,12 @@ function configTrix(){
 		tagName: "h5",
 		terminal: true
 	}
+	Trix.config.blockAttributes.heading6 = {
+		breakOnReturn: true,
+		group: false,
+		tagName: "h6",
+		terminal: true
+	}
 	Trix.config.textAttributes.underline = { 
 		tagName: "u",
 		parser: function(element) {
@@ -258,6 +264,20 @@ function configTrix(){
 		style: { fontSize: "smaller" },
 		parser: function(element) {
 			return element.style.fontSize === "smaller"
+		},
+		inheritable: true
+	}
+	Trix.config.textAttributes.sup = {
+		tagName: "sup",
+		parser: function(element){
+			return element.style.verticalAlign === "super" && element.style.fontSize === "smaller"
+		},
+		inheritable: true
+	}
+	Trix.config.textAttributes.sub = {
+		tagName: "sub",
+		parser: function(element){
+			return element.style.verticalAlign === "sub" && element.style.fontSize === "smaller"
 		},
 		inheritable: true
 	}

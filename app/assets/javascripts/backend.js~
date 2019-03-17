@@ -261,6 +261,20 @@ function configTrix(){
 		},
 		inheritable: true
 	}
+	Trix.config.textAttributes.sup = {
+		tagName: "sup",
+		parser: function(element){
+			return element.style.verticalAlign === "super" && element.style.fontSize === "smaller"
+		},
+		inheritable: true
+	}
+	Trix.config.textAttributes.sub = {
+		tagName: "sub",
+		parser: function(element){
+			return element.style.verticalAlign === "sub" && element.style.fontSize === "smaller"
+		},
+		inheritable: true
+	}
 	Trix.config.textAttributes.italic.tagName = "i";
 	Trix.config.textAttributes.bold.tagName = "b";
 }
