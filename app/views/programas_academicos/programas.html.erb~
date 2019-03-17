@@ -25,7 +25,7 @@
 			$(document).ready(function(){
 				var arr = JSON.parse("<%= Programa.where("titulo = ?","Licenciatura en Política y Administración Pública").first.descripcion_es.split(/<h1>.*<\/h1>/) %>");
 				console.log(arr);
-			}
+			});
 </script>
 		</div>
 
