@@ -5,30 +5,7 @@ $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-edit").css({"display": "none"}).unbind();
 
 $(document).on("trix-initialize",function(event){
-	console.log(event.target.toolBarElement);
-	console.log(event.target.getAttribute("toolbar"));
-	var element = event.target;
-  var editor = element.editor;
-  var toolbarElement = element.toolbarElement;
-  var textElement = toolbarElement.querySelector(".button-group--text-tools");
-	var blockElement = toolbarElement.querySelector(".button-group--block-tools");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"increase\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"decrease\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaBold\" title=\"Rosa bold\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#B03856;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
-	textElement.insertAdjacentHTML("beforeend", '<button type="button" class="trix-button trix-button-icon" data-trix-attribute="sup"  tabindex="-1"><sup>SUP</sup></button>');
-  textElement.insertAdjacentHTML("beforeend",'<button type="button" class="trix-button trix-button-icon" tabindex="-1" data-trix-attribute="sub"><sub>SUB</sub></button>');
-	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading1\" title=\"Heading1\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:18px;width:100%;text-align:center;\">H1</div></button>");
-	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading2\" title=\"Heading2\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:16px;width:100%;text-align:center;\">H2</div></button>");
-	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading3\" title=\"Heading3\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:14px;width:100%;text-align:center;\">H3</div></button>");
-	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Heading4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>");
-	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>");
-	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
-	
-	//document.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(document.querySelector(".trix-button--icon-heading-1"));
-	//extendTrix(event.target.previousSibling.querySelector(".trix-button-group--text-tools"), event.target.previousSibling.querySelector(".trix-button-group--block-tools"));
+	extendTrix();
 });
 
 $(document).on("trix-change",function(event){

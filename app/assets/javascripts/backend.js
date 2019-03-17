@@ -251,7 +251,7 @@ function configTrix(){
 		},
 		inheritable: true
 	}
-	Trix.config.textAttributes.increase = {
+	Trix.config.textAttributes.larger = {
     groupTagName: "span", 
 		style: { fontSize: "larger" },
 		parser: function(element) {
@@ -259,7 +259,7 @@ function configTrix(){
 		},
 		inheritable: true
 	}
-	Trix.config.textAttributes.decrease = {
+	Trix.config.textAttributes.smaller = {
     groupTagName: "span", 
 		style: { fontSize: "smaller" },
 		parser: function(element) {
@@ -286,38 +286,80 @@ function configTrix(){
 }
 
 function extendTrix(toolbar,blocks){
- 		var buttonHTML = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaBold\" title=\"Rosa bold\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#B03856;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
- 		var buttonHTML0 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
- 		var buttonHTML1 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>";
- 		var buttonHTML2 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>";
- 		var buttonHTML3 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading2\" title=\"Heading2\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:16px;width:100%;text-align:center;\">H2</div></button>";
- 		var buttonHTML4 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading3\" title=\"Heading3\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:14px;width:100%;text-align:center;\">H3</div></button>";
- 		//var buttonHTML5 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"left\" title=\"Left\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-left\" aria-hidden=\"true\"></i></div></button>";
- 		//var buttonHTML6 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"center\" title=\"Center\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-center\" aria-hidden=\"true\"></i></div></button>";
- 		//var buttonHTML7 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"right\" title=\"Right\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-right\" aria-hidden=\"true\"></i></div></button>";
- 		//var buttonHTML8 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"justify\" title=\"Justify\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-align-justify\" aria-hidden=\"true\"></i></div></button>";
- 		var buttonHTML9 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"paragraph\" title=\"Paragraph\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:20px;\"><i class=\"fa fa-paragraph\" aria-hidden=\"true\"></i></div></button>";
- 		var buttonHTML10 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Heading4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>";
- 		var buttonHTML11 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>";
- 		var buttonHTML12 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"increase\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>";
- 		var buttonHTML13 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"decrease\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>";
- 		var buttonHTML14 = "<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading1\" title=\"Heading1\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:18px;width:100%;text-align:center;\">H1</div></button>";
-		toolbar.insertAdjacentHTML("beforeend", buttonHTML2);
-		toolbar.insertAdjacentHTML("beforeend", buttonHTML1);
-		toolbar.insertAdjacentHTML("beforeend", buttonHTML0);
-		toolbar.insertAdjacentHTML("beforeend", buttonHTML);
-		toolbar.insertAdjacentHTML("beforeend", buttonHTML12);
-		toolbar.insertAdjacentHTML("beforeend", buttonHTML13);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML14);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML3);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML4);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML10);
-		blocks.insertAdjacentHTML("afterbegin",buttonHTML11);
-		//blocks.insertAdjacentHTML("afterbegin",buttonHTML9);
-		//blocks.insertAdjacentHTML("beforeend",buttonHTML5);
-		//blocks.insertAdjacentHTML("beforeend",buttonHTML6);
-		//blocks.insertAdjacentHTML("beforeend",buttonHTML7);
-		//blocks.insertAdjacentHTML("beforeend",buttonHTML8);
+	var element = event.target;
+  var editor = element.editor;
+  var toolbarElement = element.toolbarElement;
+  var textElement = toolbarElement.querySelector(".trix-button-group--text-tools");
+	var blockElement = toolbarElement.querySelector(".trix-button-group--block-tools");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"larger\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"smaller\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaBold\" title=\"Rosa bold\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#B03856;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
+	textElement.insertAdjacentHTML("beforeend", '<button type="button" class="trix-button trix-button-icon" data-trix-attribute="sup"  tabindex="-1"><sup>SUP</sup></button>');
+  textElement.insertAdjacentHTML("beforeend",'<button type="button" class="trix-button trix-button-icon" tabindex="-1" data-trix-attribute="sub"><sub>SUB</sub></button>');
+	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading1\" title=\"Heading1\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:18px;width:100%;text-align:center;\">H1</div></button>");
+	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading2\" title=\"Heading2\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:16px;width:100%;text-align:center;\">H2</div></button>");
+	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading3\" title=\"Heading3\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:14px;width:100%;text-align:center;\">H3</div></button>");
+	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Heading4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>");
+	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>");
+	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
+	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
+}
+
+/* Exclusive attrs */
+  var selectedAttributes = new Set;
+  function updateSelectedAttributes() {
+    selectedAttributes = new Set;
+    
+    var selectedRange = editor.getSelectedRange();
+    if (selectedRange[0] === selectedRange[1]) { selectedRange[1]++; }
+    
+    var selectedPieces = editor.getDocument().getDocumentAtRange(selectedRange).getPieces();
+    selectedPieces.forEach(function(piece) {
+    	Object.keys(piece.getAttributes()).forEach(function(attribute) {
+      	selectedAttributes.add(attribute);
+      });
+    });
+  }
+  
+  function enforceExclusiveAttributes() {
+		if(editor.attributeIsActive("rosaBold")){
+			editor.deactivateAttribute("rosaLight");
+			editor.deactivateAttribute("gray");
+			updateSelectedAttributes();
+		} else if(editor.attributeIsActive("rosaLight");
+			editor.deactivateAttribute("rosaBold");
+			editor.deactivateAttribute("gray");
+			updateSelectedAttributes();
+		} else if(editor.attributeIsActive("gray");
+			editor.deactivateAttribute("rosaBold");
+			editor.deactivateAttribute("rosaLight");
+			updateSelectedAttributes();
+		}
+		if(editor.attributeIsActive("larger")){
+			editor.deactivateAttribute("smaller");
+			updateSelectedAttributes();
+		} else if(editor.attributeIsActive("smaller")){
+			editor.deactivateAttribute("larger");
+			updateSelectedAttributes();
+		}
+    if(editor.attributeIsActive("sup") && selectedAttributes.has("sub")) {
+    	editor.deactivateAttribute("sub");
+      updateSelectedAttributes();
+    } else if(editor.attributeIsActive("sub") && selectedAttributes.has("sup")) {
+    	editor.deactivateAttribute("sup");
+      updateSelectedAttributes();
+    }
+  }
+
+	updateSelectedAttributes();
+  element.addEventListener("trix-selection-change", updateSelectedAttributes()); 
+  element.addEventListener("trix-change", function(event){
+		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
+		enforceExclusiveAttributes();
+	});
 
 }
 
