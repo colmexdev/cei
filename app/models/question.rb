@@ -11,7 +11,8 @@ class Question < ActiveRecord::Base
 
   def update_index
     Question.where("index >= ? AND tipo = ?", self.index, self.tipo).each do |q|
-      q.update(index: q.index + 1)
+      logger.debug "#{q.pregunta_es} #{q.index}"
+      #q.update(index: q.index + 1)
     end
   end
 
