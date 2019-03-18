@@ -84,6 +84,9 @@ es:
     convocatorias:
       convocatorias: "Convocatorias abiertas"
       info: "Más información"
+    preguntas:
+      op2_1: "Preguntas frecuentes (Licenciaturas)"
+      op2_2: "Preguntas frecuentes (Maestría)"
     aspirantes:
       informacion: "Información para"
       aspirantes: "Aspirantes"
