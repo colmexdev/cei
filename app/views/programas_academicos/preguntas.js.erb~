@@ -3,5 +3,5 @@ var pregs_html = '<span class="titulo-grande"><%= t("." + (request.fullpath.incl
 	console.log("<%= p.pregunta_es.html_safe %>");
 	//pregs_html = pregs_html + <%= p.pregunta_es.html_safe %>;
 <% end %>
-console.log(pregs_html);
+
 $("#render-aspirantes").html(pregs_html);
