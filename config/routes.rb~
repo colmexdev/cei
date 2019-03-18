@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     get 'cursos' => 'programas_academicos#cursos', :as => :cursos
     get 'convocatorias' => "programas_academicos#convocatorias", :as => :convocatorias
     get 'aspirantes' => 'programas_academicos#aspirantes', :as => :aspirantes
+    get 'preguntas-licenciatura' => 'programas-academicos#preguntas', :as => :preguntas_l
+    get 'preguntas-maestria' => 'programas_academicos#preguntas', :as => :preguntas_m
     get 'personal-academico' => 'directorio#personal', :as => :personal_academico
     get 'personal-administrativo' => 'directorio#personal', :as => :personal_administrativo
     get 'agora' => 'revistas#revista', :as => :agora
