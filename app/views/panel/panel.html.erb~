@@ -30,6 +30,9 @@
 				<li class="op-gest">
 				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Personal administrativo", :offset => 0) %>')">Personal administrativo</a>
 				</li>
+				<li class="op-gest">
+				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Programas académicos", :offset => 0) %>')">Programas académicos</a>
+				</li>
 
 <% if false %>
 				<li class="op-gest">

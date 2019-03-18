@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pregunta_es: MyText
+  pregunta_en: MyText
+  respuesta_es: MyText
+  respuesta_en: MyText
+  index: 1
+  tipo: MyText
+
+two:
+  pregunta_es: MyText
+  pregunta_en: MyText
+  respuesta_es: MyText
+  respuesta_en: MyText
+  index: 1
+  tipo: MyText

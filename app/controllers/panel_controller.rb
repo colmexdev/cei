@@ -273,6 +273,11 @@ class PanelController < ApplicationController
         fields: {titulo: "Título", descripcion_es: "Descripción (español)", descripcion_en: "Descipición (inglés)", fecha_ic: "Fecha inicio de convocatoria", fecha_fc: "Fecha fin de convocatoria"},
         imgs: {},
         trix: [:descripcion_es, :descripcion_en]
+      }, "Preguntas frecuentes": {
+        model: Question,
+        fields: {pregunta_es: "Pregunta (español)", pregunta_en: "Pregunta (inglés)", respuesta_es: "Respuesta (español)", respuesta_en: "Respuesta (inglés)", tipo: "Tipo", index: "Índice"},
+        imgs: {},
+        trix: [:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en]
       }
     }
   end
@@ -299,6 +304,8 @@ class PanelController < ApplicationController
       params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
     elsif params[:set] == "Programas académicos"
       params.require(:programa).permit(:titulo, :descripcion_es, :descripcion_en, :fecha_ic, :fecha_fc)
+    elsif params[:set] == "Preguntas frecuentes"
+      params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
     end
   end
 end
