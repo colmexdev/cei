@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo, "Tipo" %><br>
-    <%= f.select(:tipo, [["Licenciatura","Licenciatura"],["Maestría","Maestría"]], selected: (@obj.tipo || "Licenciatura")) %>
+    <%= f.select(:tipo, [["Licenciatura","Licenciatura"],["Maestría","Maestría"]], selected: (@obj.tipo || "Licenciatura"), {onchange: "toggleIndexValue(this.value)"}) %>
   </div>
   <div class="field">
     <%= f.label :index, "Índice" %><br>
@@ -39,4 +39,14 @@
   <div class="actions">
     <%= f.submit "Generar pregunta frecuente" %>
   </div>
+
+<script>
+function toggleIndexValue(tipo){
+	$("#question_index").val(tipo == "Licenciatura" ? <%= Question.where("tipo = ?", "Licenciatura").count + 1 %> : <%= Question.where("tipo = ?", "Maestría").count + 1 %>);
+}
+
+$(document).ready(function(){
+	toggleIndexValue("<%= @obj.tipo || 'Licenciatura' %>");
+});
+</script>
 <% end %>

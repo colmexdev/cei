@@ -13,26 +13,40 @@
 
 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
   <div class="field">
-    <%= f.label :titulo, "Título" %><br>
-    <%= f.text_field :titulo %>
+    <%= f.label :pregunta_es, "Pregunta (español)" %><br>
+    <%= f.trix_editor :pregunta_es %>
   </div>
   <div class="field">
-    <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
-    <%= f.text_field :fecha_ic, autocomplete: false, class: "datepicker" %>
+    <%= f.label :pregunta_en, "Pregunta (inglés)" %><br>
+    <%= f.trix_editor :pregunta_en %>
   </div>
   <div class="field">
-    <%= f.label :fecha_fc, "Fecha final de convocatoria" %><br>
-    <%= f.text_field :fecha_fc, autocomplete: false, class: "datepicker" %>
+    <%= f.label :respuesta_es, "Respuesta (español)" %><br>
+    <%= f.trix_editor :respuesta_es %>
   </div>
   <div class="field">
-    <%= f.label :descripcion_es, "Descripción (español)" %><br>
-    <%= f.trix_editor :descripcion_es %>
+    <%= f.label :respuesta_en, "Respuesta (inglés)" %><br>
+    <%= f.trix_editor :respuesta_en %>
   </div>
   <div class="field">
-    <%= f.label :descripcion_en, "Descripción (inglés)" %><br>
-    <%= f.trix_editor :descripcion_en %>
+    <%= f.label :tipo, "Tipo" %><br>
+    <%= f.select(:tipo, [["Licenciatura","Licenciatura"],["Maestría","Maestría"]], selected: (@obj.tipo || "Licenciatura"), {onchange: "toggleIndexValue(this.value)"}) %>
+  </div>
+  <div class="field">
+    <%= f.label :index, "Índice" %><br>
+    <%= f.number_field :index, min: 1, step: 1, value: (@obj.index || 1) %>
   </div>
   <div class="actions">
-    <%= f.submit "Generar programa académico" %>
+    <%= f.submit "Generar pregunta frecuente" %>
   </div>
+
+<script>
+function toggleIndexValue(tipo){
+	$("#question_index").val(tipo == "Licenciatura" ? <%= Question.where("tipo = ?", "Licenciatura").count + 1 %> : <%= Question.where("tipo = ?", "Maestría").count + 1 %>);
+}
+
+$(document).ready(function(){
+	toggleIndexValue("<%= @obj.tipo || 'Licenciatura' %>")
+});
+</script>
 <% end %>
