@@ -6,7 +6,7 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def aspirantes
-
+    @link = 1
   end
 
   def preguntas

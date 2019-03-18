@@ -10,7 +10,7 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def preguntas
-    @preguntas = Pregunta.where("tipo = ?",(request.fullpath.include?("maestria") ? "Maestría" : "Licenciatura")).order(index: :asc)
+    @preguntas = Question.where("tipo = ?",(request.fullpath.include?("maestria") ? "Maestría" : "Licenciatura")).order(index: :asc)
     @link = (request.fullpath.include?("maestria") ? "3" : "2")
     respond_to do |format|
       format.html render 'aspirantes'
