@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo, "Tipo" %><br>
-    <%= f.select(:tipo, [["Licenciatura","Licenciatura"],["Maestría","Maestría"]], selected: (@obj.tipo || "Licenciatura"), {onchange: "toggleIndexValue(this.value)"}) %>
+    <%= f.select(:tipo, [["Licenciatura","Licenciatura"],["Maestría","Maestría"]], {selected: (@obj.tipo || "Licenciatura")}, {onchange: "toggleIndexValue(this.value)"}) %>
   </div>
   <div class="field">
     <%= f.label :index, "Índice" %><br>

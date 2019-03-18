@@ -46,7 +46,7 @@ function toggleIndexValue(tipo){
 }
 
 $(document).ready(function(){
-	toggleIndexValue("<%= @obj.tipo || 'Licenciatura' %>")
+	toggleIndexValue("<%= @obj.tipo || 'Licenciatura' %>");
 });
 </script>
 <% end %>
