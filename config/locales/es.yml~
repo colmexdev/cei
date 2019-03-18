@@ -110,9 +110,9 @@ es:
       area: "Área de trabajo: "
       servicios: "Servicios: "
       personas:
-        zero: "Ninguna persona encontrada"
-        one: "%{count} persona encontrada"
-        other: "%{count} personas encontradas"
+        zero: "No hubo coincidencias"
+        one: "Una coincidencia"
+        other: "%{count} coincidencias"
   revistas:
     revista:
       agora: "Revista Ágora"

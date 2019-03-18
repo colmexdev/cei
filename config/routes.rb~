@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     get 'estudiantes/politica-administracion-publica' => 'estudiantes#interna', :as => :estudiantes_pap
     get 'estudiantes/relaciones-internacionales' => 'estudiantes#interna', :as => :estudiantes_ri
     get 'estudiantes/ciencia-politica' => 'estudiantes#interna', :as => :estudiantes_cp
+    get 'rafael-segovia' => 'principal#rafael', :as => :rafael
   end
 
   get "/(:locale)" => "principal#index", :as => :main

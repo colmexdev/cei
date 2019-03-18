@@ -109,7 +109,8 @@ en:
       informacion: "Information for"
       aspirantes: "Candidates"
       op1: "Why to study in CEI?"
-      op2: "Frequently asked questions"
+      op2_1: "Frequently asked questions (B.A. programs)"
+      op2_2: "Frequently asked questions (Master program)"
       op3: "Tuition and financial support"
       op4: "Requisites and selection process"
   directorio:

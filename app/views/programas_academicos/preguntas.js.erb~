@@ -1,0 +1,6 @@
+var pregs_html = '<span class="titulo-grande"><%= t("." + (request.fullpath.include?('maestria') ? 'op2_2' : 'op2_1' )) %></span><br>";
+<% @preguntas.each do |p| %>
+	pregs_html = pregs_html + "<%= p.pregunta_es.html_safe %><%= p.respuesta_es.gsub('<div>','<p>').gsub('</div>','</p>').gsub(/(<p><\/p>)+/,'').html_safe %>";
+<% end %>
+
+$("#render-aspirantes").html(pregs_html);

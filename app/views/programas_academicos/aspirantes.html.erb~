@@ -10,15 +10,15 @@
     <div class="uk-hidden-medium uk-hidden-small">
     <ul class="lista-links" style="text-align:left;">
 <li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.op1') %></span></a></li>
-					<li><a target="_blank" href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.op2') %></span></a></li>
+					<li><a data-link="2" data-remote="true" href="<%= preguntas_l_path %>" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.op2_1') %></span></a></li>
+					<li><a data-link="3" data-remote="true" href="<%= preguntas_m_path %>" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.op2_2') %></span></a></li>
 					<li><a target="_blank" href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><spn class="pad-link"><%= t('.op3') %></span></a></li>
 					<li><a target="_blank" href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.op4') %></span></a></li>
-					<li><a target="_blank" href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.op5') %></span></a></li>
     </ul>
     </div>
     <!--          Aquí termina el menú pequeño          -->
     </div>
-    <div class="uk-width-large-1-2">
+    <div class="uk-width-large-1-2" id="render-aspirantes">
 		  <span class="titulo-chico"><%= t('.informacion') %></span>
     	<span class="titulo-grande"><%= t('.aspirantes') %></span><br>
 			<p>El Colegio de México es una institución pública, de carácter universitario, dedicada a la investigación y a la enseñanza superior en ciencias sociales y humanidades, y es una de las más destacadas en el mundo hispánico, por lo cual ha recibido numerosos reconocimientos desde su fundación en 1940 hasta el presente.</p><p>Para cumplir con sus fines, El Colegio de México lleva a cabo investigaciones y docencia en las áreas de la especialidad de los Centros de Estudios que lo integran: Históricos, Lingüísticos y Literarios, Internacionales, de Asia y África, Económicos, Demográficos Urbanos y Ambientales, y Sociológicos, además del Programa de Estudios de Género. Ofrece licenciaturas, maestrías y doctorados por especialidad, así como cursos de especialización y de verano.</p><p>El Colegio cuenta con una gran biblioteca, abierta al público, especializada en ciencias sociales y humanidades. Su acervo está constituido por más de 700,000 volúmenes y cuenta con una enorme cantidad de recursos electrónicos y digitales. Asimismo, la institución cuenta con las siguientes unidades de apoyo y servicio: Dirección de Publicaciones, Programa de Educación Digital y Coordinación de Servicios de Cómputo.</p><p>De las aulas de El Colegio han salido varios millares de egresados que se han destacado en la investigación, la docencia, la función pública y otros campos de actividad profesional en México y en numerosos países del mundo.</p>
@@ -38,6 +38,7 @@ $(document).ready(function(){
 	});
 
 	$(window).trigger("resize");
+	
 });
 </script>
 
