@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  before_save :update_index
+  before_save :update_index, if: :index_changed?
 
   validates_presence_of :index
   validates_presence_of :pregunta_es
