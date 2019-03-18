@@ -13,7 +13,7 @@ class ProgramasAcademicosController < ApplicationController
     @preguntas = Question.where("tipo = ?",(request.fullpath.include?("maestria") ? "Maestría" : "Licenciatura")).order(index: :asc)
     @link = (request.fullpath.include?("maestria") ? "3" : "2")
     respond_to do |format|
-      format.html render 'aspirantes'
+      format.html {render 'aspirantes'}
       format.js
     end
   end
