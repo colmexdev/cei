@@ -9,7 +9,8 @@ class Question < ActiveRecord::Base
   private
 
   def update_index
-    Question.where("index = ? AND tipo = ? AND pregunta_es != ?", self.index, self.tipo, self.pregunta_es).each do |q|
+    q = Question.where("index = ? AND tipo = ? AND pregunta_es != ?", self.index, self.tipo, self.pregunta_es).first
+    if !q.nil?
       q.update(index: q.index + 1)
     end
   end
