@@ -46,7 +46,8 @@ function toggleIndexValue(tipo){
 }
 
 $(document).ready(function(){
-	toggleIndexValue("<%= @obj.tipo || 'Licenciatura' %>");
+	if(<%= !@obj.index.present? %>)
+		toggleIndexValue("<%= @obj.tipo || 'Licenciatura' %>");
 });
 </script>
 <% end %>
