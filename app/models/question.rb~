@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   before_save :update_index
-  before_update :update_index
+  after_update :update_index
 
   validates_presence_of :index
   validates_presence_of :pregunta_es
@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   private
 
   def update_index
-    Question.where("index >= ? AND tipo = ?", self.index, self.tipo).each do |q|
+    Question.where("index >= ? AND tipo = ? AND pregunta_es != ?", self.index, self.tipo, self.pregunta_es).each do |q|
       logger.debug "#{q.pregunta_es} #{q.index}"
       #q.update(index: q.index + 1)
     end
