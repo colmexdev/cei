@@ -16,6 +16,10 @@
     <%= f.label :titulo, "Título" %><br>
     <%= f.trix_editor :titulo %>
   </div>
+	<div class="field">
+		<%= f.label :tipo, "Tipo de curso" %>
+		<%= f.select(:tipo, [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]], selected: (@obj.tipo || "Verano) ) %>
+	</div>
   <div class="field">
     <%= f.label :fecha_i, "Fecha inicial de curso" %><br>
     <%= f.text_field :fecha_i, autocomplete: "off", class: "datepicker" %>
