@@ -386,6 +386,9 @@ trix-editor div {
 
 .field-media{
 	min-height: 250px;
+	overflow: auto;
+
+	object, embed { height: 450px; width: }
 }
 
 /* Text-input */

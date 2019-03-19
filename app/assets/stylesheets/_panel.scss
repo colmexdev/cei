@@ -386,8 +386,9 @@ trix-editor div {
 
 .field-media{
 	min-height: 250px;
+	overflow: auto;
 
-	object, embed { max-height: 350px; }
+	object, embed { height: 450px; width:450px; }
 }
 
 /* Text-input */
@@ -475,6 +476,7 @@ trix-editor div {
 	width: calc(100% - 210px);
 	float: right;
 	height: 100%;
+	padding-left: 60px;
 }
 
 #graphs-gest form .img-display img{
