@@ -117,23 +117,25 @@ function deleteImage(element,id_vis) {
 	}
 }
 
-function readURL(input,display,check_del) {
+function readURL(input,display,check_del,multi) {
 	check_del = check_del || "";
   if(check_del != "")
     $(check_del)[0].checked = false;
-  if (input.files && input.files[0]) {
+  if (input.files && input.files.length > 0) {
 		console.log(input.files[0]);
-		window.archivo = input.files;
+		//window.archivo = input.files;
 
 		for(var i = 0; i < input.files.length; i++){
     	var reader = new FileReader();
     
 		  reader.onload = function (e) {
 				console.log(e.target);
-				/*if(display.indexOf("cont") != -1)
-					$(display).html($(display).html() + "<img src=\"" + e.target.result + "\"><br><br>" );
+				if(e.target.result.includes("data:application/pdf"))
+					$(display).html((multi ? $(display).html() : "") + "<a target=\"_blank\" href=\"" + e.target.result + "\"><img src=\"/img/documento.png\"></a>" + (multi ? "<br><br>" : ""));
+				else if(e.target.result.includes("data:image/"))
+					$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
 				else
-					$(display).attr('src', e.target.result);*/
+					$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
 		  }
     
 
