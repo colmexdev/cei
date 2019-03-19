@@ -65,9 +65,9 @@
 		<div class="img-display" id="documento-curso">
 			<% if !@obj.documento.url.nil? %>
 				<% logger.debug @obj.documento.original_filename %>
-				<% if /\.((jpe?g)|(png))/.match(@obj.documento.original_filename) %>
+				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.original_filename).nil? %>
 					<img src="<%= @obj.documento.url %>">
-				<% elsif /pdf/.match(@obj.documento.original_filename) %>
+				<% elsif !/pdf/.match(@obj.documento.original_filename).nil? %>
 				<% end %>
 			<% else %>
 				<span>No hay convocatoria para mostrar.</span>

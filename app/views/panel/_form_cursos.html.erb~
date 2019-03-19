@@ -64,6 +64,7 @@
 		</div>
 		<div class="img-display" id="documento-curso">
 			<% if !@obj.documento.url.nil? %>
+				<% logger.debug @obj.documento.original_filename %>
 				<% if /\.((jpe?g)|(png))/.match(@obj.documento.original_filename) %>
 					<img src="<%= @obj.documento.url %>">
 				<% elsif /pdf/.match(@obj.documento.original_filename) %>
