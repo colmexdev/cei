@@ -18,6 +18,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+#gem "actionview", ">= 4.2.11.1"
+#gem "net-ldap", ">= 0.16.0"
+#gem "activerecord", ">= 4.2.7.1"
+#gem "activejob", ">= 4.2.11"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
