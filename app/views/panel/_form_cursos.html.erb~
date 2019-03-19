@@ -66,7 +66,8 @@
 			<% if !@obj.documento.url.nil? %>
 				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.original_filename).nil? %>
 					<img src="<%= @obj.documento.url %>">
-				<% elsif !/pdf/.match(@obj.documento.original_filename).nil? %>
+				<% elsif !/\.pdf/.match(@obj.documento.original_filename).nil? %>
+					<object type="application/pdf" data ="<%= @obj.documento.url %>"><embed src="<%= @obj.documento.url %>" type="application/pdf"></object>
 				<% end %>
 			<% else %>
 				<span>No hay convocatoria para mostrar.</span>
