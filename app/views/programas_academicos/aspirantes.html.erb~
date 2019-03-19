@@ -38,7 +38,8 @@ $(document).ready(function(){
 	});
 
 	$(window).trigger("resize");
-	
+  if(document.querySelector('[data-link="<%= @link %>"]') != null)
+		document.querySelector('[data-link="<%= @link %>"]').click();
 });
 </script>
 
