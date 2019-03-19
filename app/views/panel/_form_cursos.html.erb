@@ -68,9 +68,9 @@
 		</div>
 		<div class="img-display" id="documento-curso">
 			<% if !@obj.documento.url.nil? %>
-				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.original_filename).nil? %>
+				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.original_filename.downcase).nil? %>
 					<img src="<%= @obj.documento.url %>">
-				<% elsif !/\.pdf/.match(@obj.documento.original_filename).nil? %>
+				<% elsif !/\.pdf/.match(@obj.documento.original_filename.downcase).nil? %>
 					<object type="application/pdf" data ="<%= @obj.documento.url %>"><embed src="<%= @obj.documento.url %>" type="application/pdf"></object>
 				<% end %>
 			<% else %>
