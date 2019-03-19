@@ -128,12 +128,16 @@ function readURL(input,display,check_del,multi) {
     	var reader = new FileReader();
     
 		  reader.onload = function (e) {
-				if(e.target.result.includes("data:application/pdf"))
-					$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
-				else if(e.target.result.includes("data:image/"))
-					$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
-				else
-					$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
+				try{
+					if(e.target.result.includes("data:application/pdf"))
+						$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
+					else if(e.target.result.includes("data:image/"))
+						$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
+					else
+						$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
+				} catch(err){
+						$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
+				}
 		  }
     
 
