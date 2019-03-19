@@ -129,7 +129,7 @@ function readURL(input,display,check_del) {
     	var reader = new FileReader();
     
 		  reader.onload = function (e) {
-				console.log(e);
+				console.log(e.target);
 				/*if(display.indexOf("cont") != -1)
 					$(display).html($(display).html() + "<img src=\"" + e.target.result + "\"><br><br>" );
 				else

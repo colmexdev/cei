@@ -122,7 +122,7 @@ function readURL(input,display,check_del) {
   if(check_del != "")
     $(check_del)[0].checked = false;
   if (input.files && input.files[0]) {
-		console.log(input.files);
+		console.log(input.files[0]);
 		window.archivo = input.files;
 
 		for(var i = 0; i < input.files.length; i++){
