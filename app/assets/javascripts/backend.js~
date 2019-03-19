@@ -122,17 +122,18 @@ function readURL(input,display,check_del) {
   if(check_del != "")
     $(check_del)[0].checked = false;
   if (input.files && input.files[0]) {
-		//console.log(input.files);
+		console.log(input.files);
 		window.archivo = input.files;
 
 		for(var i = 0; i < input.files.length; i++){
     	var reader = new FileReader();
     
 		  reader.onload = function (e) {
-				if(display.indexOf("cont") != -1)
+				console.log(e);
+				/*if(display.indexOf("cont") != -1)
 					$(display).html($(display).html() + "<img src=\"" + e.target.result + "\"><br><br>" );
 				else
-					$(display).attr('src', e.target.result);
+					$(display).attr('src', e.target.result);*/
 		  }
     
 
