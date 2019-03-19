@@ -1,0 +1,7 @@
+class Curso < ActiveRecord::Base
+
+  validates_presence_of :titulo
+  validates_presence_of :fecha_i
+  validates_presence_of :fecha_f
+
+end

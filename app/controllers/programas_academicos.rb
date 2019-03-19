@@ -6,17 +6,17 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def aspirantes
-    @title = "Aspirantes -"
+    @title = "Aspirantes - "
     @link = 1
   end
 
   def preguntas
-    @title = "Preguntas frecuentes (" + (request.fullpath.include?("maestria") ?  "Maestría" : "Licenciatura") + ") -"
+    @title = "Preguntas frecuentes (" + (request.fullpath.include?("maestria") ?  "Maestría" : "Licenciatura") + ") - "
     @preguntas = Question.where("tipo = ?",(request.fullpath.include?("maestria") ? "Maestría" : "Licenciatura")).order(index: :asc).pluck(:pregunta_es, :respuesta_es)
     @link = (request.fullpath.include?("maestria") ? "3" : "2")
     respond_to do |format|
-      format.js
       format.html {render 'aspirantes'}
+      format.js
     end
   end
 

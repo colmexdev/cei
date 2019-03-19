@@ -278,6 +278,11 @@ class PanelController < ApplicationController
         fields: {pregunta_es: "Pregunta (español)", pregunta_en: "Pregunta (inglés)", respuesta_es: "Respuesta (español)", respuesta_en: "Respuesta (inglés)", tipo: "Tipo", index: "Índice"},
         imgs: {},
         trix: [:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en]
+      }, "Cursos": {
+        model: Curso,
+        fields: {titulo: "Título", liga: "Liga externa", imparte: "Impartido por", liga_imparte: "Liga de quien imparte", fecha_i: "Fecha de inicio", fecha_f: "Fecha final", descripcion: "Descripción"},
+        imgs: {imagen: "Imagen"},
+        trix: [:titulo, :descripcion]
       }
     }
   end
@@ -306,6 +311,8 @@ class PanelController < ApplicationController
       params.require(:programa).permit(:titulo, :descripcion_es, :descripcion_en, :fecha_ic, :fecha_fc)
     elsif params[:set] == "Preguntas frecuentes"
       params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
+    elsif params[:set] == "Cursos"
+      params.require(:curso).permit(:titulo, :imparte, :liga, :liga_imparte, :fecha_i, :fecha_f, :descripcion, :imagen, :imagen_del)
     end
   end
 end

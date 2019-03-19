@@ -1,5 +1,4 @@
 <% parts = {"Personal administrativo": "administrativo", "Programas académicos": "progs", "Preguntas frecuentes": "preguntas"} %>
-
 	<%= render ('panel/form_'+parts[params[:set].to_sym]) %>
 
 

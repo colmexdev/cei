@@ -1,0 +1,38 @@
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="field">
+    <%= f.label :titulo, "Título" %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
+    <%= f.text_field :fecha_ic, autocomplete: false, class: "datepicker" %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_fc, "Fecha final de convocatoria" %><br>
+    <%= f.text_field :fecha_fc, autocomplete: false, class: "datepicker" %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_es, "Descripción (español)" %><br>
+    <%= f.trix_editor :descripcion_es %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_en, "Descripción (inglés)" %><br>
+    <%= f.trix_editor :descripcion_en %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Generar programa académico" %>
+  </div>
+<% end %>
