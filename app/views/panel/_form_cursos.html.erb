@@ -36,7 +36,7 @@
     <%= f.label :descripcion, "Descripción (opcional)" %><br>
     <%= f.trix_editor :descripcion %>
   </div>
-  <div class="field" style="height:250px;">
+  <div class="field field-media">
 		<div class="photo-upload">
     <%= f.label :imagen, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir imagen') %><br>
     <%= f.file_field :imagen, :onchange => "readURL(this,'#foto-curso','#curso_imagen_del')" %><br>
@@ -51,7 +51,7 @@
 			<% end %>
 		</div>
   </div>
-  <div class="field" style="height:250px;">
+  <div class="field field-media">
 		<div class="photo-upload">
     <%= f.label :documento, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir convocatoria') %><br>
     <%= f.file_field :documento, :onchange => "readURL(this,'#documento-curso','#curso_documento_del')" %><br>

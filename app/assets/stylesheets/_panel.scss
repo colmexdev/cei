@@ -384,6 +384,12 @@ trix-editor div {
 	margin-bottom: 50px;
 }
 
+.field-media{
+	min-height: 250px;
+
+	object, embed { max-height: 350px; }
+}
+
 /* Text-input */
 #graphs-gest form input[type="text"], #graphs-gest input[type="text"], #graphs-gest form input[type="email"], #graphs-gest input[type="email"]{
 	background-color: inherit;
