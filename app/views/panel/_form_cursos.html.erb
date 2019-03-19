@@ -54,7 +54,7 @@
   <div class="field" style="height:250px;">
 		<div class="photo-upload">
     <%= f.label :documento, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir convocatoria') %><br>
-    <%= f.file_field :imagen, :onchange => "readURL(this,'#documento-curso','#curso_documento_del')" %><br>
+    <%= f.file_field :documento, :onchange => "readURL(this,'#documento-curso','#curso_documento_del')" %><br>
     <%= f.check_box :documento_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
 			<%= f.label :documento_del, "Eliminar documento" %><br>
 		</div>

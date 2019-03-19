@@ -60,7 +60,7 @@
 		</div>
 		<div class="img-display">
 			<% if !@obj.documento.url.nil? %>
-				<% if /\.((jpe?g)|(png))/.match(@obj.documento.extension) %>
+				<% if /\.((jpe?g)|(png))/.match(@obj.documento.original_filename) %>
 					<img id="documento-curso" src="<%= @obj.documento.url %>">
 				<% end %>
 			<% else %>
