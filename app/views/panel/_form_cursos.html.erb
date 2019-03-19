@@ -43,9 +43,9 @@
     <%= f.check_box :imagen_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
 			<%= f.label :imagen_del, "Eliminar imagen" %><br>
 		</div>
-		<div class="img-display">
+		<div class="img-display" id="foto-curso">
 			<% if !@obj.imagen.url.nil? %>
-				<img id="foto-curso" src="<%= @obj.imagen.url %>">
+				<img src="<%= @obj.imagen.url %>">
 			<% else %>
 				<span>No hay imagen para mostrar.</span>
 			<% end %>
@@ -58,10 +58,10 @@
     <%= f.check_box :documento_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
 			<%= f.label :documento_del, "Eliminar documento" %><br>
 		</div>
-		<div class="img-display">
+		<div class="img-display" id="documento-curso">
 			<% if !@obj.documento.url.nil? %>
 				<% if /\.((jpe?g)|(png))/.match(@obj.documento.original_filename) %>
-					<img id="documento-curso" src="<%= @obj.documento.url %>">
+					<img src="<%= @obj.documento.url %>">
 				<% end %>
 			<% else %>
 				<span>No hay convocatoria para mostrar.</span>
