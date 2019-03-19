@@ -14,25 +14,52 @@
 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
   <div class="field">
     <%= f.label :titulo, "Título" %><br>
-    <%= f.text_field :titulo %>
+    <%= f.trix_editor :titulo %>
   </div>
   <div class="field">
-    <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
-    <%= f.text_field :fecha_ic, autocomplete: false, class: "datepicker" %>
+    <%= f.label :fecha_i, "Fecha inicial de curso" %><br>
+    <%= f.text_field :fecha_i, autocomplete: false, class: "datepicker" %>
   </div>
   <div class="field">
-    <%= f.label :fecha_fc, "Fecha final de convocatoria" %><br>
-    <%= f.text_field :fecha_fc, autocomplete: false, class: "datepicker" %>
+    <%= f.label :fecha_f, "Fecha final de curso" %><br>
+    <%= f.text_field :fecha_f, autocomplete: false, class: "datepicker" %>
   </div>
   <div class="field">
-    <%= f.label :descripcion_es, "Descripción (español)" %><br>
-    <%= f.trix_editor :descripcion_es %>
+    <%= f.label :imparte, "Impartido por (opcional)" %><br>
+    <%= f.text_field :imparte %>
+  </div>
+  <div class="field">
+    <%= f.label :liga, "Liga al curso (si es externa)" %><br>
+    <%= f.text_field :liga %>
+  </div>
+  <div class="field">
+    <%= f.label :liga_imparte, "Liga a sitio de quien imparte (opcional)" %><br>
+    <%= f.text_field :liga_imparte %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion, "Descripción (opcional)" %><br>
+    <%= f.trix_editor :descripcion %>
   </div>
   <div class="field">
     <%= f.label :descripcion_en, "Descripción (inglés)" %><br>
     <%= f.trix_editor :descripcion_en %>
   </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :imagen, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir imagen') %><br>
+    <%= f.file_field :imagen, :onchange => "readURL(this,'#foto-curso','#curso_imagen_del')" %><br>
+    <%= f.check_box :imagen_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
+			<%= f.label :imagen_del, "Eliminar imagen" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.imagen.url.nil? %>
+				<img id="foto-curso" src="<%= @obj.imagen.url %>">
+			<% else %>
+				<span>No hay imagen para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
   <div class="actions">
-    <%= f.submit "Generar programa académico" %>
+    <%= f.submit "Generar curso" %>
   </div>
 <% end %>
