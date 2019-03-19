@@ -29,10 +29,6 @@
     <%= f.text_field :imparte %>
   </div>
   <div class="field">
-    <%= f.label :liga, "Liga al curso (si es externa)" %><br>
-    <%= f.text_field :liga %>
-  </div>
-  <div class="field">
     <%= f.label :liga_imparte, "Liga a sitio de quien imparte (opcional)" %><br>
     <%= f.text_field :liga_imparte %>
   </div>
@@ -54,6 +50,21 @@
 		<div class="img-display">
 			<% if !@obj.imagen.url.nil? %>
 				<img id="foto-curso" src="<%= @obj.imagen.url %>">
+			<% else %>
+				<span>No hay imagen para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+  <div class="field" style="height:250px;">
+		<div class="photo-upload">
+    <%= f.label :documento, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir convocatoria') %><br>
+    <%= f.file_field :imagen, :onchange => "readURL(this,'#documento-curso','#curso_documento_del')" %><br>
+    <%= f.check_box :documento_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
+			<%= f.label :documento_del, "Eliminar documento" %><br>
+		</div>
+		<div class="img-display">
+			<% if !@obj.documento.url.nil? %>
+				<img id="documento-curso" src="<%= @obj.documento.url %>">
 			<% else %>
 				<span>No hay imagen para mostrar.</span>
 			<% end %>

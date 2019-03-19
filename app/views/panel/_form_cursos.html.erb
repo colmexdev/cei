@@ -64,9 +64,11 @@
 		</div>
 		<div class="img-display">
 			<% if !@obj.documento.url.nil? %>
-				<img id="documento-curso" src="<%= @obj.documento.url %>">
+				<% if ["jpeg","png","jpg"].include?(@obj.documento.extension) %>
+					<img id="documento-curso" src="<%= @obj.documento.url %>">
+				<% end %>
 			<% else %>
-				<span>No hay imagen para mostrar.</span>
+				<span>No hay convocatoria para mostrar.</span>
 			<% end %>
 		</div>
   </div>
