@@ -367,6 +367,10 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	box-sizing: border-box;
 }
 
+.ind-cell object, .ind-cell embed{
+	height: 450px;
+}
+
 /* Sección de estilos de formas */
 trix-editor div {
 	text-align: justify;

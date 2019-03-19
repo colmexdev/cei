@@ -361,10 +361,14 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	padding: 15px 20px;
 }
 
-.ind-cell img{
+.ind-cell img, .ind-cell object, .ind-cell embed{
 	max-width: 100%;
 	height: auto;
 	box-sizing: border-box;
+}
+
+.ind-cell object, .ind-cell embed{
+	height: 400px;
 }
 
 /* Sección de estilos de formas */
