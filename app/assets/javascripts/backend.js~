@@ -134,6 +134,8 @@ function readURL(input,display,check_del,multi) {
 					$(display).html((multi ? $(display).html() : "") + "<a target=\"_blank\" href=\"" + e.target.result + "\"><img src=\"/img/documento.png\"></a>" + (multi ? "<br><br>" : ""));
 				else if(e.target.result.includes("data:image/"))
 					$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
+				else
+					$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
 		  }
     
 
