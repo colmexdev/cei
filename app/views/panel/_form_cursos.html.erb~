@@ -29,6 +29,10 @@
     <%= f.text_field :imparte %>
   </div>
   <div class="field">
+    <%= f.label :liga, "Liga externa (opcional)" %><br>
+    <%= f.text_field :liga %>
+  </div>
+  <div class="field">
     <%= f.label :liga_imparte, "Liga a sitio de quien imparte (opcional)" %><br>
     <%= f.text_field :liga_imparte %>
   </div>
