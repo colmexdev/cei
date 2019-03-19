@@ -312,7 +312,7 @@ class PanelController < ApplicationController
     elsif params[:set] == "Preguntas frecuentes"
       params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
     elsif params[:set] == "Cursos"
-      params.require(:curso).permit(:titulo, :imparte, :documento, :liga_imparte, :fecha_i, :fecha_f, :descripcion, :imagen, :imagen_del, :documento_del)
+      params.require(:curso).permit(:titulo, :imparte, :documento, :liga, :liga_imparte, :fecha_i, :fecha_f, :descripcion, :imagen, :imagen_del, :documento_del)
     end
   end
 end
