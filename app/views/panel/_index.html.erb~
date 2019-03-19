@@ -41,8 +41,10 @@
 						<td class="ind-cell"><%= image_tag(s.badge_eng.url) %></td>	
 					<% elsif f.to_s == "portada" %>
 						<td class="ind-cell"><%= image_tag(s.portada.url) %></td>
-					<% elsif f.to_s == "archivo" %>
-						<td class="ind-cell"><%= link_to image_tag("documento.png"), s.archivo.url, target: "_blank" %></td>
+					<% elsif f.to_s == "captura" %>
+						<td class="ind-cell"><%= image_tag(s.captura.url) %></td>
+					<% elsif f.to_s == "documento" %>
+						<td class="ind-cell"><%= link_to image_tag("documento.png"), s.documento.url, target: "_blank" %></td>
 					<% end %>
 				<% end %>
 				<td class="ind-cell-img" style="width:130px;">

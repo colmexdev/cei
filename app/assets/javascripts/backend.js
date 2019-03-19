@@ -129,7 +129,7 @@ function readURL(input,display,check_del,multi) {
     
 		  reader.onload = function (e) {
 				if(e.target.result.includes("data:application/pdf"))
-					$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\" id=\"pdfViewer\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
+					$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
 				else if(e.target.result.includes("data:image/"))
 					$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
 				else
