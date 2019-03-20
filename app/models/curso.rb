@@ -8,18 +8,23 @@ class Curso < ActiveRecord::Base
   validates_presence_of :titulo
   validates_presence_of :fecha_i
   validates_presence_of :fecha_f
+  validates_presence_of :tipo
 
   has_attached_file :imagen, styles: {},
-                    url: "/assets/imgs_cursos/:id/:style/:basename.:extension",
-                    path: ":rails_root/public/assets/imgs_cursos/:id/:style/:basename.:extension",
+                    url: "/assets/imgs_cursos/:id/:style/:basename_s.:extension",
+                    path: ":rails_root/public/assets/imgs_cursos/:id/:style/:basename_s.:extension",
                     default_url: "/vacio.png"
   validates_attachment_content_type :imagen, content_type: ['image/jpeg', 'image/png', 'image/jpg']
 
   has_attached_file :documento, styles: {},
-                    url: "/assets/docs_cursos/:id/:style/:basename.:extension",
-                    path: ":rails_root/public/assets/docs_cursos/:id/:style/:basename.:extension",
+                    url: "/assets/docs_cursos/:id/:style/:basename_s.:extension",
+                    path: ":rails_root/public/assets/docs_cursos/:id/:style/:basename_s.:extension",
                     default_url: "/vacio.png"
   validates_attachment_content_type :documento, content_type: ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg']
+
+  Paperclip.interpolates :basename_s do |attachment, style|
+    attachment.original_filename.gsub(/#{File.extname(attachment.original_filename)}$/, "").parameterize
+  end
 
   protected
 

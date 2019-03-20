@@ -21,6 +21,11 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def cursos
+    @cursos_ant = Curso.where("tipo = ? AND fecha_i < ?", "Público", Date.today).order(fecha_i: :desc, fecha_f: :desc)
+  end
+
+  def curso
+    @curso = Curso.where("titulo = ?", params[:curso])
   end
 
   def convocatorias

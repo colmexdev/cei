@@ -41,6 +41,7 @@ gem "paperclip", "~> 6.0.0"
 gem 'trix'
 gem 'remotipart', '~> 1.2'
 gem 'bootstrap-datepicker-rails'
+gem 'httparty'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
