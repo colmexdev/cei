@@ -322,7 +322,20 @@ $(document).on("trix-change",function(event){
 });
 
 $(document).on("trix-selection-change",function(event){
-	console.log(event);
+	console.log(event.target);
+	var tooltip = document.createElement("div");
+	var texto = "Hola";
+	$("#tooltip-trix").remove();
+	tooltip.appendChild(texto);
+	tooltip.style.height = "60px;";
+	tooltip.style.width = "300px";
+	tooltip.style.backgroundColor = "#666666";
+	tooltip.style.textAlign = "center";
+	tooltip.style.position = "absolute";
+	tooltip.style.top = event.offsetTop;
+	tooltip.style.left = event.offsetLeft;
+	tooltip.id = "tooltip-trix";
+	document.appendChild(tooltip);
 });
 
 function clearPars(edit){
