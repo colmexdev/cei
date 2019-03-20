@@ -368,7 +368,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 }
 
 .ind-cell object, .ind-cell embed{
-	height: 350px;
+	height: 300px;
 }
 
 /* Sección de estilos de formas */

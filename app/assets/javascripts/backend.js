@@ -130,7 +130,7 @@ function readURL(input,display,check_del,multi) {
 		  reader.onload = function (e) {
 				try{
 					if(e.target.result.includes("data:application/pdf"))
-						$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
+						$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" width=\"100%\" height=\"100%\" data =\"" + e.target.result + "#view=Fit\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
 					else if(e.target.result.includes("data:image/"))
 						$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
 					else
@@ -319,6 +319,10 @@ addEventListener("trix-initialize",function(event){
 
 $(document).on("trix-change",function(event){
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
+});
+
+$(document).on("trix-selection-change",function(event){
+	console.log(event);
 });
 
 function clearPars(edit){

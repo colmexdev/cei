@@ -44,7 +44,7 @@
 					<% elsif f.to_s == "captura" %>
 						<td class="ind-cell"><%= image_tag(s.captura.url) %></td>
 					<% elsif f.to_s == "documento" %>
-<td class="ind-cell left-align"><%= s.documento.url.include?(".pdf") ? ("<object type=\"application/pdf\" data =\"" + s.documento.url + "\"><embed src=\"" + s.documento.url + "\" type=\"application/pdf\"></object>".html_safe) : (image_tag(s.documento.url)) %></td>
+<td class="ind-cell left-align"><%= s.documento.url.include?(".pdf") ? (raw "<object type=\"application/pdf\" width="100%" height="100%" data =\"" + s.documento.url + "\"><embed src=\"" + s.documento.url + "\" type=\"application/pdf\"></object>") : (image_tag(s.documento.url)) %></td>
 					<% end %>
 				<% end %>
 				<td class="ind-cell-img" style="width:130px;">
