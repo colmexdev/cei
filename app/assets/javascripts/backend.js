@@ -335,7 +335,7 @@ $(document).on("trix-selection-change",function(event){
 	tooltip.style.top = event.offsetTop;
 	tooltip.style.left = event.offsetLeft;
 	tooltip.id = "tooltip-trix";
-	document.getElemntById("resto-cuerpo").appendChild(tooltip);
+	document.getElementById("resto-cuerpo").appendChild(tooltip);
 });
 
 function clearPars(edit){
