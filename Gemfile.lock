@@ -220,7 +220,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-datepicker-rails
   bootstrap-glyphicons
-  bootstrap-sass (~> 3.3.6)
+  bootstrap-sass (~> 3.3.7)
   byebug
   capistrano (~> 3.4.0)
   capistrano-bundler
