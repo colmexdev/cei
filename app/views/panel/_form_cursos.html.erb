@@ -17,7 +17,7 @@
     <%= f.trix_editor :titulo %>
   </div>
 	<div class="field">
-		<%= f.label :tipo, "Tipo de curso" %>
+		<%= f.label :tipo, "Tipo de curso" %><br>
 		<%= f.select(:tipo, [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]], selected: (@obj.tipo || "Verano") ) %>
 	</div>
   <div class="field">
@@ -64,13 +64,13 @@
     <%= f.label :documento, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir convocatoria') %><br>
     <%= f.file_field :documento, :onchange => "readURL(this,'#documento-curso','#curso_documento_del')" %><br>
     <%= f.check_box :documento_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
-			<%= f.label :documento_del, "Eliminar documento" %><br>
+			<%= f.label :documento_del, "Eliminar convocatoria" %><br>
 		</div>
 		<div class="img-display" id="documento-curso">
 			<% if !@obj.documento.url.nil? %>
-				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.original_filename.downcase).nil? %>
+				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.url.downcase).nil? %>
 					<img src="<%= @obj.documento.url %>">
-				<% elsif !/\.pdf/.match(@obj.documento.original_filename.downcase).nil? %>
+				<% elsif !/\.pdf/.match(@obj.documento.url.downcase).nil? %>
 					<object type="application/pdf" data ="<%= @obj.documento.url %>"><embed src="<%= @obj.documento.url %>" type="application/pdf"></object>
 				<% end %>
 			<% else %>
