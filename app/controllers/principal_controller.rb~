@@ -1,0 +1,9 @@
+class PrincipalController < ApplicationController
+
+  def index
+    @fi = HTTParty.get('https://forointernacional.colmex.mx/index.php/fi')
+    @img_foro = Nokogiri::HTML(@fi).search("#homepageImage").children.attribute("src").value
+    
+  end
+
+end
