@@ -21,6 +21,14 @@
 		<%= f.select(:tipo, [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]], selected: (@obj.tipo || "Verano") ) %>
 	</div>
   <div class="field">
+    <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
+    <%= f.text_field :fecha_ic, autocomplete: "off", class: "datepicker" %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_fc, "Fecha final de convocatoria" %><br>
+    <%= f.text_field :fecha_fc, autocomplete: "off", class: "datepicker" %>
+  </div>
+  <div class="field">
     <%= f.label :fecha_i, "Fecha inicial de curso" %><br>
     <%= f.text_field :fecha_i, autocomplete: "off", class: "datepicker" %>
   </div>
