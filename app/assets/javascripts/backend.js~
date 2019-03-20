@@ -332,8 +332,8 @@ $(document).on("trix-selection-change",function(event){
 	tooltip.style.backgroundColor = "#666666";
 	tooltip.style.textAlign = "center";
 	tooltip.style.position = "absolute";
-	tooltip.style.top = event.offsetTop;
-	tooltip.style.left = event.offsetLeft;
+	tooltip.style.top = event.target.offsetTop;
+	tooltip.style.left = event.target.offsetLeft;
 	tooltip.id = "tooltip-trix";
 	document.getElementById("graphs-gest").appendChild(tooltip);
 });
