@@ -324,7 +324,7 @@ $(document).on("trix-change",function(event){
 $(document).on("trix-selection-change",function(event){
 	console.log(event.target);
 	var tooltip = document.createElement("div");
-	var texto = "Hola";
+	var texto = document.createTextNode("Hola");
 	$("#tooltip-trix").remove();
 	tooltip.appendChild(texto);
 	tooltip.style.height = "60px;";
