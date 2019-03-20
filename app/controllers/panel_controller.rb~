@@ -280,9 +280,9 @@ class PanelController < ApplicationController
         trix: [:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en]
       }, "Cursos": {
         model: Curso,
-        fields: {titulo: "Título", liga: "Liga externa", imparte: "Impartido por", liga_imparte: "Liga de quien imparte", fecha_i: "Fecha de inicio", fecha_f: "Fecha final", descripcion: "Descripción", tipo: "Tipo"},
+        fields: {titulo: "Título", liga: "Liga externa", imparte: "Impartido por", liga_imparte: "Liga de quien imparte", fecha_i: "Fecha de inicio", fecha_f: "Fecha final", descripcion: "Descripción", descripcion_en: "Descripción (inglés)", tipo: "Tipo"},
         imgs: {imagen: "Imagen", documento: "Documento"},
-        trix: [:titulo, :descripcion]
+        trix: [:titulo, :descripcion, :descripcion_en]
       }
     }
   end
@@ -312,7 +312,7 @@ class PanelController < ApplicationController
     elsif params[:set] == "Preguntas frecuentes"
       params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
     elsif params[:set] == "Cursos"
-      params.require(:curso).permit(:titulo, :imparte, :documento, :liga, :tipo, :liga_imparte, :fecha_i, :fecha_f, :descripcion, :imagen, :imagen_del, :documento_del)
+      params.require(:curso).permit(:titulo, :imparte, :documento, :liga, :tipo, :liga_imparte, :fecha_i, :fecha_f, :descripcion, :descripcion_en, :imagen, :imagen_del, :documento_del)
     end
   end
 end

@@ -125,14 +125,6 @@
 	transform: translate(-50%,-50%);
 }
 
-/*a:not([href]):not([tabindex]){
-	color: #FFF;
-}
-
-a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):active{
-	color: #5E002B;
-}*/
-
 #mask-toggle{
 	z-index: 4;
 	background-color: rgba(0,0,0,0);
@@ -298,7 +290,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 
 #index-panel{
 	width: 99%;
-	min-width: 1000px;
+	min-width: 2500px;
 	margin: 35px auto;
 	table-layout: fixed;
 	text-align: center;

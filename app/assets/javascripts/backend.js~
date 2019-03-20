@@ -128,12 +128,16 @@ function readURL(input,display,check_del,multi) {
     	var reader = new FileReader();
     
 		  reader.onload = function (e) {
-				if(e.target.result.includes("data:application/pdf"))
-					$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
-				else if(e.target.result.includes("data:image/"))
-					$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
-				else
-					$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
+				try{
+					if(e.target.result.includes("data:application/pdf"))
+						$(display).html((multi ? $(display).html() : "") + "<object type=\"application/pdf\" data =\"" + e.target.result + "\"><embed src=\"" + e.target.result + "\" type=\"application/pdf\"></object>" + (multi ? "<br><br>" : ""));
+					else if(e.target.result.includes("data:image/"))
+						$(display).html((multi ? $(display).html() : "") + "<img src=\"" + e.target.result + "\">" + (multi ? "<br><br>" : ""));
+					else
+						$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
+				} catch(err){
+						$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
+				}
 		  }
     
 
@@ -315,6 +319,23 @@ addEventListener("trix-initialize",function(event){
 
 $(document).on("trix-change",function(event){
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
+});
+
+$(document).on("trix-selection-change",function(event){
+	console.log(event.target);
+	var tooltip = document.createElement("div");
+	var texto = document.createTextNode("Hola");
+	$("#tooltip-trix").remove();
+	tooltip.appendChild(texto);
+	tooltip.style.height = "60px;";
+	tooltip.style.width = "300px";
+	tooltip.style.backgroundColor = "#666666";
+	tooltip.style.textAlign = "center";
+	tooltip.style.position = "absolute";
+	tooltip.style.top = event.target.offsetTop + "px";
+	tooltip.style.left = event.target.offsetLeft + "px";
+	tooltip.id = "tooltip-trix";
+	document.getElementById("graphs-gest").appendChild(tooltip);
 });
 
 function clearPars(edit){

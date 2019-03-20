@@ -17,9 +17,17 @@
     <%= f.trix_editor :titulo %>
   </div>
 	<div class="field">
-		<%= f.label :tipo, "Tipo de curso" %>
+		<%= f.label :tipo, "Tipo de curso" %><br>
 		<%= f.select(:tipo, [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]], selected: (@obj.tipo || "Verano") ) %>
 	</div>
+  <div class="field">
+    <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
+    <%= f.text_field :fecha_ic, autocomplete: "off", class: "datepicker" %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_fc, "Fecha final de convocatoria" %><br>
+    <%= f.text_field :fecha_fc, autocomplete: "off", class: "datepicker" %>
+  </div>
   <div class="field">
     <%= f.label :fecha_i, "Fecha inicial de curso" %><br>
     <%= f.text_field :fecha_i, autocomplete: "off", class: "datepicker" %>
@@ -44,6 +52,10 @@
     <%= f.label :descripcion, "Descripción (opcional)" %><br>
     <%= f.trix_editor :descripcion %>
   </div>
+  <div class="field">
+    <%= f.label :descripcion_en, "Descripción (inglés, opcional)" %><br>
+    <%= f.trix_editor :descripcion_en %>
+  </div>
   <div class="field field-media">
 		<div class="photo-upload">
     <%= f.label :imagen, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir imagen') %><br>
@@ -64,13 +76,13 @@
     <%= f.label :documento, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir convocatoria') %><br>
     <%= f.file_field :documento, :onchange => "readURL(this,'#documento-curso','#curso_documento_del')" %><br>
     <%= f.check_box :documento_del, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
-			<%= f.label :documento_del, "Eliminar documento" %><br>
+			<%= f.label :documento_del, "Eliminar convocatoria" %><br>
 		</div>
 		<div class="img-display" id="documento-curso">
 			<% if !@obj.documento.url.nil? %>
-				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.original_filename.downcase).nil? %>
+				<% if !/\.((jpe?g)|(png))/.match(@obj.documento.url.downcase).nil? %>
 					<img src="<%= @obj.documento.url %>">
-				<% elsif !/\.pdf/.match(@obj.documento.original_filename.downcase).nil? %>
+				<% elsif !/\.pdf/.match(@obj.documento.url.downcase).nil? %>
 					<object type="application/pdf" data ="<%= @obj.documento.url %>"><embed src="<%= @obj.documento.url %>" type="application/pdf"></object>
 				<% end %>
 			<% else %>
