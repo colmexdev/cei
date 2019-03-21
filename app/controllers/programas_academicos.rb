@@ -25,7 +25,7 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def curso
-    @curso = Curso.where("titulo = ?", params[:curso]).first
+    @curso = Curso.where("lower(titulo) like ?", '%' + params[:curso].downcase + '%').first
   end
 
   def convocatorias
