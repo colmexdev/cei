@@ -2284,7 +2284,7 @@ a.numeros:hover, a.numeros:active{
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
 
-	.link-div { color: inherit; }
+	.link-div { color: inherit; width: 100%; height: 100%}
 }
 
 .boton-info:hover, .boton-info:focus{
@@ -2293,9 +2293,9 @@ a.numeros:hover, a.numeros:active{
 }
 
 .img-revista{	
-	max-width: 380px;
+	max-width: 250px;
 	max-height: 500px;
-	width: 80%;
+	width: 75%;
 	margin-bottom: 30px;
 }
 

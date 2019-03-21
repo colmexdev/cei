@@ -17,7 +17,7 @@
 				<% end %>
 			</p>
 			<% if c.descripcion.present? || !c.documento.url.include?("vacio.png") %>
-			<div class="boton-info boton-info-cursos"><a href="<%= c.descripcion.present? ? curso_path(curso: c.titulo.gsub(/<.*?>/,'')) : c.documento.url %>" target="<%= c.descripcion.present? ? '' : '_blank' %>"><%= t('.cursos.info') %></a></div>
+			<div class="boton-info boton-info-cursos"><a href="<%= c.descripcion.present? ? curso_path(curso: c.titulo.gsub(/<.*?>/,'')) : c.documento.url %>" target="<%= c.descripcion.present? ? '' : '_blank' %>" class="link-div"><%= t('.cursos.info') %></a></div>
 			<% end %>
 		</div>
 	</div>

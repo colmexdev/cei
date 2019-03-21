@@ -4,7 +4,7 @@
 			<img src="/vacio.png">
 		</div>
 		<div class="uk-width-4-5">
-			<%= c.titulo.gsub(/<(h.)>/, "<" + $1.to_s + ' class="rosa-bold">').html_safe %>
+			<%= c.titulo.gsub(/<(h.)>/, '<\1 class="rosa-bold">').html_safe %>
 			<% if false %>
 			<p style="margin:45px 0;">El Centro de Estudios Internacionales de El Colegio de México los invita al "Curso de Verano 2018" que ofrecerá del 4 de junio al 6 de julio del presente año. El objetivo del Curso será analizar algunas de las tendencias actuales de la política, la economía y la cultura en México y el resto del mundo.</p>
 			<% end %>
