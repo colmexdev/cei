@@ -21,11 +21,11 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def cursos
-    @cursos_ant = Curso.where("tipo = ? AND fecha_i < ?", "Público", Date.today).order(fecha_i: :desc, fecha_f: :desc)
+    @cursos_ant = Curso.all
   end
 
   def curso
-    @curso = Curso.where("titulo = ?", params[:curso]).first
+    @curso = Curso.where("lower(titulo) like ?", '%' + params[:curso].downcase + '%').first
   end
 
   def convocatorias
