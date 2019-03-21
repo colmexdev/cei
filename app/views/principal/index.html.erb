@@ -96,17 +96,17 @@
 			<div class="titulo-fila">
 				<span class="rosa-bold"><%= t('.revs_t').upcase %></span>
 			</div>
-			<div class="container-fluid">
-				<div class="col-xs-6 col-md-12" style="text-align:center">
-					<%= image_tag @img_foro %>
+			<div class="uk-grid uk-grid-small">
+				<div class="uk-width-small-1-2 uk-width-large-1-1" style="text-align:center">
+					<%= image_tag @img_foro, class: "img-revista" %>
 					<div class="boton-info">
-						<a href="https://forointernacional.colmex.mx/index.php/fi"><%= t('.info') %></a>
+						<a href="https://forointernacional.colmex.mx/index.php/fi" class="link-div"><%= t('.info') %></a>
 					</div>
 				</div>
-				<div class="col-xs-6 col-md-12" style="text-align:center">
-					<%= image_tag @img_agora %>
+				<div class="uk-width-small-1-2 uk-width-large-1-1" style="text-align:center">
+					<%= image_tag @img_agora, class: "img-revista" %>
 					<div class="boton-info">
-						<a href="https://agora.colmex.mx/"><%= t('.info') %></a>
+						<a href="https://agora.colmex.mx/" class="link-div"><%= t('.info') %></a>
 					</div>
 				</div>
 			</div>

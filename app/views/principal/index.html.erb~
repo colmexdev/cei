@@ -98,15 +98,15 @@
 			</div>
 			<div class="container-fluid">
 				<div class="col-xs-6 col-md-12" style="text-align:center">
-					<%= image_tag @img_foro %>
+					<%= image_tag @img_foro, class: "img-revista" %>
 					<div class="boton-info">
-						<%= t('.info') %>
+						<a href="https://forointernacional.colmex.mx/index.php/fi" class="link-div"><%= t('.info') %></a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-12" style="text-align:center">
-					<%= image_tag @img_agora %>
+					<%= image_tag @img_agora, class: "img-revista" %>
 					<div class="boton-info">
-						<%= t('.info') %>
+						<a href="https://agora.colmex.mx/" class="link-div"><%= t('.info') %></a>
 					</div>
 				</div>
 			</div>
