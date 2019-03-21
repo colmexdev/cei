@@ -105,6 +105,9 @@ en:
     convocatorias:
       convocatorias: "Open applications"
       info: "More info"
+    preguntas:
+      op2_1: "Frequently asked questions (B.A. programs)"
+      op2_2: "Frequently asked questions (Master program)"
     aspirantes:
       informacion: "Information for"
       aspirantes: "Candidates"
