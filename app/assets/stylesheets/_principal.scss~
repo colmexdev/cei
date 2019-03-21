@@ -2292,10 +2292,10 @@ a.numeros:hover, a.numeros:active{
 	background-color: #B03856;
 }
 
-
 .img-revista{	
 	max-width: 250px;
 	max-height: 330px;
+	width: 90%;
 }
 
 /* Estilos de la sección de otros sitios */
