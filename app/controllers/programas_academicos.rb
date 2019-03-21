@@ -28,6 +28,13 @@ class ProgramasAcademicosController < ApplicationController
     @curso = Curso.where("lower(titulo) like ?", '%' + params[:curso].downcase + '%').first
   end
 
+  def cursos_tipo
+    respond_to do |format|
+      format.html {render 'cursos'}
+      format.js
+    end
+  end
+
   def convocatorias
   end
 

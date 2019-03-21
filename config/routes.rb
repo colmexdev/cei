@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     get "ciencia-politica" => "programas_academicos#programas", :as => :cp
     get 'cursos' => 'programas_academicos#cursos', :as => :cursos
     get 'cursos/:curso' => 'programas_academicos#curso', :as => :curso
+    get 'cursos_:tipo' => 'programas_academicos#cursos_tipo', :as => :cursos_tipo
     get 'convocatorias' => "programas_academicos#convocatorias", :as => :convocatorias
     get 'aspirantes' => 'programas_academicos#aspirantes', :as => :aspirantes
     get 'preguntas-licenciatura' => 'programas_academicos#preguntas', :as => :preguntas_l

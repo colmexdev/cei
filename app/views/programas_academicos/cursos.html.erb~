@@ -6,22 +6,24 @@
   <div class="uk-grid uk-grid-small uk-margin-large-top">
 	  <div class="uk-width-small-1-1 uk-width-medium-1-5 uk-text-center-small uk-text-center-medium uk-text-left" id="menu-programas">
     <ul class="lista-links" id="lista-programas">
-<% @cursos.pluck(:tipo).uniq.each do |p| %>
-			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.' + p.parameterize) %></span></a></li>
+<% @cursos.pluck(:tipo).uniq.reverse.each do |p| %>
+			<li><a href="#" class="link-sobre" data-remote="true"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.' + p.parameterize) %></span></a></li>
 <% end %>
     </ul>
 	  </div>
-	  <div class="uk-grid uk-grid-small uk-width-small-1-1 uk-width-medium-4-5" id="texto-programas">
-			<div class="uk-width-1-5">
-				<img src="/vacio.png">
-			</div>
-			<div class="uk-width-4-5">
-				<h2 style="color:#B03856;">Curso de verano</h2>
-				<p style="margin:45px 0;">El Centro de Estudios Internacionales de El Colegio de México los invita al "Curso de Verano 2018" que ofrecerá del 4 de junio al 6 de julio del presente año. El objetivo del Curso será analizar algunas de las tendencias actuales de la política, la economía y la cultura en México y el resto del mundo.</p>
-				<p><span style="color:#B03856;">Inicio de clases:</span> junio 2019<br>
-					 <span style="color:#B03856;">Próxima convocatoria:</span> mayo 2019<br>
-				</p>
-				<div class="boton-info" id="boton-info-cursos"><%= t('.info') %></div>
+	  <div class="uk-width-small-1-1 uk-width-medium-4-5" id="texto-programas">
+			<div class="uk-grid uk-grid-small">
+				<div class="uk-width-1-5">
+					<img src="/vacio.png">
+				</div>
+				<div class="uk-width-4-5">
+					<h2 style="color:#B03856;">Curso de verano</h2>
+					<p style="margin:45px 0;">El Centro de Estudios Internacionales de El Colegio de México los invita al "Curso de Verano 2018" que ofrecerá del 4 de junio al 6 de julio del presente año. El objetivo del Curso será analizar algunas de las tendencias actuales de la política, la economía y la cultura en México y el resto del mundo.</p>
+					<p><span style="color:#B03856;">Inicio de clases:</span> junio 2019<br>
+						 <span style="color:#B03856;">Próxima convocatoria:</span> mayo 2019<br>
+					</p>
+					<div class="boton-info" id="boton-info-cursos"><%= t('.info') %></div>
+				</div>
 			</div>
 		</div>
 
