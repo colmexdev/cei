@@ -11,7 +11,7 @@
 		
 		</div>
 		<div class="uk-width-small-1-1 uk-width-large-3-4">
-			<%= @curso.descripcion.gsub(/<(\/??)div>/,"<\1p>").html_safe %>
+			<%= @curso.descripcion.gsub(/<(\/?)div>/,"<\1p>").html_safe %>
 		</div>
 	</div>
 </div>
