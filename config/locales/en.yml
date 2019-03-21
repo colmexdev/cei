@@ -102,6 +102,8 @@ en:
       publico: "Public"
       mooc: "MOOCs"
       info: "More info"
+    cursos_tipo:
+      info: "More info"
     convocatorias:
       convocatorias: "Open applications"
       info: "More info"

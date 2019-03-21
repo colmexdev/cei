@@ -78,8 +78,8 @@ es:
     cursos:
       cursos: "Cursos"
       verano: "Verano"
-      publicos: "Públicos"
-      moocs: "MOOCs"
+      publico: "Públicos"
+      mooc: "MOOCs"
       info: "Más información"
     convocatorias:
       convocatorias: "Convocatorias abiertas"

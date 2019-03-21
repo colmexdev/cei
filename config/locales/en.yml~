@@ -99,8 +99,8 @@ en:
     cursos:
       cursos: "Special courses"
       verano: "Summer"
-      publicos: "Public"
-      moocs: "MOOCs"
+      publico: "Public"
+      mooc: "MOOCs"
       info: "More info"
     convocatorias:
       convocatorias: "Open applications"
