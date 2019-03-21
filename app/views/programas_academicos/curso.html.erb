@@ -4,7 +4,7 @@
 	<span class="titulo-chico"><%= params[:curso] %></span>
 	<br>
 	<% if @curso.imagen.url.include?("vacio") %>
-		<% image_tag @curso.imagen.url %>
+		<%= image_tag @curso.imagen.url %>
 	<% end %>
 	<div class="uk-grid uk-grid-small">
 		<div class="uk-width-small-1-1 uk-width-large-1-4" id="menu-programas">
