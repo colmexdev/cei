@@ -19,4 +19,17 @@
 		</div>
 	</div>
 </div>
+
+<script>
+function renderText(event, element){
+	event.preventDefault();
+	var titles = <%= @curso.decripcion.scan(/(<h1>.*?<\/h1>)/).to_json.html_safe %>;
+	var arr = <%= @curso.descripcion.split(/<h1>.*?<\/h1>/).to_json.html_safe %>;
+	$("#texto-programas").html(titles[parseInt(element.dataset.index)][0] + arr[parseInt(element.dataset.index) + 1].replace(/((<br>)*<\/div>)??<div>(<!--block-->)??/g,"</p><p>").replace(/(<br>)+/g,"</p><p>").replace(/<\/div>/g,"</p>").replace(/(<p><\/p>)+/g,"").replace(/<p>(<p>)+/g,"<p>"));
+}
+
+$(document).ready(function(){
+	$(".link-sobre")[0].click();
+});
+</script>
 <%= render 'principal/footer' %>
