@@ -29,6 +29,7 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def cursos_tipo
+    @cursos = Curso.where("unaccent(lower(tipo)) = ?", params[:tipo])
     respond_to do |format|
       format.html {render 'cursos'}
       format.js
