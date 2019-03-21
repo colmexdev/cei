@@ -13,10 +13,6 @@
 			<% Programa.where("titulo like ?","%" + t("."+@titulo, locale: :es) + "%").first.descripcion_es.scan(/<h1>.*?>([\w].*?)<\/.*?<\/h1>/).each_with_index do |r,i| %>
 			<li><a href="#" data-index="<%= i %>" class="link-sobre" onclick="renderText(event,this);"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= r[0].capitalize %></span></a></li>
 			<% end %>
-<% if false %>
-			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.presentacion') %></span></a></li>
-			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.perfil') %></span></a></li>
-<% end %>
     </ul>
 	  </div>
 	  <div class="uk-width-small-1-1 uk-width-medium-3-5" id="texto-programas">
