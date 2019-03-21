@@ -16,7 +16,8 @@
 				 <span class="rosa-bold">Próxima convocatoria:</span><%= c.fecha_ic %><br>
 				<% end %>
 			</p>
-			<div class="boton-info" id="boton-info-cursos"><%= t('.info') %></div>
+			<% if c.descripcion.present? || !c.documento.url.include?("vacio.png") %>
+			<div class="boton-info boton-info-cursos"><a href="<%= c.descripcion.present? ? curso_path(titulo: c.titulo.gsub(/<.*?>/,'')) : c.documento.url %>" target="<%= c.descripcion.present? ? '' : '_blank' %>"><%= t('.info') %></a></div>
 		</div>
 	</div>
 <% end %>

@@ -18,6 +18,7 @@
 			</p>
 			<% if c.descripcion.present? || !c.documento.url.include?("vacio.png") %>
 			<div class="boton-info boton-info-cursos"><a href="<%= c.descripcion.present? ? curso_path(titulo: c.titulo.gsub(/<.*?>/,'')) : c.documento.url %>" target="<%= c.descripcion.present? ? '' : '_blank' %>"><%= t('.info') %></a></div>
+			<% end %>
 		</div>
 	</div>
 <% end %>
