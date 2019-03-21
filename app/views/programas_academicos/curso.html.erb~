@@ -3,7 +3,7 @@
 <div class="principal uk-block-large">
 	<span class="titulo-chico"><%= params[:curso] %></span>
 	<br>
-	<% if @curso.imagen.url != "/vacio.png" %>
+	<% if @curso.imagen.url.include?("vacio") %>
 		<% image_tag @curso.imagen.url %>
 	<% end %>
 	<div class="uk-grid uk-grid-small">
@@ -11,7 +11,7 @@
 		
 		</div>
 		<div class="uk-width-small-1-1 uk-width-large-3-4">
-			<%= @curso.descripcion %>
+			<%= @curso.descripcion.gsub(/<(\/??)div>/,"<\1p>").html_safe %>
 		</div>
 	</div>
 </div>
