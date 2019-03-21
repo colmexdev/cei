@@ -205,6 +205,8 @@ $(document).ready(function(){
 		$(".img-revista").height($(".img-revista").width()*33/25);
 	});
 
+	$(window).trigger("resize");
+
 });
 </script>
 

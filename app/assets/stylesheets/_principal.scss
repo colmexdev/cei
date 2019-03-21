@@ -2267,7 +2267,7 @@ a.numeros:hover, a.numeros:active{
 }
 
 .boton-info{
-	width: 85%;
+	width: 70%;
 	max-width: 250px;
 	cursor: pointer;
 	margin: 30px auto;
@@ -2283,6 +2283,8 @@ a.numeros:hover, a.numeros:active{
 	-ms-transition: all 0.3s linear;
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
+
+	.link-div { color: inherit; }
 }
 
 .boton-info:hover, .boton-info:focus{
@@ -2290,11 +2292,10 @@ a.numeros:hover, a.numeros:active{
 	background-color: #B03856;
 }
 
-.link-div { color: inherit; }
-
 .img-revista{	
 	max-width: 250px;
 	max-height: 330px;
+	width: 90%;
 }
 
 /* Estilos de la sección de otros sitios */
