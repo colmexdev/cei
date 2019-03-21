@@ -9,11 +9,6 @@
 <% @cursos.pluck(:tipo).uniq.each do |p| %>
 			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.' + p.parameterize) %></span></a></li>
 <% end %>
-<% if false %>
-			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.verano') %></span></a></li>
-			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.publicos') %></span></a></li>
-			<li><a href="#" class="link-sobre"><svg viewBox="0 0 34 34" class="icon-flecha"><use class="flecha-menu" xlink:href="#flecha-menu"></use></svg><span class="pad-link"><%= t('.moocs') %></span></a></li>
-<% end %>
     </ul>
 	  </div>
 	  <div class="uk-grid uk-grid-small uk-width-small-1-1 uk-width-medium-4-5" id="texto-programas">
