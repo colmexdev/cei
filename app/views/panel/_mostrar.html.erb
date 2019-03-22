@@ -11,7 +11,7 @@
 		<% @imgs.each do |f| %>
 		<tr class="row-ind">
 			<td class="ind-cell"><%= f[1] %></td>
-			<td class="ind-cell left-align"><%= @obj.attributes[f[1]].url.include?(".pdf") ? (raw "<object type=\"application/pdf\" data =\"" + @obj.attributes[f[1]].url + "\"><embed src=\"" + @obj.attributes[f[1]].url") + "\" type=\"application/pdf\"></object>") : (image_tag(@obj.attributes[f[1]].url)) %></td>
+			<td class="ind-cell left-align"><%= @obj[f[0]].url.include?(".pdf") ? (raw "<object type=\"application/pdf\" data =\"" + @obj[f[0]].url + "\"><embed src=\"" + @obj[f[0]].url + "\" type=\"application/pdf\"></object>") : (image_tag(@obj[f[0]].url)) %></td>
 			<% end %>
 		</tr>
 		<% end %>
