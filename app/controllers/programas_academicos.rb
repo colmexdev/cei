@@ -22,7 +22,7 @@ class ProgramasAcademicosController < ApplicationController
 
   def cursos
     @cursos = Curso.all
-    @link = @cursos.pluck(:tipo).uniq.reverse[0]
+    @link = @cursos.pluck(:tipo).uniq.reverse[0].parameterize.downcase
   end
 
   def curso
