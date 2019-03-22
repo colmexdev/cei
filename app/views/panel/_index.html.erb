@@ -26,10 +26,10 @@
     <% @set.each do |s| %>
       <tr class="row-ind">
 				<% @fields.keys.each do |f| %>
-        <td class="ind-cell"><%= f.to_s != "thumbnail" ? raw(s[f.to_s]) : raw(image_tag(s[f.to_s])) %></td>
+        <td class="ind-cell"><%= raw(s[f.to_s]) %></td>
 				<% end %>
 				<% @imgs.keys.each do |f| %>
-					<td class="ind-cell left-align"><%= s[f.to_s].url.include?(".pdf") ? (raw "<object type=\"application/pdf\" data =\"" + s[f.to_s].url + "\"><embed src=\"" + s[f.to_s].url + "\" type=\"application/pdf\"></object>") : (image_tag(s[f.to_s].url)) %></td>
+					<td class="ind-cell left-align"><%= s.attributes[f.to_s].url.include?(".pdf") ? (raw "<object type=\"application/pdf\" data =\"" + s.attributes[f.to_s].url + "\"><embed src=\"" + s.attributes[f.to_s].url + "\" type=\"application/pdf\"></object>") : (image_tag(s.attributes[f.to_s].url)) %></td>
 				<% end %>
 				<td class="ind-cell-img" style="width:130px;">
 					<a class="link-img-panel" onclick="hideLink(event,'#index-panel','<%= panel_mostrar_path(:set => params[:set], :id => s.id) %>')"><span class="clickable-g glyphicon glyphicon-eye-open"></span></a>
