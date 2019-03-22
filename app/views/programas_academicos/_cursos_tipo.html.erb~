@@ -1,7 +1,7 @@
 <% @cursos.each do |c| %>
 	<div class="uk-grid uk-grid-small">
 		<div class="uk-width-1-5">
-			<%= image_tag c.imagen.url %>
+			<%= image_tag c.imagen.url, class: "img-curso" %>
 		</div>
 		<div class="uk-width-4-5">
 			<%= c.titulo.gsub(/<(h.)>/, '<\1 class="rosa-bold">').html_safe %>
@@ -12,8 +12,15 @@
 				<% if c.fecha_i.present? %>
 					<span class="rosa-bold">Inicio de clases:</span><%= c.fecha_i %><br>
 				<% end %>
+				<% if c.fecha_f.present? %>
+					<span class="rosa-bold">Fin de clases:</span><%= c.fecha_f %><br>
+				<% end %>
+<br>
 				<% if c.fecha_ic.present? %>
-				 <span class="rosa-bold">Próxima convocatoria:</span><%= c.fecha_ic %><br>
+				 <span class="rosa-bold">Inicio de convocatoria:</span><%= c.fecha_ic %><br>
+				<% end %>
+				<% if c.fecha_fc.present? %>
+				 <span class="rosa-bold">Fin de convocatoria:</span><%= c.fecha_fc %><br>
 				<% end %>
 			</p>
 			<% if c.descripcion.present? || !c.documento.url.include?("vacio.png") %>
