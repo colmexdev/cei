@@ -22,6 +22,7 @@ class ProgramasAcademicosController < ApplicationController
 
   def cursos
     @cursos = Curso.all
+    @link = @cursos.pluck(:tipo).uniq.reverse[0]
   end
 
   def curso
@@ -29,7 +30,8 @@ class ProgramasAcademicosController < ApplicationController
   end
 
   def cursos_tipo
-    @cursos = Curso.where("unaccent(lower(tipo)) = ?", params[:tipo])
+    @cursos = Curso.where("unaccent(array_to_string(string_to_array(lower(tipo),' '),'-')) = ?", params[:tipo])
+    @link = params[:tipo]
     respond_to do |format|
       format.html {render 'cursos'}
       format.js
