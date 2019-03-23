@@ -6,7 +6,7 @@ class PrincipalController < ApplicationController
     @agora = HTTParty.get('https://agora.colmex.mx/', verify: false)
     @img_agora = "https://agora.colmex.mx" + Nokogiri::HTML(@agora).at('img[alt="DISPONIBLE AHORA"]').attr("src")
     @rutas = `rake routes`
-    logger.debug @rutas
+    logger.debug @rutas.class
   end
 
 end
