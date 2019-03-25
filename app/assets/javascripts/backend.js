@@ -334,12 +334,12 @@ function extendTrix(ev){
 			editor.deactivateAttribute("sup");
 			actualizarAtributos();
 		}
+		else actualizarAtributos();
 	}
 
 	actualizarAtributos();
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
-		actualizarAtributos();
 		forzarAtributos();
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 	});
