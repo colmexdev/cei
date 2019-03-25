@@ -320,23 +320,12 @@ addEventListener("trix-initialize",function(event){
 
 $(document).on("trix-change",function(event){
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
+	window.tr_ed = event.editor;
+	console.log(event.getSelectedRange());
 });
 
 $(document).on("trix-selection-change",function(event){
-/*	console.log(event.target);
-	var tooltip = document.createElement("div");
-	var texto = document.createTehttp://www.mexicox.gob.mx/courses/course-v1:COLMEX+DESI19033X+2019_03/aboutxtNode("Hola");
-	$("#tooltip-trix").remove();
-	tooltip.appendChild(texto);
-	tooltip.style.height = "60px;";
-	tooltip.style.width = "300px";
-	tooltip.style.backgroundColor = "#666666";
-	tooltip.style.textAlign = "center";
-	tooltip.style.position = "absolute";
-	tooltip.style.top = event.target.offsetTop + "px";
-	tooltip.style.left = event.target.offsetLeft + "px";
-	tooltip.id = "tooltip-trix";
-	document.getElementById("graphs-gest").appendChild(tooltip);*/
+
 });
 
 function clearPars(edit){
