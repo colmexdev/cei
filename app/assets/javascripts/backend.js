@@ -321,12 +321,12 @@ $(document).on("trix-change",function(event){
 	var editor = event.target.editor;
 	var selected = editor.getSelectedRange();
 	var rango = editor.getSelectedRange();
-	var attrs = editor.getDocument().getDocumentAtRange(rango).getPieces()[0].getAttributes();
-	window.tr_at = attrs;
-	//if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
-	//	editor.deactivateAttribute("sub");
-	//else if(editor.attributeIsActive("sub") && attrs.indexOf("sup") != -1)
-	//	editor.deactivateAttribute("sup");
+	var attrs = Object.keys(editor.getDocument().getDocumentAtRange(rango).getPieces()[0].getAttributes());
+	//window.tr_at = attrs;
+	if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
+		editor.deactivateAttribute("sub");
+	else if(editor.attributeIsActive("sub") && attrs.indexOf("sup") != -1)
+		editor.deactivateAttribute("sup");
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 });
 

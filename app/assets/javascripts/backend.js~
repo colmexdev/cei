@@ -321,7 +321,7 @@ $(document).on("trix-change",function(event){
 	var editor = event.target.editor;
 	var selected = editor.getSelectedRange();
 	var rango = editor.getSelectedRange();
-	var attrs = editor.getDocument().getDocumentAtRange(rango).getPieces()[0].attributes;
+	var attrs = editor.getDocument().getDocumentAtRange(rango).getPieces()[0].getAttributes();
 	window.tr_at = attrs;
 	//if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
 	//	editor.deactivateAttribute("sub");
