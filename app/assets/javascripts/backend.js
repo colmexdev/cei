@@ -316,13 +316,14 @@ function extendTrix(ev){
 	function actualizarAtributos(){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
-		if(rango[0] === rango[1]){ rango[0]--; }
+		//if(rango[0] === rango[1]){ rango[0]--; }
 		var piezas = editor.getDocument().getDocumentAtRange(rango).getPieces();
 		//piezas.forEach(function(pieza){
 			Object.keys(piezas[0].getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
       });
 		//});
+		console.log(rango);
 		console.log(atributos);
 	}
 
