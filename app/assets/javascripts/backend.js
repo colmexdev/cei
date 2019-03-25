@@ -294,7 +294,7 @@ function extendTrix(ev){
 	var element = ev.target;
   var editor = element.editor;
   var toolbarElement = element.toolbarElement;
-	console.log(editor);
+	window.tr_ed = editor;
   var textElement = toolbarElement.querySelector(".trix-button-group--text-tools");
 	var blockElement = toolbarElement.querySelector(".trix-button-group--block-tools");
 	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>");
