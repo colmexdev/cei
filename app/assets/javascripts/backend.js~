@@ -315,7 +315,7 @@ function extendTrix(ev){
 	var atributos = new Set;
 	function actualizarAtributos(){
 		atributos = new Set;
-		var rango = editor.getSelectedRange(),
+		var rango = editor.getSelectedRange();
 		if(rango[0] === rango[1]) rango[1]++;
 		var piezas = editor.getDocument().getDocumentAtRange(rango).getPieces();
 		piezas.forEach(function(pieza){
