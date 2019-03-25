@@ -320,8 +320,9 @@ addEventListener("trix-initialize",function(event){
 
 $(document).on("trix-change",function(event){
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
-	window.tr_ed = event.editor;
-	console.log(event.getSelectedRange());
+	window.tr_ed = event;
+	//window.tr_ed = event.editor;
+	//console.log(event.getSelectedRange());
 });
 
 $(document).on("trix-selection-change",function(event){

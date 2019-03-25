@@ -294,7 +294,6 @@ function extendTrix(ev){
 	var element = ev.target;
   var editor = element.editor;
   var toolbarElement = element.toolbarElement;
-	window.tr_ed = editor;
   var textElement = toolbarElement.querySelector(".trix-button-group--text-tools");
 	var blockElement = toolbarElement.querySelector(".trix-button-group--block-tools");
 	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>");
@@ -319,10 +318,15 @@ addEventListener("trix-initialize",function(event){
 });
 
 $(document).on("trix-change",function(event){
+	var editor = event.target.editor;
+	var selected = editor.getSelectedRange();
+	var rango = editor.getSelectedRange();
+	var attrs = Object.keys(editor.getDocument().getDocumentAt(rango).getPieces()[0].attributes);
+	if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
+		editor.deactivateAttribute("sub");
+	else if(editor.attributeIsActive("sub") && attrs.indexOf("sup") != -1)
+		editor.deactivateAttribute("sup");
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
-	window.tr_ed = event;
-	//window.tr_ed = event.editor;
-	//console.log(event.getSelectedRange());
 });
 
 $(document).on("trix-selection-change",function(event){
