@@ -323,6 +323,7 @@ function extendTrix(ev){
       	atributos.add(atributo);
       });
 		});
+		console.log(atributos);
 	}
 
 	function forzarAtributos(){
