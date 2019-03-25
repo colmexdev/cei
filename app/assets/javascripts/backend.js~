@@ -323,7 +323,7 @@ function extendTrix(ev){
       	atributos.add(atributo);
       });
 		//});
-		console.log(rango);
+		console.log(piezas);
 	}
 
 	function forzarAtributos(){
