@@ -323,7 +323,6 @@ function extendTrix(ev){
 			Object.keys(rango[0] === rango[1] ? piezas.getAttributes() : piezas[0].getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
       });
-		//if(rango[0] === rango[1]) forzarAtributos(false);
 		//});
 	}
 
@@ -346,16 +345,10 @@ function extendTrix(ev){
 	}
 
 	actualizarAtributos();
-	/*element.addEventListener("trix-focus", function(event){
-		actualizarAtributos();
-		window.tr_rg = event.target.editor.getSelectedRange();
-		window.tr_ed = event.target.editor;
-		window.tr_el = event.target.editor.attributeIsActive("sup");
-		window.tr_ep = event.target.editor.attributeIsActive("sub");
-		forzarAtributos();	
-	});*/
+
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
+		if(event.target.editor.getSelectedRange()[0] === event.target.editor.getSelectedRange()[1]) actualizarAtributos();
 		forzarAtributos();
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 	});
