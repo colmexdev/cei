@@ -313,8 +313,7 @@ function extendTrix(ev){
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 
 	var atributos = new Set;
-	function actualizarAtributos(first){
-		first = first || true;
+	function actualizarAtributos(){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
 		var piezas = (rango[0] === rango[1] ? editor.getDocument().getPieceAtPosition(rango[0] > 0 ? rango[0] - 1 : 0) : editor.getDocument().getDocumentAtRange(rango).getPieces());
@@ -324,7 +323,7 @@ function extendTrix(ev){
 			Object.keys(rango[0] === rango[1] ? piezas.getAttributes() : piezas[0].getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
       });
-		if(rango[0] === rango[1] && first) forzarAtributos();
+		//if(rango[0] === rango[1]) forzarAtributos(false);
 		//});
 	}
 
@@ -343,10 +342,10 @@ function extendTrix(ev){
 			if(atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
 			if(atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
 		}
-		actualizarAtributos(false);
+		actualizarAtributos();
 	}
 
-	actualizarAtributos(false);
+	actualizarAtributos();
 	/*element.addEventListener("trix-focus", function(event){
 		actualizarAtributos();
 		window.tr_rg = event.target.editor.getSelectedRange();
