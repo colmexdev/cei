@@ -331,21 +331,17 @@ function extendTrix(ev){
 		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
 		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");
 		else if(editor.attributeIsActive("smaller") && atributos.has("larger")) editor.deactivateAttribute("larger");
-		if(editor.attributeIsActive("rosaBold")){
-			if(atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
-			if(atributos.has("gray")) editor.deactivateAttribute("gray");
-		} else if(editor.attributeIsActive("rosaLight")){
-			if(atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
-			if(atributos.has("gray")) editor.deactivateAttribute("gray");
-		} else if(editor.attributeIsActive("gray")){
-			if(atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
-			if(atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
-		}
+		if(editor.attributeIsActive("rosaBold") && atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
+		else if(editor.attributeIsActive("rosaBold") && atributos.has("gray")) editor.deactivateAttribute("gray");
+		else if(editor.attributeIsActive("rosaLight") && atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
+		else if(editor.attributeIsActive("rosaLight") && atributos.has("gray")) editor.deactivateAttribute("gray"); 
+		else if(editor.attributeIsActive("gray") && atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
+		else if(editor.attributeIsActive("gray") && atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
 		actualizarAtributos();
 	}
 
 	actualizarAtributos();
-	element.addEventListener("trix-focus",actualizarAtributos);
+	element.addEventListener("trix-focus",forzarAtributos);
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
 		if(event.target.editor.getSelectedRange()[0] === event.target.editor.getSelectedRange()[1]) actualizarAtributos();
