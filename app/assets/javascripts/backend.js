@@ -316,25 +316,20 @@ function extendTrix(ev){
 	function actualizarAtributos(){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
-		if(rango[0] === rango[1]){ rango[0]--; rango[1]++; }
+		if(rango[0] === rango[1]){ rango[1]++; }
 		var piezas = editor.getDocument().getDocumentAtRange(rango).getPieces();
 		//piezas.forEach(function(pieza){
 			Object.keys(piezas[0].getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
       });
 		//});
-		console.log(atributos);
+		console.log(rango);
 	}
 
 	function forzarAtributos(){
-		if(editor.attributeIsActive("sup") && atributos.has("sub")){
-			editor.deactivateAttribute("sub");
-			actualizarAtributos();
-		} else if(editor.attributeIsActive("sub") && atributos.has("sup")){
-			editor.deactivateAttribute("sup");
-			actualizarAtributos();
-		}
-		else actualizarAtributos();
+		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
+		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
+		actualizarAtributos();
 	}
 
 	actualizarAtributos();
