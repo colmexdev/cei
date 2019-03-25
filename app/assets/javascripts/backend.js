@@ -337,11 +337,12 @@ function extendTrix(ev){
 
 	actualizarAtributos();
 	element.addEventListener("trix-focus", function(event){
+	actualizarAtributos();
 	window.tr_rg = event.target.editor.getSelectedRange();
 	window.tr_ed = event.target.editor.attributeIsActive("sup");
 	window.tr_ep = event.target.editor.attributeIsActive("sub");
 	console.log(window.tr_ed + " " + window.tr_ep);
-	forzarAtributos();	
+	//forzarAtributos();	
 	});
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
