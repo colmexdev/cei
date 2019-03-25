@@ -311,6 +311,34 @@ function extendTrix(ev){
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>");
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
+
+	var atributos = new Set;
+	function actualizarAtributos(){
+		atributos = new Set;
+		var rango = editor.getSelectedRange(),
+		if(rango[0] === rango[1]) rango[1]++;
+		var piezas = editor.getDocument().getDocumentAtRange(rango).getPieces();
+		piezas.forEach(function(pieza){
+			Object.keys(pieza.getAttributes()).forEach(function(atributo){
+      	atributos.add(atributo);
+      });
+		});
+	}
+
+	function forzarAtributos(){
+		if(editor.attributeIsActive("sup") && atributos.has("sub")){
+			editor.deactivateAttribute("sub");
+			actualizarAtributos();
+		} else if(editor.attributeIsActive("sub") && atributos.has("sup")){
+			editor.deactivateAttribute("sup");
+			actualizarAttributos();
+		}
+	}
+
+	actualizarAtributos();
+	element.addEventListener("trix-selection-change", actualizarAtributos); 
+	element.addEventListener("trix-change", forzarAtributos);
+	
 }
 
 addEventListener("trix-initialize",function(event){
@@ -318,16 +346,6 @@ addEventListener("trix-initialize",function(event){
 });
 
 $(document).on("trix-change",function(event){
-	var editor = event.target.editor;
-	var selected = editor.getSelectedRange();
-	var rango = editor.getSelectedRange();
-	var attrs = Object.keys(editor.getDocument().getDocumentAtRange(rango).getPieces()[0].getAttributes());
-	window.tr_at = attrs;
-	console.log(attrs);
-	//if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
-	//	editor.deactivateAttribute("sub");
-	//else if(editor.attributeIsActive("sub") && attrs.indexOf("sup") != -1)
-	//	editor.deactivateAttribute("sup");
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 });
 
