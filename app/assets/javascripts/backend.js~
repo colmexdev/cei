@@ -322,7 +322,7 @@ $(document).on("trix-change",function(event){
 });
 
 $(document).on("trix-selection-change",function(event){
-	console.log(event.target);
+/*	console.log(event.target);
 	var tooltip = document.createElement("div");
 	var texto = document.createTextNode("Hola");
 	$("#tooltip-trix").remove();
@@ -335,7 +335,7 @@ $(document).on("trix-selection-change",function(event){
 	tooltip.style.top = event.target.offsetTop + "px";
 	tooltip.style.left = event.target.offsetLeft + "px";
 	tooltip.id = "tooltip-trix";
-	document.getElementById("graphs-gest").appendChild(tooltip);
+	document.getElementById("graphs-gest").appendChild(tooltip);*/
 });
 
 function clearPars(edit){

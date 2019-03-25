@@ -294,6 +294,7 @@ function extendTrix(ev){
 	var element = ev.target;
   var editor = element.editor;
   var toolbarElement = element.toolbarElement;
+	console.log(editor);
   var textElement = toolbarElement.querySelector(".trix-button-group--text-tools");
 	var blockElement = toolbarElement.querySelector(".trix-button-group--block-tools");
 	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>");
@@ -324,7 +325,7 @@ $(document).on("trix-change",function(event){
 $(document).on("trix-selection-change",function(event){
 /*	console.log(event.target);
 	var tooltip = document.createElement("div");
-	var texto = document.createTextNode("Hola");
+	var texto = document.createTehttp://www.mexicox.gob.mx/courses/course-v1:COLMEX+DESI19033X+2019_03/aboutxtNode("Hola");
 	$("#tooltip-trix").remove();
 	tooltip.appendChild(texto);
 	tooltip.style.height = "60px;";
