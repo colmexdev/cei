@@ -332,7 +332,7 @@ function extendTrix(ev){
 			actualizarAtributos();
 		} else if(editor.attributeIsActive("sub") && atributos.has("sup")){
 			editor.deactivateAttribute("sup");
-			actualizarAttributos();
+			actualizarAtributos();
 		}
 	}
 
