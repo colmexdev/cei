@@ -342,7 +342,7 @@ function extendTrix(ev){
 	window.tr_ed = event.target.editor;
 	window.tr_el = event.target.editor.attributeIsActive("sup");
 	window.tr_ep = event.target.editor.attributeIsActive("sub");
-	//forzarAtributos();	
+	forzarAtributos();	
 	});
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
