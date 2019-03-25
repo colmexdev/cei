@@ -345,7 +345,7 @@ function extendTrix(ev){
 	}
 
 	actualizarAtributos();
-
+	element.addEventListener("trix-focus",actualizarAtributos);
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
 		if(event.target.editor.getSelectedRange()[0] === event.target.editor.getSelectedRange()[1]) actualizarAtributos();
