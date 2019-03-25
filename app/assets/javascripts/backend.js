@@ -340,9 +340,9 @@ function extendTrix(ev){
 	//actualizarAtributos();
 	
 	window.tr_rg = event.target.editor.getSelectedRange();
-	window.tr_ed = event.target.editor.attributeIsActive("sup");
+	window.tr_ed = event.target.editor;
 	window.tr_ep = event.target.editor.attributeIsActive("sub");
-	console.log(window.tr_ed + " " + window.tr_ep + " - " + window.tr_rg);
+	console.log(window.tr_ep + " - " + window.tr_rg);
 	//forzarAtributos();	
 	});
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
