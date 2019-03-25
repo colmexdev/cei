@@ -336,7 +336,7 @@ function extendTrix(ev){
 	}
 
 	actualizarAtributos();
-	element.addEventListener("trix-focus", function(event) {console.log("Holi");});
+	element.addEventListener("trix-focus", actualizarAtributos);
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
 		forzarAtributos();
