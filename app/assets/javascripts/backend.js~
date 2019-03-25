@@ -323,18 +323,13 @@ function extendTrix(ev){
       	atributos.add(atributo);
       });
 		//});
-		console.log(atributos);
+		console.log(rango);
 	}
 
 	function forzarAtributos(){
-		if(editor.attributeIsActive("sup") && atributos.has("sub")){
-			editor.deactivateAttribute("sub");
-			actualizarAtributos();
-		} else if(editor.attributeIsActive("sub") && atributos.has("sup")){
-			editor.deactivateAttribute("sup");
-			actualizarAtributos();
-		}
-		else actualizarAtributos();
+		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
+		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
+		actualizarAtributos();
 	}
 
 	actualizarAtributos();
