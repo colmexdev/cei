@@ -317,8 +317,10 @@ function extendTrix(ev){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
 		var piezas = (rango[0] === rango[1] ? editor.getDocument().getPieceAtPosition(rango[0]) : editor.getDocument().getDocumentAtRange(rango).getPieces());
+		console.log(piezas);
+		window.pz = piezas;
 		//piezas.forEach(function(pieza){
-			Object.keys((rango[0] === rango[1] ? piezas.getAttributes() : piezas[0].getAttributes())).forEach(function(atributo){
+			Object.keys(rango[0] === rango[1] ? piezas.getAttributes() : piezas[0].getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
       });
 		//});
@@ -329,6 +331,16 @@ function extendTrix(ev){
 		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
 		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");
 		else if(editor.attributeIsActive("smaller") && atributos.has("larger")) editor.deactivateAttribute("larger");
+		if(editor.attributeIsActive("rosaBold")){
+			if(atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
+			if(atributos.has("gray")) editor.deactivateAttribute("gray");
+		} else if(editor.attributeIsActive("rosaLight")){
+			if(atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
+			if(atributos.has("gray")) editor.deactivateAttribute("gray");
+		} else if(editor.attributeIsActive("gray")){
+			if(atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
+			if(atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
+		}
 		actualizarAtributos();
 	}
 
