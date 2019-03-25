@@ -316,7 +316,7 @@ function extendTrix(ev){
 	function actualizarAtributos(){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
-		//if(rango[0] === rango[1]){ rango[0]--; }
+		if(rango[0] === rango[1]){ rango[0]--; }
 		var piezas = editor.getDocument().getDocumentAtRange(rango).getPieces();
 		//piezas.forEach(function(pieza){
 			Object.keys(piezas[0].getAttributes()).forEach(function(atributo){
@@ -338,6 +338,8 @@ function extendTrix(ev){
 	actualizarAtributos();
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
+		if(event.target.editor.getSelectedRange()[0] === event.target.editor.getSelectedRange()[1])
+			actualizarAtributos();
 		forzarAtributos();
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 	});
