@@ -329,7 +329,6 @@ function extendTrix(ev){
 	}
 
 	function forzarAtributos(){
-¿
 		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
 		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
 		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");

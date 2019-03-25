@@ -313,7 +313,8 @@ function extendTrix(ev){
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 
 	var atributos = new Set;
-	function actualizarAtributos(){
+	function actualizarAtributos(first){
+		first = first || true;
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
 		var piezas = (rango[0] === rango[1] ? editor.getDocument().getPieceAtPosition(rango[0] > 0 ? rango[0] - 1 : 0) : editor.getDocument().getDocumentAtRange(rango).getPieces());
@@ -323,11 +324,12 @@ function extendTrix(ev){
 			Object.keys(rango[0] === rango[1] ? piezas.getAttributes() : piezas[0].getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
       });
-		if(rango[0] === rango[1]) forzarAtributos();
+		if(rango[0] === rango[1] && first) forzarAtributos();
 		//});
 	}
 
 	function forzarAtributos(){
+¿
 		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
 		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
 		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");
@@ -342,7 +344,7 @@ function extendTrix(ev){
 			if(atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
 			if(atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
 		}
-		actualizarAtributos();
+		actualizarAtributos(false);
 	}
 
 	actualizarAtributos();
