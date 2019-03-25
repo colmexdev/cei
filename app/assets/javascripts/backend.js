@@ -322,11 +322,12 @@ $(document).on("trix-change",function(event){
 	var selected = editor.getSelectedRange();
 	var rango = editor.getSelectedRange();
 	var attrs = Object.keys(editor.getDocument().getDocumentAtRange(rango).getPieces()[0].getAttributes());
-	//window.tr_at = attrs;
-	if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
-		editor.deactivateAttribute("sub");
-	else if(editor.attributeIsActive("sub") && attrs.indexOf("sup") != -1)
-		editor.deactivateAttribute("sup");
+	window.tr_at = attrs;
+	console.log(attrs);
+	//if(editor.attributeIsActive("sup") && attrs.indexOf("sub") != -1)
+	//	editor.deactivateAttribute("sub");
+	//else if(editor.attributeIsActive("sub") && attrs.indexOf("sup") != -1)
+	//	editor.deactivateAttribute("sup");
 	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 });
 
