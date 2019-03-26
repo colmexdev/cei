@@ -20,6 +20,7 @@ module Cei
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     #config.i18n.enforce_available_locales = false
+    config.i18n.fallbacks = [I18n.default_locale]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
     config.i18n.available_locales = [:es, :en]
