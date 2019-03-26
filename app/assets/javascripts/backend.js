@@ -340,7 +340,7 @@ function extendTrix(ev){
 	}
 
 	actualizarAtributos();
-	element.addEventListener("trix-focus", function(event){
+	element.addEventListener("trix-action-invoke", function(event){
 		window.tr_ex = event.target.editor;
 		console.log(event.actionName);
 	});

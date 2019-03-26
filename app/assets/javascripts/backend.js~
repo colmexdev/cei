@@ -317,7 +317,6 @@ function extendTrix(ev){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
 		var piezas = (rango[0] === rango[1] ? [editor.getDocument().getPieceAtPosition(rango[0] > 0 ? rango[0] - 1 : 0)] : editor.getDocument().getDocumentAtRange(rango).getPieces());
-		console.log(piezas);
 		piezas.forEach(function(pieza){
 			Object.keys(pieza.getAttributes()).forEach(function(atributo){
       	atributos.add(atributo);
@@ -341,12 +340,9 @@ function extendTrix(ev){
 	}
 
 	actualizarAtributos();
-	element.addEventListener("trix-focus", function(event){
-		if(event.target.editor.attributeIsActive("sup") && atributos.has("sub"))
-			event.target.editor.deactivateAttribute("sub");
-		else if(event.target.editor.attributeIsActive("sub") && atributos.has("sup"))
-			event.target.editor.deactivateAttribute("sup");
-		actualizarAtributos();
+	element.addEventListener("trix-action-invoke", function(event){
+		window.tr_ex = event.target.editor;
+		console.log(event.actionName);
 	});
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
