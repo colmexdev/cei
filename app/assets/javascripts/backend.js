@@ -48,7 +48,7 @@ function slideMenu(){
 }
 
 function adjustWidths(cols){
-	return (100/cols) + "%";
+	return /*(100/cols) + "%"*/ "300px";
 }
 
 function hideLink(event,element,link,method,keyword,query){

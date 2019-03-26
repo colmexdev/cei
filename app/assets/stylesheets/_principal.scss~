@@ -2271,7 +2271,6 @@ a.numeros:hover, a.numeros:active{
 	max-width: 250px;
 	cursor: pointer;
 	margin: 0 auto;
-	padding: 10px 0;
 	border: solid 1.5px #993B5A;
 	background-color: #CC4E78;
 	color: #FFFFFF;
@@ -2284,7 +2283,13 @@ a.numeros:hover, a.numeros:active{
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear;
 
-	.link-div { color: inherit; width: 100%; height: 100%;}
+	.link-div{ 
+		color: inherit; 
+		width: 100%; 
+		height: 100%;
+		display: block;
+		margin: 10px auto;
+	}
 }
 
 .boton-info:hover, .boton-info:focus{
