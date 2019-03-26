@@ -80,6 +80,15 @@ function filterAnalytics(link){
 	return url;
 }
 
+/* Funciones de ordenamiento y filtrado */
+function setSort(event, element){
+	var dir = element.dataset.order;
+	element.parentNode.querySelectorAll(".span-cursor").forEach(function(span){
+		span.classList.remove("active");
+	});
+	if(dir !== "nil") element.classList.add("active");
+}
+
 function buildQuery(conds){
 	var query = "";
 	var url_params = "";
@@ -108,6 +117,7 @@ function filteredParams(set){
 	else return [];
 }
 
+/* Función para eliminar el contenido multimedia previsualizado */
 function deleteImage(element,id_vis) {
 	if(element.checked){
 		if(id_vis.indexOf("cont") == -1)
@@ -117,6 +127,7 @@ function deleteImage(element,id_vis) {
 	}
 }
 
+/* Función para desplegar contenido multimedia */
 function readURL(input,display,check_del,multi) {
 	check_del = check_del || "";
   multi = multi || false;
@@ -139,8 +150,7 @@ function readURL(input,display,check_del,multi) {
 						$(display).html((multi ? $(display).html() : "") + "Vista previa no disponible" + (multi ? "<br><br>" : ""));
 				}
 		  }
-    
-
+ 
     	reader.readAsDataURL(input.files[i]);
 		}
   }
@@ -349,27 +359,16 @@ addEventListener("trix-initialize",function(event){
 	extendTrix(event);
 });
 
-/*$(document).on("trix-change",function(event){
-	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
-});
-
-$(document).on("trix-selection-change",function(event){
-
-});*/
-
 function clearPars(edit){
 	try{
-	var regex = /<p>(?!<p>)(?!(<--block-->)?<br>).+?<\/p>/g;
-	var cars = edit.value.length;
-	var newHTML = edit.value.match(regex).join("").replace(/<p>/g,"<div>").replace(/<\/p>/g,"</div>");
-	edit.innerHTML = "";
-	edit.editor.setSelectedRange([0,cars]);
-	edit.editor.deleteInDirection("forward");
-	edit.editor.insertHTML(newHTML);
-	
-	}catch(err){
-
-	}
+		var regex = /<p>(?!<p>)(?!(<--block-->)?<br>).+?<\/p>/g;
+		var cars = edit.value.length;
+		var newHTML = edit.value.match(regex).join("").replace(/<p>/g,"<div>").replace(/<\/p>/g,"</div>");
+		edit.innerHTML = "";
+		edit.editor.setSelectedRange([0,cars]);
+		edit.editor.deleteInDirection("forward");
+		edit.editor.insertHTML(newHTML);
+	} catch(err){}
 }
 
 function padZero(n){

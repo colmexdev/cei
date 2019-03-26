@@ -12,8 +12,8 @@
 <table id="index-panel">
   <thead>
     <tr id="header-ind">
-			<% @fields.values.each do |f| %>
-			<td class="head-ind"><%= f %><span class="span-cursor" title="Ordenar de manera ascendente"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span> <span class="span-cursor" title="Ordenar de manera descendente"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></span> <span class="span-cursor" title="No ordenar"><i class="fa fa-eraser" aria-hidden="true"></i></span></td>
+			<% @fields.values.each_with_index do |f| %>
+			<td class="head-ind"><%= f %><br><span class="span-cursor" title="Ordenar de manera ascendente" onclick="<%= "setSort('#{@fields.keys[i].to_s}','asc');" %>"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span> <span class="span-cursor" title="Ordenar de manera descendente" onclick="<%= "setSort('#{@fields.keys[i].to_s}','desc');" %>"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></span> <span class="span-cursor" title="No ordenar" onclick="<%= "setSort('#{@fields.keys[i].to_s}','');" %>"><i class="fa fa-eraser" aria-hidden="true"></i></span></td>
 			<% end %>
 			<% @imgs.values.each do |f| %>
 			<td class="head-ind"><%= f %></td>
