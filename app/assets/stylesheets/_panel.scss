@@ -320,6 +320,14 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	height: 225px;
 }
 
+.head-ind{
+	.span-cursor{
+		cursor: pointer;
+		
+		&:hover, &.active { color: #5E002B; }
+	}
+}
+
 .clickable-g{
 	font-size: 16px;
 	margin: 0 4px;
@@ -363,6 +371,8 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 .ind-cell object, .ind-cell embed{
 	height: 300px;
 }
+
+
 
 /* Sección de estilos de formas */
 trix-editor div {

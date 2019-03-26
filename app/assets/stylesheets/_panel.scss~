@@ -279,6 +279,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	width: calc(100% - 220px);
 	height:100%;
 	float: right;
+	padding: 0 30px;
 	overflow-y: auto;
 	overflow-x: auto;
 	background-color: #FFF;
