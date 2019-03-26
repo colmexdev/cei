@@ -310,7 +310,7 @@ function extendTrix(ev){
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Heading4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>");
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Heading5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>");
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
-	blockElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"attach\" data-action=\"x-attach\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class=\"fa fa-cloud-upload\" aria-hidden=\"true\"></i></div></button>");
+	blockElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"attach\" data-action=\"x-attach\"><div style=\"display:inline-block;\"><i class=\"fa fa-cloud-upload\" aria-hidden=\"true\"></i></div></button>");
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 
 	element.addEventListener("trix-action-invoke", function(event){
