@@ -312,19 +312,6 @@ function extendTrix(ev){
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 
-	/*var atributos = new Set;
-	function actualizarAtributos(){
-		atributos = new Set;
-		var rango = editor.getSelectedRange();
-		var piezas = (rango[0] === rango[1] ? [editor.getDocument().getPieceAtPosition(rango[0] > 0 ? rango[0] - 1 : 0)] : editor.getDocument().getDocumentAtRange(rango).getPieces());
-		piezas.forEach(function(pieza){
-			Object.keys(pieza.getAttributes()).forEach(function(atributo){
-      	atributos.add(atributo);
-      });
-		});
-	}*/
-
-	//actualizarAtributos();
 	element.addEventListener("trix-action-invoke", function(event){
 		if(event.actionName === "x-larger") editor.deactivateAttribute("smaller");
 		else if(event.actionName === "x-smaller") editor.deactivateAttribute("larger");
@@ -340,9 +327,7 @@ function extendTrix(ev){
 			editor.deactivateAttribute("rosaBold");
 			editor.deactivateAttribute("rosaLight");
 		}
-		//actualizarAtributos();
 	});
-	//element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 	});
