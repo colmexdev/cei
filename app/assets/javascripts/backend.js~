@@ -325,7 +325,7 @@ function extendTrix(ev){
 		window.tr_ed = editor;
 	}
 
-	function forzarAtributos(){
+	/*function forzarAtributos(){
 		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
 		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
 		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");
@@ -337,12 +337,25 @@ function extendTrix(ev){
 		else if(editor.attributeIsActive("gray") && atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
 		else if(editor.attributeIsActive("gray") && atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
 		actualizarAtributos();
-	}
+	}*/
 
 	actualizarAtributos();
 	element.addEventListener("trix-action-invoke", function(event){
-		window.tr_ex = event.target.editor;
-		console.log(event.actionName);
+		if(event.actionName === "x-larger") editor.deactivateAttribute("smaller");
+		else if(event.actionName === "x-smaller") editor.deactivateAttribute("larger");
+		if(event.actionName === "x-sup") editor.deactivateAttribute("sub");
+		else if(event.actionName === "x-sub") editor.deactivateAttribute("sup");
+		if(event.actionName === "x-rosaBold"){
+			editor.deactivateAttribute("rosaLight");
+			editor.deactivateAttribute("gray");
+		} else if(event.actionName === "x-rosaLight"){
+			editor.deactivateAttribute("rosaBold");
+			editor.deactivateAttribute("gray");
+		} else if(event.actionName === "x-gray"){
+			editor.deactivateAttribute("rosaBold");
+			editor.deactivateAttribute("rosaLight");
+		}
+		actualizarAtributos();
 	});
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
