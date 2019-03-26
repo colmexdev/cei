@@ -7,7 +7,7 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-glyphicons'
 gem 'font-awesome-sass', '~> 4.7.0'
 #gem "rails-uikit"
