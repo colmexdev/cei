@@ -13,7 +13,7 @@
   <thead>
     <tr id="header-ind">
 			<% @fields.values.each do |f| %>
-			<td class="head-ind"><%= f %></td>
+			<td class="head-ind"><%= f %><i class="fa fa-filter" aria-hidden="true"></i></td>
 			<% end %>
 			<% @imgs.values.each do |f| %>
 			<td class="head-ind"><%= f %></td>
