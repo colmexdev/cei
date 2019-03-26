@@ -331,6 +331,12 @@ function extendTrix(ev){
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 	});
+	element.addEventListener("trix-attachment-add", function(event){
+		console.log(event);
+	});
+	element.addEventListener("trix-attachment-remove", function(event){
+		console.log(event);
+	});
 	
 }
 
