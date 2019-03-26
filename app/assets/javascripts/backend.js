@@ -312,7 +312,7 @@ function extendTrix(ev){
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Heading6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 
-	var atributos = new Set;
+	/*var atributos = new Set;
 	function actualizarAtributos(){
 		atributos = new Set;
 		var rango = editor.getSelectedRange();
@@ -322,24 +322,9 @@ function extendTrix(ev){
       	atributos.add(atributo);
       });
 		});
-		window.tr_ed = editor;
-	}
-
-	/*function forzarAtributos(){
-		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
-		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
-		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");
-		else if(editor.attributeIsActive("smaller") && atributos.has("larger")) editor.deactivateAttribute("larger");
-		if(editor.attributeIsActive("rosaBold") && atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
-		else if(editor.attributeIsActive("rosaBold") && atributos.has("gray")) editor.deactivateAttribute("gray");
-		else if(editor.attributeIsActive("rosaLight") && atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
-		else if(editor.attributeIsActive("rosaLight") && atributos.has("gray")) editor.deactivateAttribute("gray"); 
-		else if(editor.attributeIsActive("gray") && atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
-		else if(editor.attributeIsActive("gray") && atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
-		actualizarAtributos();
 	}*/
 
-	actualizarAtributos();
+	//actualizarAtributos();
 	element.addEventListener("trix-action-invoke", function(event){
 		if(event.actionName === "x-larger") editor.deactivateAttribute("smaller");
 		else if(event.actionName === "x-smaller") editor.deactivateAttribute("larger");
@@ -355,12 +340,10 @@ function extendTrix(ev){
 			editor.deactivateAttribute("rosaBold");
 			editor.deactivateAttribute("rosaLight");
 		}
-		console.log(event.actionName);
-		actualizarAtributos();
+		//actualizarAtributos();
 	});
-	element.addEventListener("trix-selection-change", actualizarAtributos); 
+	//element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
-		//forzarAtributos();
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
 	});
 	
