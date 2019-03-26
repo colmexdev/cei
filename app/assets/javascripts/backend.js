@@ -297,11 +297,11 @@ function extendTrix(ev){
   var textElement = toolbarElement.querySelector(".trix-button-group--text-tools");
 	var blockElement = toolbarElement.querySelector(".trix-button-group--block-tools");
 	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"underline\" title=\"Underline\" tabindex=\"-1\"><div style=\"display:inline-block;\"><i class=\"fa fa-underline\" aria-hidden=\"true\"></i></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"larger\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"smaller\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaBold\" title=\"Rosa bold\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#B03856;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
-	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"larger\" data-trix-action=\"x-larger\" title=\"Incrementar tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:20px;'></i></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"smaller\" data-trix-action=\"x-smaller\" title=\"Disminuir tamaño\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\"><i class='fa fa-font' style='font-size:10px;'></i></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaBold\" data-trix-action=\"x-rosaBold\" title=\"Rosa bold\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#B03856;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"rosaLight\" data-trix-action=\"x-rosaLight\" title=\"Rosa light\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#CC4E78;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
+	textElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"gray\" data-trix-action=\"x-gray\" title=\"Gris\" tabindex=\"-1\"><div style=\"display:inline-block;background-color:#808080;width:18px;height:20px;margin:5px auto 0;\"></div></button>");
 	textElement.insertAdjacentHTML("beforeend", '<button type="button" class="trix-button trix-button-icon" data-trix-attribute="sup"  tabindex="-1"><sup>SUP</sup></button>');
   textElement.insertAdjacentHTML("beforeend",'<button type="button" class="trix-button trix-button-icon" tabindex="-1" data-trix-attribute="sub"><sub>SUB</sub></button>');
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading1\" title=\"Heading1\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:18px;width:100%;text-align:center;\">H1</div></button>");
@@ -325,7 +325,7 @@ function extendTrix(ev){
 		window.tr_ed = editor;
 	}
 
-	function forzarAtributos(){
+	/*function forzarAtributos(){
 		if(editor.attributeIsActive("sup") && atributos.has("sub")) editor.deactivateAttribute("sub");
 		else if(editor.attributeIsActive("sub") && atributos.has("sup")) editor.deactivateAttribute("sup");
 		if(editor.attributeIsActive("larger") && atributos.has("smaller")) editor.deactivateAttribute("smaller");
@@ -337,12 +337,25 @@ function extendTrix(ev){
 		else if(editor.attributeIsActive("gray") && atributos.has("rosaBold")) editor.deactivateAttribute("rosaBold");
 		else if(editor.attributeIsActive("gray") && atributos.has("rosaLight")) editor.deactivateAttribute("rosaLight");
 		actualizarAtributos();
-	}
+	}*/
 
 	actualizarAtributos();
 	element.addEventListener("trix-action-invoke", function(event){
-		window.tr_ex = event.target.editor;
-		console.log(event.actionName);
+		if(event.actionName === "x-larger") editor.deactivateAttribute("smaller");
+		else if(event.actionName === "x-smaller") editor.deactivateAttribute("larger");
+		if(event.actionName === "x-sup") editor.deactivateAttribute("sub");
+		else if(event.actionName === "x-sub") editor.deactivateAttribute("sup");
+		if(event.actionName === "x-rosaBold"){
+			editor.deactivateAttribute("rosaLight");
+			editor.deactivateAttribute("gray");
+		} else if(event.actionName === "x-rosaLight"){
+			editor.deactivateAttribute("rosaBold");
+			editor.deactivateAttribute("gray");
+		} else if(event.actionName === "x-gray"){
+			editor.deactivateAttribute("rosaBold");
+			editor.deactivateAttribute("rosaLight");
+		}
+		actualizarAtributos();
 	});
 	element.addEventListener("trix-selection-change", actualizarAtributos); 
 	element.addEventListener("trix-change", function(event){
