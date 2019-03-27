@@ -56,7 +56,7 @@ function hideLink(event,element,link,method,keyword,query,sort_el){
 	query = query || null;
 	event = event || null;
 	sort_el = sort_el || null;
-	var query_sort = setSort(sort_el);
+	var query_sort = setSort(event, sort_el);
 	console.log(sort_el);
   if(event != null)
 		event.preventDefault();
