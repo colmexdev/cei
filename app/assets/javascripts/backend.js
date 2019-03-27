@@ -58,7 +58,7 @@ function hideLink(event,element,link,method,keyword,query){
   if(event != null)
 		event.preventDefault();
 	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="'+link+(keyword != null ? '&keyword='+keyword : "") + (query != null ? "&"+query[1]+"&complement="+query[0] : "") +'" style="display:none;" id="vlink"></a>');
-	window.complete_url = $("#vlink").attr("href");
+	window.complete_url = "https://ceitest.colmex.mx" + $("#vlink").attr("href");
 	$("#vlink").trigger("click");
 	$("#vlink").remove();
 }
