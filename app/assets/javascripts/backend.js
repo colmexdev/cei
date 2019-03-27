@@ -128,7 +128,7 @@ function highlightSort(){
 	var campos = url.searchParams.getAll("campos[]");
 	var dirs = url.searchParams.getAll("orden[]");
 	for(var i = 0; i < fields.length; i++){
-		document.querySelector("[data-field=" + fields[i] + "][data-orden=" + dirs[i] + "]").classList.add("active");
+		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
 	}
 }
 

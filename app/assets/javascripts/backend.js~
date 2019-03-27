@@ -123,6 +123,15 @@ function setSort(event, element){
 	} catch(err) { return "" }
 }
 
+function highlightSort(){
+	var url = new URL(window.complete_url);
+	var campos = url.searchParams.getAll("campos[]");
+	var dirs = url.searchParams.getAll("orden[]");
+	for(var i = 0; i < fields.length; i++){
+		document.querySelector("[data-field=" + fields[i] + "][data-orden=" + dirs[i] + "]").classList.add("active");
+	}
+}
+
 function buildQuery(conds){
 	var query = "";
 	var url_params = "";
