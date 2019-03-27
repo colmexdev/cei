@@ -59,7 +59,7 @@ function hideLink(event,element,link,method,keyword,query,sort_el){
 	var query_sort = setSort(sort_el);
   if(event != null)
 		event.preventDefault();
-	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="' + link + (query_sort === "" ? "&" + query_sort : "") + (keyword != null ? '&keyword='+keyword : "") + (query[0] !== "" ? "&"+query[1]+"&complement="+query[0] : "") +'" style="display:none;" id="vlink"></a>');
+	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="' + link + (query_sort === "" ? "&" + query_sort : "") + (keyword != null ? '&keyword='+keyword : "") + (query == null ? "&"+query[1]+"&complement="+query[0] : "") +'" style="display:none;" id="vlink"></a>');
 	window.complete_url = "https://ceitest.colmex.mx" + $("#vlink").attr("href");
 	$("#vlink").trigger("click");
 	$("#vlink").remove();
@@ -119,7 +119,7 @@ function setSort(event, element){
 			url_orden = url_orden + "&orden[]=" + dirs[i];
 		}
 		return url_campos + (fields.length > 0 ? "&" + url_orden : "")
-	} catche(err) { return "" }
+	} catch(err) { return "" }
 }
 
 function buildQuery(conds){
