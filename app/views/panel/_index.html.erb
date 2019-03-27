@@ -29,7 +29,6 @@
         <td class="ind-cell"><%= raw(s[f.to_s]) %></td>
 				<% end %>
 				<% @imgs.keys.each do |f| %>
-					<% logger.debug "#{s.public_send(f)}" %>
 					<td class="ind-cell left-align"><%= s.public_send(f).url.include?(".pdf") ? (raw "<object type=\"application/pdf\" data =\"" + s.public_send(f).url + "\"><embed src=\"" + s.public_send(f).url + "\" type=\"application/pdf\"></object>") : (image_tag(s.public_send(f).url)) %></td>
 				<% end %>
 				<td class="ind-cell-img" style="width:130px;">
@@ -66,6 +65,7 @@
 <% end %>
 
 <script type="text/javascript">
+$(document).ready(function(){
 	var cols = $(".head-ind").length;
 	$(".head-ind").each(function(index){
 		$(this).css({"width": adjustWidths(cols), "text-align": "center", "font-weight": "500","font-size": "16px"}).css('width',('-='+(130/cols)+'px'));
@@ -76,5 +76,7 @@
 			this.innerHTML = n_html;
 		}
 	});
+	highlightSort();
+});
 </script>
 <% end %>
