@@ -90,6 +90,7 @@ function setSort(event, element){
 	});
 	if(dir !== "nil") element.classList.add("active");
 	console.log(url.searchParams);
+	window.parsa = url;
 }
 
 function buildQuery(conds){
