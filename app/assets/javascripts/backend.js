@@ -119,7 +119,7 @@ function setSort(event, element){
 			url_orden = url_orden + "&orden[]=" + dirs[i];
 		}
 		return url_campos + (fields.length > 0 ? "&" + url_orden : "")
-	} catche(err) { return "" }
+	} catch(err) { return "" }
 }
 
 function buildQuery(conds){
