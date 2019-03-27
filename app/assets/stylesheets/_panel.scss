@@ -311,7 +311,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 }
 
 #index-panel .row-ind:nth-child(odd){
-	background-color: rgba(158,102,128,0.4);
+	background-color: rgba(158, 102, 128, 0.4);
 }
 
 #index-panel .row-ind{
@@ -330,7 +330,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		-o-transition: all 0.3s linear;
 		transition: all 0.3s linear;
 		
-		&:hover, &.active { color: rgba(158,102,128,0.4); }
+		&:hover, &.active { color: rgba(158, 102, 128, 0.9); }
 	}
 }
 
