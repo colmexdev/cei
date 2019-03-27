@@ -13,7 +13,7 @@
   <thead>
     <tr id="header-ind">
 			<% @fields.values.each_with_index do |f,i| %>
-			<td class="head-ind"><%= f %><br><span class="span-cursor" data-field="<%= @fields.keys[i].to_s %>" data-order="asc" title="Ordenar de manera ascendente" onclick="setSort(event, this);"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span> <span class="span-cursor" title="Ordenar de manera descendente" data-field="<%= @fields.keys[i].to_s %>" data-order="desc"  onclick="setSort(event, this)"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></span> <span class="span-cursor" title="No ordenar" data-field="<%= @fields.keys[i].to_s %>" data-order="nil"  onclick="setSort(event, this)"><i class="fa fa-eraser" aria-hidden="true"></i></span></td>
+			<td class="head-ind"><%= f %><br><span class="span-cursor" data-field="<%= @fields.keys[i].to_s %>" data-order="asc" title="Ordenar de manera ascendente" onclick="<%= 'hideLink(event,\'#index-panel\',\'#{panel_index_path(set: params[:set], offset: params[:offset].to_i)}\',null,document.getElementById(\'keyword\').value,buildQuery(filteredParams(\'#{params[:set].split(' ').join('+')}\')),this)' %>"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span> <span class="span-cursor" title="Ordenar de manera descendente" data-field="<%= @fields.keys[i].to_s %>" data-order="desc"  onclick="<%= 'hideLink(event,\'#index-panel\',\'#{panel_index_path(set: params[:set], offset: params[:offset].to_i)}\',null,document.getElementById(\'keyword\').value,buildQuery(filteredParams(\'#{params[:set].split(' ').join('+')}\')),this)' %>"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></span> <span class="span-cursor" title="No ordenar" data-field="<%= @fields.keys[i].to_s %>" data-order="nil"  onclick="<%= 'hideLink(event,\'#index-panel\',\'#{panel_index_path(set: params[:set], offset: params[:offset].to_i)}\',null,document.getElementById(\'keyword\').value,buildQuery(filteredParams(\'#{params[:set].split(' ').join('+')}\')),this)' %>"><i class="fa fa-eraser" aria-hidden="true"></i></span></td>
 			<% end %>
 			<% @imgs.values.each do |f| %>
 			<td class="head-ind"><%= f %></td>
@@ -49,7 +49,7 @@
 <% ind = 0 %>
 
 	<% if @pags > 1 %>
-		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != 0 ? "pointer" : "default" %>;" <%= params[:offset].to_i != 0 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i - 1) + "',null,document.getElementById('keyword').value,buildQuery(filteredParams('#{params[:set].split(' ').join('+')}')))") : "" %>><</span>
+		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != 0 ? "pointer" : "default" %>;" <%= params[:offset].to_i != 0 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i - 1) + "',null,document.getElementById('keyword').value,buildQuery(filteredParams('#{params[:set].split(' ').join('+')}')))") : "" %>><i class="fa fa-angle-left"></i></span>
 	<% end %>
 
 <% while ind < @pags %>
@@ -58,7 +58,7 @@
 <% end %>
 
 	<% if @pags > 1 %>
-		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != @pags - 1 ? "pointer" : "default" %>;" <%= params[:offset].to_i != @pags - 1 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i + 1) + "',null,document.getElementById('keyword').value,buildQuery(filteredParams('#{params[:set].split(' ').join('+')}')))") : "" %>>></span>
+		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != @pags - 1 ? "pointer" : "default" %>;" <%= params[:offset].to_i != @pags - 1 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i + 1) + "',null,document.getElementById('keyword').value,buildQuery(filteredParams('#{params[:set].split(' ').join('+')}')))") : "" %>><i class="fa fa-angle-right"></i></span>
 	<% end %>
 </div>
 <% if false %>

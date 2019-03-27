@@ -51,10 +51,11 @@ function adjustWidths(cols){
 	return /*(100/cols) + "%"*/ "250px";
 }
 
-function hideLink(event,element,link,method,keyword,query){
+function hideLink(event,element,link,method,keyword,query,sort_el){
   keyword = keyword || null;
 	query = query || null;
 	event = event || null;
+	sort_el = sort_el || null;
   if(event != null)
 		event.preventDefault();
 	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="'+link+(keyword != null ? '&keyword='+keyword : "") + (query != null ? "&"+query[1]+"&complement="+query[0] : "") +'" style="display:none;" id="vlink"></a>');
@@ -83,15 +84,39 @@ function filterAnalytics(link){
 
 /* Funciones de ordenamiento y filtrado */
 function setSort(event, element){
-	var dir = element.dataset.order;
-	var field = element.dataset.field;
+	element = element || null;
 	var url = new URL(window.complete_url);
-	element.parentNode.querySelectorAll(".span-cursor").forEach(function(span){
-		span.classList.remove("active");
-	});
-	if(dir !== "nil") element.classList.add("active");
-	console.log(url.searchParams);
-	window.params = url;
+	var fields = url.searchParams.getAll("campos[]");
+	var dirs = url.searchParams.getAll("orden[]");
+	var url_campos = "", url_orden = "";
+	if(element != null){
+		var dir = element.dataset.order;
+		var field = element.dataset.field;
+		var indice;
+		element.parentNode.querySelectorAll(".span-cursor").forEach(function(span){
+			span.classList.remove("active");
+		});
+		if(dir !== "nil"){
+			element.classList.add("active");
+			if(fields.indexOf(field) == -1){
+				fields.push(field);
+				dirs.push(dir);
+			} else {
+				dirs[fields.indexOf(field)] = dir;
+			}
+		}	else {
+			if(fields.indexOf(field) != -1){
+				indice = fields.indexOf(field);
+				fields.splice(indice,1);
+				dirs.splice(indice,1);
+			}
+		}
+	}
+	for(var i = 0; i < fields.length; i++){
+		url_campos = url_campos + "&campos[]=" + fields[i];
+		url_orden = url_orden + "&orden[]=" + dirs[i];
+	}
+	return url_campos + (fields.length > 0 ? "&" + url_orden : "")
 }
 
 function buildQuery(conds){
