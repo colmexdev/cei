@@ -4,6 +4,8 @@ class Curso < ActiveRecord::Base
 
   attr_accessor :imagen_del
   attr_accessor :documento_del
+  attr_accessor :imgs_trix
+  attr_accessor :tags_imgs_trix
 
   validates_presence_of :titulo
   validates_presence_of :fecha_i
