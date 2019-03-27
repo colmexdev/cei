@@ -83,10 +83,13 @@ function filterAnalytics(link){
 /* Funciones de ordenamiento y filtrado */
 function setSort(event, element){
 	var dir = element.dataset.order;
+	var field = element.dataset.field;
+	var url = new URL(window.location.href);
 	element.parentNode.querySelectorAll(".span-cursor").forEach(function(span){
 		span.classList.remove("active");
 	});
 	if(dir !== "nil") element.classList.add("active");
+	console.log(url.searchParams);
 }
 
 function buildQuery(conds){
