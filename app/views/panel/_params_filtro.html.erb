@@ -1,7 +1,7 @@
 <input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value,buildQuery(filteredParams('<%= params[:set] %>')))"><br>
 
 <% @fields.each do |f| %>
-	<span><%= f %></span><br>
+	<span><%= @m.columns_hash[f[0]].type %></span><br>
 <% end %>
 
 <script type="text/javascript">
