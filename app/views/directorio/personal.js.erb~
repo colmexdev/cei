@@ -3,13 +3,13 @@ function filterDir(fields){
 	var where = "";
 	$(".inics.letra").removeClass("active");
 	if(typeof fields == "string"){
-		where = "&inic="+fields;
+		where = "&inic="+encodeURIComponent(fields);
 		$("#inic_" + fields).addClass("active");
 		$("#nombre").val("");
 	}
 	else{
 		for(var i = 0; i < fields.length; i++){
-			where = where + ($("#"+fields[i]).val() != "" ? ("&" + fields[i] + "=" + $("#"+fields[i]).val()) : "");
+			where = where + ($("#"+fields[i]).val() != "" ? ("&" + fields[i] + "=" + encodeURIComponent($("#"+fields[i]).val())) : "");
 		}
 	}
 	$.ajax({
