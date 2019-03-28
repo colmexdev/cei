@@ -97,7 +97,7 @@ function setFilter(event, element){
 			var field = element.dataset.field;
 			var op = element.dataset.op;
 			var val = element.value;
-			if(val != null || val !== ""){
+			if(val != null && val !== ""){
 				if(fields.indexOf(encodeURIComponent(field + "*" + op)) != -1) vals[fields.indexOf(encodeURIComponent(field + "*" + op))] = encodeURIComponent(val);
 				else {
 					fields.push(encodeURIComponent(field + "*" + op));

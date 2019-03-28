@@ -90,10 +90,6 @@
 			<% end %>
 		</div>
   </div>
-	<div class="field">
-		<%= f.file_field :imgs_trix, style: "display:none;", multiple: "true" %>
-		<%= f.text_area :tags_imgs_trix, style: "display:none;" %>
-	</div>
   <div class="actions">
     <%= f.submit "Generar curso" %>
   </div>

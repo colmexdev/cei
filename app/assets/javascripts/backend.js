@@ -240,8 +240,8 @@ function readURL(input,display,check_del,multi) {
 
 // Función para automatizar los datepickers
 function styleDatepickers(){
-	$(".datepicker").datepicker({
-		format: "yyyy-mm-dd", language: "es-MX"
+	$(".fechas").datepicker({
+		format: "yyyy-mm-dd", language: "es-MX", autoclose: true, todayBtn: true, todayHighlight: true
 	});
 }
 
