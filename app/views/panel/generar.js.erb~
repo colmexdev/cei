@@ -5,16 +5,4 @@ $("#glyph-home").css({"display": "inline-block"}).unbind().on("click",function(e
 $("#glyph-edit").css({"display": "none"}).unbind();
 configTrix();
 
-addEventListener("trix-initialize",function(event){
-	extendTrix(event);
-}, {once: true});
-
-$(document).on("trix-change",function(event){
-	$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"$2"));
-});
-
 $("#graphs-gest").html("<%= j render 'panel/generar' %>");
-
-$(document).ready(function(){
-	styleDatepickers();
-});
