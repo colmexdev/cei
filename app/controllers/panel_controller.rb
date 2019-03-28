@@ -1,6 +1,6 @@
 class PanelController < ApplicationController
   before_action :authenticate_admin!
-  before_action :select_set, only: [:principal, :index, :mostrar, :generar, :crear, :eliminar, :actualizar, :editar]
+  before_action :select_set#, only: [:principal, :index, :mostrar, :generar, :crear, :eliminar, :actualizar, :editar]
   before_action :get_object_fields, only: [:index, :crear, :actualizar, :eliminar, :mostrar]
 
   def principal

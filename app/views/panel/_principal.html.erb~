@@ -1,6 +1,7 @@
 <%= text_field_tag :fecha_desde, "", {"data-uk-datepicker" => "{format: 'DD-MM-YYYY'}", :onchange => ("filterAnalytics('"+ panel_princ_path + "');")} %>
 
 <%= text_field_tag :fecha_hasta, "", {"data-uk-datepicker" => "{format: 'DD-MM-YYYY'}", :onchange => ("filterAnalytics('"+ panel_princ_path + "');")} %>
+<%= @sets.keys %>
 
 <div class="chart-cont" id="cont-1">
 	<svg id="svg1">
