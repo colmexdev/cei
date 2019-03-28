@@ -51,12 +51,14 @@ function adjustWidths(cols){
 	return /*(100/cols) + "%"*/ "250px";
 }
 
-function hideLink(event,element,link,method,keyword,query,sort_el){
+function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
   keyword = keyword || null;
-	query = query || null;
+	filter_el = filter_el || null;
 	event = event || null;
 	sort_el = sort_el || null;
-	var query_sort = setSort(event, sort_el);
+	in_index = in_index || false;
+	var query_filter = (in_index ? setFilter(event, filter_el) : "");
+	var query_sort = (in_index ? setSort(event, sort_el) : "");
   if(event != null)
 		event.preventDefault();
 	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="' + link + (query_sort !== "" ? query_sort : "") + (keyword != null ? '&keyword='+keyword : "") + (query != null ? "&"+query[1]+"&complement="+query[0] : "") +'" style="display:none;" id="vlink"></a>');
@@ -84,6 +86,47 @@ function filterAnalytics(link){
 }
 
 /* Funciones de ordenamiento y filtrado */
+function setFilter(event, element){
+	element = element || null;
+	try{
+		var url = new URL(window.complete_url);
+		var fields = url.searchParams.getAll("filtros[]");
+		var url_fields = "", url_ops = "", url_vals = "";
+		if(element != null){
+			var field = element.dataset.field;
+			var op = element.dataset.op;
+			var val = element.value;
+			var ops = url.searchParams.getAll("filtros[" + field + "][ops]");
+			var vals = url.searchParams.getAll("filtros[" + field + "][vals]");
+			if(val != null && val != ""){
+				if(fields.indexOf(field) != -1){
+					if(ops.indexOf(op) != -1) vals[ops.indexOf(op)] = val;
+					else{
+						ops.push(op);
+						vals.push(val);
+					}
+				} else{
+					fields.push(field);
+					ops.push(op);
+					vals.push(val);
+				}
+			} else{
+				var ind_f = fields.indexOf(field);
+				var ind_o = ops.indexOf(op);
+				vals.splice(ind_o,1);
+				ops.splice(ind_o,1);
+				if(vals.length == 0) fields.splice(ind_f,1);
+			}
+			for(var i = 0; i < fields.length; i++) url_fields = url_fields + "&filtros[]=" + fields[i];
+			for(var i = 0; i < ops.length; i++){
+				url_ops = url_ops + "&filtros[" + field + "][ops]=" + ops[i];
+				url_vals = url_vals + "&filtros[" + field + "][vals]=" + vals[i]; 
+			}
+			return url_fields + (fields.length == 0 ? url_ops + url_vals : "");
+		}
+	} catch(err) { return "" }
+}
+
 function setSort(event, element){
 	element = element || null;
 	try{

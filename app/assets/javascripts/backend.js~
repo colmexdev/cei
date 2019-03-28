@@ -51,12 +51,14 @@ function adjustWidths(cols){
 	return /*(100/cols) + "%"*/ "250px";
 }
 
-function hideLink(event,element,link,method,keyword,query,sort_el){
+function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
   keyword = keyword || null;
-	query = query || null;
+	filter_el = filter_el || null;
 	event = event || null;
 	sort_el = sort_el || null;
-	var query_sort = setSort(event, sort_el);
+	in_index = in_index || false;
+	var query_filter = (in_index ? setFilter(event, filter_el) : "");
+	var query_sort = (in_index ? setSort(event, sort_el) : "");
   if(event != null)
 		event.preventDefault();
 	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="' + link + (query_sort !== "" ? query_sort : "") + (keyword != null ? '&keyword='+keyword : "") + (query != null ? "&"+query[1]+"&complement="+query[0] : "") +'" style="display:none;" id="vlink"></a>');
@@ -124,7 +126,7 @@ function setSort(event, element){
 
 function highlightSort(){
 	var url = new URL(window.complete_url);
-	var campos = url.searchParams.getAll("campos[]");
+	var fields = url.searchParams.getAll("campos[]");
 	var dirs = url.searchParams.getAll("orden[]");
 	for(var i = 0; i < fields.length; i++){
 		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
