@@ -167,8 +167,8 @@ function setSort(event, element){
 
 function highlightSort(){
 	var url = new URL(window.complete_url);
-	var fields = url.searchParams.getAll("campos[]");
-	var dirs = url.searchParams.getAll("orden[]");
+	var fields = url.searchParams.getAll("orden[campos]");
+	var dirs = url.searchParams.getAll("orden[dirs]");
 	for(var i = 0; i < fields.length; i++){
 		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
 	}
