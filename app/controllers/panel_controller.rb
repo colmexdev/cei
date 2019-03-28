@@ -39,7 +39,7 @@ class PanelController < ApplicationController
   end
 
   def index
-    logger.debug params.GET
+    logger.debug request.GET
     if params[:keyword].present?
       query
       @query = @query + (params[:complement].present? ? (" and " + params[:complement]) : "")

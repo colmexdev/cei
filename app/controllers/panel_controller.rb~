@@ -39,6 +39,7 @@ class PanelController < ApplicationController
   end
 
   def index
+    logger.debug params.GET
     if params[:keyword].present?
       query
       @query = @query + (params[:complement].present? ? (" and " + params[:complement]) : "")
@@ -271,7 +272,7 @@ class PanelController < ApplicationController
         numbers: [],
         p_text: [:nombre, :extension, :correo, :area],
         textarea: [:servicio],
-        select: []
+        select: {area: [["Centro de Estudios Internacionales", "Centro de Estudios Internacionales"]]}
       }, "Programas académicos": {
         model: Programa,
         fields: {titulo: "Título", descripcion_es: "Descripción (español)", descripcion_en: "Descipición (inglés)", fecha_ic: "Fecha inicio de convocatoria", fecha_fc: "Fecha fin de convocatoria"},
@@ -280,7 +281,8 @@ class PanelController < ApplicationController
         dates: [:fecha_ic, :fecha_fc],
         numbers: [],
         p_text: [:titulo],
-        textarea: []
+        textarea: [],
+        select: {}
       }, "Preguntas frecuentes": {
         model: Question,
         fields: {pregunta_es: "Pregunta (español)", pregunta_en: "Pregunta (inglés)", respuesta_es: "Respuesta (español)", respuesta_en: "Respuesta (inglés)", tipo: "Tipo", index: "Índice"},
@@ -289,7 +291,8 @@ class PanelController < ApplicationController
         dates: [],
         numbers: [:index],
         p_text: [],
-        textarea: []
+        textarea: [],
+        select: {tipo: [["Licenciatura", "Licenciatura"],["Maestría","Maestría"]]}
       }, "Cursos": {
         model: Curso,
         fields: {titulo: "Título", liga: "Liga externa", imparte: "Impartido por", liga_imparte: "Liga de quien imparte", fecha_ic: "Inicio convocatoria", fecha_fc: "Fin convocatoria", fecha_i: "Fecha de inicio", fecha_f: "Fecha final", descripcion: "Descripción", descripcion_en: "Descripción (inglés)", tipo: "Tipo"},
@@ -298,7 +301,8 @@ class PanelController < ApplicationController
         dates: [:fecha_ic, :fecha_fc, :fecha_i, :fecha_f],
         numbers: [],
         p_text: [:liga, :imparte, :liga_imparte],
-        textarea: []
+        textarea: [],
+        select: {tipo: [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]]}
       }
     }
   end
@@ -309,6 +313,10 @@ class PanelController < ApplicationController
     @models = @sets[params[:set].to_sym][:model]
     @dates = @sets[params[:set].to_sym][:dates]
     @trix = @sets[params[:set].to_sym][:trix]
+    @numbers = @sets[params[:set].to_sym][:numbers]
+    @plains = @sets[params[:set].to_sym][:p_text]
+    @textareas = @sets[params[:set].to_sym][:textarea]
+    @selects = @sets[params[:set].to_sym][:select]
   end
 
   def par_params(pars)
