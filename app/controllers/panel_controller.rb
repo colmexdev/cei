@@ -45,7 +45,7 @@ class PanelController < ApplicationController
     logger.debug @sort_hash
     @filter_fields = (request.GET.key?(:filt_fo) ? request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) } : [])
     @filter_ops = (request.GET.key?(:filt_fo) ? request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[1]) } : [])
-    @filter_vals = (reques.GET.key?(:filt_v) ? request.GET[:filt_v].map {|x| CGI.unescape(x) } : [])
+    @filter_vals = (request.GET.key?(:filt_v) ? request.GET[:filt_v].map {|x| CGI.unescape(x) } : [])
     if params[:keyword].present?
       query
       @query = @query + (params[:complement].present? ? (" and " + params[:complement]) : "")
