@@ -2,8 +2,6 @@
 
 <%= text_field_tag :fecha_hasta, "", {"data-uk-datepicker" => "{format: 'DD-MM-YYYY'}", :onchange => ("filterAnalytics('"+ panel_princ_path + "');")} %>
 
-<span><%= notice || "" %></span>
-
 <div class="chart-cont" id="cont-1">
 	<svg id="svg1">
 	</svg>
