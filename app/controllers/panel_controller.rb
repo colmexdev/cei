@@ -46,8 +46,7 @@ class PanelController < ApplicationController
       @query = (params[:complement].present? ? params[:complement] : "")
     end
     @rpp = 10
-		@m = @sets[params[:set].to_sym][:model]
-    @mod = (@m.class.to_s != "Array" ? @m : @m[0])
+    @mod = (@models.class.to_s != "Array" ? @models : @models[0])
     @count = @mod.where(@query.present? ? @query : "").count
     @set = @mod.where(@query.present? ? @query : "").order(updated_at: :desc).limit(@rpp).offset(params[:offset].to_i*@rpp)
 
