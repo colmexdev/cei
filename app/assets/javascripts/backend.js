@@ -241,7 +241,7 @@ function readURL(input,display,check_del,multi) {
 // Función para automatizar los datepickers
 function styleDatepickers(){
 	$(".fechas").datepicker({
-		format: "yyyy-mm-dd", language: "es-MX", autoclose: true, todayBtn: true, todayHighlight: true
+		format: "yyyy-mm-dd", language: "es-MX", autoclose: true, todayBtn: true, todayHighlight: "linked", clearBtn: true
 	});
 }
 
