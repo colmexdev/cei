@@ -90,40 +90,30 @@ function setFilter(event, element){
 	element = element || null;
 	try{
 		var url = new URL(window.complete_url);
-		var fields = url.searchParams.getAll("filtros[]");
-		var url_fields = "", url_ops = "", url_vals = "";
+		var fields = url.searchParams.getAll("filter[fo]");
+		var vals = url.searchParams.getAll("filter[v]");
+		var url_fields = "", url_vals = "";
 		if(element != null){
 			var field = element.dataset.field;
 			var op = element.dataset.op;
 			var val = element.value;
-			var ops = url.searchParams.getAll("filtros[" + field + "][ops]");
-			var vals = url.searchParams.getAll("filtros[" + field + "][vals]");
-			if(val != null && val != ""){
-				if(fields.indexOf(field) != -1){
-					if(ops.indexOf(op) != -1) vals[ops.indexOf(op)] = val;
-					else{
-						ops.push(op);
-						vals.push(val);
-					}
-				} else{
-					fields.push(field);
-					ops.push(op);
-					vals.push(val);
+			if(val != null || val !== ""){
+				if(fields.indexOf(encodeURIComponent(field + "*" + op)) != -1) vals[fields.indexOf(encodeURIComponent(field + "*" + op))] = encodeURIComponent(val);
+				else {
+					fields.push(encodeURIComponent(field + "*" + op));
+					vals.push(encodeURIComponent(val));
+				} else {
+					var indice = fields.indexOf(encodeURIComponent(field + "*" + op));
+					fields.splice(indice, 1);
+					vals.splice(indice, 1);
 				}
-			} else{
-				var ind_f = fields.indexOf(field);
-				var ind_o = ops.indexOf(op);
-				vals.splice(ind_o,1);
-				ops.splice(ind_o,1);
-				if(vals.length == 0) fields.splice(ind_f,1);
 			}
 		}
-		for(var i = 0; i < fields.length; i++) url_fields = url_fields + "&filtros[]=" + encodeURIComponent(fields[i]);
-		for(var i = 0; i < ops.length; i++){
-			url_ops = url_ops + "&filtros[" + field + "][ops]=" + encodeURIComponent(ops[i]);
-			url_vals = url_vals + "&filtros[" + field + "][vals]=" + encodeURIComponent(vals[i]); 
+		for(var i = 0; i < fields.length; i++){
+			url_fields = url_fields + "&filter[fo]=" + encodeURIComponent(fields[i]);
+			url_vals = url_vals + "&filter[v]=" + encodeURIComponent(vals[i]);
 		}
-		return url_fields + (fields.length > 0 ? url_ops + url_vals : "");
+		return url_fields + (fields.length > 0 ? url_vals : "");
 	} catch(err) { return "" }
 }
 
@@ -131,8 +121,8 @@ function setSort(event, element){
 	element = element || null;
 	try{
 		var url = new URL(window.complete_url);
-		var fields = url.searchParams.getAll("orden[campos]");
-		var dirs = url.searchParams.getAll("orden[dirs]");
+		var fields = url.searchParams.getAll("sort[c]");
+		var dirs = url.searchParams.getAll("sort[d]");
 		var url_campos = "", url_orden = "";
 		if(element != null){
 			var dir = element.dataset.order;
@@ -144,22 +134,22 @@ function setSort(event, element){
 			if(dir !== "nil"){
 				element.classList.add("active");
 				if(fields.indexOf(field) == -1){
-					fields.push(field);
-					dirs.push(dir);
+					fields.push(encodeURIComponent(field));
+					dirs.push(encodeURIComponent(dir));
 				} else {
 					dirs[fields.indexOf(field)] = dir;
 				}
 			}	else {
 				if(fields.indexOf(field) != -1){
-					indice = fields.indexOf(field);
+					indice = fields.indexOf(encodeURIComponent(field));
 					fields.splice(indice,1);
 					dirs.splice(indice,1);
 				}
 			}
 		}
 		for(var i = 0; i < fields.length; i++){
-			url_campos = url_campos + "&orden[campos]=" + encodeURIComponent(fields[i]);
-			url_orden = url_orden + "&orden[dirs]=" + encodeURIComponent(dirs[i]);
+			url_campos = url_campos + "&sort[c]=" + encodeURIComponent(fields[i]);
+			url_orden = url_orden + "&sort[d]=" + encodeURIComponent(dirs[i]);
 		}
 		return url_campos + (fields.length > 0 ? url_orden : "")
 	} catch(err) { return "" }
@@ -167,18 +157,17 @@ function setSort(event, element){
 
 function highlightSort(){
 	var url = new URL(window.complete_url);
-	var fields = url.searchParams.getAll("orden[campos]");
-	var dirs = url.searchParams.getAll("orden[dirs]");
+	var fields = url.searchParams.getAll("sort[c]");
+	var dirs = url.searchParams.getAll("sort[d]");
 	for(var i = 0; i < fields.length; i++){
 		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
 	}
-	var c_fields = url.searchParams.getAll("filtros[]");
+	var f_fields = url.searchParams.getAll("filter[fo]");
+	var f_vals = url.searchParams.getAll("filter[v]");
+	var fo;
 	for(var i = 0; i < c_fields.length; i++){
-		var c_ops = url.searchParams.getAll("filtros[" + c_fields[i] + "][ops]");
-		var c_vals = url.searchParams.getAll("filtros[" + c_fields[i] + "][vals]");
-		for(var j = 0; j < c_ops.length; j++){
-			document.querySelector("[data-tipo=filtro][data-field=" + c_fields[i] + "][data-op=" + c_ops[j] + "]").value = c_vals[j];
-		}
+		fo = decodeURIComponent(f_fields[i]).split("*");
+		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = decodeURIComponent(f_vals[i]);
 	}
 }
 
