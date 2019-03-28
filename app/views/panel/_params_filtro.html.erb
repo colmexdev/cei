@@ -1,23 +1,15 @@
-<input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, null, null, true)"><br>
+<input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, null, null, true)"><br>
 
 <% @fields.each do |f| %>
 	<% if @models.columns_hash[f[0].to_s].type == :text %>
-		<input type="text" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="like" oninput="hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
+		<input type="text" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="like" oninput="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
 	<% else %>
 	<span><%= @models.columns_hash[f[0].to_s].type %></span><br>
 	<% end %>
 <% end %>
 
 <script type="text/javascript">
-var c_url = new URL(window.complete_url);
-var c_fields = c_url.searchParams.getAll("filtros[]");
-c_fields.forEach(function(field){
-	var c_ops = c_url.searchParams.getAll("filtros[" + field + "][ops]");
-	var c_vals = c_url.searchParams.getAll("filtros[" + field + "][vals]");
-	c_ops.forEach(function(op,i){
-		document.querySelector("[data-tipo=filtro][data-field=" + field + "][data-op=" + op + "]").value = c_vals[i];
-	});
-});
+
 /*	var pars = filteredParams("<%= params[:set] %>");
 	for(var i in pars){
 		$("#"+pars[i][0]).on("change",function(){

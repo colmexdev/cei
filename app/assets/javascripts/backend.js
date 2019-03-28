@@ -117,10 +117,10 @@ function setFilter(event, element){
 				ops.splice(ind_o,1);
 				if(vals.length == 0) fields.splice(ind_f,1);
 			}
-			for(var i = 0; i < fields.length; i++) url_fields = url_fields + "&filtros[]=" + fields[i];
+			for(var i = 0; i < fields.length; i++) url_fields = url_fields + "&filtros[]=" + encodeURIComponent(fields[i]);
 			for(var i = 0; i < ops.length; i++){
-				url_ops = url_ops + "&filtros[" + field + "][ops]=" + ops[i];
-				url_vals = url_vals + "&filtros[" + field + "][vals]=" + vals[i]; 
+				url_ops = url_ops + "&filtros[" + field + "][ops]=" + encodeURIComponent(ops[i]);
+				url_vals = url_vals + "&filtros[" + field + "][vals]=" + encodeURIComponent(vals[i]); 
 			}
 			return url_fields + (fields.length > 0 ? url_ops + url_vals : "");
 		}
@@ -158,8 +158,8 @@ function setSort(event, element){
 			}
 		}
 		for(var i = 0; i < fields.length; i++){
-			url_campos = url_campos + "&orden[campos]=" + fields[i];
-			url_orden = url_orden + "&orden[dirs]=" + dirs[i];
+			url_campos = url_campos + "&orden[campos]=" + encodeURIComponent(fields[i]);
+			url_orden = url_orden + "&orden[dirs]=" + encodeURIComponent(dirs[i]);
 		}
 		return url_campos + (fields.length > 0 ? url_orden : "")
 	} catch(err) { return "" }
@@ -171,6 +171,14 @@ function highlightSort(){
 	var dirs = url.searchParams.getAll("orden[dirs]");
 	for(var i = 0; i < fields.length; i++){
 		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
+	}
+	var c_fields = url.searchParams.getAll("filtros[]");
+	for(var i = 0; i < c_fields.length; i++){
+		var c_ops = url.searchParams.getAll("filtros[" + c_fields[i] + "][ops]");
+		var c_vals = url.searchParams.getAll("filtros[" + c_fields[i] + "][vals]");
+		for(var j = 0; j < c_ops.length; j++){
+			document.querySelector("[data-tipo=filtro][data-field=" + c_fields[i] + "][data-op=" + c_ops[j] + "]").value = c_vals[j];
+		}
 	}
 }
 
