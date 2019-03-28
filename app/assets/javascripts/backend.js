@@ -131,8 +131,8 @@ function setSort(event, element){
 	element = element || null;
 	try{
 		var url = new URL(window.complete_url);
-		var fields = url.searchParams.getAll("campos[]");
-		var dirs = url.searchParams.getAll("orden[]");
+		var fields = url.searchParams.getAll("orden[campos]");
+		var dirs = url.searchParams.getAll("orden[dirs]");
 		var url_campos = "", url_orden = "";
 		if(element != null){
 			var dir = element.dataset.order;
@@ -158,8 +158,8 @@ function setSort(event, element){
 			}
 		}
 		for(var i = 0; i < fields.length; i++){
-			url_campos = url_campos + "&campos[]=" + fields[i];
-			url_orden = url_orden + "&orden[]=" + dirs[i];
+			url_campos = url_campos + "&orden[campos]=" + fields[i];
+			url_orden = url_orden + "&orden[dirs]=" + dirs[i];
 		}
 		return url_campos + (fields.length > 0 ? url_orden : "")
 	} catch(err) { return "" }
