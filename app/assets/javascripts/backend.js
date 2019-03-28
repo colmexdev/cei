@@ -122,7 +122,7 @@ function setFilter(event, element){
 				url_ops = url_ops + "&filtros[" + field + "][ops]=" + ops[i];
 				url_vals = url_vals + "&filtros[" + field + "][vals]=" + vals[i]; 
 			}
-			return url_fields + (fields.length == 0 ? url_ops + url_vals : "");
+			return url_fields + (fields.length > 0 ? url_ops + url_vals : "");
 		}
 	} catch(err) { return "" }
 }
