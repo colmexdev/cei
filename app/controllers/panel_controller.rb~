@@ -1,6 +1,6 @@
 class PanelController < ApplicationController
   before_action :authenticate_admin!
-  before_action :select_set, only: [:principal, :index, :mostrar, :generar, :crear, :eliminar, :actualizar, :editar]
+  before_action :select_set#, only: [:principal, :index, :mostrar, :generar, :crear, :eliminar, :actualizar, :editar]
   before_action :get_object_fields, only: [:index, :crear, :actualizar, :eliminar, :mostrar]
 
   def principal
@@ -290,6 +290,7 @@ class PanelController < ApplicationController
   def get_object_fields
     @fields = (@sets[params[:set].to_sym][:fields].class.to_s != "Array" ? @sets[params[:set].to_sym][:fields] : @sets[params[:set].to_sym][:fields][0] )
     @imgs = (@sets[params[:set].to_sym][:imgs].class.to_s != "Array" ? @sets[params[:set].to_sym][:imgs] : @sets[params[:set].to_sym][:imgs][0])
+    @models = @sets[params[:set].to_sym][:imgs]
   end
 
   def par_params(pars)
@@ -305,6 +306,7 @@ class PanelController < ApplicationController
   end
 
   def obj_params
+    params.require(@sets[params[:set].to_sym][:model].to_s.downcase.to_sym).permit(@sets[params[:set].to_sym][:model])
     if params[:set] == "Personal administrativo"
       params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
     elsif params[:set] == "Programas académicos"

@@ -290,6 +290,8 @@ class PanelController < ApplicationController
   def get_object_fields
     @fields = (@sets[params[:set].to_sym][:fields].class.to_s != "Array" ? @sets[params[:set].to_sym][:fields] : @sets[params[:set].to_sym][:fields][0] )
     @imgs = (@sets[params[:set].to_sym][:imgs].class.to_s != "Array" ? @sets[params[:set].to_sym][:imgs] : @sets[params[:set].to_sym][:imgs][0])
+    @models = @sets[params[:set].to_sym][:model]
+    logger.debug @fields.keys + @imgs.keys + @imgs.keys.map {|k| k + "_del"}
   end
 
   def par_params(pars)
@@ -305,6 +307,7 @@ class PanelController < ApplicationController
   end
 
   def obj_params
+    #params.require(@models.to_s.downcase.to_sym).permit(@fields.keys + @imgs.keys)
     if params[:set] == "Personal administrativo"
       params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
     elsif params[:set] == "Programas académicos"
