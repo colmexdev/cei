@@ -9,10 +9,10 @@
 <% end %>
 
 <script type="text/javascript">
-	var pars = filteredParams("<%= params[:set] %>");
+/*	var pars = filteredParams("<%= params[:set] %>");
 	for(var i in pars){
 		$("#"+pars[i][0]).on("change",function(){
 			hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,$("#keyword")[0].value,buildQuery(pars));
 		});
-	}
+	}*/
 </script>
