@@ -117,13 +117,13 @@ function setFilter(event, element){
 				ops.splice(ind_o,1);
 				if(vals.length == 0) fields.splice(ind_f,1);
 			}
-			for(var i = 0; i < fields.length; i++) url_fields = url_fields + "&filtros[]=" + encodeURIComponent(fields[i]);
-			for(var i = 0; i < ops.length; i++){
-				url_ops = url_ops + "&filtros[" + field + "][ops]=" + encodeURIComponent(ops[i]);
-				url_vals = url_vals + "&filtros[" + field + "][vals]=" + encodeURIComponent(vals[i]); 
-			}
-			return url_fields + (fields.length > 0 ? url_ops + url_vals : "");
 		}
+		for(var i = 0; i < fields.length; i++) url_fields = url_fields + "&filtros[]=" + encodeURIComponent(fields[i]);
+		for(var i = 0; i < ops.length; i++){
+			url_ops = url_ops + "&filtros[" + field + "][ops]=" + encodeURIComponent(ops[i]);
+			url_vals = url_vals + "&filtros[" + field + "][vals]=" + encodeURIComponent(vals[i]); 
+		}
+		return url_fields + (fields.length > 0 ? url_ops + url_vals : "");
 	} catch(err) { return "" }
 }
 

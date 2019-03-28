@@ -172,6 +172,14 @@ function highlightSort(){
 	for(var i = 0; i < fields.length; i++){
 		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
 	}
+	var c_fields = url.searchParams.getAll("filtros[]");
+	for(var i = 0; i < c_fields.length; i++){
+		var c_ops = url.searchParams.getAll("filtros[" + c_fields[i] + "][ops]");
+		var c_vals = url.searchParams.getAll("filtros[" + c_fields[i] + "][vals]");
+		for(var j = 0; j < c_ops.length; j++){
+			document.querySelector("[data-tipo=filtro][data-field=" + c_fields[i] + "][data-op=" + c_ops[j] + "]").value = c_vals[j];
+		}
+	}
 }
 
 function buildQuery(conds){
