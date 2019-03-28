@@ -9,15 +9,7 @@
 <% end %>
 
 <script type="text/javascript">
-var c_url = new URL(window.complete_url);
-var c_fields = c_url.searchParams.getAll("filtros[]");
-c_fields.forEach(function(field){
-	var c_ops = c_url.searchParams.getAll("filtros[" + field + "][ops]");
-	var c_vals = c_url.searchParams.getAll("filtros[" + field + "][vals]");
-	c_ops.forEach(function(op,i){
-		document.querySelector("[data-tipo=filtro][data-field=" + field + "][data-op=" + op + "]").value = c_vals[i];
-	});
-});
+
 /*	var pars = filteredParams("<%= params[:set] %>");
 	for(var i in pars){
 		$("#"+pars[i][0]).on("change",function(){
