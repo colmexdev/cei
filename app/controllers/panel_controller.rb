@@ -39,7 +39,13 @@ class PanelController < ApplicationController
   end
 
   def index
-    logger.debug request.GET
+    if params.GET.key?(:sort_c) && params.GET.key?(:sort_d)
+      @sort_hash = Hash[request.GET[:sort_c].map {|x| CGI.unescape(x) }.zip(request.GET[:sort_d].map {|x| CGI.unescape(x).to_sym })]
+    end
+    logger.debug @sort_hash
+    @filter_fields = (request.GET.key?(:filt_fo) ? request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) } : [])
+    @filter_ops = (request.GET.key?(:filt_fo) ? request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[1]) } : [])
+    @filter_vals = (reques.GET.key?(:filt_v) ? request.GET[:filt_v].map {|x| CGI.unescape(x) } : [])
     if params[:keyword].present?
       query
       @query = @query + (params[:complement].present? ? (" and " + params[:complement]) : "")
