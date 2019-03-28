@@ -1,8 +1,9 @@
 <input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, null, null, true)"><br>
 
 <% @fields.each do |f| %>
-	<% if @models.columns_hash[f[0].to_s].type == "text" %>
+	<% if @models.columns_hash[f[0].to_s].type %>
 		<input type="text" data-field="<%= f[0].to_s %>" data-op="like" oninput="hideLink(null,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
+		<%= @models.columns_hash[f[0].to_s].type.class %><br>
 	<% else %>
 	<span><%= @models.columns_hash[f[0].to_s].type %></span><br>
 	<% end %>
