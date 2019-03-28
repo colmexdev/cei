@@ -102,11 +102,11 @@ function setFilter(event, element){
 				else {
 					fields.push(encodeURIComponent(field + "*" + op));
 					vals.push(encodeURIComponent(val));
-				} else {
-					var indice = fields.indexOf(encodeURIComponent(field + "*" + op));
-					fields.splice(indice, 1);
-					vals.splice(indice, 1);
-				}
+				} 
+			} else {
+				var indice = fields.indexOf(encodeURIComponent(field + "*" + op));
+				fields.splice(indice, 1);
+				vals.splice(indice, 1);
 			}
 		}
 		for(var i = 0; i < fields.length; i++){

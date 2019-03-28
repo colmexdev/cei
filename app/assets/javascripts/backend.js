@@ -165,7 +165,7 @@ function highlightSort(){
 	var f_fields = url.searchParams.getAll("filter[fo]");
 	var f_vals = url.searchParams.getAll("filter[v]");
 	var fo;
-	for(var i = 0; i < c_fields.length; i++){
+	for(var i = 0; i < f_fields.length; i++){
 		fo = decodeURIComponent(f_fields[i]).split("*");
 		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = decodeURIComponent(f_vals[i]);
 	}
