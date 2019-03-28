@@ -39,6 +39,7 @@ class PanelController < ApplicationController
   end
 
   def index
+    logger.debug params.GET
     if params[:keyword].present?
       query
       @query = @query + (params[:complement].present? ? (" and " + params[:complement]) : "")
@@ -264,24 +265,44 @@ class PanelController < ApplicationController
     @sets = {
       "Personal administrativo": {
         model: Personal,
-        fields: {nombre: "Nombre", extension: "Extensión", correo: "Correo electrónico", area: "Área de tarbajo", servicio: "Servicios"},
+        fields: {nombre: "Nombre", extension: "Extensión", correo: "Correo electrónico", area: "Área de trabajo", servicio: "Servicios"},
         imgs: {},
-        trix: []
+        trix: [],
+        dates: [],
+        numbers: [],
+        p_text: [:nombre, :extension, :correo, :area],
+        textarea: [:servicio],
+        select: {area: [["Centro de Estudios Internacionales", "Centro de Estudios Internacionales"]]}
       }, "Programas académicos": {
         model: Programa,
         fields: {titulo: "Título", descripcion_es: "Descripción (español)", descripcion_en: "Descipición (inglés)", fecha_ic: "Fecha inicio de convocatoria", fecha_fc: "Fecha fin de convocatoria"},
         imgs: {},
-        trix: [:descripcion_es, :descripcion_en]
+        trix: [:descripcion_es, :descripcion_en],
+        dates: [:fecha_ic, :fecha_fc],
+        numbers: [],
+        p_text: [:titulo],
+        textarea: [],
+        select: {}
       }, "Preguntas frecuentes": {
         model: Question,
         fields: {pregunta_es: "Pregunta (español)", pregunta_en: "Pregunta (inglés)", respuesta_es: "Respuesta (español)", respuesta_en: "Respuesta (inglés)", tipo: "Tipo", index: "Índice"},
         imgs: {},
-        trix: [:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en]
+        trix: [:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en],
+        dates: [],
+        numbers: [:index],
+        p_text: [],
+        textarea: [],
+        select: {tipo: [["Licenciatura", "Licenciatura"],["Maestría","Maestría"]]}
       }, "Cursos": {
         model: Curso,
         fields: {titulo: "Título", liga: "Liga externa", imparte: "Impartido por", liga_imparte: "Liga de quien imparte", fecha_ic: "Inicio convocatoria", fecha_fc: "Fin convocatoria", fecha_i: "Fecha de inicio", fecha_f: "Fecha final", descripcion: "Descripción", descripcion_en: "Descripción (inglés)", tipo: "Tipo"},
         imgs: {imagen: "Imagen", documento: "Documento"},
-        trix: [:titulo, :descripcion, :descripcion_en]
+        trix: [:titulo, :descripcion, :descripcion_en],
+        dates: [:fecha_ic, :fecha_fc, :fecha_i, :fecha_f],
+        numbers: [],
+        p_text: [:liga, :imparte, :liga_imparte],
+        textarea: [],
+        select: {tipo: [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]]}
       }
     }
   end
@@ -290,6 +311,12 @@ class PanelController < ApplicationController
     @fields = (@sets[params[:set].to_sym][:fields].class.to_s != "Array" ? @sets[params[:set].to_sym][:fields] : @sets[params[:set].to_sym][:fields][0] )
     @imgs = (@sets[params[:set].to_sym][:imgs].class.to_s != "Array" ? @sets[params[:set].to_sym][:imgs] : @sets[params[:set].to_sym][:imgs][0])
     @models = @sets[params[:set].to_sym][:model]
+    @dates = @sets[params[:set].to_sym][:dates]
+    @trix = @sets[params[:set].to_sym][:trix]
+    @numbers = @sets[params[:set].to_sym][:numbers]
+    @plains = @sets[params[:set].to_sym][:p_text]
+    @textareas = @sets[params[:set].to_sym][:textarea]
+    @selects = @sets[params[:set].to_sym][:select]
   end
 
   def par_params(pars)
