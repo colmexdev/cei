@@ -291,7 +291,7 @@ class PanelController < ApplicationController
     @fields = (@sets[params[:set].to_sym][:fields].class.to_s != "Array" ? @sets[params[:set].to_sym][:fields] : @sets[params[:set].to_sym][:fields][0] )
     @imgs = (@sets[params[:set].to_sym][:imgs].class.to_s != "Array" ? @sets[params[:set].to_sym][:imgs] : @sets[params[:set].to_sym][:imgs][0])
     @models = @sets[params[:set].to_sym][:model]
-    logger.debug @fields.keys + @imgs.keys + @imgs.keys.map {|k| k + "_del"}
+    logger.debug @fields.keys + @imgs.keys + @imgs.keys.map {|k| (k.to_s + "_del").to_sym}
   end
 
   def par_params(pars)
@@ -307,15 +307,16 @@ class PanelController < ApplicationController
   end
 
   def obj_params
-    #params.require(@models.to_s.downcase.to_sym).permit(@fields.keys + @imgs.keys)
-    if params[:set] == "Personal administrativo"
-      params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
-    elsif params[:set] == "Programas académicos"
-      params.require(:programa).permit(:titulo, :descripcion_es, :descripcion_en, :fecha_ic, :fecha_fc)
-    elsif params[:set] == "Preguntas frecuentes"
-      params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
-    elsif params[:set] == "Cursos"
-      params.require(:curso).permit(:titulo, :imparte, :documento, :liga, :tipo, :liga_imparte, :fecha_i, :fecha_f, :fecha_ic, :fecha_fc, :descripcion, :descripcion_en, :imagen, :imagen_del, :documento_del)
-    end
+    campos = @fields.keys + @imgs.keys + @imgs.keys.map {|k| (k.to_s + "_del").to_sym}
+    params.require(@models.to_s.downcase.to_sym).permit(campos)
+    #if params[:set] == "Personal administrativo"
+    #  params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
+    #elsif params[:set] == "Programas académicos"
+    #  params.require(:programa).permit(:titulo, :descripcion_es, :descripcion_en, :fecha_ic, :fecha_fc)
+    #elsif params[:set] == "Preguntas frecuentes"
+    #  params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
+    #elsif params[:set] == "Cursos"
+    #  params.require(:curso).permit(:titulo, :imparte, :documento, :liga, :tipo, :liga_imparte, :fecha_i, :fecha_f, :fecha_ic, :fecha_fc, :descripcion, :descripcion_en, :imagen, :imagen_del, :documento_del)
+    #end
   end
 end
