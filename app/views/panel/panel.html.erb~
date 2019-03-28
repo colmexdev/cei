@@ -27,62 +27,14 @@
 	<div class="body-gest">
 		<div id="menu-lat">
 			<ul id="ops-lat">
+<% @sets.keys.each do |k| %>
 				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Cursos", :offset => 0) %>')">Cursos</a>
+				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => k.to_s, :offset => 0) %>')"><%= k.to_s %></a>
 				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Personal administrativo", :offset => 0) %>')">Personal administrativo</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Preguntas frecuentes", :offset => 0) %>')">Preguntas frecuentes</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Programas académicos", :offset => 0) %>')">Programas académicos</a>
-				</li>
+<% end %>
+
 
 <% if false %>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Sliders", :offset => 0) %>')">Sliders</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Colaboradores", :offset => 0) %>')">Colaboradores</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Patrocinadores", :offset => 0) %>')">Patrocinadores</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Proyectos de investigación", :offset => 0) %>')">Proyectos de investigación</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Sesiones de seminario", :offset => 0) %>')">Sesiones de seminario</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Taller", :offset => 0) %>')">Taller</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Documentos de investigación", :offset => 0) %>')">Documentos de investigación</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Noticias de investigación", :offset => 0) %>')">Noticias de investigación</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Entrada de blog", :offset => 0) %>')">Entrada de blog</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Libros", :offset => 0) %>')">Libros</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Consultas bibliográficas", :offset => 0) %>')">Consultas bibliográficas</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Noticias", :offset => 0) %>')">Noticias</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Videos", :offset => 0) %>')">Videos</a>
-				</li>
-				<li class="op-gest">
-				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Aliados", :offset => 0) %>')">Aliados</a>
-				</li>
 				<li class="op-gest">
 				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => "Usuarios gestores", :offset => 0) %>')">Usuarios gestores</a>
 				</li>
@@ -97,7 +49,6 @@
 		</div>
 		<div id="graphs-gest">
 		<p id="notice"><%= notice %></p>
-
 		</div>
 
 	</div>
