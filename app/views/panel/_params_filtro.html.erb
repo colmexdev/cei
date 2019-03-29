@@ -3,7 +3,15 @@
 <% @fields.each do |f| %>
 	<label><%= f[1] %></label><br>
 	<% if @models.columns_hash[f[0].to_s].type == :text %>
-		<input type="text" autocomplete="off" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="like" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
+		<% if !@selects.key?(f[0]) %>
+			<input type="text" autocomplete="off" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="like" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
+		<% else %>
+			<select data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="eq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)">
+				<% @selects[f[0]].each do |s| %>
+					<option value="<%= s[0] %>"><%= s[1] %></option>
+				<% end %>
+			</select>
+		<% end %>
 	<% elsif @models.columns_hash[f[0].to_s].type == :date %>
 		<input type="text" autocomplete="off" class="fechas" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="leq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
 		<input type="text" autocomplete="off" class="fechas" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="geq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, this, null, true)"><br>
