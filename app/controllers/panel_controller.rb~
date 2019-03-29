@@ -48,7 +48,7 @@ class PanelController < ApplicationController
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = request.GET[:filt_v].map {|x| CGI.unescape(x) }
-      @filter_query = campos.zip(ops,vals)
+      @filter_query = campos.zip(ops,vals).map {|a| a[0] + a[1] + (a[1] == " like " ? ("'%" + a[2] + "%'") : a[2]) }.join(" AND ")
       logger.debug @filter_query
     end
 

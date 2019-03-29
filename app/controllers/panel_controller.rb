@@ -39,6 +39,7 @@ class PanelController < ApplicationController
   end
 
   def index
+    @sort_hash = "", @filter_query = ""
     if request.GET.key?(:sort_c) && request.GET.key?(:sort_d)
       @sort_hash = Hash[request.GET[:sort_c].map {|x| CGI.unescape(x) }.zip(request.GET[:sort_d].map {|x| CGI.unescape(x).to_sym })]
       logger.debug @sort_hash
@@ -48,7 +49,7 @@ class PanelController < ApplicationController
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = request.GET[:filt_v].map {|x| CGI.unescape(x) }
-      @filter_query = campos.zip(ops,vals).map {|a| a[0] + a[1] + (a[1] == " like " ? ('%' + a[2] + '%') : a[2]) }.join(" AND ")
+      @filter_query = campos.zip(ops,vals).map {|a| a[0] + a[1] + (a[1] == " like " ? ("'%" + a[2] + "%'") : a[2]) }.join(" AND ")
       logger.debug @filter_query
     end
 
@@ -60,8 +61,8 @@ class PanelController < ApplicationController
     end
     @rpp = 10
     @mod = (@models.class.to_s != "Array" ? @models : @models[0])
-    @count = @mod.where(@query.present? ? @query : "").count
-    @set = @mod.where(@query.present? ? @query : "").order(updated_at: :desc).limit(@rpp).offset(params[:offset].to_i*@rpp)
+    @count = @mod.where(@filter_query).count
+    @set = @mod.where(@filter_query).order(@sort_hash).limit(@rpp).offset(params[:offset].to_i*@rpp)
 
     @pags = (@count == 0 ? 0 : ((@count / @rpp) + (@count % @rpp == 0 ? 0 : 1) ))
     respond_to do |format|
