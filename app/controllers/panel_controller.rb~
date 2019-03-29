@@ -39,12 +39,11 @@ class PanelController < ApplicationController
   end
 
   def index
-    @sort_hash = "", @filter_query = ""
-    logger.debug request.POST
-    if request.GET.key?(:sort_c) && request.GET.key?(:sort_d)
+    @sort_hash = "", @filter_query = "", @params = (!request.POST.nil? : request.POST : request.GET)
+    if @params.key?(:sort_c) && @params.key?(:sort_d)
       @sort_hash = Hash[request.GET[:sort_c].map {|x| CGI.unescape(x) }.zip(request.GET[:sort_d].map {|x| CGI.unescape(x).to_sym })]
     end
-    if request.GET.key?(:filt_fo) && request.GET.key?(:filt_v)
+    if @params.key?(:filt_fo) && @params.key?(:filt_v)
       operadores = {"like": " like ", "leq": " <= ", "geq": " >= ", "eq": " = "}
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
