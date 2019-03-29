@@ -43,7 +43,6 @@ class PanelController < ApplicationController
     if params.key?(:sort_c) && params.key?(:sort_d)
       @sort_hash = Hash[params[:sort_c].map {|x| CGI.unescape(x) }.zip(params[:sort_d].map {|x| CGI.unescape(x).to_sym })]
     end
-    logger.debug @sort_hash
     if params.key?(:filt_fo) && params.key?(:filt_v)
       operadores = {"like": " like ", "leq": " <= ", "geq": " >= ", "eq": " = "}
       campos = params[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }

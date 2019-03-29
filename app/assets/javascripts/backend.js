@@ -145,7 +145,7 @@ function setSort(event, element){
 					fields.push(encodeURIComponent(field));
 					dirs.push(encodeURIComponent(dir));
 				} else {
-					dirs[fields.indexOf(field)] = dir;
+					dirs[fields.indexOf(field)] = encodeURIComponent(dir);
 				}
 			}	else {
 				if(fields.indexOf(field) != -1){
@@ -191,7 +191,7 @@ function highlightSort(){
 	var fo;
 	for(var i = 0; i < f_fields.length; i++){
 		fo = decodeURIComponent(f_fields[i]).split("*");
-		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = decodeURIComponent(f_vals[i].replace(/\\\\/g,"\\"));
+		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = decodeURIComponent(f_vals[i]).replace(/\\\\/g,"\\");
 	}
 	var offset = url.searchParams.get("offset");
 	document.querySelector("[data-tipo=pag][data-pag=" + offset + "]").classList.add("active");
