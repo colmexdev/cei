@@ -101,7 +101,7 @@ function setFilter(event, element){
 				if(fields.indexOf(encodeURIComponent(field + "*" + op)) != -1) vals[fields.indexOf(encodeURIComponent(field + "*" + op))] = encodeURIComponent(val);
 				else {
 					fields.push(encodeURIComponent(field + "*" + op));
-					vals.push(encodeURIComponent(val));
+					vals.push(encodeURIComponent(val.replace(/\\/g,"\\\\")));
 				} 
 			} else {
 				var indice = fields.indexOf(encodeURIComponent(field + "*" + op));
@@ -110,8 +110,8 @@ function setFilter(event, element){
 			}
 		}
 		for(var i = 0; i < fields.length; i++){
-			url_fields = url_fields + "&filt_fo[]=" + encodeURIComponent(fields[i]);
-			url_vals = url_vals + "&filt_v[]=" + encodeURIComponent(vals[i].replace(/\\/g,"\\\\"));
+			url_fields = url_fields + "&filt_fo[]=" + fields[i];
+			url_vals = url_vals + "&filt_v[]=" + vals[i];
 		}
 		return url_fields + (fields.length > 0 ? url_vals : "");
 	} catch(err) { return "" }
