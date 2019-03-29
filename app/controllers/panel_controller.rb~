@@ -86,7 +86,7 @@ class PanelController < ApplicationController
   def crear
     @obj = @sets[params[:set].to_sym][:model].new(obj_params)
 	  @sets[params[:set].to_sym][:trix].each do |t|
-      @obj[t] = (@obj[t].nil? ? "" : @obj[t].gsub(/<!-- block -->/,"")
+      @obj[t] = (@obj[t].nil? ? "" : @obj[t].gsub(/<!-- block -->/,""))
     end
     respond_to do |format|
       if @obj.save
