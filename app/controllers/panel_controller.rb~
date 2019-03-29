@@ -48,7 +48,7 @@ class PanelController < ApplicationController
       campos = params[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = params[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = params[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
-      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase.gsub(/%/,'\\%').gsub(/_/,'\\_') + "%'") : (a[1] == " = " ? ("'" + a[2].downcase + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
+      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase.gsub(/\\/,"\\\\").gsub(/%/,'\\%').gsub(/_/,'\\_') + "%'") : (a[1] == " = " ? ("'" + a[2].downcase + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
       logger.debug vals
     end
     if params[:keyword].present?
