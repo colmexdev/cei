@@ -68,7 +68,7 @@ function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
 		var url_params = new URL(window.complete_url).searchParams;
 		$.post(
 			window.complete_url.split("?")[0],
-			{"offset": url_params.get("offset") || 0, "locale": url_params.get("locale"), "sort_c[]": url_params.getAll("sort_c[]"), "sort_d[]": url_params.getAll("sort_d[]"), "filt_fo[]": url_params.getAll("filt_fo[]"), "filt_v[]": url_params.getAll("filt_v[]")},
+			{"offset": url_params.get("offset") || 0, "locale": url_params.get("locale"), "set": url_params.get("set") || "", "sort_c[]": url_params.getAll("sort_c[]"), "sort_d[]": url_params.getAll("sort_d[]"), "filt_fo[]": url_params.getAll("filt_fo[]"), "filt_v[]": url_params.getAll("filt_v[]")},
 			function(data) {alert("Algo pasa"); }
 		);
 	} else { $("#vlink").trigger("click"); }
