@@ -65,9 +65,10 @@ function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
 	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method =="PUT" ? ('data-method="' + method + '"') : "data-remote=true")) + ' href="' + link + query_sort + (keyword != null ? '&keyword=' + keyword : "") + query_filter +'" style="display:none;" id="vlink"></a>');
 	window.complete_url = "https://ceitest.colmex.mx" + $("#vlink").attr("href");
 	if(method.toUpperCase() == "POST"){
+		var url_params = new URL(window.complete_url).searchParams;
 		$.post(
 			window.complete_url.split("?")[0],
-			{hola: "Hola"},
+			{"sort_c[]": url_params.getAll("sort_c[]"), "sort_d[]": url_params.getAll("sort_d[]"), "filt_fo[]": url_params.getAll("filt_fo[]"), "filt_v[]": url_params.getAll("filt_v[]")},
 			function(data) {alert("Algo pasa"); }
 		);
 	} else { $("#vlink").trigger("click"); }
