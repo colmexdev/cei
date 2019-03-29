@@ -340,7 +340,8 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		color: rgb(94, 0, 43);
 	}
 
-	.span-lay { font-size: 9px; }
+	.span-canvas { font-size: 25px; }
+	.span-lay { font-size: 12px; }
 }
 
 .clickable-g{
