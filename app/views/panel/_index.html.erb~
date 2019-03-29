@@ -51,7 +51,7 @@
 	<% end %>
 
 <% @pags.times do |i| %>
-	<span class="numeros" data-pag="<%= i + 1 %>" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: i) %>','POST',document.getElementById('keyword').value,null,null,true)"><%= i + 1 %></span>
+	<span class="numeros" data-tipo="pag" data-pag="<%= i + 1 %>" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: i) %>','POST',document.getElementById('keyword').value,null,null,true)"><%= i + 1 %></span>
 <% end %>
 
 	<% if @pags > 1 %>
