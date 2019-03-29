@@ -72,19 +72,6 @@
 
 .flechas-num { color: #CC4E78; }
 
-.numeros {
-	font-family: "Gotham SSm A", "Gotham SSm B", Lato, sans-serif;
-	font-size: 26px;
-	color: #909090;
-	-webkit-transition: all 0.3s linear;
-	-moz-transition: all 0.3s linear;
-	-ms-transition: all 0.3s linear;
-	-o-transition: all 0.3s linear;
-	transition: all 0.3s linear;
-}
-
-.numeros:hover, .numeros.active { color: #B03856 }
-
 #filtro-inic{
 	text-align: center;
 	padding-left: 0;

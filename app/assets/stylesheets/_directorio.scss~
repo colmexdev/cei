@@ -59,7 +59,7 @@
 
 .letra:hover, .letra.active { color: #B03856; }
 
-.numeros-cont{
+.numeros-div{
 	margin: 0 5px;
 	display: inline-block;
 	cursor: pointer;

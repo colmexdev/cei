@@ -342,6 +342,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 
 	.span-canvas { font-size: 21px; }
 	.span-lay { font-size: 9px; }
+	.span-lay-c { font-size: 15px; }
 }
 
 .clickable-g{

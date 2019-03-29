@@ -13,7 +13,7 @@
   <thead>
     <tr id="header-ind">
 			<% @fields.values.each_with_index do |f,i| %>
-			<td class="head-ind"><%= f %><br><span class="span-cursor" data-field="<%= @fields.keys[i].to_s %>" data-order="asc" title="Ordenar de manera ascendente" onclick="<%= "hideLink(event,'#index-panel','#{panel_index_path(set: params[:set], offset: params[:offset].to_i)}',null,document.getElementById('keyword').value,null,this,true)" %>"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span> <span class="span-cursor" title="Ordenar de manera descendente" data-field="<%= @fields.keys[i].to_s %>" data-order="desc"  onclick="<%= "hideLink(event,'#index-panel','#{panel_index_path(set: params[:set], offset: params[:offset].to_i)}',null,document.getElementById('keyword').value,null,this,true)" %>"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></span><span class="fa-stack span-cursor span-oculto" title="No ordenar" data-field="<%= @fields.keys[i].to_s %>" data-order="nil"  onclick="<%= "hideLink(event,'#index-panel','#{panel_index_path(set: params[:set], offset: params[:offset].to_i)}',null,document.getElementById('keyword').value,null,this,true)" %>"><i class="fa fa-stack-1x fa-square span-canvas" aria-hidden="true"></i><i class="fa fa-stack-1x fa-times fa-inverse span-lay" aria-hidden="true"></i></span></td>
+			<td class="head-ind"><%= f %><br><span class="span-cursor" data-field="<%= @fields.keys[i].to_s %>" data-order="asc" title="Ordenar de manera ascendente" onclick="<%= "hideLink(event,'#index-panel','#{panel_index_post_path(set: params[:set], offset: params[:offset].to_i)}','POST',document.getElementById('keyword').value,null,this,true)" %>"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span> <span class="span-cursor" title="Ordenar de manera descendente" data-field="<%= @fields.keys[i].to_s %>" data-order="desc"  onclick="<%= "hideLink(event,'#index-panel','#{panel_index_post_path(set: params[:set], offset: params[:offset].to_i)}','POST',document.getElementById('keyword').value,null,this,true)" %>"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></span><span class="fa-stack span-cursor span-oculto" title="No ordenar" data-field="<%= @fields.keys[i].to_s %>" data-order="nil"  onclick="<%= "hideLink(event,'#index-panel','#{panel_index_post_path(set: params[:set], offset: params[:offset].to_i)}','POST',document.getElementById('keyword').value,null,this,true)" %>"><i class="fa fa-stack-1x fa-square span-canvas" aria-hidden="true"></i><i class="fa fa-stack-1x fa-times fa-inverse span-lay-c" aria-hidden="true"></i></span></td>
 			<% end %>
 			<% @imgs.values.each do |f| %>
 			<td class="head-ind"><%= f %></td>
@@ -45,19 +45,17 @@
 
 <br>
 <div style="margin-bottom:25px;text-align:center;font-size:18px;font-weight:500;">
-<% ind = 0 %>
 
 	<% if @pags > 1 %>
-		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != 0 ? "pointer" : "default" %>;" <%= params[:offset].to_i != 0 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i - 1) + "',null,document.getElementById('keyword').value,null,null,true)") : "" %>><i class="fa fa-angle-left"></i></span>
+		<span class="numeros" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: params[:offset].to_i - 1) &>','POST',document.getElementById('keyword').value,null,null,true)"><i class="fa fa-angle-left"></i></span>
 	<% end %>
 
-<% while ind < @pags %>
-	<span class="numeros" style="margin:0 4px;cursor:pointer;<%= params[:offset].to_i == ind ? "color:rgb(153, 51, 102);" : "" %>" onclick="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: ind) %>',null,document.getElementById('keyword').value,null,null,true)"><%= ind + 1 %></span>
-	<% ind = ind + 1 %>
+<% @pags.times do |i| %>
+	<span class="numeros" data-pag="<%= i + 1 %>" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: i) %>','POST',document.getElementById('keyword').value,null,null,true)"><%= i + 1 %></span>
 <% end %>
 
 	<% if @pags > 1 %>
-		<span class="numeros" style="margin:0 4px;cursor:<%= params[:offset].to_i != @pags - 1 ? "pointer" : "default" %>;" <%= params[:offset].to_i != @pags - 1 ? ("onclick=hideLink(event,'#index-panel','" + panel_index_path(set: params[:set], offset: params[:offset].to_i + 1) + "',null,document.getElementById('keyword').value,null,null,true)") : "" %>><i class="fa fa-angle-right"></i></span>
+		<span class="numeros" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: params[:offset].to_i + 1) %>','POST',document.getElementById('keyword').value,null,null,true);"><i class="fa fa-angle-right"></i></span>
 	<% end %>
 </div>
 <% if false %>

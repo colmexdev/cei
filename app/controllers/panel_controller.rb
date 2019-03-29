@@ -1,6 +1,6 @@
 class PanelController < ApplicationController
   before_action :authenticate_admin!
-  before_action :select_set#, only: [:principal, :index, :mostrar, :generar, :crear, :eliminar, :actualizar, :editar]
+  before_action :select_set
   before_action :get_object_fields, only: [:index, :crear, :actualizar, :eliminar, :mostrar]
 
   def principal
@@ -40,6 +40,7 @@ class PanelController < ApplicationController
 
   def index
     @sort_hash = "", @filter_query = ""
+    logger.debug request.POST
     if request.GET.key?(:sort_c) && request.GET.key?(:sort_d)
       @sort_hash = Hash[request.GET[:sort_c].map {|x| CGI.unescape(x) }.zip(request.GET[:sort_d].map {|x| CGI.unescape(x).to_sym })]
     end
@@ -48,7 +49,7 @@ class PanelController < ApplicationController
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = request.GET[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
-      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase + "%'") : (a[1] == " = " ? ("'" + a[2].downcase + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
+      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase.gsub(/%/,"\\%") + "%'") : (a[1] == " = " ? ("'" + a[2].downcase + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
       logger.debug(@filter_query)
     end
     if params[:keyword].present?
