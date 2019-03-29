@@ -324,14 +324,23 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	.span-cursor{
 		padding: 0 4px;
 		cursor: pointer;
-		-webkit-transition: color 0.3s linear;
-		-moz-transition: color 0.3s linear;
-		-ms-transition: color 0.3s linear;
-		-o-transition: color 0.3s linear;
-		transition: color 0.3s linear;
+		-webkit-transition: color 0.1s linear;
+		-moz-transition: color 0.1s linear;
+		-ms-transition: color 0.1s linear;
+		-o-transition: color 0.1s linear;
+		transition: color 0.1s linear;
 		
 		&:hover, &.active { color: rgba(158, 102, 128, 0.9); }
 	}
+
+  .span-oculto { display: none; }
+	.span-auto{
+		padding: 0 4px;
+		cursor: pointer;
+		color: rgb(94, 0, 43);
+	}
+
+	.span-lay { font-size: 10px; }
 }
 
 .clickable-g{

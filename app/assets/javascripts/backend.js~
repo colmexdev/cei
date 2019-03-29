@@ -90,8 +90,8 @@ function setFilter(event, element){
 	element = element || null;
 	try{
 		var url = new URL(window.complete_url);
-		var fields = url.searchParams.getAll("filter[fo]");
-		var vals = url.searchParams.getAll("filter[v]");
+		var fields = url.searchParams.getAll("filt_fo[]");
+		var vals = url.searchParams.getAll("filt_v[]");
 		var url_fields = "", url_vals = "";
 		if(element != null){
 			var field = element.dataset.field;
@@ -110,8 +110,8 @@ function setFilter(event, element){
 			}
 		}
 		for(var i = 0; i < fields.length; i++){
-			url_fields = url_fields + "&filter[fo]=" + encodeURIComponent(fields[i]);
-			url_vals = url_vals + "&filter[v]=" + encodeURIComponent(vals[i]);
+			url_fields = url_fields + "&filt_fo[]=" + encodeURIComponent(fields[i]);
+			url_vals = url_vals + "&filt_v[]=" + encodeURIComponent(vals[i]);
 		}
 		return url_fields + (fields.length > 0 ? url_vals : "");
 	} catch(err) { return "" }
@@ -121,8 +121,8 @@ function setSort(event, element){
 	element = element || null;
 	try{
 		var url = new URL(window.complete_url);
-		var fields = url.searchParams.getAll("sort[c]");
-		var dirs = url.searchParams.getAll("sort[d]");
+		var fields = url.searchParams.getAll("sort_c[]");
+		var dirs = url.searchParams.getAll("sort_d[]");
 		var url_campos = "", url_orden = "";
 		if(element != null){
 			var dir = element.dataset.order;
@@ -148,8 +148,8 @@ function setSort(event, element){
 			}
 		}
 		for(var i = 0; i < fields.length; i++){
-			url_campos = url_campos + "&sort[c]=" + encodeURIComponent(fields[i]);
-			url_orden = url_orden + "&sort[d]=" + encodeURIComponent(dirs[i]);
+			url_campos = url_campos + "&sort_c[]=" + encodeURIComponent(fields[i]);
+			url_orden = url_orden + "&sort_d[]=" + encodeURIComponent(dirs[i]);
 		}
 		return url_campos + (fields.length > 0 ? url_orden : "")
 	} catch(err) { return "" }
@@ -157,13 +157,13 @@ function setSort(event, element){
 
 function highlightSort(){
 	var url = new URL(window.complete_url);
-	var fields = url.searchParams.getAll("sort[c]");
-	var dirs = url.searchParams.getAll("sort[d]");
+	var fields = url.searchParams.getAll("sort_c[]");
+	var dirs = url.searchParams.getAll("sort_d[]");
 	for(var i = 0; i < fields.length; i++){
 		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
 	}
-	var f_fields = url.searchParams.getAll("filter[fo]");
-	var f_vals = url.searchParams.getAll("filter[v]");
+	var f_fields = url.searchParams.getAll("filt_fo[]");
+	var f_vals = url.searchParams.getAll("filt_v[]");
 	var fo;
 	for(var i = 0; i < f_fields.length; i++){
 		fo = decodeURIComponent(f_fields[i]).split("*");
