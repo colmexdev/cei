@@ -63,11 +63,11 @@ function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
 		event.preventDefault();
 	window.complete_url = "https://ceitest.colmex.mx" + $("#vlink").attr("href");
 	if(method.toUpperCase() == "POST"){
-		$.post({
+		$.post(
 			window.complete_url.split("?")[0],
 			{hola: "Hola"},
 			function(data) {alert("Algo pasa"); }
-		});
+		);
 	}
 	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method =="PUT" ? ('data-method="' + method + '"') : "data-remote=true")) + ' href="' + link + query_sort + (keyword != null ? '&keyword=' + keyword : "") + query_filter +'" style="display:none;" id="vlink"></a>');
 	$("#vlink").trigger("click");
