@@ -319,8 +319,6 @@ class PanelController < ApplicationController
   end
 
   def get_object_fields
-    logger.debug request.GET
-    logger.debug request.POST
     @fields = (@sets[params[:set].to_sym][:fields].class.to_s != "Array" ? @sets[params[:set].to_sym][:fields] : @sets[params[:set].to_sym][:fields][0] )
     @imgs = (@sets[params[:set].to_sym][:imgs].class.to_s != "Array" ? @sets[params[:set].to_sym][:imgs] : @sets[params[:set].to_sym][:imgs][0])
     @models = @sets[params[:set].to_sym][:model]
