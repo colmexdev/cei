@@ -340,7 +340,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		color: rgb(94, 0, 43);
 	}
 
-	.span-canvas { font-size: 20px; }
+	.span-canvas { font-size: 21px; }
 	.span-lay { font-size: 9px; }
 }
 
