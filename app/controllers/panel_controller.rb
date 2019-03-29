@@ -40,7 +40,7 @@ class PanelController < ApplicationController
 
   def index
     @sort_hash = "", @filter_query = "", @params = (!request.POST.nil? ? request.POST : request.GET)
-    logger.debug request.request_params
+    logger.debug request.request_parameters
     logger.debug request.GET
     if @params.key?(:sort_c) && @params.key?(:sort_d)
       @sort_hash = Hash[@params[:sort_c].map {|x| CGI.unescape(x) }.zip(@params[:sort_d].map {|x| CGI.unescape(x).to_sym })]
