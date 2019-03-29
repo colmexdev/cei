@@ -48,7 +48,7 @@ class PanelController < ApplicationController
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = request.GET[:filt_v].map {|x| CGI.unescape(x) }
-      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(lower(" + a[0] + "))") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2] + "%'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2])) }.join(" AND ")
+      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(lower(" + a[0] + "))") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].gsub("'","''") + "%'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2])) }.join(" AND ")
       logger.debug(@filter_query)
     end
     if params[:keyword].present?
