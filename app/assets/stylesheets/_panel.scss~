@@ -336,11 +336,11 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
   .span-oculto { display: none; }
 	.span-auto{
 		padding: 0 4px;
-		cursor: pointer;
+		cursor: default;
 		color: rgb(94, 0, 43);
 	}
 
-	.span-lay { font-size: 10px; }
+	.span-lay { font-size: 9px; }
 }
 
 .clickable-g{

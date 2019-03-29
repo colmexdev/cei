@@ -167,11 +167,12 @@ function highlightSort(){
 		s2 = document.createElement("i");
 		texto = document.createTextNode(i + 1);
 		span_n.classList.add("fa-stack", "span-auto");
-		s1.classList.add("fa", "fa-stack-1x", "fa-circle");
-		s2.classList.add("fa", "fa-stack-1x", "span-lay");
+		s1.classList.add("fa", "fa-stack-1x", "fa-circle", "span-canvas");
+		s2.classList.add("fa", "fa-stack-1x", "span-lay", "fa-inverse");
 		s2.append(texto);
 		span_n.append(s1);
 		span_n.append(s2);
+		span_n.setAttribute("title", "Prioridad " + (i + 1) + " en el ordenamiento");
 		sort_s = document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]");
 		sort_s.classList.add("active");
 		document.querySelector("[data-field=" + fields[i] + "][data-order=nil]").classList.remove("span-oculto");

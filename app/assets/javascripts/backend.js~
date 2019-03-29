@@ -159,8 +159,23 @@ function highlightSort(){
 	var url = new URL(window.complete_url);
 	var fields = url.searchParams.getAll("sort_c[]");
 	var dirs = url.searchParams.getAll("sort_d[]");
+	var sort_s, texto;
+	var span_n, s1, s2;
 	for(var i = 0; i < fields.length; i++){
-		document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]").classList.add("active");
+		span_n = document.createElement("span");
+		s1 = document.createElement("i");
+		s2 = document.createElement("i");
+		texto = document.createTextNode(i + 1);
+		span_n.classList.add("fa-stack", "span-auto");
+		s1.classList.add("fa", "fa-stack-1x", "fa-circle", "span-canvas");
+		s2.classList.add("fa", "fa-stack-1x", "span-lay", "fa-inverse");
+		s2.append(texto);
+		span_n.append(s1);
+		span_n.append(s2);
+		sort_s = document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]");
+		sort_s.classList.add("active");
+		document.querySelector("[data-field=" + fields[i] + "][data-order=nil]").classList.remove("span-oculto");
+		sort_s.parentNode.append(span_n); 
 	}
 	var f_fields = url.searchParams.getAll("filt_fo[]");
 	var f_vals = url.searchParams.getAll("filt_v[]");
