@@ -61,7 +61,7 @@ function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
 	var query_sort = (in_index ? setSort(event, sort_el) : "");
   if(event != null)
 		event.preventDefault();
-	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method == "PUT" ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="' + link + query_sort + (keyword != null ? '&keyword=' + keyword : "") + query_filter +'" style="display:none;" id="vlink"></a>');
+	$(element).append('<a ' + (method == "DELETE" ? ('data-method="'+method+'" rel="nofollow" data-remote=true data-confirm="¿Seguro que desea eliminar el objeto?"') : (method != null ? ('data-method="'+method+'"') : "data-remote=true")) + ' href="' + link + query_sort + (keyword != null ? '&keyword=' + keyword : "") + query_filter +'" style="display:none;" id="vlink"></a>');
 	window.complete_url = "https://ceitest.colmex.mx" + $("#vlink").attr("href");
 	$("#vlink").trigger("click");
 	$("#vlink").remove();
@@ -176,7 +176,7 @@ function highlightSort(){
 		sort_s = document.querySelector("[data-field=" + fields[i] + "][data-order=" + dirs[i] + "]");
 		sort_s.classList.add("active");
 		document.querySelector("[data-field=" + fields[i] + "][data-order=nil]").classList.remove("span-oculto");
-		sort_s.parentNode.append(span_n); 
+		sort_s.parentNode.append(span_n);
 	}
 	var f_fields = url.searchParams.getAll("filt_fo[]");
 	var f_vals = url.searchParams.getAll("filt_v[]");
@@ -199,20 +199,6 @@ function buildQuery(conds){
 		}
 	}
 	return [query,url_params];
-}
-
-// 0 : Cadena (total)
-// 1 : Cadena (parcial)
-// 2 : Número
-// 3 : Fecha
-function filteredParams(set){
-	if(set == "Descubre") return [["contenido","=",0]];
-	else if(set == "Programas docentes") return [["programa","=",0]];
-	else if(set == "Directorio de Autoridades") return [["seccion","=",0]];
-	else if(set == "Documentos varios") return [["tipo","=",0]];
-	else if(set == "Cátedras y seminarios") return [["tipo","=",0]];
-	else if(set == "Directorio académico") return [["adscripcion","=",0]];
-	else return [];
 }
 
 /* Función para eliminar el contenido multimedia previsualizado */

@@ -47,7 +47,7 @@ class PanelController < ApplicationController
       operadores = {"like": " like ", "leq": " <= ", "geq": " >= ", "eq": " = "}
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
-      vals = request.GET[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
+      vals = request.GET[:filt_v].map {|x| CGI.unescape(x).gsub("'","''").gsub("\\","\\\\") }
       @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase + "%'") : (a[1] == " = " ? ("'" + a[2].downcase + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
       logger.debug(@filter_query)
     end
@@ -86,7 +86,7 @@ class PanelController < ApplicationController
   def crear
     @obj = @sets[params[:set].to_sym][:model].new(obj_params)
 	  @sets[params[:set].to_sym][:trix].each do |t|
-      @obj[t] = (@obj[t].nil? ? "" : @obj[t].gsub(/<br><\/div>/,"</div>").gsub(/<br>(<br>)+/,"<br>").gsub(/<br>/,"</p><p>").gsub(/<div>/,"<p>").gsub(/<\/div>/,"</p>"))
+      @obj[t] = (@obj[t].nil? ? "" : @obj[t])
     end
     respond_to do |format|
       if @obj.save
@@ -122,7 +122,7 @@ class PanelController < ApplicationController
     if @sets[params[:set].to_sym][:model].class.to_s != "Array"
       @obj = @sets[params[:set].to_sym][:model].find(params[:id])
 			@sets[params[:set].to_sym][:trix].each do |t|
-        @obj[t] = (@obj[t].nil? ? "" : @obj[t].gsub(/<p>/,"<div>").gsub(/<\/p>/,"</div>").gsub(/<\/div><div>/,"<br>"))
+        @obj[t] = (@obj[t].nil? ? "" : @obj[t])
       end
     elsif params[:set] == "Contenido de sitios"
       @obj = Sitio.find(params[:id])
@@ -143,7 +143,7 @@ class PanelController < ApplicationController
     @obj = @sets[params[:set].to_sym][:model].find(params[:id])
     if params[:set] != "Contenido de sitios"
       @sets[params[:set].to_sym][:trix].each do |t|
-        obj_params[t] = obj_params[t].gsub(/<br><\/div>/,"</div>").gsub(/<br>(<br>)+/,"<br>").gsub(/<br>/,"</p><p>").gsub(/<div>/,"<p>").gsub(/<\/div>/,"</p>")
+        obj_params[t] = obj_params[t]
       end
     end
     respond_to do |format|
