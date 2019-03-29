@@ -57,6 +57,7 @@ function hideLink(event,element,link,method,keyword,filter_el,sort_el,in_index){
 	event = event || null;
 	sort_el = sort_el || null;
 	in_index = in_index || false;
+	method = method || "";
 	var query_filter = (in_index ? setFilter(event, filter_el) : "");
 	var query_sort = (in_index ? setSort(event, sort_el) : "");
   if(event != null)
