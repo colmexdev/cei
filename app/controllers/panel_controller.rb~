@@ -43,12 +43,11 @@ class PanelController < ApplicationController
     if params.key?(:sort_c) && params.key?(:sort_d)
       @sort_hash = Hash[params[:sort_c].map {|x| CGI.unescape(x) }.zip(params[:sort_d].map {|x| CGI.unescape(x).to_sym })]
     end
-    logger.debug @sort_hash
     if params.key?(:filt_fo) && params.key?(:filt_v)
       operadores = {"like": " like ", "leq": " <= ", "geq": " >= ", "eq": " = "}
       campos = params[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = params[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
-      vals = params[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
+      vals = params[:filt_v].map {|x| CGI.unescape(x).gsub("'","''").gsub("\\","\\\\") }
       @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase.gsub(/%/,"\\%") + "%'") : (a[1] == " = " ? ("'" + a[2].downcase + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
     end
     if params[:keyword].present?
