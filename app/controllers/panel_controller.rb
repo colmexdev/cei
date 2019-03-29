@@ -46,7 +46,7 @@ class PanelController < ApplicationController
     if request.GET.key?(:filt_fo) && request.GET.key?(:filt_v)
       operadores = {"like": " like ", "leq": " <= ", "geq": " >= "}
       campos = request.GET[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
-      ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1])] }
+      ops = request.GET[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = request.GET[:filt_v].map {|x| CGI.unescape(x) }
       @filter_query = campos.zip(ops,vals)
       logger.debug @filter_query
