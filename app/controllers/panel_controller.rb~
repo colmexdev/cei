@@ -1,6 +1,6 @@
 class PanelController < ApplicationController
   before_action :authenticate_admin!
-  before_action :select_set#, only: [:principal, :index, :mostrar, :generar, :crear, :eliminar, :actualizar, :editar]
+  before_action :select_set
   before_action :get_object_fields, only: [:index, :crear, :actualizar, :eliminar, :mostrar]
 
   def principal
@@ -40,6 +40,7 @@ class PanelController < ApplicationController
 
   def index
     @sort_hash = "", @filter_query = ""
+    logger.debug request.POST
     if request.GET.key?(:sort_c) && request.GET.key?(:sort_d)
       @sort_hash = Hash[request.GET[:sort_c].map {|x| CGI.unescape(x) }.zip(request.GET[:sort_d].map {|x| CGI.unescape(x).to_sym })]
     end
