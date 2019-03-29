@@ -183,7 +183,7 @@ function highlightSort(){
 	var fo;
 	for(var i = 0; i < f_fields.length; i++){
 		fo = decodeURIComponent(f_fields[i]).split("*");
-		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = decodeURIComponent(f_vals[i].replace(/\\\\/g,"\\");
+		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = decodeURIComponent(f_vals[i].replace(/\\\\/g,"\\"));
 	}
 }
 
