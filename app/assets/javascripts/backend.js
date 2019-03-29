@@ -111,7 +111,7 @@ function setFilter(event, element){
 		}
 		for(var i = 0; i < fields.length; i++){
 			url_fields = url_fields + "&filt_fo[]=" + encodeURIComponent(fields[i]);
-			url_vals = url_vals + "&filt_v[]=" + encodeURIComponent(vals[i]);
+			url_vals = url_vals + "&filt_v[]=" + encodeURIComponent(vals[i].replace(/\\/g,"\\\\");
 		}
 		return url_fields + (fields.length > 0 ? url_vals : "");
 	} catch(err) { return "" }
