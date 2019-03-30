@@ -390,6 +390,13 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 }
 
 /* Sección de números de paginado */
+#pag-container{
+	margin-bottom: 25px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+}
+
 .numeros {
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato, sans-serif;
 	font-size: 26px;

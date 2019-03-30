@@ -391,6 +391,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 
 /* Sección de números de paginado */
 #pag-container{
+	position: relative;
 	margin-bottom: 25px;
 	text-align: center;
 	font-size: 18px;

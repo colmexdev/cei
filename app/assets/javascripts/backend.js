@@ -199,7 +199,7 @@ function highlightSort(){
 
 /* Función para mantener fijo el paginado */
 function fixPagination(left, container_id){
-	var cont = document.querySelector(container_id).style.marginLeft = left + "px";
+	var cont = document.querySelector(container_id).style.left = left + "px";
 }
 
 function buildQuery(conds){
