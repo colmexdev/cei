@@ -193,9 +193,8 @@ function highlightSort(){
 		fo = decodeURIComponent(f_fields[i]).split("*");
 		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = f_vals[i].replace(/\\\\/g,"\\");
 	}
-	var offs = url.searchParams.get("offset");
-	console.log(offs);
-	document.querySelector("[data-tipo=pag][data-pag=" + offs + "]").classList.add("active");
+	var offs = url.searchParams.get("offset") || 0;
+	document.querySelector("[data-tipo=pag][data-pag='" + offs + "']").classList.add("active");
 }
 
 function buildQuery(conds){
