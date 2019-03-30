@@ -197,6 +197,11 @@ function highlightSort(){
 	document.querySelector("[data-tipo=pag][data-pag='" + offs + "']").classList.add("active");
 }
 
+/* Función para mantener fijo el paginado */
+function fixPagination(left, container_id){
+	var cont = document.querySelector(container_id).style.marginLeft = left + "px";
+}
+
 function buildQuery(conds){
 	var query = "";
 	var url_params = "";

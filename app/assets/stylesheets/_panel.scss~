@@ -394,6 +394,8 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	font-family: "Gotham SSm A", "Gotham SSm B", Lato, sans-serif;
 	font-size: 26px;
 	color: #909090;
+	cursor: pointer;
+	margin: 0 4px;
 	-webkit-transition: all 0.3s linear;
 	-moz-transition: all 0.3s linear;
 	-ms-transition: all 0.3s linear;

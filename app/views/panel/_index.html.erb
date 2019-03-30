@@ -44,7 +44,7 @@
 </table>
 
 <br>
-<div style="margin-bottom:25px;text-align:center;font-size:18px;font-weight:500;">
+<div id="pag-container">
 
 	<% if @pags > 1 %>
 		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: 0) %>','POST',document.getElementById('keyword').value,null,null,true)"><i class="fa fa-angle-double-left"></i></span>
@@ -77,6 +77,10 @@
 		}
 	});
 	highlightSort();
+
+	$("#graphs-gest").on("scroll",function(event){
+		fixPagination(event.currentTarget.scrollLeft, "#pag-container");
+	});
 
 </script>
 <% end %>

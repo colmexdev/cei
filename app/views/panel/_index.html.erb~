@@ -44,10 +44,10 @@
 </table>
 
 <br>
-<div style="margin-bottom:25px;text-align:center;font-size:18px;font-weight:500;">
+<div id="pag-container">
 
 	<% if @pags > 1 %>
-		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: 0) %>','POST',document.getElementById('keyword').value,null,null,true)"><i class="fa fa-angle-left"></i></span>
+		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: 0) %>','POST',document.getElementById('keyword').value,null,null,true)"><i class="fa fa-angle-double-left"></i></span>
 		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: (params[:offset].to_i - 1 < 0 ? 0 : params[:offset].to_i - 1)) %>','POST',document.getElementById('keyword').value,null,null,true)"><i class="fa fa-angle-left"></i></span>
 	<% end %>
 
@@ -57,7 +57,7 @@
 
 	<% if @pags > 1 %>
 		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: (params[:offset].to_i + 1 >= @pags ? @pags - 1 : params[:offset].to_i + 1)) %>','POST',document.getElementById('keyword').value,null,null,true);"><i class="fa fa-angle-right"></i></span>
-		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: @pags - 1) %>','POST',document.getElementById('keyword').value,null,null,true);"><i class="fa fa-double-angle-right"></i></span>
+		<span class="numeros active" onclick="hideLink(event,'#index-panel','<%= panel_index_post_path(set: params[:set], offset: @pags - 1) %>','POST',document.getElementById('keyword').value,null,null,true);"><i class="fa fa-angle-double-right"></i></span>
 	<% end %>
 </div>
 <% if false %>
