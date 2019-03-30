@@ -438,7 +438,7 @@ trix-editor div {
 }
 
 /* Text-input */
-#graphs-gest form input[type="text"], #graphs-gest input[type="text"], #graphs-gest form input[type="email"], #graphs-gest input[type="email"]{
+#graphs-gest form input[type="text"], #graphs-gest input[type="text"], #graphs-gest form input[type="email"], #graphs-gest input[type="email"], #graphs-gest form input[type="number"], #graphs-gest input[type="number"]{
 	background-color: inherit;
 	border: none;
 	border-bottom: 1px solid rgba(0,0,0,0.3);
@@ -452,7 +452,7 @@ trix-editor div {
 	transition: all 0.1s linear;
 }
 
-#graphs-gest form input[type="text"]:focus, #graphs-gest input[type="text"]:focus, #graphs-gest form input[type="email"]:focus, #graphs-gest input[type="email"]:focus{
+#graphs-gest form input[type="text"]:focus, #graphs-gest input[type="text"]:focus, #graphs-gest form input[type="email"]:focus, #graphs-gest input[type="email"]:focus, #graphs-gest form input[type="number"]:focus, #graphs-gest input[type="number"]:focus{
 	border-bottom: 2px solid rgba(0,0,0,0.5);
 	font-weight: 500;
 }

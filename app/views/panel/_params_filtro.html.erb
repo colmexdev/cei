@@ -1,3 +1,4 @@
+<div id="filter-container">
 <input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, null, null, true)"><br>
 
 <% @fields.each do |f| %>
@@ -23,6 +24,7 @@
 		<span><%= @models.columns_hash[f[0].to_s].type %></span><br>
 	<% end %>
 <% end %>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){

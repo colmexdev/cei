@@ -78,5 +78,9 @@
 	});
 	highlightSort();
 
+	$("#graphs-gest").on("scroll",function(event){
+		fixPagination(event.currentTarget.scrollLeft, "#pag-container");
+	});
+
 </script>
 <% end %>
