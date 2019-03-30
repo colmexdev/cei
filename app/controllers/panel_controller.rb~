@@ -48,8 +48,8 @@ class PanelController < ApplicationController
       campos = params[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = params[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = params[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
-      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " ilike " ? ("'%" + a[2].downcase.gsub(/(\\)*([%_])?/,'\1\1\1\2') + "%'") : (a[1] == " = " ? ("'" + a[2].downcase.gsub("\\","\\\\") + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
-      logger.debug vals.map{|a| a.gsub(/(\\)*([%_])?/,'\1\1\1\2')}
+      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " ilike " ? ("'%" + a[2].downcase.gsub('%',"¸%")-gsub("_","¸_") + "%' escape '¸'") : (a[1] == " = " ? ("'" + a[2].downcase.gsub("\\","\\\\") + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
+      logger.debug vals.map{|a| a.downcase.gsub('%',"¸%")-gsub("_","¸_"))}
     end
     if params[:keyword].present?
       query
