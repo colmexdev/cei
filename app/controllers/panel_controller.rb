@@ -44,12 +44,12 @@ class PanelController < ApplicationController
       @sort_hash = Hash[params[:sort_c].map {|x| CGI.unescape(x) }.zip(params[:sort_d].map {|x| CGI.unescape(x).to_sym })]
     end
     if params.key?(:filt_fo) && params.key?(:filt_v)
-      operadores = {"like": " like ", "leq": " <= ", "geq": " >= ", "eq": " = "}
+      operadores = {"like": " ilike ", "leq": " <= ", "geq": " >= ", "eq": " = "}
       campos = params[:filt_fo].map {|x| CGI.unescape(x.split("*")[0]) }
       ops = params[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = params[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
-      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("lower(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase.gsub(/%/,'\\\\%').gsub(/_/,'\\\\_') + "%'").gsub("\\","\\\\\\") : (a[1] == " = " ? ("'" + a[2].downcase.gsub("\\","\\\\") + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
-      logger.debug vals.map{|a| a.gsub("\\","\\\\\\").gsub(/%/,'\\%').gsub(/_/,'\\_')}
+      @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(" + a[0] + ")") : a[0]) + a[1] + (a[1] == " like " ? ("'%" + a[2].downcase.gsub(/(\\)*(\\)([%_])?/,'\1\1\2\2\3') + "%'") : (a[1] == " = " ? ("'" + a[2].downcase.gsub("\\","\\\\") + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
+      logger.debug vals.map{|a| a.gsub(/(\\)*(\\)([%_])?/,'\1\1\2\2\3')}
     end
     if params[:keyword].present?
       query
