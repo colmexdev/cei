@@ -192,7 +192,6 @@ function highlightSort(){
 	for(var i = 0; i < f_fields.length; i++){
 		fo = decodeURIComponent(f_fields[i]).split("*");
 		document.querySelector("[data-tipo=filtro][data-field=" + fo[0] + "][data-op=" + fo[1] + "]").value = f_vals[i].replace(/\\\\/g,"\\");
-		console.log(f_vals[i]);
 	}
 	var offset = url.searchParams.get("offset");
 	document.querySelector("[data-tipo=pag][data-pag=" + offset + "]").classList.add("active");
