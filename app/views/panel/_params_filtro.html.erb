@@ -1,7 +1,9 @@
-<div id="filter-accord">
-	<h2>Filtrar por <i id="filtro-signo" class="fa fa-plus"></i></h2>
-</div>
 <div id="filter-container">
+	<div id="filter-accord">
+		<span>Filtrar por </span><i id="filtro-signo" class="fa fa-plus"></i>
+	</div>
+
+	<div id="filter-grid">
 <input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,document.querySelector('#keyword').value, null, null, true)"><br>
 
 <% @fields.each do |f| %>
@@ -27,6 +29,7 @@
 		<span><%= @models.columns_hash[f[0].to_s].type %></span><br>
 	<% end %>
 <% end %>
+	</div>
 </div>
 
 <script type="text/javascript">

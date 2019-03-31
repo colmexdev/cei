@@ -389,13 +389,27 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	height: 300px;
 }
 
-/* Sección de números de paginado */
+/* Sección de números de paginado, ordenado y filtrado */
 #pag-container{
 	position: relative;
 	margin-bottom: 25px;
 	text-align: center;
 	font-size: 18px;
 	font-weight: 500;
+}
+
+#filter-accord{
+	-webkit-transition: color 0.3s linear;
+	-moz-transition: color 0.3s linear;
+	-ms-transition: color 0.3s linear;
+	-o-transition: color 0.3s linear;
+	transition: color 0.3s linear;
+	border-bottom: solid 2px #808080;
+	padding: 0 15px;
+
+	&.active, &:hover { color: #B03856; }
+
+	#filtro-signo { text-align: right; }
 }
 
 #filter-container{
