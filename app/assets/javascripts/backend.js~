@@ -458,9 +458,10 @@ function extendTrix(ev){
 				});
 			});
 			fileInput.click();
-
-			
 		}
+	});
+	element.addEventListener("trix-attachment-add", function(event){
+		console.log(event.attachment);
 	});
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
