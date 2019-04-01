@@ -1,6 +1,7 @@
 <div id="filter-container">
 	<div id="filter-accord">
-		<span>Filtrar por </span><i id="filtro-signo" class="fa fa-plus"></i>
+		<div><span>Filtrar por </span></div>
+		<div><i id="filtro-signo" class="fa fa-plus"></i></div>
 	</div>
 
 	<div id="filter-grid">
