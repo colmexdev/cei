@@ -79,7 +79,7 @@
 	highlightSort();
 
 	$("#graphs-gest").on("scroll",function(event){
-		fixPagination(event.currentTarget.scrollLeft, "#pag-container");
+		fixPagination(event.currentTarget.scrollLeft, ["#pag-container","#filter-container"]);
 	});
 
 </script>

@@ -8,7 +8,7 @@
 		<div>
 			<div class="filt-row">
 				<div class="filt-lab">
-					<label>Palabra clave</label>
+					<label>Palabra clave: </label>
 				</div>
 				<div class="filt-field">
 					<input type="text" name="keyword" autocomplete="off" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,this.value, null, null, true)"><br>

@@ -428,7 +428,7 @@ function extendTrix(ev){
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading4\" title=\"Encabezado 4 (Ctrl + 4)\" data-trix-key=\"4\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:12px;width:100%;text-align:center;\">H4</div></button>");
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading5\" title=\"Encabezado 5 (Ctrl + 5)\" data-trix-key=\"5\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:10px;width:100%;text-align:center;\">H5</div></button>");
 	blockElement.insertAdjacentHTML("afterbegin","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-attribute=\"heading6\" title=\"Encabezado 6 (Ctrl + 6)\" data-trix-key=\"6\" tabindex=\"-1\"><div style=\"display:inline-block;font-size:8px;width:100%;text-align:center;\">H6</div></button>");
-	blockElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-action=\"x-attach\" data-trix-key=\"h\" title=\"Adjuntar archivo (Ctrl + h)\"><div style=\"display:inline-block;\"><i class=\"fa fa-cloud-upload\" aria-hidden=\"true\"></i></div></button>");
+	blockElement.insertAdjacentHTML("beforeend","<button type=\"button\" class=\"trix-button trix-button-icon\" data-trix-action=\"x-attach\" data-trix-key=\"h\" title=\"Adjuntar archivo (Ctrl + h)\"><div style=\"display:inline-block;\"><i class=\"fa fa-cloud-upload\" aria-hidden=\"true\"></i></div></button>");
 	blockElement.querySelector(".trix-button--icon-heading-1").parentNode.removeChild(blockElement.querySelector(".trix-button--icon-heading-1"));
 
 	element.addEventListener("trix-action-invoke", function(event){
@@ -448,6 +448,19 @@ function extendTrix(ev){
 		}
 		if(event.actionName === "x-attach"){
 			console.log(event);
+			const fileInput = document.createElement("input");
+			fileInput.setAttribute("type", "file");
+			fileInput.setAttribute("accept", ".jpeg, .jpg, .png, .gif, .pdf, .doc, .xls, .docx, .xlsx");
+			fileInput.setAttribute("multiple", "true");
+			fileInput.addEventListener("change", function(){
+				const {archivos} = fileInput;
+				Array.from(archivos).forEach(function(f){
+					document.querySelector("trix-editor").editor.insertFile(f);
+				});
+			});
+			fileInput.click();
+
+			
 		}
 	});
 	element.addEventListener("trix-change", function(event){
