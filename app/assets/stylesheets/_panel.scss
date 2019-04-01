@@ -406,12 +406,12 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	transition: color 0.3s linear;
 	border-bottom: solid 2px #808080;
 	padding: 0 15px;
-	position: relative;
 
 	&.active, &:hover { color: #B03856; }
 
-	span {position: absolute; left: 0; }
-	#filtro-signo { position: absolute; right: 0; }
+	div { text-align: left; }
+	div:nth-child(odd) { text-align: right; }
+
 }
 
 #filter-container{

@@ -410,7 +410,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 
 	&.active, &:hover { color: #B03856; }
 
-	span {position: absolute; left: 0;
+	span {position: absolute; left: 0; }
 	#filtro-signo { position: absolute; right: 0; }
 }
 
