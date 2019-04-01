@@ -201,7 +201,7 @@ function highlightSort(){
 function fixPagination(left, container_id){
 	container_id.forEach(function(c){
 		document.querySelector(c).style.left = left + "px";
-	}
+	});
 }
 
 function buildQuery(conds){

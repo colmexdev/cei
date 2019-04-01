@@ -398,13 +398,20 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	font-weight: 500;
 }
 
+#filter-container{
+	position: relative;
+	margin-bottom: 25px;
+}
+
 #filter-accord{
 	-webkit-transition: color 0.3s linear;
 	-moz-transition: color 0.3s linear;
 	-ms-transition: color 0.3s linear;
 	-o-transition: color 0.3s linear;
 	transition: color 0.3s linear;
-	border-bottom: solid 2px #808080;
+	border-bottom: solid 1px #808080;
+	cursor: pointer;
+	margin-bottom: 10px;
 
 	&.active, &:hover { color: #B03856; }
 
@@ -412,22 +419,21 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		text-align: right;
 		width: 50px;
 		padding-right: 15px;
+		display: inline-block;
 	}
 
 	div:nth-child(odd){
 		text-align: left;
-		width: -webkit-calc(100% - 95px);
-		width: -moz-calc(100% - 95px);
-		width: calc(100% - 95px);
+		width: -webkit-calc(100% - 80px);
+		width: -moz-calc(100% - 80px);
+		width: calc(100% - 80px);
 		padding-left: 15px;
 		padding-right: 0;
 	}
-
 }
 
-#filter-container{
-	position: relative;
-	margin-bottom: 25px;
+#filter-grid{
+	height: 0;
 }
 
 .numeros {

@@ -398,13 +398,20 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	font-weight: 500;
 }
 
+#filter-container{
+	position: relative;
+	margin-bottom: 25px;
+}
+
 #filter-accord{
 	-webkit-transition: color 0.3s linear;
 	-moz-transition: color 0.3s linear;
 	-ms-transition: color 0.3s linear;
 	-o-transition: color 0.3s linear;
 	transition: color 0.3s linear;
-	border-bottom: solid 2px #808080;
+	border-bottom: solid 1px #808080;
+	cursor: pointer;
+	margin-bottom: 10px;
 
 	&.active, &:hover { color: #B03856; }
 
@@ -423,12 +430,17 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		padding-left: 15px;
 		padding-right: 0;
 	}
-
 }
 
-#filter-container{
-	position: relative;
-	margin-bottom: 25px;
+#filter-grid{
+	height: 0;
+	-webkit-transition: height 0.2s linear;
+	-moz-transition: height 0.2s linear;
+	-ms-transition: height o.2s linear;
+	-o-transition: 0.2s linear;
+	transition: height 0.2s linear;
+
+	&.active { height: auto; }
 }
 
 .numeros {

@@ -94,6 +94,11 @@ function filterAnalytics(link){
 }
 
 /* Funciones de ordenamiento y filtrado */
+function toggleFilters(){
+	document.querySelector("#filter-grid").toggle("clicked");
+	document.querySelector("#filter-accord").toggle("active");
+}
+
 function setFilter(event, element){
 	element = element || null;
 	try{
