@@ -207,6 +207,7 @@ function highlightSort(){
 /* Función para mantener fijo el paginado */
 function fixPagination(left, container_id){
 	container_id.forEach(function(c){
+		if(document.querySelector(c) == null) continue;
 		document.querySelector(c).style.left = left + "px";
 	});
 }
@@ -455,8 +456,8 @@ function extendTrix(ev){
 			fileInput.addEventListener("change", function(){
 				const {files} = fileInput;
 				console.log(fileInput);
-				console.log(filess);
-				Array.from(filess).forEach(function(f){
+				console.log(files);
+				Array.from(files).forEach(function(f){
 					document.querySelector("trix-editor").editor.insertFile(f);
 				});
 			});

@@ -79,7 +79,9 @@ $(document).ready(function(){
 	highlightSort();
 
 	$("#graphs-gest").on("scroll",function(event){
-		fixPagination(event.currentTarget.scrollLeft, ["#pag-container","#filter-container"]);
+		try{
+			fixPagination(event.currentTarget.scrollLeft, ["#pag-container","#filter-container"]);
+		} catch(err) {}
 	});
 	$("#graphs-gest").trigger("scroll");
 });
