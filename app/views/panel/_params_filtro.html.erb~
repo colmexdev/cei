@@ -1,5 +1,5 @@
 <div id="filter-container">
-	<div id="filter-accord">
+	<div id="filter-accord" onclick="toggleFilters();">
 		<div><span>Filtrar por </span></div>
 		<div><i id="filtro-signo" class="fa fa-plus"></i></div>
 	</div>

@@ -439,8 +439,9 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	-ms-transition: height o.2s linear;
 	-o-transition: 0.2s linear;
 	transition: height 0.2s linear;
+	overflow: hidden;
 
-	&.active { height: auto; }
+	&.active { height: auto; overflow: visible; }
 }
 
 .numeros {
