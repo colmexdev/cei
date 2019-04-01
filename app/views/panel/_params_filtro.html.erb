@@ -46,6 +46,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	styleDatepickers();
-	if(window.complete_url.indexOf("filt_v") != -1) toggleFilters();
+	var url = (new URL(window.complete_url)).searchParams;
+	if(url.has("filt_v[]") !== [] || url.has("keyword")) toggleFilters();
 });
 </script>

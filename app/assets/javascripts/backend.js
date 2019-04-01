@@ -201,6 +201,7 @@ function highlightSort(){
 	}
 	var offs = url.searchParams.get("offset") || 0;
 	document.querySelector("[data-tipo=pag][data-pag='" + offs + "']").classList.add("active");
+	if(url.searchParams.has("keyword")) document.querySelector("#keyword").value = url.searchParams.get("keyword");
 }
 
 /* Función para mantener fijo el paginado */
