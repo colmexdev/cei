@@ -429,6 +429,8 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		width: calc(100% - 65px);
 		padding-left: 15px;
 		padding-right: 0;
+
+		span { font-weight: 600; font-size: 25px; }
 	}
 }
 
