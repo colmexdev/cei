@@ -412,13 +412,14 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 		text-align: right;
 		width: 50px;
 		padding-right: 15px;
+		display: inline-block;
 	}
 
 	div:nth-child(odd){
 		text-align: left;
-		width: -webkit-calc(100% - 95px);
-		width: -moz-calc(100% - 95px);
-		width: calc(100% - 95px);
+		width: -webkit-calc(100% - 80px);
+		width: -moz-calc(100% - 80px);
+		width: calc(100% - 80px);
 		padding-left: 15px;
 		padding-right: 0;
 	}
