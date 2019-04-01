@@ -411,8 +411,6 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	div{
 		text-align: right;
 		width: 50px;
-		display: inline-block;
-		padding: 0 15px;
 	}
 
 	div:nth-child(odd){

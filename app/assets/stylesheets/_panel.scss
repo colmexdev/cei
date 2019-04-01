@@ -411,13 +411,15 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	div{
 		text-align: right;
 		width: 50px;
+		padding-right: 15px;
 	}
 
 	div:nth-child(odd){
 		text-align: left;
-		width: -webkit-calc(100% - 50px);
-		width: -moz-calc(100% - 50px);
-		width: calc(100% - 50px); 
+		width: -webkit-calc(100% - 55px);
+		width: -moz-calc(100% - 55px);
+		width: calc(100% - 55px);
+		padding-left: 15px; 
 	}
 
 }
