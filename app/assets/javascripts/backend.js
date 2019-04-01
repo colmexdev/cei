@@ -447,23 +447,21 @@ function extendTrix(ev){
 			editor.deactivateAttribute("rosaLight");
 		}
 		if(event.actionName === "x-attach"){
-			console.log(event);
 			const fileInput = document.createElement("input");
 			fileInput.setAttribute("type", "file");
 			fileInput.setAttribute("accept", ".jpeg, .jpg, .png, .gif, .pdf, .doc, .xls, .docx, .xlsx");
 			fileInput.setAttribute("multiple", "true");
 			fileInput.addEventListener("change", function(){
 				const {files} = fileInput;
-				console.log(fileInput);
-				console.log(files);
 				Array.from(files).forEach(function(f){
 					editor.insertFile(f);
 				});
 			});
 			fileInput.click();
-
-			
 		}
+	});
+	element.addEventListener("trix-attachment-add", function(event){
+		console.log(event.attachment);
 	});
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
