@@ -95,8 +95,8 @@ function filterAnalytics(link){
 
 /* Funciones de ordenamiento y filtrado */
 function toggleFilters(){
-	document.querySelector("#filter-grid").toggle("clicked");
-	document.querySelector("#filter-accord").toggle("active");
+	document.querySelector("#filter-grid").classList.toggle("clicked");
+	document.querySelector("#filter-accord").classList.toggle("active");
 }
 
 function setFilter(event, element){

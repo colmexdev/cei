@@ -434,6 +434,13 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 
 #filter-grid{
 	height: 0;
+	-webkit-transition: height 0.2s linear;
+	-moz-transition: height 0.2s linear;
+	-ms-transition: height o.2s linear;
+	-o-transition: 0.2s linear;
+	transition: height 0.2s linear;
+
+	&.active { height: auto; }
 }
 
 .numeros {
