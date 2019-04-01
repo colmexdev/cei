@@ -454,6 +454,8 @@ function extendTrix(ev){
 			fileInput.setAttribute("multiple", "true");
 			fileInput.addEventListener("change", function(){
 				const {archivos} = fileInput;
+				console.log(fileInput);
+				console.log(archivos);
 				Array.from(archivos).forEach(function(f){
 					document.querySelector("trix-editor").editor.insertFile(f);
 				});

@@ -448,10 +448,19 @@ function extendTrix(ev){
 		}
 		if(event.actionName === "x-attach"){
 			console.log(event);
-			const archivo = document.createElement("input");
+			const fileInput = document.createElement("input");
 			fileInput.setAttribute("type", "file");
 			fileInput.setAttribute("accept", ".jpeg, .jpg, .png, .gif, .pdf, .doc, .xls, .docx, .xlsx");
 			fileInput.setAttribute("multiple", "true");
+			fileInput.addEventListener("change", function(){
+				const {archivos} = fileInput;
+				Array.from(archivos).forEach(function(f){
+					document.querySelector("trix-editor").editor.insertFile(f);
+				});
+			});
+			fileInput.click();
+
+			
 		}
 	});
 	element.addEventListener("trix-change", function(event){
