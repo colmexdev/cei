@@ -405,12 +405,22 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 	-o-transition: color 0.3s linear;
 	transition: color 0.3s linear;
 	border-bottom: solid 2px #808080;
-	padding: 0 15px;
 
 	&.active, &:hover { color: #B03856; }
 
-	div { text-align: left; width: 50%; display: inline-block; }
-	div:nth-child(odd) { text-align: right; }
+	div{
+		text-align: right;
+		width: 50px;
+		display: inline-block;
+		padding: 0 15px;
+	}
+
+	div:nth-child(odd){
+		text-align: left;
+		width: -webkit-calc(100% - 50px);
+		width: -moz-calc(100% - 50px);
+		width: calc(100% - 50px); 
+	}
 
 }
 

@@ -409,7 +409,7 @@ a.link-panel:hover, a.link-panel:active, a.link-panel:focus{
 
 	&.active, &:hover { color: #B03856; }
 
-	div { text-align: left; }
+	div { text-align: left; width: 50%; display: inline-block; }
 	div:nth-child(odd) { text-align: right; }
 
 }
