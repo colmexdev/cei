@@ -207,7 +207,6 @@ function highlightSort(){
 /* Función para mantener fijo el paginado */
 function fixPagination(left, container_id){
 	container_id.forEach(function(c){
-		if(document.querySelector(c) == null) continue;
 		document.querySelector(c).style.left = left + "px";
 	});
 }

@@ -457,7 +457,7 @@ function extendTrix(ev){
 				console.log(fileInput);
 				console.log(files);
 				Array.from(files).forEach(function(f){
-					document.querySelector("trix-editor").editor.insertFile(f);
+					editor.insertFile(f);
 				});
 			});
 			fileInput.click();
