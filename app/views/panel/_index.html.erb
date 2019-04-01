@@ -65,7 +65,7 @@
 <% end %>
 
 <script type="text/javascript">
-
+$(document).ready(function(){
 	var cols = $(".head-ind").length;
 	$(".head-ind").each(function(index){
 		$(this).css({"width": adjustWidths(cols), "text-align": "center", "font-weight": "500","font-size": "16px"}).css('width',('-='+(130/cols)+'px'));
@@ -82,5 +82,6 @@
 		fixPagination(event.currentTarget.scrollLeft, ["#pag-container","#filter-container"]);
 	});
 	$("#graphs-gest").trigger("scroll");
+});
 </script>
 <% end %>
