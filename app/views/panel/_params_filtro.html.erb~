@@ -7,7 +7,7 @@
 	<div id="filter-grid">
 		<div>
 			<div class="filt-row">
-			<input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,this.value, null, null, true)"><br>
+			<input type="text" name="keyword" autocomplete="off" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,this.value, null, null, true)"><br>
 			</div>
 
 		<% @fields.each do |f| %>
@@ -47,6 +47,6 @@
 $(document).ready(function(){
 	styleDatepickers();
 	var url = (new URL(window.complete_url)).searchParams;
-	if(url.has("filt_v[]") !== [] || url.has("keyword")) toggleFilters();
+	if(url.has("filt_v[]") || url.has("keyword")) toggleFilters();
 });
 </script>
