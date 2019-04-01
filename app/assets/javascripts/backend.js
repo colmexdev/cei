@@ -453,10 +453,10 @@ function extendTrix(ev){
 			fileInput.setAttribute("accept", ".jpeg, .jpg, .png, .gif, .pdf, .doc, .xls, .docx, .xlsx");
 			fileInput.setAttribute("multiple", "true");
 			fileInput.addEventListener("change", function(){
-				const {archivos} = fileInput;
+				const {files} = fileInput;
 				console.log(fileInput);
-				console.log(archivos);
-				Array.from(archivos).forEach(function(f){
+				console.log(filess);
+				Array.from(filess).forEach(function(f){
 					document.querySelector("trix-editor").editor.insertFile(f);
 				});
 			});
