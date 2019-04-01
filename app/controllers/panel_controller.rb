@@ -49,13 +49,9 @@ class PanelController < ApplicationController
       ops = params[:filt_fo].map {|x| operadores[CGI.unescape(x.split("*")[1]).to_sym] }
       vals = params[:filt_v].map {|x| CGI.unescape(x).gsub("'","''") }
       @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(lower(" + a[0] + "))") : a[0]) + a[1] + (a[1] == " ilike " ? ("'%" + a[2].mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub('%',"¸%").gsub("_","¸_") + "%' escape '¸'") : (a[1] == " = " ? ("'" + a[2].downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub("\\","\\\\") + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
-      logger.debug vals.map{|a| a.downcase.gsub('%',"¸%").gsub("_","¸_")}
     end
     if params[:keyword].present?
-      query
-      @query = @query + (params[:complement].present? ? (" and " + params[:complement]) : "")
-    else
-      @query = (params[:complement].present? ? params[:complement] : "")
+      
     end
     @rpp = 10
     @mod = (@models.class.to_s != "Array" ? @models : @models[0])
@@ -256,20 +252,12 @@ class PanelController < ApplicationController
 
   private
 
-  def query
-    @query = "("
-    keys = params[:keyword].split(/ +/).map {|k| " like '%" + k.downcase + "%'"}
-    @fields.keys.each do |f|
-      h = ""
-      if ["anio"].include?(f.to_s)
-        next
-      end
-      keys.each_with_index do |k,i|
-        h =  h + f.to_s + k + (i == keys.size - 1 ? '' : ' AND ')
-      end
-
-      @query = @query + h + (f == @fields.keys[-1] ? ")" : " or ")
+  def query(keyword)
+    or_query = "("
+    (@models.columns_hash.keys - ["id", "created_at", "updated_at"]).each do |k|
+      or_query = or_query + (or_query.size > 0 ? " OR " : "") + "unaccent(lower(text(" + k + "))) ilike '%" + keyword.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub('%',"¸%").gsub("_","¸_") + "%' escape '¸'"
     end
+    return or_query + ")"
   end
 
   def select_set
