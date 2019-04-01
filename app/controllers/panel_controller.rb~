@@ -51,7 +51,7 @@ class PanelController < ApplicationController
       @filter_query = campos.zip(ops,vals).map {|a| (@models.columns_hash[a[0]].type == :text ? ("unaccent(lower(" + a[0] + "))") : a[0]) + a[1] + (a[1] == " ilike " ? ("'%" + a[2].mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub('%',"¸%").gsub("_","¸_") + "%' escape '¸'") : (a[1] == " = " ? ("'" + a[2].downcase.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').gsub("\\","\\\\") + "'") : (@models.columns_hash[a[0]].type == :date ? ("to_date('" + a[2] + "','YYYY-MM-DD')") : a[2]))) }.join(" AND ")
     end
     if params[:keyword].present?
-      
+      @filter_query = @filter_query + query(params[:keyword])
     end
     @rpp = 10
     @mod = (@models.class.to_s != "Array" ? @models : @models[0])

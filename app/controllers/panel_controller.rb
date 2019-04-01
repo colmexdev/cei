@@ -255,7 +255,7 @@ class PanelController < ApplicationController
   def query(keyword)
     or_query = "("
     (@models.columns_hash.keys - ["id", "created_at", "updated_at"]).each do |k|
-      or_query = or_query + (or_query.size > 0 ? " OR " : "") + "unaccent(lower(text(" + k + "))) ilike '%" + keyword.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub('%',"¸%").gsub("_","¸_") + "%' escape '¸'"
+      or_query = or_query + (or_query != "(" ? " OR " : "") + "unaccent(lower(text(" + k + "))) ilike '%" + keyword.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub('%',"¸%").gsub("_","¸_") + "%' escape '¸'"
     end
     return or_query + ")"
   end
