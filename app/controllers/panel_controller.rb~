@@ -107,7 +107,7 @@ class PanelController < ApplicationController
 #          end
 #        end
         format.js { render :mostrar, params: {set: params[:set], id: @obj.id}, notice: 'Objeto generado exitosamente.' }
-        format.json { render :mostrar, status: :created, location: @imagen}
+        format.json { render :mostrar, status: :created, location: @obj}
       else
         format.js { render :generar }
         format.json { render json: @obj.errors, status: :unprocessable_entity }
