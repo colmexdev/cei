@@ -467,6 +467,7 @@ function extendTrix(ev){
 		let forma = new FormData;
 		forma.append("Content-Type", file.type);
 		forma.append("gallery[imagen]", file);
+		forma.append("set", "Galería");
 		
 		let xhr = new XMLHttpRequest;
 		xhr.open("POST", "/panel", true);

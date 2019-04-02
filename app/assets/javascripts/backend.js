@@ -470,7 +470,7 @@ function extendTrix(ev){
 		forma.append("set", "Galería");
 		
 		let xhr = new XMLHttpRequest;
-		xhr.open("POST", "/panel", true);
+		xhr.open("POST", "/panel.json", true);
 		xhr.setRequestHeader("X-CSRF-Token",$("meta[name='csrf-token']").attr("content"));
 		
 		xhr.upload.onprogress = function(event){
