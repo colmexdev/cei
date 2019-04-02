@@ -302,6 +302,16 @@ class PanelController < ApplicationController
         p_text: [:liga, :imparte, :liga_imparte],
         textarea: [],
         select: {tipo: [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]]}
+      }, "Galería": {
+        model: Gallery,
+        fields: {tags: "Etiquetas"},
+        imgs: {imagen: "Imagen"},
+        trix: [],
+        dates: [],
+        numbers: [],
+        p_text: [],
+        textarea: [:tags],
+        select: {}
       }
     }
   end
