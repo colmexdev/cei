@@ -462,10 +462,32 @@ function extendTrix(ev){
 	});
 	element.addEventListener("trix-attachment-add", function(event){
 		const file = event.attachment.file;
-		console.log(event.attachment.file);
+		console.log(file);
+		let forma = new FormData;
+		forma.append("Content-Type", file.type);
+		forma.append("gallery[imagen]", file);
+		
+		let xhr = new XMLHttpRequest;
+		xhr.open("POST", "/panel", true);
+		xhr.setRequestHeader("X-CSRF-Token",$("#meta[name='csrf-token']").attr("content"));
+		
+		xhr.upload.onprogress = function(event){
+			attachment.setUploadProgress(event.loaded/event.total * 100);
+		}
+
+		xhr.onload = function(){
+			if(xhr.status === 201){
+				var data = JSON.parse(xhr.responseText);
+				return attachment.setAttributes({url: data.imagen_url, href: data.imagen_url});
+			}
+		}
+
+		return xhr.send(forma);
 	});
+
 	element.addEventListener("trix-attachment-remove", function(event){
-		console.log(event);
+		const file = event.attachment.file;
+		console.log(file);
 	});
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
