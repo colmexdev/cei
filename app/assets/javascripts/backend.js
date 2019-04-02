@@ -461,7 +461,8 @@ function extendTrix(ev){
 		}
 	});
 	element.addEventListener("trix-attachment-add", function(event){
-		const file = event.attachment.file;
+		const attachment = event.attachment;
+		const file = attachment.file;
 		console.log(file);
 		let forma = new FormData;
 		forma.append("Content-Type", file.type);
