@@ -7,7 +7,12 @@
 	<div id="filter-grid">
 		<div>
 			<div class="filt-row">
-			<input type="text" name="keyword" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,this.value, null, null, true)"><br>
+				<div class="filt-lab">
+					<label>Palabra clave: </label>
+				</div>
+				<div class="filt-field">
+					<input type="text" name="keyword" autocomplete="off" id="keyword" value="<%= params[:keyword].present? ? params[:keyword] : '' %>" placeholder="Palabra clave" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>',null,this.value, null, null, true)"><br>
+				</div>
 			</div>
 
 		<% @fields.each do |f| %>
@@ -28,11 +33,11 @@
 					</select><br>
 				<% end %>
 			<% elsif @models.columns_hash[f[0].to_s].type == :date %>
-				<input type="text" autocomplete="off" class="fechas" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="leq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Fecha inicial"> - 
-				<input type="text" autocomplete="off" class="fechas" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="geq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Fecha final"><br>
+				<input type="text" autocomplete="off" class="fechas" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="geq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Fecha inicial"> - 
+				<input type="text" autocomplete="off" class="fechas" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="leq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Fecha final"><br>
 			<% elsif @models.columns_hash[f[0].to_s].type == :integer %>
-				<input type="number" autocomplete="off" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="leq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Valor inicial"> - 
-				<input type="number" autocomplete="off" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="geq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Valor final"><br>
+				<input type="number" autocomplete="off" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="geq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Valor inicial"> - 
+				<input type="number" autocomplete="off" data-tipo="filtro" data-field="<%= f[0].to_s %>" data-op="leq" onchange="hideLink(event,'#index-panel','<%= panel_index_path(set: params[:set], offset: 0) %>','POST',document.querySelector('#keyword').value, this, null, true)" placeholder="Valor final"><br>
 			<% else %>
 				<span><%= @models.columns_hash[f[0].to_s].type %></span><br>
 			<% end %>

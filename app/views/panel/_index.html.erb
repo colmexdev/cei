@@ -65,7 +65,7 @@
 <% end %>
 
 <script type="text/javascript">
-
+$(document).ready(function(){
 	var cols = $(".head-ind").length;
 	$(".head-ind").each(function(index){
 		$(this).css({"width": adjustWidths(cols), "text-align": "center", "font-weight": "500","font-size": "16px"}).css('width',('-='+(130/cols)+'px'));
@@ -79,8 +79,11 @@
 	highlightSort();
 
 	$("#graphs-gest").on("scroll",function(event){
-		fixPagination(event.currentTarget.scrollLeft, ["#pag-container","#filter-container"]);
+		try{
+			fixPagination(event.currentTarget.scrollLeft, ["#pag-container","#filter-container"]);
+		} catch(err) {}
 	});
-
+	$("#graphs-gest").trigger("scroll");
+});
 </script>
 <% end %>
