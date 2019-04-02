@@ -470,7 +470,7 @@ function extendTrix(ev){
 		
 		let xhr = new XMLHttpRequest;
 		xhr.open("POST", "/panel", true);
-		xhr.setRequestHeader("X-CSRF-Token",$("#meta[name='csrf-token']").attr("content"));
+		xhr.setRequestHeader("X-CSRF-Token",$("meta[name='csrf-token']").attr("content"));
 		
 		xhr.upload.onprogress = function(event){
 			attachment.setUploadProgress(event.loaded/event.total * 100);
