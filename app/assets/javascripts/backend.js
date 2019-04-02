@@ -479,8 +479,8 @@ function extendTrix(ev){
 
 		xhr.onload = function(){
 			if(xhr.status === 201){
+				console.log(xhr.responseText);
 				var data = JSON.parse(xhr.responseText);
-				console.log(data);
 				return attachment.setAttributes({url: data.imagen_url, href: data.imagen_url});
 			}
 		}
