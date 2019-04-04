@@ -100,13 +100,13 @@
 				<div class="uk-width-small-1-2 uk-width-large-1-1 uk-margin-large-bottom" style="text-align:center">
 					<%= image_tag @img_foro, class: "img-revista" %>
 					<div class="boton-info">
-						<a href="https://forointernacional.colmex.mx/index.php/fi" class="link-div"><%= t('.info') %></a>
+						<a href="<%= @link_foro %>" class="link-div"><%= t('.info') %></a>
 					</div>
 				</div>
 				<div class="uk-width-small-1-2 uk-width-large-1-1 uk-margin-large-bottom" style="text-align:center">
 					<%= image_tag @img_agora, class: "img-revista" %>
 					<div class="boton-info">
-						<a href="https://agora.colmex.mx/" class="link-div"><%= t('.info') %></a>
+						<a href="<%= @link_agora %>" class="link-div"><%= t('.info') %></a>
 					</div>
 				</div>
 			</div>
