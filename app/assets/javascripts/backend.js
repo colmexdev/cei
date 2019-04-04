@@ -470,7 +470,7 @@ function extendTrix(ev){
 		forma.append("set", "Galería");
 		
 		let xhr = new XMLHttpRequest;
-		xhr.open("POST", "/panel", true);
+		xhr.open("POST", "/panel.json", true);
 		xhr.setRequestHeader("X-CSRF-Token",$("meta[name='csrf-token']").attr("content"));
 		
 		xhr.upload.onprogress = function(event){
@@ -479,6 +479,7 @@ function extendTrix(ev){
 
 		xhr.onload = function(){
 			if(xhr.status === 201){
+				console.log(xhr.responseText);
 				var data = JSON.parse(xhr.responseText);
 				return attachment.setAttributes({url: data.imagen_url, href: data.imagen_url});
 			}
