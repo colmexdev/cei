@@ -493,7 +493,7 @@ function extendTrix(ev){
 
 	element.addEventListener("trix-attachment-remove", function(event){
 		const file = event.attachment.file;
-		console.log(file.url);
+		console.log(file);
 	});
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));

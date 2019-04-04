@@ -492,7 +492,7 @@ function extendTrix(ev){
 	});
 
 	element.addEventListener("trix-attachment-remove", function(event){
-		const file = event.attachment.file;
+		const file = event.attachment;
 		console.log(file);
 	});
 	element.addEventListener("trix-change", function(event){
