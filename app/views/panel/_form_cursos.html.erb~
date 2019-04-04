@@ -14,11 +14,11 @@
 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
   <div class="field">
     <%= f.label :titulo, "Título" %><br>
-    <%= f.trix_editor :titulo %>
+    <%= f.trix_editor :titulo, required: (@presence.include?(:titulo) || "false")  %>
   </div>
 	<div class="field">
 		<%= f.label :tipo, "Tipo de curso" %><br>
-		<%= f.select(:tipo, [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]], selected: (@obj.tipo || "Verano") ) %>
+		<%= f.select(:tipo, [["Verano","Verano"],["Público","Público"],["MOOC","MOOC"]], selected: (@obj.tipo || "Verano"), (@presence.include?(:fecha_i) || "false") ) %>
 	</div>
   <div class="field">
     <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :fecha_f, "Fecha final de curso" %><br>
-    <%= f.text_field :fecha_f, autocomplete: "off", class: "fechas", required: (@presence.include?(:fecha_i) || "false") %>
+    <%= f.text_field :fecha_f, autocomplete: "off", class: "fechas", required: (@presence.include?(:fecha_f) || "false") %>
   </div>
   <div class="field">
     <%= f.label :imparte, "Impartido por (opcional)" %><br>
