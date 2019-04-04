@@ -337,10 +337,6 @@ class PanelController < ApplicationController
     @plains = @sets[params[:set].to_sym][:p_text]
     @textareas = @sets[params[:set].to_sym][:textarea]
     @selects = @sets[params[:set].to_sym][:select]
-    @presence = []
-    @fields.keys.each do |k|
-      logger.debug @models.validators_on(k)
-    end
   end
 
   def par_params(pars)

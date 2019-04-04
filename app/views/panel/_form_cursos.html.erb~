@@ -22,19 +22,19 @@
 	</div>
   <div class="field">
     <%= f.label :fecha_ic, "Fecha inicial de convocatoria" %><br>
-    <%= f.text_field :fecha_ic, autocomplete: "off", class: "datepicker" %>
+    <%= f.text_field :fecha_ic, autocomplete: "off", class: "fechas", required: (@presence.include?(:fecha_ic) || "false") %>
   </div>
   <div class="field">
     <%= f.label :fecha_fc, "Fecha final de convocatoria" %><br>
-    <%= f.text_field :fecha_fc, autocomplete: "off", class: "datepicker" %>
+    <%= f.text_field :fecha_fc, autocomplete: "off", class: "fechas", required: (@presence.include?(:fecha_fc) || "false") %>
   </div>
   <div class="field">
     <%= f.label :fecha_i, "Fecha inicial de curso" %><br>
-    <%= f.text_field :fecha_i, autocomplete: "off", class: "datepicker" %>
+    <%= f.text_field :fecha_i, autocomplete: "off", class: "fechas", required: (@presence.include?(:fecha_i) || "false") %>
   </div>
   <div class="field">
     <%= f.label :fecha_f, "Fecha final de curso" %><br>
-    <%= f.text_field :fecha_f, autocomplete: "off", class: "datepicker" %>
+    <%= f.text_field :fecha_f, autocomplete: "off", class: "fechas", required: (@presence.include?(:fecha_i) || "false") %>
   </div>
   <div class="field">
     <%= f.label :imparte, "Impartido por (opcional)" %><br>
