@@ -338,9 +338,7 @@ class PanelController < ApplicationController
     @textareas = @sets[params[:set].to_sym][:textarea]
     @selects = @sets[params[:set].to_sym][:select]
     @presence = []
-    @fields.keys.each do |k|
-      logger.debug @models.validators_on(k)
-    end
+    logger.debug @models.validators.collect{|v| v if v.class == ActiveRecord::Validations::PresenceValidator }.compact.collect(&:attributes).flatten
   end
 
   def par_params(pars)
