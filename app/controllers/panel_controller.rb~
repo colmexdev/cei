@@ -107,7 +107,7 @@ class PanelController < ApplicationController
 #          end
 #        end
         format.js { render :mostrar, params: {set: params[:set], id: @obj.id}, notice: 'Objeto generado exitosamente.' }
-        format.json { render :mostrar, params: {set: params[:set], id: @obj.id}, status: :created, location: @obj}
+        format.json { render :mostrar, params: {set: params[:set], id: @obj.id}, status: :created}
       else
         format.js { render :generar }
         format.json { render json: @obj.errors, status: :unprocessable_entity }
@@ -308,6 +308,16 @@ class PanelController < ApplicationController
         fields: {tags: "Etiquetas"},
         imgs: {imagen: "Imagen"},
         trix: [],
+        dates: [],
+        numbers: [],
+        p_text: [],
+        textarea: [:tags],
+        select: {}
+      }, "Textos modificables": {
+        model: Texto,
+        fields: {texto_es: "Texto (español)", texto_en: "Texto (inglés)", tags: "Etiquetas"},
+        imgs: {},
+        trix: [:texto_es, :texto_en],
         dates: [],
         numbers: [],
         p_text: [],

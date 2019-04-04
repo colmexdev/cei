@@ -313,6 +313,16 @@ class PanelController < ApplicationController
         p_text: [],
         textarea: [:tags],
         select: {}
+      }, "Textos modificables": {
+        model: Texto,
+        fields: {texto_es: "Texto (español)", texto_en: "Texto (inglés)", tags: "Etiquetas"},
+        imgs: {},
+        trix: [:texto_es, :texto_en],
+        dates: [],
+        numbers: [],
+        p_text: [],
+        textarea: [:tags],
+        select: {}
       }
     }
   end
@@ -327,6 +337,10 @@ class PanelController < ApplicationController
     @plains = @sets[params[:set].to_sym][:p_text]
     @textareas = @sets[params[:set].to_sym][:textarea]
     @selects = @sets[params[:set].to_sym][:select]
+    @presence = []
+    @fields.keys.each do |k|
+      logger.debug @models.validators_on(k)
+    end
   end
 
   def par_params(pars)
