@@ -406,6 +406,10 @@ function configTrix(){
 	}
 	Trix.config.textAttributes.italic.tagName = "i";
 	Trix.config.textAttributes.bold.tagName = "b";
+	Trix.config.attachments.preview.caption = {
+		name: false,
+		size: false
+	};
 }
 
 function extendTrix(ev){
@@ -479,7 +483,6 @@ function extendTrix(ev){
 
 		xhr.onload = function(){
 			if(xhr.status === 201){
-				console.log(xhr.responseText);
 				var data = JSON.parse(xhr.responseText);
 				return attachment.setAttributes({url: data.imagen_url, href: data.imagen_url});
 			}
@@ -490,7 +493,7 @@ function extendTrix(ev){
 
 	element.addEventListener("trix-attachment-remove", function(event){
 		const file = event.attachment.file;
-		console.log(file);
+		console.log(file.url);
 	});
 	element.addEventListener("trix-change", function(event){
 		$("#" + event.target.getAttribute("input")).val(event.target.innerHTML.replace(/(<p>)+(.*?)(<\/p>)+/g,"<div>$2</div>"));
