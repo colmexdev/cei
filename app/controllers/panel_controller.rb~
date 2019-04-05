@@ -1,7 +1,7 @@
 class PanelController < ApplicationController
   before_action :authenticate_admin!
   before_action :select_set
-  before_action :get_object_fields#, only: [:index, :crear, :actualizar, :eliminar, :mostrar]
+  before_action :get_object_fields, except: [:panel, :principal]#, only: [:index, :crear, :actualizar, :eliminar, :mostrar]
 
   def principal
 		grupos = @sets.map {|k,v| v[:model]}

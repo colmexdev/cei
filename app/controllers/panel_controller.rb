@@ -134,6 +134,9 @@ class PanelController < ApplicationController
         p.caption_ingles = (p.caption_ingles.nil? ? "" : p.caption_ingles.gsub(/<p>/,"<div>").gsub(/<\/p>/,"</div>").gsub(/<\/div><div>/,"<br>"))
       end
     end
+    respond_to do |format|
+      format.js {render :generar}
+    end
   end
 
   def actualizar
