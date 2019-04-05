@@ -36,7 +36,7 @@
   <div class="field field-media">
 		<div class="photo-upload">
     <%= f.label k, raw("<span class=\"glyphicon glyphicon-upload glyph-padding\"></span>Añadir #{v.downcase}") %><br>
-    <%= f.file_field k, :onchange => "readURL(this,'##{atc_cont_id}','#{atc_cont_id}_del')" %><br>
+    <%= f.file_field k, :onchange => "readURL(this,'##{atc_cont_id}','##{atc_cont_id}_del')" %><br>
     <%= f.check_box "#{k.to_s}_del".to_sym, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
 			<%= f.label "#{k.to_s}_del".to_sym, "Eliminar #{v.mb_chars.downcase}" %><br>
 		</div>

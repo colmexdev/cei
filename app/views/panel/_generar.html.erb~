@@ -54,7 +54,7 @@
   </div>
 <% end %>
 	  <div class="actions">
-    <%= f.submit "#{action_name.capitalze} #{@models.to_s.downcase}" %>
+    <%= f.submit "#{action_name.capitalize} #{@models.to_s.downcase}" %>
   </div>
 <% end %>
 
