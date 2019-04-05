@@ -341,8 +341,6 @@ class PanelController < ApplicationController
     @textareas = @sets[params[:set].to_sym][:textarea]
     @selects = @sets[params[:set].to_sym][:select]
     @presence = @models.validators.collect{|v| v if v.class == ActiveRecord::Validations::PresenceValidator }.compact.collect(&:attributes).flatten || []
-    logger.debug @models.validators.collect{|v| v if v.class == ActiveRecord::Validations::PresenceValidator }.compact.collect(&:attributes).flatten
-    logger.debug @presence
   end
 
   def par_params(pars)
@@ -360,14 +358,5 @@ class PanelController < ApplicationController
   def obj_params
     campos = @fields.keys + @imgs.keys + @imgs.keys.map {|k| (k.to_s + "_del").to_sym}
     params.require(@models.to_s.downcase.to_sym).permit(campos)
-    #if params[:set] == "Personal administrativo"
-    #  params.require(:personal).permit(:nombre, :extension, :correo, :area, :servicio)
-    #elsif params[:set] == "Programas académicos"
-    #  params.require(:programa).permit(:titulo, :descripcion_es, :descripcion_en, :fecha_ic, :fecha_fc)
-    #elsif params[:set] == "Preguntas frecuentes"
-    #  params.require(:question).permit(:pregunta_es, :pregunta_en, :respuesta_es, :respuesta_en, :index, :tipo)
-    #elsif params[:set] == "Cursos"
-    #  params.require(:curso).permit(:titulo, :imparte, :documento, :liga, :tipo, :liga_imparte, :fecha_i, :fecha_f, :fecha_ic, :fecha_fc, :descripcion, :descripcion_en, :imagen, :imagen_del, :documento_del)
-    #end
   end
 end
