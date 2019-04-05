@@ -1,3 +1,63 @@
 <% parts = {"Personal administrativo": "administrativo", "Programas académicos": "progs", "Preguntas frecuentes": "preguntas", "Cursos": "cursos"} %>
-	<%= render ('panel/form_'+parts[params[:set].to_sym]) %>
 
+<%= form_for(@obj, :remote => true, :url => {:controller => "panel", :action => (action_name == "editar" ? "editar" : "crear"), :params => {:set => params[:set], :id => (@obj.id if action_name == "editar")}}, :html => { :multipart => true }) do |f| %>
+  <% if @obj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obj.errors.count, "error") %> impidieron generar este objeto:</h2>
+
+      <ul>
+      <% @obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+<% @fields.each do |k,v| %>
+  <div class="field">
+    <%= f.label k, v %><br>
+		<% if @trix.include?(k) %>
+    	<%= f.trix_editor k  %>
+		<%  elsif @plains.include?(k) %>
+			<%= f.text_field k, autocomplete: "off", required: (@presence.include?(k) || "false") %>
+		<% elsif @dates.include?(k) %>
+			<%= f.text_field k, autocomplete: "off", class: "fechas", required: (@presence.include?(k) || "false") %>
+		<% elsif @textareas.include?(k) %>
+			<%= f.text_area k, required: (@presence.include?(k) || "false") %>
+		<% elsif @selects.key?(k) %>
+			<%= f.select(k, @selects[k], selected: (@obj.public_send(k) || @selects[k][0][0]), required: (@presence.include?(k) || "false") ) %>
+		<% end %>
+	</div>
+<% end %>
+<% @imgs.each do |k,v| %>
+	<% obj_atc = @obj.public_send(k).url %>
+	<% atc_cont_id = "#{@models.to_s.downcase}_#{k.to_s}" %>
+  <div class="field field-media">
+		<div class="photo-upload">
+    <%= f.label k, raw('<span class="glyphicon glyphicon-upload glyph-padding"></span>Añadir #{v.downcase}') %><br>
+    <%= f.file_field k, :onchange => "readURL(this,'##{atc_cont_id}','#{atc_cont_id}_del')" %><br>
+    <%= f.check_box "#{k.to_s}_del".to_sym, {checked: false, onclick: "deleteImage(this,'foto-curso');"}, "1", "0" %>
+			<%= f.label "#{k.to_s}_del".to_sym, "Eliminar #{v.mb_chars.downcase}" %><br>
+		</div>
+		<div class="img-display" id="<%= atc_cont_id %>">
+			<% if !obj_atc.nil? %>
+				<% if !/\.((jpe?g)|(png))/.match(obj_atc.downcase).nil? %>
+					<img src="<%= obj_atc %>">
+				<% elsif !/\.pdf/.match(obj_atc.downcase).nil? %>
+					<object type="application/pdf" data ="<%= obj_atc %>"><embed src="<%= obj_atc %>" type="application/pdf"></object>
+				<% end %>
+			<% else %>
+				<span>No hay <%= v.downcase %> para mostrar.</span>
+			<% end %>
+		</div>
+  </div>
+<% end %>
+	  <div class="actions">
+    <%= f.submit "Generar #{@models.to_s.downcase}" %>
+  </div>
+<% end %>
+
+<% if false %>
+	<%= render ('panel/form_'+parts[params[:set].to_sym]) %>
+<% end %>
