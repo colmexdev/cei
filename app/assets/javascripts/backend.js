@@ -227,12 +227,7 @@ function buildQuery(conds){
 
 /* Función para eliminar el contenido multimedia previsualizado */
 function deleteImage(element,id_vis) {
-	if(element.checked){
-		if(id_vis.indexOf("cont") == -1)
-			$("#"+id_vis).attr("src","/vacio.png");
-		else
-			$("#"+id_vis).html("");
-	}
+	if(element.checked) $("#"+id_vis).html("");
 }
 
 /* Función para desplegar contenido multimedia */

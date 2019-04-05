@@ -228,9 +228,6 @@ function buildQuery(conds){
 /* Función para eliminar el contenido multimedia previsualizado */
 function deleteImage(element,id_vis) {
 	if(element.checked){
-		if(id_vis.indexOf("cont") == -1)
-			$("#"+id_vis).attr("src","/vacio.png");
-		else
 			$("#"+id_vis).html("");
 	}
 }
@@ -492,7 +489,7 @@ function extendTrix(ev){
 	});
 
 	element.addEventListener("trix-attachment-remove", function(event){
-		const file = event.attachment.file;
+		const file = event.attachment;
 		console.log(file);
 	});
 	element.addEventListener("trix-change", function(event){
