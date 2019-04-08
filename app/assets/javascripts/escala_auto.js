@@ -15,6 +15,11 @@ $(window).on("orientationchange",function(){
 });
 
 $(document).ready(function(){
+	try{
+		setTimeout(function(){
+		$("#f_logo_r").height($("#f_logo_l").height());
+		$("#f_logo_r img").css({"padding-top": (($("#f_logo_l img").height() - $("#f_logo_r img").height())/2) + "px" });}, 50);
+	} catch(err){}
 	$(window).trigger("resize");
 });
 

@@ -1,11 +1,6 @@
 ancho = Math.max(document.documentElement.clientWidth, window.innerWidth || document.body.ClientWidth || 0);
 barra_render = false;
 
-
-$(document).ready(function(){
-	$(window).trigger("resize");
-});
-
 window.onresize = function(){
 	try{
 		setTimeout(function(){
@@ -16,6 +11,10 @@ window.onresize = function(){
 }
 
 $(window).on("orientationchange",function(){
+	$(window).trigger("resize");
+});
+
+$(document).ready(function(){
 	$(window).trigger("resize");
 });
 
