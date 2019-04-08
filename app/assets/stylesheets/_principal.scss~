@@ -2019,7 +2019,7 @@ ul.ul-nav { display: table;
 		#f_logo_l{
 			text-align: left;
 			padding-left: 3%;
-			border-left: solid 1px #CCC;
+			/*border-left: solid 1px #CCC;*/
 			display: inline-block;
 		}
 
