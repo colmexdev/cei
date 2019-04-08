@@ -24,7 +24,7 @@
 			<%= f.text_field k, autocomplete: "off", required: (@presence.include?(k) ? "required" : "false") %>
 		<% elsif @dates.include?(k) %>
 			<%= f.text_field k, autocomplete: "off", class: "fechas", required: (@presence.include?(k) ? "required" : "false") %>
-		<% elsif @textarea.include?(k) %>
+		<% elsif @textareas.include?(k) %>
 			<%= f.text_area k, required: (@presence.include?(k) ? "required" : "false") %>
 		<% elsif @selects.key?(k) %>
 			<%= f.select(k, @selects[k], selected: (@obj.public_send(k) || @selects[k][0][0]), required: (@presence.include?(k) ? "required" : "false") ) %>
