@@ -34,7 +34,7 @@ class ProgramasAcademicosController < ApplicationController
     @link = params[:tipo]
     @cursos_ant = @cursos.where("fecha_i < ?", Date.today).order(fecha_i: :desc)
     @cursos_nxt = @cursos.where("fecha_i >= ?", Date.today).order(fecha_i: :asc)
-    @texto = Texto.where("tags like '%Cursos públicos%'").first.public_send(params[:locale] == :es ? :texto_ES : :TEXTO_EN)
+    @texto = Texto.where("tags like '%Cursos públicos%'").first.public_send(params[:locale] == :es ? :texto_ES : :Ttexto_en)
     respond_to do |format|
       format.html {render 'cursos'}
       format.js
