@@ -32,8 +32,8 @@ class ProgramasAcademicosController < ApplicationController
   def cursos_tipo
     @cursos = Curso.where("unaccent(array_to_string(string_to_array(lower(tipo),' '),'-')) = ?", params[:tipo])
     @link = params[:tipo]
-    @cursos_ant = @curso.where("fecha_i < ?", Date.today).order(fecha_i: :desc)
-    @cursos_nxt = @curso.where("fecha_i >= ?", Date.today).order(fecha_i: :asc)
+    @cursos_ant = @cursos.where("fecha_i < ?", Date.today).order(fecha_i: :desc)
+    @cursos_nxt = @cursos.where("fecha_i >= ?", Date.today).order(fecha_i: :asc)
     @texto = Texto.where("tags like '%Cursos públicos%'").first.public_send(params[:locale] == :es ? :texto_ES : :TEXTO_EN)
     respond_to do |format|
       format.html {render 'cursos'}
