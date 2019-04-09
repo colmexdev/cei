@@ -1,3 +1,7 @@
+<% if params[:tipo] == "publico" %>
+<%= @texto.gsub("<div>","<p>").gsub("</div>","</p>").html_safe %>
+<% end %>
+
 <% @cursos.each do |c| %>
 	<div class="uk-grid uk-grid-small uk-margin-large-bottom">
 		<div class="uk-width-1-5">
