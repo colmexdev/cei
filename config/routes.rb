@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     get 'rafael-segovia' => 'principal#rafael', :as => :rafael
   end
 
-  get "/(:locale)" => "principal#index", :as => :main
+  get "/(:locale)", to: "principal#index", as: :main, locale: /(es)|(en)/
   # You can have the root of your site routed with "root"
   root 'principal#index'
 

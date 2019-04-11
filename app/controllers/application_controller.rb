@@ -11,14 +11,10 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    #if ![:en, :es].include?(I18n.locale)
-    #  I18n.locale = I18n.default_locale
-    #  raise ActionController::RoutingError.new('Not Found')
-    #end
   end
 
   def default_url_options(options={})
-    { :locale => I18n.locale }
+    { :locale  I18n.locale }
   end
 
   protected
