@@ -128,8 +128,8 @@ function ajustarCuerpo(scroll){
 	var alto_footer;
 	var alto_header;
 	setTimeout(function(){
-		alto_footer = (document.getElementById("div_footer") != null ? document.getElementById('div_footer').clientHeight : 265);
-		alto_header = (document.getElementById("header") != null ? document.getElementById('header').clientHeight : 225);
+		alto_footer = (document.getElementById("div_footer") != null ? Math.max(document.getElementById('div_footer').clientHeight, 265) : 265);
+		alto_header = (document.getElementById("header") != null ? Math.max(document.getElementById('header').clientHeight, 225) : 225);
 		$('#resto-cuerpo').css({'padding-bottom': (alto_footer)+'px', 'padding-top': (alto_header + 'px')});
 	}, 210);
 }
