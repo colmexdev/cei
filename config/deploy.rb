@@ -59,7 +59,7 @@ task :generate_500_html do
     public_500_html = File.join(release_path, "public/500.html")
     public_404_html = File.join(release_path, "public/404.html")
     execute :curl, "-k", "https://ceitest.colmex.mx/500_e", "-o #{public_500_html}"
-    execute :curl, "-k", "https://ceitest.colmex.mx/500_e", "-o #{public_404_html}"
+    execute :curl, "-k", "https://ceitest.colmex.mx/404_e", "-o #{public_404_html}"
   end
 end
 
