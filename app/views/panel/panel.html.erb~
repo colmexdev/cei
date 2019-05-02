@@ -5,9 +5,7 @@
 		<div id="brand-gest">
 			<%= image_tag("colmex.png", class: "img-brand") %>
 			<div class="toggle-panel" id="but-toggle">
-				<div class="bars-toggle" id="bar-s"></div>
-				<div class="bars-toggle" id="bar-m"></div>
-				<div class="bars-toggle" id="bar-i"></div>
+				<i class="fa fa-bars fa-3" aria-hidden="true"></i>
 			</div>
 			<div class="toggle-panel" id="mask-toggle" onmouseenter="changeToggle(0);" onmouseleave="changeToggle(1);" onclick="slideMenu();">
 			</div>
@@ -27,7 +25,7 @@
 	<div class="body-gest">
 		<div id="menu-lat">
 			<ul id="ops-lat">
-<% @sets.keys.each do |k| %>
+<% @sets.keys.sort.each do |k| %>
 				<li class="op-gest">
 				<a class="link-panel" onclick="hideLink(event,'#ops-lat','<%= panel_index_path(:set => k.to_s, :offset => 0) %>')"><%= k.to_s %></a>
 				</li>
